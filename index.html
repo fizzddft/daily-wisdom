@@ -64,7 +64,7 @@ svg.lucide{width:1em;height:1em;flex-shrink:0;display:inline-block;vertical-alig
 .read-progress-bar{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));width:0;transition:width .15s ease-out}
 
 /* === Side Scroll Rail (floating right edge) === */
-.scroll-rail{position:fixed;top:50%;right:18px;transform:translateY(-50%);width:6px;height:280px;z-index:120;pointer-events:auto;cursor:pointer}
+.scroll-rail{position:fixed !important;top:50%;right:18px;transform:translateY(-50%);width:6px;height:280px;z-index:9998 !important;pointer-events:auto;cursor:pointer;display:block}
 @media(hover:hover){.scroll-rail:hover{width:8px;right:17px}.scroll-rail:hover .scroll-rail-tip{opacity:1;transform:translate(-14px,-50%)}}
 .scroll-rail-track{position:absolute;inset:0;background:var(--line);border-radius:6px;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(255,255,255,.02)}
 .scroll-rail-thumb{position:absolute;top:0;left:0;right:0;height:0;background:linear-gradient(180deg,var(--accent),var(--accent-2));border-radius:6px;box-shadow:0 0 14px rgba(232,161,75,.5);transition:height .12s ease-out;pointer-events:none}
@@ -72,7 +72,7 @@ svg.lucide{width:1em;height:1em;flex-shrink:0;display:inline-block;vertical-alig
 .scroll-rail-tip::after{content:'';position:absolute;left:100%;top:50%;transform:translateY(-50%);border:5px solid transparent;border-left-color:var(--line-2)}
 
 /* === Back to Top Button === */
-.back-to-top{position:fixed;bottom:28px;right:24px;z-index:120;width:56px;height:56px;border-radius:50%;background:var(--surface);border:1px solid var(--line-2);color:var(--ink-2);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;box-shadow:var(--sh-3);opacity:0;visibility:hidden;transform:translateY(20px) scale(.92);transition:all .35s cubic-bezier(.4,0,.2,1);font-family:var(--mono);overflow:hidden}
+.back-to-top{position:fixed !important;bottom:28px;right:24px;z-index:9999 !important;width:56px;height:56px;border-radius:50%;background:var(--surface);border:1px solid var(--line-2);color:var(--ink-2);cursor:pointer;display:flex !important;flex-direction:column;align-items:center;justify-content:center;gap:0;box-shadow:var(--sh-3),0 0 0 6px rgba(0,0,0,.35);opacity:1 !important;visibility:visible !important;transform:translateY(0) scale(1);transition:background .25s ease,border-color .25s ease,color .25s ease,box-shadow .25s ease;font-family:var(--mono);overflow:hidden}
 .back-to-top.visible{opacity:1;visibility:visible;transform:translateY(0) scale(1)}
 .back-to-top:hover{background:var(--accent);border-color:var(--accent);color:#1a0f04;transform:translateY(-3px) scale(1.06);box-shadow:0 14px 36px rgba(232,161,75,.4)}
 .back-to-top:active{transform:translateY(-1px) scale(.98)}
@@ -554,7 +554,7 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>检查：</b>打开你正在做的项目——找出一处可以应用这条原则的具体界面或交互。</div>
 </div>
 
-<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div>
+<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div></div></div>
 <div class="today-side">
 <div class="card" data-fav-id="d27-ai-ai-information-archi" data-fav-title="AI信息架构">
 <div class="card-head"><h3><i data-lucide="folders" class="ic-inline"></i><span>AI信息架构</span></h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -566,9 +566,9 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>启动：</b>本周内做一个最小动作：发一篇文章/做一个落地页/找一个潜在客户访谈。</div>
 </div>
 
-</div>
+</div></div>
 
-<!-- ========== Day 026 ========== -->
+<!-- ========== Day 026 ========== --></div>
 <div class="day-group" data-day="26" style="display:none">
 <div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 026</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-05-06</span></div><h1 class="day-num">Day <em>026</em></h1><div class="day-summary">多巴胺系统 × 奖赏预测误差 × 习惯回路 · 奖励动效设计 × 成就系统UI</div></div>
 
@@ -603,7 +603,7 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>检查：</b>打开你正在做的项目——找出一处可以应用这条原则的具体界面或交互。</div>
 </div>
 
-<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div>
+<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div></div></div>
 <div class="today-side">
 <div class="card" data-fav-id="d26-ai-ai-reward-system" data-fav-title="AI奖励系统">
 <div class="card-head"><h3><i data-lucide="brain" class="ic-inline"></i><span>AI奖励系统</span></h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -615,9 +615,9 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>探索：</b>评估这个方向：你现有技能/资源能在多长时间内做出 MVP？</div>
 </div>
 
-</div>
+</div></div>
 
-<!-- ========== Day 025 ========== -->
+<!-- ========== Day 025 ========== --></div>
 <div class="day-group" data-day="25" style="display:none">
 <div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 025</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-05-05</span></div><h1 class="day-num">Day <em>025</em></h1><div class="day-summary">时间贴现 × 双曲贴现 × 即时满足 · 限时活动UI × 倒计时设计</div></div>
 
@@ -652,7 +652,7 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>检查：</b>打开你正在做的项目——找出一处可以应用这条原则的具体界面或交互。</div>
 </div>
 
-<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div>
+<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div></div></div>
 <div class="today-side">
 <div class="card" data-fav-id="d25-ai-ai-game-operations" data-fav-title="AI游戏运营">
 <div class="card-head"><h3><i data-lucide="gamepad-2" class="ic-inline"></i><span>AI游戏运营</span></h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -664,9 +664,9 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>启动：</b>本周内做一个最小动作：发一篇文章/做一个落地页/找一个潜在客户访谈。</div>
 </div>
 
-</div>
+</div></div>
 
-<!-- ========== Day 024 ========== -->
+<!-- ========== Day 024 ========== --></div>
 <div class="day-group" data-day="24" style="display:none">
 <div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 024</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-05-04</span></div><h1 class="day-num">Day <em>024</em></h1><div class="day-summary">复杂适应系统 × 蚁群算法 × 自组织 · 自适应布局 × AI辅助排版</div></div>
 
@@ -701,7 +701,7 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>检查：</b>打开你正在做的项目——找出一处可以应用这条原则的具体界面或交互。</div>
 </div>
 
-<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div>
+<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div></div></div>
 <div class="today-side">
 <div class="card" data-fav-id="d24-ai-ai-adaptive-interfac" data-fav-title="AI自适应界面">
 <div class="card-head"><h3><i data-lucide="palette" class="ic-inline"></i><span>AI自适应界面</span></h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -713,9 +713,9 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>验证：</b>找三位潜在用户聊一聊——他们是否真的在为这个问题付出代价？</div>
 </div>
 
-</div>
+</div></div>
 
-<!-- ========== Day 023 ========== -->
+<!-- ========== Day 023 ========== --></div>
 <div class="day-group" data-day="23" style="display:none">
 <div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 023</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-05-03</span></div><h1 class="day-num">Day <em>023</em></h1><div class="day-summary">黑匣子思维 × 失败学习 × 边际收益 · 错误恢复UI × 版本历史设计</div></div>
 
@@ -750,7 +750,7 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>检查：</b>打开你正在做的项目——找出一处可以应用这条原则的具体界面或交互。</div>
 </div>
 
-<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div>
+<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div></div></div>
 <div class="today-side">
 <div class="card" data-fav-id="d23-ai-ai-version-control" data-fav-title="AI版本控制">
 <div class="card-head"><h3><i data-lucide="refresh-cw" class="ic-inline"></i><span>AI版本控制</span></h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -762,9 +762,9 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>探索：</b>评估这个方向：你现有技能/资源能在多长时间内做出 MVP？</div>
 </div>
 
-</div>
+</div></div>
 
-<!-- ========== Day 022 ========== -->
+<!-- ========== Day 022 ========== --></div>
 <div class="day-group" data-day="22" style="display:none">
 <div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 022</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-05-02</span></div><h1 class="day-num">Day <em>022</em></h1><div class="day-summary">注意力经济 × 稀缺性 × 选择过载 · 注意力引导设计 × 焦点管理</div></div>
 
@@ -799,7 +799,7 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>对比：</b>找两个做这件事相反的产品案例——哪种更符合用户实际行为？</div>
 </div>
 
-<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div>
+<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div></div></div>
 <div class="today-side">
 <div class="card" data-fav-id="d22-ai-ai-attention-detecti" data-fav-title="👀 注意力AI检测">
 <div class="card-head"><h3>👀 注意力AI检测</h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -811,9 +811,9 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>探索：</b>评估这个方向：你现有技能/资源能在多长时间内做出 MVP？</div>
 </div>
 
-</div>
+</div></div>
 
-<!-- ========== Day 021 ========== -->
+<!-- ========== Day 021 ========== --></div>
 <div class="day-group" data-day="21" style="display:none">
 <div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 021</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-05-01</span></div><h1 class="day-num">Day <em>021</em></h1><div class="day-summary">反身性 × 索罗斯模型 × 市场叙事 · 实时数据UI × 行情展示设计</div></div>
 
@@ -848,7 +848,7 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>检查：</b>打开你正在做的项目——找出一处可以应用这条原则的具体界面或交互。</div>
 </div>
 
-<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div>
+<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div></div></div>
 <div class="today-side">
 <div class="card" data-fav-id="d21-ai-ai-financial-visuali" data-fav-title="AI金融可视化">
 <div class="card-head"><h3><i data-lucide="bar-chart-3" class="ic-inline"></i><span>AI金融可视化</span></h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -860,9 +860,9 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>启动：</b>本周内做一个最小动作：发一篇文章/做一个落地页/找一个潜在客户访谈。</div>
 </div>
 
-</div>
+</div></div>
 
-<!-- ========== Day 020 ========== -->
+<!-- ========== Day 020 ========== --></div>
 <div class="day-group" data-day="20" style="display:none">
 <div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 020</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-04-30</span></div><h1 class="day-num">Day <em>020</em></h1><div class="day-summary">比较优势 × 专业化分工 × 交易成本 · 模块化组件设计 × 设计系统治理</div></div>
 
@@ -897,7 +897,7 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>对比：</b>找两个做这件事相反的产品案例——哪种更符合用户实际行为？</div>
 </div>
 
-<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div>
+<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div></div></div>
 <div class="today-side">
 <div class="card" data-fav-id="d20-ai-ai-design-system-aut" data-fav-title="设计系统AI自动化">
 <div class="card-head"><h3><i data-lucide="bot" class="ic-inline"></i><span>设计系统AI自动化</span></h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -909,9 +909,9 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>探索：</b>评估这个方向：你现有技能/资源能在多长时间内做出 MVP？</div>
 </div>
 
-</div>
+</div></div>
 
-<!-- ========== Day 019 ========== -->
+<!-- ========== Day 019 ========== --></div>
 <div class="day-group" data-day="19" style="display:none">
 <div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 019</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-04-29</span></div><h1 class="day-num">Day <em>019</em></h1><div class="day-summary">认知失调 × 承诺一致性 × 自我合理化 · 用户引导与教程 × 首次体验设计</div></div>
 
@@ -946,7 +946,7 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>对比：</b>找两个做这件事相反的产品案例——哪种更符合用户实际行为？</div>
 </div>
 
-<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div>
+<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div></div></div>
 <div class="today-side">
 <div class="card" data-fav-id="d19-ai-ai-powered-onboardin" data-fav-title="AI用户引导">
 <div class="card-head"><h3><i data-lucide="bot" class="ic-inline"></i><span>AI用户引导</span></h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -958,9 +958,9 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>探索：</b>评估这个方向：你现有技能/资源能在多长时间内做出 MVP？</div>
 </div>
 
-</div>
+</div></div>
 
-<!-- ========== Day 018 ========== -->
+<!-- ========== Day 018 ========== --></div>
 <div class="day-group" data-day="18" style="display:none">
 <div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 018</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-04-28</span></div><h1 class="day-num">Day <em>018</em></h1><div class="day-summary">规模效应 × 异速增长 × 幂律分布 · 响应式UI缩放 × 多端适配设计</div></div>
 
@@ -995,7 +995,7 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>对比：</b>找两个做这件事相反的产品案例——哪种更符合用户实际行为？</div>
 </div>
 
-<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div>
+<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div></div></div>
 <div class="today-side">
 <div class="card" data-fav-id="d18-ai-multimodal-ai" data-fav-title="多模态AI">
 <div class="card-head"><h3><i data-lucide="globe-2" class="ic-inline"></i><span>多模态AI</span></h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -1007,9 +1007,9 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>验证：</b>找三位潜在用户聊一聊——他们是否真的在为这个问题付出代价？</div>
 </div>
 
-</div>
+</div></div>
 
-<!-- ========== Day 017 ========== -->
+<!-- ========== Day 017 ========== --></div>
 <div class="day-group" data-day="17" style="display:none">
 <div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 017</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-04-27</span></div><h1 class="day-num">Day <em>017</em></h1><div class="day-summary">贝叶斯推理 × 先验概率 × 证据更新 · 搜索与推荐UI × 个性化界面</div></div>
 
@@ -1044,7 +1044,7 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>检查：</b>打开你正在做的项目——找出一处可以应用这条原则的具体界面或交互。</div>
 </div>
 
-<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div>
+<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div></div></div>
 <div class="today-side">
 <div class="card" data-fav-id="d17-ai-search-ai-revolution" data-fav-title="搜索AI革命">
 <div class="card-head"><h3><i data-lucide="sparkles" class="ic-inline"></i><span>搜索AI革命</span></h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -1056,9 +1056,9 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>验证：</b>找三位潜在用户聊一聊——他们是否真的在为这个问题付出代价？</div>
 </div>
 
-</div>
+</div></div>
 
-<!-- ========== Day 016 ========== -->
+<!-- ========== Day 016 ========== --></div>
 <div class="day-group" data-day="16" style="display:none">
 <div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 016</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-04-26</span></div><h1 class="day-num">Day <em>016</em></h1><div class="day-summary">临界点 × 相变 × 网络传播动力学 · 病毒传播UI × 社交分享触发</div></div>
 
@@ -1093,7 +1093,7 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>检查：</b>打开你正在做的项目——找出一处可以应用这条原则的具体界面或交互。</div>
 </div>
 
-<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div>
+<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div></div></div>
 <div class="today-side">
 <div class="card" data-fav-id="d16-ai-ai-content-distribut" data-fav-title="📢 AI内容分发">
 <div class="card-head"><h3>📢 AI内容分发</h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -1105,9 +1105,9 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>探索：</b>评估这个方向：你现有技能/资源能在多长时间内做出 MVP？</div>
 </div>
 
-</div>
+</div></div>
 
-<!-- ========== Day 015 ========== -->
+<!-- ========== Day 015 ========== --></div>
 <div class="day-group" data-day="15" style="display:none">
 <div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 015</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-04-25</span></div><h1 class="day-num">Day <em>015</em></h1><div class="day-summary">信息不对称 × 柠檬市场 × 信号理论 · 信任标记设计 × 评价系统UI</div></div>
 
@@ -1142,7 +1142,7 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>实战：</b>用这条原则审视产品中"留存最差"的页面，列出三个改进点。</div>
 </div>
 
-<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div>
+<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div></div></div>
 <div class="today-side">
 <div class="card" data-fav-id="d15-ai-ai-trust-and-explain" data-fav-title="AI信任与可解释性">
 <div class="card-head"><h3><i data-lucide="sparkles" class="ic-inline"></i><span>AI信任与可解释性</span></h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -1154,9 +1154,9 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>验证：</b>找三位潜在用户聊一聊——他们是否真的在为这个问题付出代价？</div>
 </div>
 
-</div>
+</div></div>
 
-<!-- ========== Day 014 ========== -->
+<!-- ========== Day 014 ========== --></div>
 <div class="day-group" data-day="14" style="display:none">
 <div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 014</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-04-24</span></div><h1 class="day-num">Day <em>014</em></h1><div class="day-summary">红皇后效应 × 适应性景观 × 进化稳定策略 · 竞争排行榜设计 × 赛季系统UI</div></div>
 
@@ -1191,7 +1191,7 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>对比：</b>找两个做这件事相反的产品案例——哪种更符合用户实际行为？</div>
 </div>
 
-<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div>
+<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div></div></div>
 <div class="today-side">
 <div class="card" data-fav-id="d14-ai-ai-competitive-match" data-fav-title="AI竞技匹配">
 <div class="card-head"><h3><i data-lucide="gamepad-2" class="ic-inline"></i><span>AI竞技匹配</span></h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -1203,9 +1203,9 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>启动：</b>本周内做一个最小动作：发一篇文章/做一个落地页/找一个潜在客户访谈。</div>
 </div>
 
-</div>
+</div></div>
 
-<!-- ========== Day 013 ========== -->
+<!-- ========== Day 013 ========== --></div>
 <div class="day-group" data-day="13" style="display:none">
 <div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 013</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-04-23</span></div><h1 class="day-num">Day <em>013</em></h1><div class="day-summary">心理账户 × 禀赋效应 × 框架效应 · 游戏经济UI × 货币显示设计</div></div>
 
@@ -1240,7 +1240,7 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>实战：</b>用这条原则审视产品中"留存最差"的页面，列出三个改进点。</div>
 </div>
 
-<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div>
+<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div></div></div>
 <div class="today-side">
 <div class="card" data-fav-id="d13-ai-game-ai-economy-bala" data-fav-title="游戏AI经济平衡">
 <div class="card-head"><h3><i data-lucide="scale" class="ic-inline"></i><span>游戏AI经济平衡</span></h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -1252,9 +1252,9 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>启动：</b>本周内做一个最小动作：发一篇文章/做一个落地页/找一个潜在客户访谈。</div>
 </div>
 
-</div>
+</div></div>
 
-<!-- ========== Day 012 ========== -->
+<!-- ========== Day 012 ========== --></div>
 <div class="day-group" data-day="12" style="display:none">
 <div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 012</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-04-22</span></div><h1 class="day-num">Day <em>012</em></h1><div class="day-summary">系统思维 × 杠杆点 × 延迟效应 · 系统状态可视化 × 进度反馈设计</div></div>
 
@@ -1289,7 +1289,7 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>对比：</b>找两个做这件事相反的产品案例——哪种更符合用户实际行为？</div>
 </div>
 
-<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div>
+<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div></div></div>
 <div class="today-side">
 <div class="card" data-fav-id="d12-ai-ai-performance-monit" data-fav-title="AI性能监控">
 <div class="card-head"><h3><i data-lucide="search" class="ic-inline"></i><span>AI性能监控</span></h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -1301,9 +1301,9 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>验证：</b>找三位潜在用户聊一聊——他们是否真的在为这个问题付出代价？</div>
 </div>
 
-</div>
+</div></div>
 
-<!-- ========== Day 011 ========== -->
+<!-- ========== Day 011 ========== --></div>
 <div class="day-group" data-day="11" style="display:none">
 <div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 011</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-04-21</span></div><h1 class="day-num">Day <em>011</em></h1><div class="day-summary">博弈论 × 纳什均衡 × 囚徒困境 · 社交互动UI × 多人游戏HUD</div></div>
 
@@ -1338,7 +1338,7 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>检查：</b>打开你正在做的项目——找出一处可以应用这条原则的具体界面或交互。</div>
 </div>
 
-<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div>
+<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div></div></div>
 <div class="today-side">
 <div class="card" data-fav-id="d11-ai-ai-social-recommenda" data-fav-title="AI社交推荐">
 <div class="card-head"><h3><i data-lucide="handshake" class="ic-inline"></i><span>AI社交推荐</span></h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -1350,9 +1350,9 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>探索：</b>评估这个方向：你现有技能/资源能在多长时间内做出 MVP？</div>
 </div>
 
-</div>
+</div></div>
 
-<!-- ========== Day 010 ========== -->
+<!-- ========== Day 010 ========== --></div>
 <div class="day-group" data-day="10" style="display:none">
 <div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 010</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-04-20</span></div><h1 class="day-num">Day <em>010</em></h1><div class="day-summary">幸存者偏差 × 奥卡姆剃刀 × 路径依赖 · 数据可视化层级 × 仪表盘设计</div></div>
 
@@ -1387,7 +1387,7 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>对比：</b>找两个做这件事相反的产品案例——哪种更符合用户实际行为？</div>
 </div>
 
-<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div>
+<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div></div></div>
 <div class="today-side">
 <div class="card" data-fav-id="d10-ai-data-driven-design" data-fav-title="数据驱动设计决策">
 <div class="card-head"><h3><i data-lucide="trending-up" class="ic-inline"></i><span>数据驱动设计决策</span></h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -1399,9 +1399,9 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>验证：</b>找三位潜在用户聊一聊——他们是否真的在为这个问题付出代价？</div>
 </div>
 
-</div>
+</div></div>
 
-<!-- ========== Day 009 ========== -->
+<!-- ========== Day 009 ========== --></div>
 <div class="day-group" data-day="9" style="display:none">
 <div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 009</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-04-19</span></div><h1 class="day-num">Day <em>009</em></h1><div class="day-summary">确认偏差 × 均值回归 × 反馈循环 · 表单验证设计 × 输入反馈模式</div></div>
 
@@ -1436,7 +1436,7 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>检查：</b>打开你正在做的项目——找出一处可以应用这条原则的具体界面或交互。</div>
 </div>
 
-<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div>
+<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div></div></div>
 <div class="today-side">
 <div class="card" data-fav-id="d9-ai-ai-code-review" data-fav-title="AI代码审查工具">
 <div class="card-head"><h3><i data-lucide="bot" class="ic-inline"></i><span>AI代码审查工具</span></h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -1448,9 +1448,9 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>验证：</b>找三位潜在用户聊一聊——他们是否真的在为这个问题付出代价？</div>
 </div>
 
-</div>
+</div></div>
 
-<!-- ========== Day 008 ========== -->
+<!-- ========== Day 008 ========== --></div>
 <div class="day-group" data-day="8" style="display:none">
 <div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 008</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-04-18</span></div><h1 class="day-num">Day <em>008</em></h1><div class="day-summary">概率思维 × 沉没成本 × 网络效应 · 叙事化UI × 自适应界面 × 触觉设计</div></div>
 
@@ -2091,6 +2091,26 @@ footer p{margin-bottom:6px}
 </div>
 
 
+
+<div class="arc-card" style="cursor:pointer" onclick="goToDay(27)"><div class="arc-card-head"><span class="arc-card-day">Day 027</span><span class="arc-card-date">2026-05-07</span></div><div class="arc-sections"><div class="arc-sec arc-sec-t"><h5>思维模型</h5><ul><li>认知负荷理论</li></ul></div><div class="arc-sec arc-sec-d"><h5>设计启发</h5><ul><li>信息密度优化</li><li>折叠展开设计</li></ul></div><div class="arc-sec arc-sec-a"><h5>AI / 副业</h5><ul><li>AI信息架构</li><li>AI智能分类</li></ul></div></div></div>
+<div class="arc-card" style="cursor:pointer" onclick="goToDay(26)"><div class="arc-card-head"><span class="arc-card-day">Day 026</span><span class="arc-card-date">2026-05-06</span></div><div class="arc-sections"><div class="arc-sec arc-sec-t"><h5>思维模型</h5><ul><li>多巴胺系统</li></ul></div><div class="arc-sec arc-sec-d"><h5>设计启发</h5><ul><li>奖励动效设计</li><li>成就系统UI</li></ul></div><div class="arc-sec arc-sec-a"><h5>AI / 副业</h5><ul><li>AI奖励系统</li><li>AI行为预测</li></ul></div></div></div>
+<div class="arc-card" style="cursor:pointer" onclick="goToDay(25)"><div class="arc-card-head"><span class="arc-card-day">Day 025</span><span class="arc-card-date">2026-05-05</span></div><div class="arc-sections"><div class="arc-sec arc-sec-t"><h5>思维模型</h5><ul><li>时间贴现</li></ul></div><div class="arc-sec arc-sec-d"><h5>设计启发</h5><ul><li>限时活动UI</li><li>倒计时设计</li></ul></div><div class="arc-sec arc-sec-a"><h5>AI / 副业</h5><ul><li>AI游戏运营</li><li>活动自动化</li></ul></div></div></div>
+<div class="arc-card" style="cursor:pointer" onclick="goToDay(24)"><div class="arc-card-head"><span class="arc-card-day">Day 024</span><span class="arc-card-date">2026-05-04</span></div><div class="arc-sections"><div class="arc-sec arc-sec-t"><h5>思维模型</h5><ul><li>复杂适应系统</li></ul></div><div class="arc-sec arc-sec-d"><h5>设计启发</h5><ul><li>自适应布局</li><li>AI辅助排版</li></ul></div><div class="arc-sec arc-sec-a"><h5>AI / 副业</h5><ul><li>AI自适应界面</li></ul></div></div></div>
+<div class="arc-card" style="cursor:pointer" onclick="goToDay(23)"><div class="arc-card-head"><span class="arc-card-day">Day 023</span><span class="arc-card-date">2026-05-03</span></div><div class="arc-sections"><div class="arc-sec arc-sec-t"><h5>思维模型</h5><ul><li>黑匣子思维</li></ul></div><div class="arc-sec arc-sec-d"><h5>设计启发</h5><ul><li>错误恢复UI</li><li>版本历史设计</li></ul></div><div class="arc-sec arc-sec-a"><h5>AI / 副业</h5><ul><li>AI版本控制</li><li>设计变更追踪</li></ul></div></div></div>
+<div class="arc-card" style="cursor:pointer" onclick="goToDay(22)"><div class="arc-card-head"><span class="arc-card-day">Day 022</span><span class="arc-card-date">2026-05-02</span></div><div class="arc-sections"><div class="arc-sec arc-sec-t"><h5>思维模型</h5><ul><li>注意力经济</li></ul></div><div class="arc-sec arc-sec-d"><h5>设计启发</h5><ul><li>注意力引导设计</li><li>焦点管理</li></ul></div></div></div>
+<div class="arc-card" style="cursor:pointer" onclick="goToDay(21)"><div class="arc-card-head"><span class="arc-card-day">Day 021</span><span class="arc-card-date">2026-05-01</span></div><div class="arc-sections"><div class="arc-sec arc-sec-t"><h5>思维模型</h5><ul><li>反身性</li></ul></div><div class="arc-sec arc-sec-d"><h5>设计启发</h5><ul><li>实时数据UI</li><li>行情展示设计</li></ul></div><div class="arc-sec arc-sec-a"><h5>AI / 副业</h5><ul><li>AI金融可视化</li><li>AI实时分析</li></ul></div></div></div>
+<div class="arc-card" style="cursor:pointer" onclick="goToDay(20)"><div class="arc-card-head"><span class="arc-card-day">Day 020</span><span class="arc-card-date">2026-04-30</span></div><div class="arc-sections"><div class="arc-sec arc-sec-t"><h5>思维模型</h5><ul><li>比较优势</li></ul></div><div class="arc-sec arc-sec-d"><h5>设计启发</h5><ul><li>模块化组件设计</li><li>设计系统治理</li></ul></div><div class="arc-sec arc-sec-a"><h5>AI / 副业</h5><ul><li>设计系统AI自动化</li><li>Design Token AI管理</li></ul></div></div></div>
+<div class="arc-card" style="cursor:pointer" onclick="goToDay(19)"><div class="arc-card-head"><span class="arc-card-day">Day 019</span><span class="arc-card-date">2026-04-29</span></div><div class="arc-sections"><div class="arc-sec arc-sec-t"><h5>思维模型</h5><ul><li>认知失调</li></ul></div><div class="arc-sec arc-sec-d"><h5>设计启发</h5><ul><li>用户引导与教程</li><li>首次体验设计</li></ul></div><div class="arc-sec arc-sec-a"><h5>AI / 副业</h5><ul><li>AI用户引导</li></ul></div></div></div>
+<div class="arc-card" style="cursor:pointer" onclick="goToDay(18)"><div class="arc-card-head"><span class="arc-card-day">Day 018</span><span class="arc-card-date">2026-04-28</span></div><div class="arc-sections"><div class="arc-sec arc-sec-t"><h5>思维模型</h5><ul><li>规模效应</li></ul></div><div class="arc-sec arc-sec-d"><h5>设计启发</h5><ul><li>响应式UI缩放</li><li>多端适配设计</li></ul></div><div class="arc-sec arc-sec-a"><h5>AI / 副业</h5><ul><li>多模态AI</li><li>图文视频统一模型</li></ul></div></div></div>
+<div class="arc-card" style="cursor:pointer" onclick="goToDay(17)"><div class="arc-card-head"><span class="arc-card-day">Day 017</span><span class="arc-card-date">2026-04-27</span></div><div class="arc-sections"><div class="arc-sec arc-sec-t"><h5>思维模型</h5><ul><li>贝叶斯推理</li></ul></div><div class="arc-sec arc-sec-d"><h5>设计启发</h5><ul><li>搜索与推荐UI</li><li>个性化界面</li></ul></div><div class="arc-sec arc-sec-a"><h5>AI / 副业</h5><ul><li>搜索AI革命</li><li>Perplexity类产品设计</li></ul></div></div></div>
+<div class="arc-card" style="cursor:pointer" onclick="goToDay(16)"><div class="arc-card-head"><span class="arc-card-day">Day 016</span><span class="arc-card-date">2026-04-26</span></div><div class="arc-sections"><div class="arc-sec arc-sec-t"><h5>思维模型</h5><ul><li>临界点</li></ul></div><div class="arc-sec arc-sec-d"><h5>设计启发</h5><ul><li>病毒传播UI</li><li>社交分享触发</li></ul></div><div class="arc-sec arc-sec-a"><h5>AI / 副业</h5><ul><li>推荐算法透明度</li></ul></div></div></div>
+<div class="arc-card" style="cursor:pointer" onclick="goToDay(15)"><div class="arc-card-head"><span class="arc-card-day">Day 015</span><span class="arc-card-date">2026-04-25</span></div><div class="arc-sections"><div class="arc-sec arc-sec-t"><h5>思维模型</h5><ul><li>信息不对称</li></ul></div><div class="arc-sec arc-sec-d"><h5>设计启发</h5><ul><li>信任标记设计</li><li>评价系统UI</li></ul></div><div class="arc-sec arc-sec-a"><h5>AI / 副业</h5><ul><li>AI信任与可解释性</li><li>XAI设计模式</li></ul></div></div></div>
+<div class="arc-card" style="cursor:pointer" onclick="goToDay(14)"><div class="arc-card-head"><span class="arc-card-day">Day 014</span><span class="arc-card-date">2026-04-24</span></div><div class="arc-sections"><div class="arc-sec arc-sec-t"><h5>思维模型</h5><ul><li>红皇后效应</li></ul></div><div class="arc-sec arc-sec-d"><h5>设计启发</h5><ul><li>竞争排行榜设计</li><li>赛季系统UI</li></ul></div><div class="arc-sec arc-sec-a"><h5>AI / 副业</h5><ul><li>AI竞技匹配</li><li>AI反作弊系统</li></ul></div></div></div>
+<div class="arc-card" style="cursor:pointer" onclick="goToDay(13)"><div class="arc-card-head"><span class="arc-card-day">Day 013</span><span class="arc-card-date">2026-04-23</span></div><div class="arc-sections"><div class="arc-sec arc-sec-t"><h5>思维模型</h5><ul><li>心理账户</li></ul></div><div class="arc-sec arc-sec-d"><h5>设计启发</h5><ul><li>游戏经济UI</li><li>货币显示设计</li></ul></div><div class="arc-sec arc-sec-a"><h5>AI / 副业</h5><ul><li>游戏AI经济平衡</li></ul></div></div></div>
+<div class="arc-card" style="cursor:pointer" onclick="goToDay(12)"><div class="arc-card-head"><span class="arc-card-day">Day 012</span><span class="arc-card-date">2026-04-22</span></div><div class="arc-sections"><div class="arc-sec arc-sec-t"><h5>思维模型</h5><ul><li>系统思维</li></ul></div><div class="arc-sec arc-sec-d"><h5>设计启发</h5><ul><li>系统状态可视化</li><li>进度反馈设计</li></ul></div><div class="arc-sec arc-sec-a"><h5>AI / 副业</h5><ul><li>AI性能监控</li><li>智能报警设计</li></ul></div></div></div>
+<div class="arc-card" style="cursor:pointer" onclick="goToDay(11)"><div class="arc-card-head"><span class="arc-card-day">Day 011</span><span class="arc-card-date">2026-04-21</span></div><div class="arc-sections"><div class="arc-sec arc-sec-t"><h5>思维模型</h5><ul><li>博弈论</li></ul></div><div class="arc-sec arc-sec-d"><h5>设计启发</h5><ul><li>社交互动UI</li><li>多人游戏HUD</li></ul></div><div class="arc-sec arc-sec-a"><h5>AI / 副业</h5><ul><li>AI社交推荐</li><li>玩家匹配算法</li></ul></div></div></div>
+<div class="arc-card" style="cursor:pointer" onclick="goToDay(10)"><div class="arc-card-head"><span class="arc-card-day">Day 010</span><span class="arc-card-date">2026-04-20</span></div><div class="arc-sections"><div class="arc-sec arc-sec-t"><h5>思维模型</h5><ul><li>幸存者偏差</li></ul></div><div class="arc-sec arc-sec-d"><h5>设计启发</h5><ul><li>数据可视化层级</li><li>仪表盘设计</li></ul></div><div class="arc-sec arc-sec-a"><h5>AI / 副业</h5><ul><li>数据驱动设计决策</li><li>A/B测试自动化</li></ul></div></div></div>
+<div class="arc-card" style="cursor:pointer" onclick="goToDay(9)"><div class="arc-card-head"><span class="arc-card-day">Day 009</span><span class="arc-card-date">2026-04-19</span></div><div class="arc-sections"><div class="arc-sec arc-sec-t"><h5>思维模型</h5><ul><li>确认偏差</li></ul></div><div class="arc-sec arc-sec-d"><h5>设计启发</h5><ul><li>表单验证设计</li><li>输入反馈模式</li></ul></div><div class="arc-sec arc-sec-a"><h5>AI / 副业</h5><ul><li>AI代码审查工具</li><li>设计稿转代码</li></ul></div></div></div>
 
 <div class="arc-card" style="cursor:pointer" onclick="goToDay(8)">
 <div class="arc-card-head"><span class="arc-card-day">Day 008</span><span class="arc-card-date">2026-04-18</span></div>
