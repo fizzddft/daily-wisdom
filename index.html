@@ -64,11 +64,12 @@ svg.lucide{width:1em;height:1em;flex-shrink:0;display:inline-block;vertical-alig
 .read-progress-bar{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));width:0;transition:width .15s ease-out}
 
 /* === Side Scroll Rail (floating right edge) === */
-.scroll-rail{position:fixed !important;top:50%;transform:translateY(-50%);width:5px;height:240px;z-index:9998 !important;pointer-events:auto;cursor:pointer;display:block;right:max(20px,calc((100vw - 1100px)/2 - 24px))}
-@media(hover:hover){.scroll-rail:hover{width:7px}.scroll-rail:hover .scroll-rail-tip{opacity:1;transform:translate(-12px,-50%)}}
-.scroll-rail-track{position:absolute;inset:0;background:var(--line);border-radius:6px;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(255,255,255,.02)}
-.scroll-rail-thumb{position:absolute;top:0;left:0;right:0;height:0;background:linear-gradient(180deg,var(--accent),var(--accent-2));border-radius:6px;box-shadow:0 0 14px rgba(232,161,75,.5);transition:height .12s ease-out;pointer-events:none}
-.scroll-rail-tip{position:absolute;right:14px;top:0;transform:translateY(-50%);background:var(--surface);border:1px solid var(--line-2);color:var(--ink);padding:6px 11px;border-radius:var(--r-sm);font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.05em;font-variant-numeric:tabular-nums;white-space:nowrap;opacity:0;transition:opacity .2s ease,transform .2s ease;pointer-events:none;box-shadow:var(--sh-2)}
+.scroll-rail{position:fixed !important;top:50%;transform:translateY(-50%);width:6px;height:280px;z-index:9998 !important;pointer-events:auto;cursor:pointer;display:block;right:max(20px,calc((100vw - 1100px)/2 - 24px));transition:width .25s ease}
+@media(hover:hover){.scroll-rail:hover{width:10px}.scroll-rail:hover .scroll-rail-tip{opacity:1;transform:translate(-12px,-50%)}.scroll-rail:hover .scroll-rail-thumb{background:linear-gradient(180deg,var(--accent),var(--accent-2));box-shadow:0 0 12px rgba(232,161,75,.55)}}
+.scroll-rail-track{position:absolute;inset:0;background:var(--line);border-radius:6px;overflow:visible;box-shadow:inset 0 0 0 1px rgba(255,255,255,.025)}
+.scroll-rail-thumb{position:absolute;left:0;right:0;height:48px;top:0;background:linear-gradient(180deg,var(--ink-3),var(--ink-4));border-radius:6px;transition:background .25s ease,box-shadow .25s ease,transform .12s ease-out;will-change:top;cursor:grab;box-shadow:0 1px 4px rgba(0,0,0,.4)}
+.scroll-rail.is-dragging .scroll-rail-thumb,.scroll-rail-thumb:active{cursor:grabbing;transform:scaleX(1.15);background:linear-gradient(180deg,var(--accent),var(--accent-2));box-shadow:0 0 16px rgba(232,161,75,.65)}
+.scroll-rail-tip{position:absolute;right:18px;top:0;transform:translateY(-50%);background:var(--surface);border:1px solid var(--line-2);color:var(--ink);padding:6px 11px;border-radius:var(--r-sm);font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.05em;font-variant-numeric:tabular-nums;white-space:nowrap;opacity:0;transition:opacity .2s ease,transform .2s ease;pointer-events:none;box-shadow:var(--sh-2);z-index:1}
 .scroll-rail-tip::after{content:'';position:absolute;left:100%;top:50%;transform:translateY(-50%);border:5px solid transparent;border-left-color:var(--line-2)}
 
 /* === Back to Top Button === */
@@ -221,7 +222,8 @@ svg.lucide{width:1em;height:1em;flex-shrink:0;display:inline-block;vertical-alig
 
 .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:36px 40px;margin-bottom:20px;position:relative;transition:all .3s cubic-bezier(.4,0,.2,1);overflow:hidden;word-wrap:break-word;overflow-wrap:break-word;max-width:100%}
 .card:hover{border-color:var(--line-2);transform:translateY(-2px);box-shadow:var(--sh-3)}
-.card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:20px;flex-wrap:wrap;padding-right:38px;position:relative}
+.card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:20px;flex-wrap:wrap;position:relative}
+.card-head .tag{margin-top:6px;align-self:flex-start}
 .card h3{font-family:var(--serif);font-size:26px;font-weight:500;line-height:1.25;display:flex;align-items:center;gap:12px;flex:1;min-width:0;letter-spacing:-.025em;color:var(--ink)}
 .card h3 .ic-inline{width:30px;height:30px;color:var(--accent);stroke-width:1.6;flex-shrink:0;opacity:.85;display:inline-flex;align-items:center;justify-content:center;align-self:center;line-height:0;position:relative;top:1px}
 .card h3 .ic-inline svg{width:24px;height:24px;display:block}
@@ -506,7 +508,7 @@ footer p{margin-bottom:6px}
 <div class="fav-overlay" id="favOverlay" onclick="toggleFav()"></div>
 <div class="fav-panel" id="favPanel">
 <div class="fav-header"><h3>我的收藏</h3><button class="fav-close" onclick="toggleFav()">&times;</button></div>
-<div id="favList"><div class="fav-empty">还没有收藏内容<br>点击卡片右上角的星标按钮收藏</div></div>
+<div id="favList"><div class="fav-empty">还没有收藏内容<br>点击卡片右下角的书签按钮收藏</div></div>
 </div>
 
 <!-- Check-in Toast -->
@@ -3210,7 +3212,7 @@ btn.classList.toggle('saved',isSaved);
 });
 // update panel
 const list=document.getElementById('favList');
-if(!favs.length){list.innerHTML='<div class="fav-empty">还没有收藏内容<br>点击卡片右上角 ☆ 收藏</div>';return}
+if(!favs.length){list.innerHTML='<div class="fav-empty">还没有收藏内容<br>点击卡片右下角的书签按钮收藏</div>';return}
 list.innerHTML=favs.map(f=>`<div class="fav-item" onclick="scrollToFav('${f.id}')"><button class="fav-rm" onclick="event.stopPropagation();rmFav('${f.id}')">&times;</button><h4>${f.title}</h4><p>${f.desc}</p></div>`).join('');
 }
 
@@ -3256,8 +3258,14 @@ const railTip=document.getElementById('scrollRailTip');
 if(rail&&railThumb){
 const longPage=h.scrollHeight>h.clientHeight*1.3;
 rail.style.display=longPage?'block':'none';
-railThumb.style.height=pct+'%';
-if(railTip){railTip.textContent=Math.round(pct)+'%';railTip.style.top=pct+'%'}
+if(longPage){
+const railH=rail.clientHeight||280;
+const thumbH=railThumb.offsetHeight||48;
+// thumb 在 track 内的可移动范围
+const range=Math.max(1,railH-thumbH);
+railThumb.style.top=(pct/100*range)+'px';
+if(railTip){railTip.textContent=Math.round(pct)+'%';railTip.style.top=(pct/100*range+thumbH/2)+'px'}
+}
 }
 
 // Back-to-top button (visible after 200px scroll)
@@ -3277,26 +3285,73 @@ function scrollToTop(){
 window.scrollTo({top:0,behavior:'smooth'});
 }
 
-// ===== Click on side rail to jump =====
+// ===== Click on side rail to jump / drag thumb to scrub =====
 (function(){
 const rail=document.getElementById('scrollRail');
-if(!rail)return;
-let dragging=false;
-function jumpTo(e){
+const thumb=document.getElementById('scrollRailThumb');
+if(!rail||!thumb)return;
+let dragging=false,dragOffset=0;
+function getRatio(clientY){
 const r=rail.getBoundingClientRect();
-const y=(e.touches?e.touches[0].clientY:e.clientY)-r.top;
-const ratio=Math.max(0,Math.min(1,y/r.height));
+const thumbH=thumb.offsetHeight||48;
+const range=Math.max(1,r.height-thumbH);
+const y=clientY-r.top-dragOffset;
+return Math.max(0,Math.min(1,y/range));
+}
+function jumpTo(clientY,smooth){
+const ratio=getRatio(clientY);
 const h=document.documentElement;
 const max=h.scrollHeight-h.clientHeight;
-window.scrollTo({top:max*ratio,behavior:dragging?'auto':'smooth'});
+window.scrollTo({top:max*ratio,behavior:smooth?'smooth':'auto'});
 }
-rail.addEventListener('click',jumpTo);
-rail.addEventListener('mousedown',e=>{dragging=true;jumpTo(e);e.preventDefault()});
-window.addEventListener('mousemove',e=>{if(dragging)jumpTo(e)});
-window.addEventListener('mouseup',()=>{dragging=false});
-rail.addEventListener('touchstart',e=>{dragging=true;jumpTo(e)},{passive:true});
-window.addEventListener('touchmove',e=>{if(dragging)jumpTo(e)},{passive:true});
-window.addEventListener('touchend',()=>{dragging=false});
+// 点击 track（非 thumb）→ 平滑跳转
+rail.addEventListener('click',e=>{
+if(e.target===thumb)return;
+dragOffset=0;
+jumpTo(e.clientY,true);
+});
+// thumb mousedown → 开始拖动
+thumb.addEventListener('pointerdown',e=>{
+dragging=true;
+const tr=thumb.getBoundingClientRect();
+dragOffset=e.clientY-tr.top; // 保留 thumb 内点击偏移
+rail.classList.add('is-dragging');
+thumb.setPointerCapture(e.pointerId);
+e.preventDefault();
+});
+thumb.addEventListener('pointermove',e=>{
+if(!dragging)return;
+jumpTo(e.clientY,false);
+});
+thumb.addEventListener('pointerup',e=>{
+dragging=false;
+dragOffset=0;
+rail.classList.remove('is-dragging');
+try{thumb.releasePointerCapture(e.pointerId)}catch(_){}
+});
+thumb.addEventListener('pointercancel',()=>{
+dragging=false;dragOffset=0;
+rail.classList.remove('is-dragging');
+});
+// touch fallback
+rail.addEventListener('touchstart',e=>{
+if(e.target===thumb){
+const tr=thumb.getBoundingClientRect();
+dragOffset=e.touches[0].clientY-tr.top;
+dragging=true;
+rail.classList.add('is-dragging');
+}else{
+dragOffset=0;
+jumpTo(e.touches[0].clientY,true);
+}
+},{passive:true});
+window.addEventListener('touchmove',e=>{
+if(dragging){jumpTo(e.touches[0].clientY,false)}
+},{passive:true});
+window.addEventListener('touchend',()=>{
+dragging=false;dragOffset=0;
+rail.classList.remove('is-dragging');
+});
 })();
 
 // ===== Days Read Tracker (which days user has visited) =====
