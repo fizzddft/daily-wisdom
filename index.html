@@ -5,250 +5,233 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>每日锻造 · Daily Forge</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://unpkg.com/lucide@latest"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-/* Background layers - subtle violet-tinted dark */
---bg:#08080c;--bg-grad:radial-gradient(ellipse 1200px 600px at 50% -10%, rgba(168,85,247,.08), transparent 60%),radial-gradient(ellipse 800px 400px at 80% 30%, rgba(245,158,11,.04), transparent 60%);
---bg2:#0f0f17;--bg3:#16161f;--bg4:#1d1d2a;
---surface:#11111a;--surface-2:#181822;
-/* Borders */
---border:#252535;--border2:#383850;--border-glow:rgba(245,158,11,.18);
-/* Text */
---t1:#f5f5fa;--t2:#a8a8be;--t3:#76768e;--t4:#54546a;
-/* Brand colors */
---gold:#fbbf24;--gold2:#f59e0b;--gold-dim:rgba(251,191,36,.1);
---blue:#60a5fa;--green:#34d399;--purple:#c084fc;--red:#f87171;--orange:#fb923c;--pink:#f472b6;
-/* Spacing & radius */
---r:14px;--r2:10px;--r3:24px;--r-pill:999px;
-/* Shadows */
---sh-sm:0 1px 2px rgba(0,0,0,.4);
---sh-md:0 4px 12px rgba(0,0,0,.4);
---sh-lg:0 12px 32px rgba(0,0,0,.5);
---sh-glow:0 0 0 1px rgba(245,158,11,.15),0 8px 32px rgba(245,158,11,.12);
-/* Fonts */
---font:'Inter','Noto Sans SC',system-ui,-apple-system,sans-serif;
---mono:'JetBrains Mono',monospace;
+/* === Editorial Magazine: warm dark + cream highlights === */
+--bg:#0c0a09;
+--bg-soft:#13110f;
+--surface:#181614;
+--surface-2:#1f1c19;
+--surface-3:#272320;
+--line:#2a2622;
+--line-2:#3d3833;
+--line-soft:rgba(245,237,225,.06);
+--ink:#faf6f0;
+--ink-2:#d8d2c7;
+--ink-3:#a39a8c;
+--ink-4:#766f63;
+--ink-5:#4a463f;
+--accent:#e8a14b;
+--accent-2:#c8853a;
+--accent-soft:rgba(232,161,75,.1);
+--accent-glow:rgba(232,161,75,.2);
+--sage:#8fa68a;
+--mist:#a89bc3;
+--mist-soft:rgba(168,155,195,.1);
+--sky:#7ba7c7;
+--sky-soft:rgba(123,167,199,.1);
+--sage-soft:rgba(143,166,138,.1);
+--r-sm:6px;--r:10px;--r-lg:16px;--r-xl:24px;--r-pill:999px;
+--sans:'Inter','Noto Sans SC',-apple-system,system-ui,sans-serif;
+--serif:'Newsreader','Noto Sans SC',Georgia,serif;
+--mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+--sh-1:0 1px 2px rgba(0,0,0,.4);
+--sh-2:0 4px 16px rgba(0,0,0,.3);
+--sh-3:0 16px 48px rgba(0,0,0,.4);
 }
-html{font-size:16px;scroll-behavior:smooth;overflow-x:hidden;overscroll-behavior-x:none}
-body{font-family:var(--font);background:var(--bg);background-image:var(--bg-grad);background-attachment:fixed;color:var(--t1);line-height:1.75;-webkit-font-smoothing:antialiased;font-weight:400;overflow-x:hidden;max-width:100vw;letter-spacing:-.005em}
+html{font-size:16px;scroll-behavior:smooth;overflow-x:hidden;overscroll-behavior-x:none;-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-weight:400;overflow-x:hidden;max-width:100vw;letter-spacing:-.005em;font-feature-settings:"ss01","cv11"}
 
-/* Selection */
-::selection{background:rgba(251,191,36,.25);color:var(--t1)}
+::selection{background:var(--accent-soft);color:var(--ink)}
 
-/* Scrollbar */
 ::-webkit-scrollbar{width:10px;height:10px}
 ::-webkit-scrollbar-track{background:transparent}
-::-webkit-scrollbar-thumb{background:var(--border);border-radius:10px}
-::-webkit-scrollbar-thumb:hover{background:var(--border2)}
+::-webkit-scrollbar-thumb{background:var(--line-2);border-radius:10px;border:2px solid var(--bg)}
+::-webkit-scrollbar-thumb:hover{background:var(--ink-5)}
 
-/* ===== Reading Progress Bar (top) ===== */
-.read-progress{position:fixed;top:0;left:0;right:0;height:2px;z-index:1000;pointer-events:none}
-.read-progress-bar{height:100%;background:linear-gradient(90deg,var(--gold),var(--orange));width:0;transition:width .1s ease;box-shadow:0 0 8px rgba(251,191,36,.5)}
+.read-progress{position:fixed;top:0;left:0;right:0;height:2px;z-index:1000;pointer-events:none;background:var(--line-soft)}
+.read-progress-bar{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));width:0;transition:width .15s ease-out}
 
-/* ===== Layout ===== */
-.wrap{max-width:1080px;margin:0 auto;padding:0 24px;overflow-x:hidden}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 32px;overflow-x:hidden}
+@media(max-width:768px){.wrap{padding:0 20px}}
 
-/* ===== Top Bar ===== */
-.topbar{position:sticky;top:0;z-index:100;background:rgba(8,8,12,.72);backdrop-filter:blur(20px) saturate(150%);-webkit-backdrop-filter:blur(20px) saturate(150%);border-bottom:1px solid var(--border);padding:12px 0;overflow-x:hidden}
-.topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;color:var(--t1);white-space:nowrap;letter-spacing:-.02em}
-.brand i[data-lucide]{color:var(--gold);filter:drop-shadow(0 0 8px rgba(251,191,36,.4))}
-.brand em{font-style:normal;font-size:11px;color:var(--t3);font-weight:600;letter-spacing:.15em;font-family:var(--mono)}
-.top-actions{display:flex;align-items:center;gap:8px}
-.top-btn{padding:7px 14px;border-radius:var(--r-pill);border:1px solid var(--border);background:var(--surface);color:var(--t2);font-size:13px;font-weight:600;cursor:pointer;transition:.2s cubic-bezier(.4,0,.2,1);display:flex;align-items:center;gap:6px;font-family:var(--font);white-space:nowrap;letter-spacing:-.01em}
-.top-btn:hover{border-color:var(--border2);color:var(--t1);background:var(--surface-2)}
-.top-btn.active{background:var(--gold-dim);border-color:rgba(251,191,36,.4);color:var(--gold)}
-.streak-badge{font-family:var(--mono);font-variant-numeric:tabular-nums;font-weight:700}
-.view-count{cursor:default}
-.view-count span{font-family:var(--mono);font-variant-numeric:tabular-nums;font-weight:700}
+.topbar{position:sticky;top:0;z-index:100;background:rgba(12,10,9,.78);backdrop-filter:blur(24px) saturate(140%);-webkit-backdrop-filter:blur(24px) saturate(140%);border-bottom:1px solid var(--line);padding:16px 0;overflow-x:hidden}
+.topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:baseline;gap:12px;color:var(--ink);white-space:nowrap;font-family:var(--serif);font-weight:500;font-size:21px;letter-spacing:-.03em}
+.brand-mark{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#1a1208;flex-shrink:0;align-self:center;box-shadow:0 4px 12px rgba(232,161,75,.25)}
+.brand-mark i[data-lucide]{width:16px;height:16px;stroke-width:2.5}
+.brand em{font-style:italic;font-size:13px;color:var(--ink-4);font-weight:400;font-family:var(--serif);letter-spacing:.02em}
+.top-actions{display:flex;align-items:center;gap:6px}
+.top-btn{padding:7px 13px;border-radius:var(--r-pill);border:1px solid var(--line);background:transparent;color:var(--ink-3);font-size:12.5px;font-weight:500;cursor:pointer;transition:all .2s ease;display:flex;align-items:center;gap:6px;font-family:var(--sans);white-space:nowrap;letter-spacing:-.005em}
+.top-btn:hover{border-color:var(--line-2);color:var(--ink);background:var(--surface)}
+.top-btn.active{background:var(--accent-soft);border-color:rgba(232,161,75,.35);color:var(--accent)}
+.top-btn i[data-lucide]{width:13px;height:13px;stroke-width:2}
+.streak-badge{font-family:var(--mono);font-variant-numeric:tabular-nums;font-weight:600}
+.view-count span{font-family:var(--mono);font-variant-numeric:tabular-nums;font-weight:600}
 
-/* ===== Hero Stats ===== */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding:28px 0;border-bottom:1px solid var(--border);margin-top:8px;position:relative}
-.st{text-align:center;position:relative;padding:0 12px}
-.st:not(:last-child)::after{content:'';position:absolute;right:0;top:20%;height:60%;width:1px;background:var(--border)}
-.st-n{font-size:32px;font-weight:800;font-family:var(--mono);font-variant-numeric:tabular-nums;background:linear-gradient(135deg,var(--gold) 0%,var(--orange) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-.03em;line-height:1}
-.st-l{font-size:11px;color:var(--t3);letter-spacing:.15em;margin-top:8px;font-weight:600;text-transform:uppercase}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding:48px 0 36px;border-bottom:1px solid var(--line);margin-top:8px}
+.st{text-align:left;position:relative;padding:0 20px}
+.st:first-child{padding-left:0}
+.st:not(:last-child)::after{content:'';position:absolute;right:0;top:8px;bottom:8px;width:1px;background:var(--line)}
+.st-n{font-family:var(--serif);font-size:48px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--ink);letter-spacing:-.04em;line-height:.95}
+.st-l{font-size:11px;color:var(--ink-4);letter-spacing:.18em;margin-top:10px;font-weight:600;text-transform:uppercase;font-family:var(--sans)}
+@media(max-width:640px){.st-n{font-size:32px}.st{padding:0 12px}}
 
-/* ===== Nav Tabs (Primary) ===== */
-.nav{display:flex;gap:4px;padding:20px 0 0;flex-wrap:wrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none}
+.nav{display:flex;gap:2px;padding:24px 0 0;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none;border-bottom:1px solid var(--line);margin-bottom:0}
 .nav::-webkit-scrollbar{display:none}
-.nav a{padding:9px 16px;border-radius:var(--r-pill);font-size:13.5px;font-weight:600;color:var(--t3);cursor:pointer;transition:.25s cubic-bezier(.4,0,.2,1);border:1px solid transparent;text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;gap:7px;letter-spacing:-.01em}
-.nav a i[data-lucide]{width:14px;height:14px;opacity:.7}
-.nav a:hover{color:var(--t1);background:var(--surface-2)}
-.nav a:hover i[data-lucide]{opacity:1}
-.nav a.on{color:var(--gold);background:var(--gold-dim);border-color:rgba(251,191,36,.3);box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
-.nav a.on i[data-lucide]{opacity:1;color:var(--gold)}
+.nav a{padding:14px 16px;font-size:14px;font-weight:500;color:var(--ink-3);cursor:pointer;transition:all .25s ease;text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;gap:8px;letter-spacing:-.01em;border-bottom:2px solid transparent;margin-bottom:-1px;position:relative}
+.nav a i[data-lucide]{width:15px;height:15px;opacity:.6;stroke-width:1.8}
+.nav a:hover{color:var(--ink)}
+.nav a:hover i[data-lucide]{opacity:.9}
+.nav a.on{color:var(--ink);border-bottom-color:var(--accent)}
+.nav a.on i[data-lucide]{opacity:1;color:var(--accent)}
 
-/* ===== Day Selector (horizontal scroll, sleek) ===== */
-.day-selector{display:flex;align-items:center;gap:8px;padding:14px 0;border-bottom:1px solid var(--border);margin-bottom:4px;overflow:hidden;position:relative}
-.day-selector-label{font-size:11px;color:var(--t4);font-family:var(--mono);font-weight:700;letter-spacing:.15em;text-transform:uppercase;white-space:nowrap;flex-shrink:0;padding-right:4px}
-.day-scroll{display:flex;gap:4px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none;flex:1;scroll-snap-type:x proximity;padding:2px 0}
+.day-selector{display:flex;align-items:center;gap:14px;padding:20px 0;border-bottom:1px solid var(--line);margin-bottom:8px;overflow:hidden;position:relative}
+.day-selector-label{font-size:10.5px;color:var(--ink-4);font-family:var(--mono);font-weight:600;letter-spacing:.2em;text-transform:uppercase;white-space:nowrap;flex-shrink:0}
+.day-scroll{display:flex;gap:6px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none;flex:1;scroll-snap-type:x proximity;padding:2px 4px}
 .day-scroll::-webkit-scrollbar{display:none}
-.day-pill{padding:7px 13px;border-radius:var(--r-pill);font-size:12px;font-weight:600;color:var(--t3);cursor:pointer;transition:.2s cubic-bezier(.4,0,.2,1);background:var(--surface);border:1px solid var(--border);font-family:var(--mono);white-space:nowrap;flex-shrink:0;letter-spacing:.02em;scroll-snap-align:center;display:inline-flex;align-items:center;gap:5px}
-.day-pill:hover{color:var(--t1);border-color:var(--border2);background:var(--surface-2)}
-.day-pill.on{color:var(--gold);background:linear-gradient(135deg,rgba(251,191,36,.15),rgba(245,158,11,.08));border-color:rgba(251,191,36,.4);box-shadow:0 2px 8px rgba(251,191,36,.15)}
-.day-pill.read::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--green);box-shadow:0 0 6px rgba(52,211,153,.6);flex-shrink:0}
-.day-scroll-fade{position:absolute;top:0;bottom:0;width:32px;pointer-events:none;z-index:2}
-.day-scroll-fade.left{left:80px;background:linear-gradient(90deg,var(--bg) 0%,transparent 100%)}
-.day-scroll-fade.right{right:0;background:linear-gradient(-90deg,var(--bg) 0%,transparent 100%)}
+.day-pill{padding:7px 14px;border-radius:var(--r-pill);font-size:12px;font-weight:500;color:var(--ink-3);cursor:pointer;transition:all .2s ease;background:transparent;border:1px solid var(--line);font-family:var(--mono);white-space:nowrap;flex-shrink:0;letter-spacing:.04em;scroll-snap-align:center;display:inline-flex;align-items:center;gap:6px}
+.day-pill:hover{color:var(--ink);border-color:var(--line-2);background:var(--surface)}
+.day-pill.on{color:var(--bg);background:var(--ink);border-color:var(--ink)}
+.day-pill.read::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--sage);flex-shrink:0}
+.day-pill.on.read::before{background:var(--bg)}
 
-/* ===== Sub Tabs (Category Filter) ===== */
-.subtabs{display:flex;gap:4px;padding:12px 0 14px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none}
+.subtabs{display:flex;gap:4px;padding:14px 0 18px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none}
 .subtabs::-webkit-scrollbar{display:none}
-.subtab{padding:7px 14px;border-radius:8px;font-size:13px;font-weight:600;color:var(--t3);cursor:pointer;transition:.2s;background:transparent;border:none;font-family:var(--font);display:inline-flex;align-items:center;gap:6px;letter-spacing:-.01em;white-space:nowrap}
-.subtab:hover{color:var(--t1);background:var(--surface-2)}
-.subtab.on{color:var(--gold);background:var(--gold-dim)}
+.subtab{padding:7px 14px;border-radius:var(--r-pill);font-size:12.5px;font-weight:500;color:var(--ink-3);cursor:pointer;transition:.2s;background:transparent;border:1px solid transparent;font-family:var(--sans);display:inline-flex;align-items:center;gap:6px;letter-spacing:-.005em;white-space:nowrap}
+.subtab:hover{color:var(--ink);background:var(--surface)}
+.subtab.on{color:var(--accent);background:var(--accent-soft);border-color:rgba(232,161,75,.25)}
 
-/* ===== Day Header ===== */
-.day-header{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;padding:24px 0 12px;flex-wrap:wrap}
-.day-header-main{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
-.day-num{font-size:36px;font-weight:900;font-family:var(--mono);background:linear-gradient(135deg,var(--gold),var(--orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-.04em;line-height:1}
-.day-date{font-size:13px;color:var(--t3);font-family:var(--mono);font-weight:600;letter-spacing:.05em}
-.day-summary{font-size:12.5px;color:var(--t4);max-width:560px;line-height:1.6;text-align:right;font-weight:500}
-.day-meta{display:flex;align-items:center;gap:14px;margin-top:8px}
-.day-meta-item{display:flex;align-items:center;gap:5px;font-size:11.5px;color:var(--t3);font-family:var(--mono);font-weight:600}
-.day-meta-item i[data-lucide]{width:13px;height:13px;opacity:.8}
+.day-header{padding:36px 0 24px;border-bottom:1px solid var(--line);margin-bottom:8px}
+.day-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.day-eyebrow-num{font-family:var(--mono);font-size:11px;color:var(--ink-4);font-weight:600;letter-spacing:.2em;text-transform:uppercase}
+.day-eyebrow-line{flex:1;height:1px;background:var(--line)}
+.day-eyebrow-date{font-family:var(--mono);font-size:11px;color:var(--ink-4);font-weight:500}
+.day-num{font-family:var(--serif);font-size:64px;font-weight:500;color:var(--ink);letter-spacing:-.05em;line-height:1;margin-bottom:14px;font-variant-numeric:tabular-nums}
+.day-num em{font-style:italic;color:var(--accent)}
+.day-summary{font-family:var(--serif);font-size:18px;color:var(--ink-2);line-height:1.55;font-weight:400;letter-spacing:-.01em;font-style:italic;max-width:720px}
+@media(max-width:640px){.day-num{font-size:42px}.day-summary{font-size:15.5px}}
 
-/* ===== Section ===== */
-.sec{display:none;padding:8px 0 60px}
-.sec.on{display:block;animation:fadeIn .4s cubic-bezier(.4,0,.2,1)}
-@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.sec{display:none;padding:8px 0 80px}
+.sec.on{display:block;animation:fadeIn .5s cubic-bezier(.4,0,.2,1)}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.sec-desc{padding:24px 0 8px;font-family:var(--serif);font-size:18px;color:var(--ink-2);line-height:1.55;max-width:720px;font-style:italic;letter-spacing:-.01em}
 
-/* ===== Cards ===== */
-.card{background:linear-gradient(180deg,var(--surface) 0%,var(--bg2) 100%);border:1px solid var(--border);border-radius:var(--r);padding:26px 28px;margin-bottom:14px;position:relative;transition:.3s cubic-bezier(.4,0,.2,1);overflow:hidden;word-wrap:break-word;overflow-wrap:break-word;max-width:100%}
-.card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.06),transparent);opacity:0;transition:.3s}
-.card:hover{border-color:var(--border2);transform:translateY(-2px);box-shadow:var(--sh-lg)}
-.card:hover::before{opacity:1}
-.card-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;flex-wrap:wrap}
-.card h3{font-size:18px;font-weight:700;line-height:1.4;display:flex;align-items:center;gap:8px;flex:1;min-width:0;letter-spacing:-.02em;color:var(--t1)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:36px 40px;margin-bottom:20px;position:relative;transition:all .3s cubic-bezier(.4,0,.2,1);overflow:hidden;word-wrap:break-word;overflow-wrap:break-word;max-width:100%}
+.card:hover{border-color:var(--line-2);transform:translateY(-2px);box-shadow:var(--sh-3)}
+.card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:20px;flex-wrap:wrap}
+.card h3{font-family:var(--serif);font-size:26px;font-weight:500;line-height:1.25;display:flex;align-items:center;gap:10px;flex:1;min-width:0;letter-spacing:-.025em;color:var(--ink)}
 
-.tag{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:var(--r-pill);font-size:10.5px;font-weight:700;letter-spacing:.06em;white-space:nowrap;flex-shrink:0;text-transform:uppercase}
-.tag-t{background:rgba(192,132,252,.12);color:var(--purple);border:1px solid rgba(192,132,252,.2)}
-.tag-d{background:rgba(52,211,153,.12);color:var(--green);border:1px solid rgba(52,211,153,.2)}
-.tag-m{background:rgba(96,165,250,.12);color:var(--blue);border:1px solid rgba(96,165,250,.2)}
+.tag{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:var(--r-pill);font-size:10px;font-weight:600;letter-spacing:.1em;white-space:nowrap;flex-shrink:0;text-transform:uppercase;font-family:var(--mono)}
+.tag-t{background:var(--mist-soft);color:var(--mist)}
+.tag-d{background:var(--sage-soft);color:var(--sage)}
+.tag-m{background:var(--sky-soft);color:var(--sky)}
 
-.card p{color:var(--t2);font-size:14.5px;line-height:1.85;word-wrap:break-word;overflow-wrap:break-word}
-.card p+p{margin-top:10px}
-.card ul{list-style:none;margin-top:12px;padding:0}
-.card li{color:var(--t2);font-size:14.5px;line-height:1.8;padding:8px 0 8px 24px;position:relative;word-wrap:break-word;overflow-wrap:break-word;border-bottom:1px solid rgba(37,37,53,.5)}
+.card p{color:var(--ink-2);font-size:15.5px;line-height:1.78;word-wrap:break-word;overflow-wrap:break-word;letter-spacing:-.005em}
+.card p+p{margin-top:14px}
+.card ul{list-style:none;margin-top:18px;padding:0}
+.card li{color:var(--ink-2);font-size:15px;line-height:1.78;padding:12px 0 12px 24px;position:relative;word-wrap:break-word;overflow-wrap:break-word;border-bottom:1px solid var(--line);letter-spacing:-.005em}
 .card li:last-child{border-bottom:none;padding-bottom:0}
-.card li::before{content:'';position:absolute;left:6px;top:16px;width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 6px rgba(251,191,36,.4)}
-.card li strong{color:var(--t1);font-weight:600;white-space:normal}
-.card strong{color:var(--t1);font-weight:600}
+.card li::before{content:'';position:absolute;left:0;top:21px;width:14px;height:1px;background:var(--accent);opacity:.6}
+.card li strong{color:var(--ink);font-weight:600;white-space:normal;letter-spacing:-.01em}
+.card strong{color:var(--ink);font-weight:600}
 
-.quote{margin:14px 0;padding:18px 22px;background:linear-gradient(135deg,rgba(192,132,252,.06),rgba(192,132,252,.02));border-left:3px solid var(--purple);border-radius:0 var(--r2) var(--r2) 0;font-size:14.5px;color:var(--t2);font-style:italic;line-height:1.8;word-wrap:break-word;overflow-wrap:break-word;position:relative}
-.quote::before{content:'"';position:absolute;top:-10px;left:14px;font-size:48px;color:rgba(192,132,252,.2);font-family:Georgia,serif;line-height:1;font-style:normal}
-.quote cite{display:block;margin-top:10px;font-style:normal;font-size:12px;color:var(--t4);line-height:1.6;font-family:var(--mono)}
+.quote{margin:24px 0;padding:0 0 0 28px;background:transparent;border-left:3px solid var(--mist);font-family:var(--serif);font-size:19px;color:var(--ink-2);font-style:italic;line-height:1.55;word-wrap:break-word;overflow-wrap:break-word;position:relative;letter-spacing:-.015em;font-weight:400}
+.quote cite{display:block;margin-top:14px;font-style:normal;font-size:12.5px;color:var(--ink-4);line-height:1.55;font-family:var(--sans);font-weight:500;letter-spacing:0}
 
-.tip{margin-top:14px;padding:16px 20px;background:linear-gradient(135deg,rgba(251,191,36,.06),rgba(251,191,36,.02));border-left:3px solid var(--gold);border-radius:0 var(--r2) var(--r2) 0;font-size:14px;color:var(--t2);line-height:1.85;word-wrap:break-word;overflow-wrap:break-word}
-.tip b{color:var(--gold);font-weight:700}
-.tip strong{color:var(--t1)}
+.tip{margin-top:20px;padding:20px 24px;background:var(--accent-soft);border-radius:var(--r);font-size:14.5px;color:var(--ink-2);line-height:1.78;word-wrap:break-word;overflow-wrap:break-word;border:1px solid rgba(232,161,75,.15);position:relative}
+.tip::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--accent);border-radius:3px 0 0 3px}
+.tip b{color:var(--accent);font-weight:700;letter-spacing:-.01em}
+.tip strong{color:var(--ink)}
 
-/* Fav btn */
-.fav-btn{background:transparent;border:1px solid var(--border);cursor:pointer;font-size:14px;color:var(--t3);opacity:.7;transition:.25s cubic-bezier(.4,0,.2,1);padding:4px 9px;border-radius:8px;flex-shrink:0;line-height:1;display:inline-flex;align-items:center;justify-content:center}
-.fav-btn:hover{opacity:1;border-color:var(--gold);color:var(--gold);background:var(--gold-dim);transform:scale(1.05)}
-.fav-btn.saved{opacity:1;color:var(--gold);border-color:var(--gold);background:var(--gold-dim)}
+.fav-btn{background:transparent;border:1px solid var(--line);cursor:pointer;font-size:14px;color:var(--ink-4);transition:all .25s cubic-bezier(.4,0,.2,1);padding:5px 9px;border-radius:8px;flex-shrink:0;line-height:1;display:inline-flex;align-items:center;justify-content:center}
+.fav-btn:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-soft);transform:scale(1.05)}
+.fav-btn.saved{color:var(--accent);border-color:var(--accent);background:var(--accent-soft)}
 
-/* ===== Timeline ===== */
-.tl{padding-left:24px;border-left:2px solid var(--border);position:relative;margin-top:8px}
-.tl-item{position:relative;padding:18px 0 18px 20px;border-bottom:1px solid rgba(37,37,53,.5);cursor:pointer;transition:.2s;border-radius:0 var(--r2) var(--r2) 0}
-.tl-item:hover{background:rgba(255,255,255,.02);padding-left:24px}
+.tl{padding-left:0;border-left:none;position:relative;margin-top:24px}
+.tl-item{position:relative;padding:28px 0;border-bottom:1px solid var(--line);cursor:pointer;transition:all .3s ease;display:grid;grid-template-columns:140px 1fr;gap:32px;align-items:start}
+.tl-item:hover{background:transparent}
 .tl-item:last-child{border-bottom:none}
-.tl-item::before{content:'';position:absolute;left:-29px;top:24px;width:10px;height:10px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 3px var(--bg),0 0 12px rgba(251,191,36,.4)}
-.tl-date{font-family:var(--mono);font-size:11.5px;color:var(--gold);font-variant-numeric:tabular-nums;font-weight:700;letter-spacing:.05em}
-.tl-item h4{font-size:15.5px;font-weight:700;margin:6px 0;color:var(--t1);letter-spacing:-.01em;line-height:1.4}
-.tl-item p{font-size:13px;color:var(--t3);line-height:1.7}
+.tl-item:hover h4{color:var(--accent)}
+.tl-date{font-family:var(--mono);font-size:11.5px;color:var(--ink-4);font-variant-numeric:tabular-nums;font-weight:500;letter-spacing:.08em;padding-top:4px;text-transform:uppercase}
+.tl-content{min-width:0}
+.tl-item h4{font-family:var(--serif);font-size:21px;font-weight:500;margin:0 0 10px;color:var(--ink);letter-spacing:-.02em;line-height:1.3;transition:color .25s ease}
+.tl-item p{font-size:14px;color:var(--ink-3);line-height:1.7;letter-spacing:-.005em}
+.tl-item ul{list-style:none;padding:0;margin:8px 0 0}
+.tl-item ul li{font-size:13.5px;color:var(--ink-3);padding:6px 0 6px 16px;position:relative;line-height:1.6}
+.tl-item ul li::before{content:'';position:absolute;left:0;top:14px;width:8px;height:1px;background:var(--ink-5)}
+.tl-item ul li strong{color:var(--ink-2)}
+@media(max-width:640px){.tl-item{grid-template-columns:1fr;gap:8px}.tl-date{padding-top:0}}
 
-/* ===== Archive Cards ===== */
-.archive-grid{display:flex;flex-direction:column;gap:12px;padding-top:16px}
-.arc-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:20px 22px;transition:.25s cubic-bezier(.4,0,.2,1);cursor:pointer;position:relative;overflow:hidden}
-.arc-card::after{content:'→';position:absolute;right:24px;top:50%;transform:translateY(-50%);color:var(--t4);font-size:18px;opacity:0;transition:.25s}
-.arc-card:hover{border-color:rgba(251,191,36,.3);transform:translateX(2px);box-shadow:var(--sh-md)}
-.arc-card:hover::after{opacity:1;right:18px;color:var(--gold)}
-.arc-card-head{display:flex;align-items:center;gap:14px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border)}
-.arc-card-day{font-family:var(--mono);font-size:14px;font-weight:800;color:var(--gold);white-space:nowrap;min-width:64px;letter-spacing:.02em}
-.arc-card-date{font-family:var(--mono);font-size:12px;color:var(--t4);white-space:nowrap}
-.arc-sections{display:flex;flex-direction:column;gap:10px}
-.arc-sec{padding:10px 14px;background:var(--bg2);border-radius:var(--r2);border-left:2px solid var(--border)}
-.arc-sec-t{border-left-color:var(--purple)}
-.arc-sec-d{border-left-color:var(--green)}
-.arc-sec-a{border-left-color:var(--blue)}
-.arc-sec h5{font-size:10.5px;font-weight:700;color:var(--t3);letter-spacing:.12em;margin-bottom:4px;text-transform:uppercase}
-.arc-sec ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 16px}
-.arc-sec li{font-size:13px;color:var(--t2);padding:2px 0;display:flex;align-items:baseline;gap:5px;line-height:1.6}
-.arc-sec li::before{content:'›';color:var(--gold);font-weight:700;flex-shrink:0}
+.archive-grid{display:flex;flex-direction:column;gap:0;padding-top:8px}
+.arc-card{background:transparent;border:none;border-bottom:1px solid var(--line);border-radius:0;padding:28px 0;transition:all .25s cubic-bezier(.4,0,.2,1);cursor:pointer;position:relative;display:grid;grid-template-columns:120px 1fr;gap:32px;align-items:start}
+.arc-card:last-child{border-bottom:none}
+.arc-card::after{content:'\2192';position:absolute;right:8px;top:32px;color:var(--ink-4);font-size:18px;opacity:0;transition:all .25s;font-family:var(--serif)}
+.arc-card:hover{background:rgba(255,255,255,.01)}
+.arc-card:hover::after{opacity:1;right:0;color:var(--accent)}
+.arc-card:hover .arc-card-day{color:var(--accent)}
+.arc-card-head{display:flex;flex-direction:column;align-items:flex-start;gap:6px;margin-bottom:0;padding:0;border:none}
+.arc-card-day{font-family:var(--serif);font-size:32px;font-weight:500;color:var(--ink);white-space:nowrap;letter-spacing:-.03em;transition:color .25s;line-height:1}
+.arc-card-date{font-family:var(--mono);font-size:11px;color:var(--ink-4);white-space:nowrap;font-weight:500;letter-spacing:.05em}
+.arc-sections{display:flex;flex-direction:column;gap:12px;min-width:0}
+.arc-sec{padding:0 0 0 14px;background:transparent;border-radius:0;border-left:2px solid var(--line)}
+.arc-sec-t{border-left-color:var(--mist)}
+.arc-sec-d{border-left-color:var(--sage)}
+.arc-sec-a{border-left-color:var(--sky)}
+.arc-sec h5{font-family:var(--mono);font-size:10px;font-weight:600;color:var(--ink-4);letter-spacing:.2em;margin-bottom:6px;text-transform:uppercase}
+.arc-sec ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 18px}
+.arc-sec li{font-size:13.5px;color:var(--ink-2);padding:2px 0;display:flex;align-items:baseline;gap:6px;line-height:1.6;letter-spacing:-.005em}
+.arc-sec li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--ink-5);flex-shrink:0;align-self:center}
+@media(max-width:640px){.arc-card{grid-template-columns:1fr;gap:14px;padding:24px 0}.arc-card-day{font-size:24px}}
 
-/* ===== Check-in Toast ===== */
-.checkin-toast{position:fixed;top:60px;right:20px;z-index:200;background:var(--surface);border:1px solid var(--gold);border-radius:var(--r);padding:18px 22px;box-shadow:var(--sh-glow),var(--sh-lg);animation:slideIn .4s cubic-bezier(.4,0,.2,1);display:none;max-width:300px;backdrop-filter:blur(20px)}
+.checkin-toast{position:fixed;top:80px;right:24px;z-index:200;background:var(--surface);border:1px solid var(--line-2);border-radius:var(--r-lg);padding:20px 24px;box-shadow:var(--sh-3);animation:slideIn .4s cubic-bezier(.4,0,.2,1);display:none;max-width:320px;backdrop-filter:blur(20px)}
 .checkin-toast.show{display:block}
 @keyframes slideIn{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:none}}
-.checkin-toast h4{font-size:15px;color:var(--gold);margin-bottom:6px;display:flex;align-items:center;gap:6px;font-weight:700}
-.checkin-toast p{font-size:13px;color:var(--t2);line-height:1.6}
-.checkin-toast .streak-num{font-family:var(--mono);font-size:22px;font-weight:800;color:var(--gold);font-variant-numeric:tabular-nums}
+.checkin-toast h4{font-family:var(--serif);font-size:17px;color:var(--ink);margin-bottom:8px;font-weight:500;letter-spacing:-.01em}
+.checkin-toast p{font-size:13px;color:var(--ink-3);line-height:1.6}
+.checkin-toast .streak-num{font-family:var(--serif);font-size:24px;font-weight:500;color:var(--accent);font-variant-numeric:tabular-nums}
 
-/* ===== Favorites Panel ===== */
-.fav-panel{position:fixed;top:0;right:-420px;width:400px;height:100vh;background:var(--surface);border-left:1px solid var(--border);z-index:300;transition:.35s cubic-bezier(.4,0,.2,1);padding:24px;overflow-y:auto;box-shadow:var(--sh-lg)}
+.fav-panel{position:fixed;top:0;right:-440px;width:420px;height:100vh;background:var(--surface);border-left:1px solid var(--line);z-index:300;transition:.4s cubic-bezier(.4,0,.2,1);padding:32px 28px;overflow-y:auto;box-shadow:var(--sh-3)}
 .fav-panel.open{right:0}
 .fav-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:250;display:none;backdrop-filter:blur(4px)}
 .fav-overlay.open{display:block;animation:fadeIn .25s}
-.fav-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid var(--border)}
-.fav-header h3{font-size:16px;font-weight:700;display:flex;align-items:center;gap:8px;color:var(--t1)}
-.fav-close{background:transparent;border:1px solid var(--border);color:var(--t3);font-size:14px;cursor:pointer;padding:6px 10px;border-radius:8px;transition:.2s;display:inline-flex;align-items:center;justify-content:center}
-.fav-close:hover{color:var(--t1);border-color:var(--border2)}
-.fav-empty{text-align:center;padding:60px 0;color:var(--t4);font-size:13.5px;line-height:1.8}
-.fav-item{padding:14px 16px;background:var(--bg2);border-radius:var(--r2);margin-bottom:10px;cursor:pointer;transition:.2s;border:1px solid transparent;position:relative}
-.fav-item:hover{border-color:rgba(251,191,36,.3);background:var(--surface-2)}
-.fav-item h4{font-size:14px;font-weight:600;margin-bottom:4px;color:var(--t1);padding-right:24px}
-.fav-item p{font-size:12px;color:var(--t4);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:1.5}
-.fav-item .fav-rm{position:absolute;top:12px;right:12px;background:transparent;border:none;color:var(--t4);cursor:pointer;font-size:14px;padding:2px;line-height:1;border-radius:4px;transition:.2s}
-.fav-item .fav-rm:hover{color:var(--red);background:rgba(248,113,113,.1)}
+.fav-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.fav-header h3{font-family:var(--serif);font-size:22px;font-weight:500;color:var(--ink);letter-spacing:-.02em}
+.fav-close{background:transparent;border:1px solid var(--line);color:var(--ink-3);font-size:14px;cursor:pointer;padding:6px 11px;border-radius:8px;transition:.2s}
+.fav-close:hover{color:var(--ink);border-color:var(--line-2)}
+.fav-empty{text-align:center;padding:80px 0;color:var(--ink-4);font-size:14px;line-height:1.8;font-family:var(--serif);font-style:italic}
+.fav-item{padding:16px 18px;background:var(--bg-soft);border-radius:var(--r);margin-bottom:10px;cursor:pointer;transition:.2s;border:1px solid transparent;position:relative}
+.fav-item:hover{border-color:var(--line);background:var(--surface-2)}
+.fav-item h4{font-family:var(--serif);font-size:15px;font-weight:500;margin-bottom:4px;color:var(--ink);padding-right:24px;letter-spacing:-.01em;line-height:1.4}
+.fav-item p{font-size:12.5px;color:var(--ink-4);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:1.5}
+.fav-item .fav-rm{position:absolute;top:14px;right:14px;background:transparent;border:none;color:var(--ink-4);cursor:pointer;font-size:14px;padding:2px;line-height:1;border-radius:4px;transition:.2s}
+.fav-item .fav-rm:hover{color:#e07b6e;background:rgba(224,123,110,.1)}
 
-/* ===== Reading helpers ===== */
-.reading-time{font-size:11px;color:var(--t4);font-family:var(--mono);font-weight:600;letter-spacing:.05em}
+footer{padding:60px 0 40px!important;border-top:1px solid var(--line);margin-top:40px;color:var(--ink-4);font-size:13px;text-align:center;font-family:var(--serif);font-style:italic;letter-spacing:-.005em}
+footer p{margin-bottom:6px}
 
-/* Section description */
-.sec-desc{padding:14px 0 6px;font-size:14px;color:var(--t3);line-height:1.7;max-width:680px}
-
-/* ===== Responsive ===== */
 @media(max-width:768px){
-.grid2{grid-template-columns:1fr}
-.stats{grid-template-columns:repeat(4,1fr);gap:0;padding:20px 0}
-.st-n{font-size:24px}
-.st-l{font-size:10px}
-.wrap{padding:0 16px;overflow-x:hidden}
-.fav-panel{width:100%}
-.arc-card{padding:16px}
-.arc-sec{padding:8px 12px}
-.arc-sec ul{gap:2px 12px}
-.nav{flex-wrap:nowrap}
-.card{padding:20px 18px}
-.card h3{font-size:16px}
-.quote{padding:14px 16px}
-.tip{padding:14px 16px}
-.day-num{font-size:28px}
-.day-summary{text-align:left;font-size:11.5px;width:100%}
-.day-header{flex-direction:column;align-items:flex-start;gap:8px}
-.day-scroll-fade.left{left:60px}
-.brand{font-size:16px}
+.brand{font-size:18px}
 .brand em{display:none}
 .top-btn{padding:6px 11px;font-size:12px}
-.tl-item h4{font-size:14.5px}
+.stats{padding:32px 0 24px}
+.card{padding:28px 24px}
+.card h3{font-size:21px}
+.quote{font-size:16.5px;padding-left:20px}
+.tl-item h4{font-size:18px}
 }
 @media(max-width:480px){
-.nav a{padding:7px 12px;font-size:12.5px}
-.topbar-inner{flex-wrap:wrap;gap:8px}
-.arc-card{padding:14px 12px}
-.arc-card-head{flex-direction:column;align-items:flex-start;gap:4px}
-.arc-sec ul{flex-direction:column;gap:2px}
-.card{padding:18px 14px}
-.card h3{font-size:15.5px}
-.stats{padding:16px 0}
-.st-n{font-size:22px}
-.day-num{font-size:24px}
+.wrap{padding:0 16px}
+.card{padding:24px 18px}
+.card h3{font-size:19px}
+.day-num{font-size:36px}
+.day-summary{font-size:14.5px}
+.checkin-toast{right:16px;left:16px;max-width:none}
+.fav-panel{width:100%}
 }
 </style>
 </head>
@@ -259,7 +242,7 @@ body{font-family:var(--font);background:var(--bg);background-image:var(--bg-grad
 
 <!-- Top Bar -->
 <div class="topbar"><div class="wrap topbar-inner">
-<div class="brand"><i data-lucide="hammer" style="width:20px;height:20px;color:var(--gold)"></i> 每日锻造 <em>DAILY FORGE</em></div>
+<div class="brand"><span class="brand-mark"><i data-lucide="hammer"></i></span> 每日锻造 <em>Daily Forge</em></div>
 <div class="top-actions">
 <span class="top-btn view-count" title="上次阅读"><i data-lucide="bookmark" style="width:14px;height:14px"></i> <span id="readBadge">Day 028</span></span>
 <span class="top-btn view-count" title="总浏览次数"><i data-lucide="eye" style="width:14px;height:14px"></i> <span id="viewCount">0</span></span>
@@ -349,10 +332,7 @@ body{font-family:var(--font);background:var(--bg);background-image:var(--bg-grad
 
 <!-- ========== Day 028 ========== -->
 <div class="day-group" data-day="28">
-<div style="padding:14px 0 8px;display:flex;align-items:center;justify-content:space-between">
-<div><span style="font-weight:700;font-size:17px">Day 028</span> <span style="color:var(--t3);font-size:13px;margin-left:8px">2026-05-15</span></div>
-<div style="font-size:12px;color:var(--t4)">遍历性问题 x 激励超级力量 x 涌现 | 风险感知仪表盘 x 激励可视化系统 x 涌现式关卡设计</div>
-</div>
+<div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 028</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-05-15</span></div><h1 class="day-num">Day <em>028</em></h1><div class="day-summary">遍历性问题 x 激励超级力量 x 涌现 | 风险感知仪表盘 x 激励可视化系统 x 涌现式关卡设计</div></div>
 
 <!-- Think cards -->
 <div class="today-think">
@@ -460,10 +440,7 @@ body{font-family:var(--font);background:var(--bg);background-image:var(--bg-grad
 
 <!-- ========== Day 027 ========== -->
 <div class="day-group" data-day="27" style="display:none">
-<div style="padding:14px 0 8px;display:flex;align-items:center;justify-content:space-between">
-<div><span style="font-weight:700;font-size:17px">Day 027</span> <span style="color:var(--t3);font-size:13px;margin-left:8px">2026-05-07</span></div>
-<div style="font-size:12px;color:var(--t4)">🧠 认知负荷理论 x 💾 工作记忆模型 x 🧩 分块编码 | 📊 信息密度优化 x 📁 折叠展开设计</div>
-</div>
+<div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 027</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-05-07</span></div><h1 class="day-num">Day <em>027</em></h1><div class="day-summary">🧠 认知负荷理论 x 💾 工作记忆模型 x 🧩 分块编码 | 📊 信息密度优化 x 📁 折叠展开设计</div></div>
 
 <div class="today-think">
 <div class="card" data-fav-id="d27-cognitive-load-theor" data-fav-title="🧠 认知负荷理论 · Cognitive Load Theory">
@@ -509,10 +486,7 @@ body{font-family:var(--font);background:var(--bg);background-image:var(--bg-grad
 
 <!-- ========== Day 026 ========== -->
 <div class="day-group" data-day="26" style="display:none">
-<div style="padding:14px 0 8px;display:flex;align-items:center;justify-content:space-between">
-<div><span style="font-weight:700;font-size:17px">Day 026</span> <span style="color:var(--t3);font-size:13px;margin-left:8px">2026-05-06</span></div>
-<div style="font-size:12px;color:var(--t4)">🧪 多巴胺系统 x ⚡ 奖赏预测误差 x 🔁 习惯回路 | ✨ 奖励动效设计 x 🏅 成就系统UI</div>
-</div>
+<div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 026</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-05-06</span></div><h1 class="day-num">Day <em>026</em></h1><div class="day-summary">🧪 多巴胺系统 x ⚡ 奖赏预测误差 x 🔁 习惯回路 | ✨ 奖励动效设计 x 🏅 成就系统UI</div></div>
 
 <div class="today-think">
 <div class="card" data-fav-id="d26-dopamine-system" data-fav-title="🧪 多巴胺系统 · Dopamine System">
@@ -558,10 +532,7 @@ body{font-family:var(--font);background:var(--bg);background-image:var(--bg-grad
 
 <!-- ========== Day 025 ========== -->
 <div class="day-group" data-day="25" style="display:none">
-<div style="padding:14px 0 8px;display:flex;align-items:center;justify-content:space-between">
-<div><span style="font-weight:700;font-size:17px">Day 025</span> <span style="color:var(--t3);font-size:13px;margin-left:8px">2026-05-05</span></div>
-<div style="font-size:12px;color:var(--t4)">⏰ 时间贴现 x 📉 双曲贴现 x 🍬 即时满足 | ⏳ 限时活动UI x ⏱️ 倒计时设计</div>
-</div>
+<div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 025</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-05-05</span></div><h1 class="day-num">Day <em>025</em></h1><div class="day-summary">⏰ 时间贴现 x 📉 双曲贴现 x 🍬 即时满足 | ⏳ 限时活动UI x ⏱️ 倒计时设计</div></div>
 
 <div class="today-think">
 <div class="card" data-fav-id="d25-time-discounting" data-fav-title="⏰ 时间贴现 · Time Discounting">
@@ -607,10 +578,7 @@ body{font-family:var(--font);background:var(--bg);background-image:var(--bg-grad
 
 <!-- ========== Day 024 ========== -->
 <div class="day-group" data-day="24" style="display:none">
-<div style="padding:14px 0 8px;display:flex;align-items:center;justify-content:space-between">
-<div><span style="font-weight:700;font-size:17px">Day 024</span> <span style="color:var(--t3);font-size:13px;margin-left:8px">2026-05-04</span></div>
-<div style="font-size:12px;color:var(--t4)">🕸️ 复杂适应系统 x 🐜 蚁群算法 x ⚡ 自组织 | 🔀 自适应布局 x 🤖 AI辅助排版</div>
-</div>
+<div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 024</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-05-04</span></div><h1 class="day-num">Day <em>024</em></h1><div class="day-summary">🕸️ 复杂适应系统 x 🐜 蚁群算法 x ⚡ 自组织 | 🔀 自适应布局 x 🤖 AI辅助排版</div></div>
 
 <div class="today-think">
 <div class="card" data-fav-id="d24-complex-adaptive-sys" data-fav-title="🕸️ 复杂适应系统 · Complex Adaptive Systems">
@@ -656,10 +624,7 @@ body{font-family:var(--font);background:var(--bg);background-image:var(--bg-grad
 
 <!-- ========== Day 023 ========== -->
 <div class="day-group" data-day="23" style="display:none">
-<div style="padding:14px 0 8px;display:flex;align-items:center;justify-content:space-between">
-<div><span style="font-weight:700;font-size:17px">Day 023</span> <span style="color:var(--t3);font-size:13px;margin-left:8px">2026-05-03</span></div>
-<div style="font-size:12px;color:var(--t4)">📦 黑匣子思维 x 📝 失败学习 x 📈 边际收益 | 🔙 错误恢复UI x 📂 版本历史设计</div>
-</div>
+<div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 023</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-05-03</span></div><h1 class="day-num">Day <em>023</em></h1><div class="day-summary">📦 黑匣子思维 x 📝 失败学习 x 📈 边际收益 | 🔙 错误恢复UI x 📂 版本历史设计</div></div>
 
 <div class="today-think">
 <div class="card" data-fav-id="d23-black-box-thinking" data-fav-title="📦 黑匣子思维 · Black Box Thinking">
@@ -705,10 +670,7 @@ body{font-family:var(--font);background:var(--bg);background-image:var(--bg-grad
 
 <!-- ========== Day 022 ========== -->
 <div class="day-group" data-day="22" style="display:none">
-<div style="padding:14px 0 8px;display:flex;align-items:center;justify-content:space-between">
-<div><span style="font-weight:700;font-size:17px">Day 022</span> <span style="color:var(--t3);font-size:13px;margin-left:8px">2026-05-02</span></div>
-<div style="font-size:12px;color:var(--t4)">👁️ 注意力经济 x 💎 稀缺性 x 🌀 选择过载 | 🎯 注意力引导设计 x 🔦 焦点管理</div>
-</div>
+<div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 022</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-05-02</span></div><h1 class="day-num">Day <em>022</em></h1><div class="day-summary">👁️ 注意力经济 x 💎 稀缺性 x 🌀 选择过载 | 🎯 注意力引导设计 x 🔦 焦点管理</div></div>
 
 <div class="today-think">
 <div class="card" data-fav-id="d22-attention-economy" data-fav-title="👁️ 注意力经济 · Attention Economy">
@@ -754,10 +716,7 @@ body{font-family:var(--font);background:var(--bg);background-image:var(--bg-grad
 
 <!-- ========== Day 021 ========== -->
 <div class="day-group" data-day="21" style="display:none">
-<div style="padding:14px 0 8px;display:flex;align-items:center;justify-content:space-between">
-<div><span style="font-weight:700;font-size:17px">Day 021</span> <span style="color:var(--t3);font-size:13px;margin-left:8px">2026-05-01</span></div>
-<div style="font-size:12px;color:var(--t4)">🔄 反身性 x 💹 索罗斯模型 x 📖 市场叙事 | 📈 实时数据UI x 💰 行情展示设计</div>
-</div>
+<div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 021</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-05-01</span></div><h1 class="day-num">Day <em>021</em></h1><div class="day-summary">🔄 反身性 x 💹 索罗斯模型 x 📖 市场叙事 | 📈 实时数据UI x 💰 行情展示设计</div></div>
 
 <div class="today-think">
 <div class="card" data-fav-id="d21-reflexivity" data-fav-title="🔄 反身性 · Reflexivity">
@@ -803,10 +762,7 @@ body{font-family:var(--font);background:var(--bg);background-image:var(--bg-grad
 
 <!-- ========== Day 020 ========== -->
 <div class="day-group" data-day="20" style="display:none">
-<div style="padding:14px 0 8px;display:flex;align-items:center;justify-content:space-between">
-<div><span style="font-weight:700;font-size:17px">Day 020</span> <span style="color:var(--t3);font-size:13px;margin-left:8px">2026-04-30</span></div>
-<div style="font-size:12px;color:var(--t4)">🌍 比较优势 x 🏭 专业化分工 x 💸 交易成本 | 🧩 模块化组件设计 x 📐 设计系统治理</div>
-</div>
+<div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 020</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-04-30</span></div><h1 class="day-num">Day <em>020</em></h1><div class="day-summary">🌍 比较优势 x 🏭 专业化分工 x 💸 交易成本 | 🧩 模块化组件设计 x 📐 设计系统治理</div></div>
 
 <div class="today-think">
 <div class="card" data-fav-id="d20-comparative-advantag" data-fav-title="🌍 比较优势 · Comparative Advantage">
@@ -852,10 +808,7 @@ body{font-family:var(--font);background:var(--bg);background-image:var(--bg-grad
 
 <!-- ========== Day 019 ========== -->
 <div class="day-group" data-day="19" style="display:none">
-<div style="padding:14px 0 8px;display:flex;align-items:center;justify-content:space-between">
-<div><span style="font-weight:700;font-size:17px">Day 019</span> <span style="color:var(--t3);font-size:13px;margin-left:8px">2026-04-29</span></div>
-<div style="font-size:12px;color:var(--t4)">🧠 认知失调 x 🤝 承诺一致性 x 🪞 自我合理化 | 🎓 用户引导与教程 x ✨ 首次体验设计</div>
-</div>
+<div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 019</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-04-29</span></div><h1 class="day-num">Day <em>019</em></h1><div class="day-summary">🧠 认知失调 x 🤝 承诺一致性 x 🪞 自我合理化 | 🎓 用户引导与教程 x ✨ 首次体验设计</div></div>
 
 <div class="today-think">
 <div class="card" data-fav-id="d19-cognitive-dissonance" data-fav-title="🧠 认知失调 · Cognitive Dissonance">
@@ -901,10 +854,7 @@ body{font-family:var(--font);background:var(--bg);background-image:var(--bg-grad
 
 <!-- ========== Day 018 ========== -->
 <div class="day-group" data-day="18" style="display:none">
-<div style="padding:14px 0 8px;display:flex;align-items:center;justify-content:space-between">
-<div><span style="font-weight:700;font-size:17px">Day 018</span> <span style="color:var(--t3);font-size:13px;margin-left:8px">2026-04-28</span></div>
-<div style="font-size:12px;color:var(--t4)">📏 规模效应 x 🦕 异速增长 x 📐 幂律分布 | 📱 响应式UI缩放 x 🖥️ 多端适配设计</div>
-</div>
+<div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 018</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-04-28</span></div><h1 class="day-num">Day <em>018</em></h1><div class="day-summary">📏 规模效应 x 🦕 异速增长 x 📐 幂律分布 | 📱 响应式UI缩放 x 🖥️ 多端适配设计</div></div>
 
 <div class="today-think">
 <div class="card" data-fav-id="d18-scale-effects" data-fav-title="📏 规模效应 · Scale Effects">
@@ -950,10 +900,7 @@ body{font-family:var(--font);background:var(--bg);background-image:var(--bg-grad
 
 <!-- ========== Day 017 ========== -->
 <div class="day-group" data-day="17" style="display:none">
-<div style="padding:14px 0 8px;display:flex;align-items:center;justify-content:space-between">
-<div><span style="font-weight:700;font-size:17px">Day 017</span> <span style="color:var(--t3);font-size:13px;margin-left:8px">2026-04-27</span></div>
-<div style="font-size:12px;color:var(--t4)">📊 贝叶斯推理 x 🎲 先验概率 x 🔄 证据更新 | 🔎 搜索与推荐UI x 🎨 个性化界面</div>
-</div>
+<div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 017</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-04-27</span></div><h1 class="day-num">Day <em>017</em></h1><div class="day-summary">📊 贝叶斯推理 x 🎲 先验概率 x 🔄 证据更新 | 🔎 搜索与推荐UI x 🎨 个性化界面</div></div>
 
 <div class="today-think">
 <div class="card" data-fav-id="d17-bayesian-reasoning" data-fav-title="📊 贝叶斯推理 · Bayesian Reasoning">
@@ -999,10 +946,7 @@ body{font-family:var(--font);background:var(--bg);background-image:var(--bg-grad
 
 <!-- ========== Day 016 ========== -->
 <div class="day-group" data-day="16" style="display:none">
-<div style="padding:14px 0 8px;display:flex;align-items:center;justify-content:space-between">
-<div><span style="font-weight:700;font-size:17px">Day 016</span> <span style="color:var(--t3);font-size:13px;margin-left:8px">2026-04-26</span></div>
-<div style="font-size:12px;color:var(--t4)">💥 临界点 x 🧊 相变 x 🌊 网络传播动力学 | 🦠 病毒传播UI x 🔗 社交分享触发</div>
-</div>
+<div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 016</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-04-26</span></div><h1 class="day-num">Day <em>016</em></h1><div class="day-summary">💥 临界点 x 🧊 相变 x 🌊 网络传播动力学 | 🦠 病毒传播UI x 🔗 社交分享触发</div></div>
 
 <div class="today-think">
 <div class="card" data-fav-id="d16-tipping-point" data-fav-title="💥 临界点 · Tipping Point">
@@ -1048,10 +992,7 @@ body{font-family:var(--font);background:var(--bg);background-image:var(--bg-grad
 
 <!-- ========== Day 015 ========== -->
 <div class="day-group" data-day="15" style="display:none">
-<div style="padding:14px 0 8px;display:flex;align-items:center;justify-content:space-between">
-<div><span style="font-weight:700;font-size:17px">Day 015</span> <span style="color:var(--t3);font-size:13px;margin-left:8px">2026-04-25</span></div>
-<div style="font-size:12px;color:var(--t4)">🔑 信息不对称 x 🍋 柠檬市场 x 📡 信号理论 | ✅ 信任标记设计 x ⭐ 评价系统UI</div>
-</div>
+<div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 015</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-04-25</span></div><h1 class="day-num">Day <em>015</em></h1><div class="day-summary">🔑 信息不对称 x 🍋 柠檬市场 x 📡 信号理论 | ✅ 信任标记设计 x ⭐ 评价系统UI</div></div>
 
 <div class="today-think">
 <div class="card" data-fav-id="d15-information-asymmetr" data-fav-title="🔑 信息不对称 · Information Asymmetry">
@@ -1097,10 +1038,7 @@ body{font-family:var(--font);background:var(--bg);background-image:var(--bg-grad
 
 <!-- ========== Day 014 ========== -->
 <div class="day-group" data-day="14" style="display:none">
-<div style="padding:14px 0 8px;display:flex;align-items:center;justify-content:space-between">
-<div><span style="font-weight:700;font-size:17px">Day 014</span> <span style="color:var(--t3);font-size:13px;margin-left:8px">2026-04-24</span></div>
-<div style="font-size:12px;color:var(--t4)">👑 红皇后效应 x 🏔️ 适应性景观 x 🧬 进化稳定策略 | 🏅 竞争排行榜设计 x 🏆 赛季系统UI</div>
-</div>
+<div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 014</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-04-24</span></div><h1 class="day-num">Day <em>014</em></h1><div class="day-summary">👑 红皇后效应 x 🏔️ 适应性景观 x 🧬 进化稳定策略 | 🏅 竞争排行榜设计 x 🏆 赛季系统UI</div></div>
 
 <div class="today-think">
 <div class="card" data-fav-id="d14-red-queen-effect" data-fav-title="👑 红皇后效应 · Red Queen Effect">
@@ -1146,10 +1084,7 @@ body{font-family:var(--font);background:var(--bg);background-image:var(--bg-grad
 
 <!-- ========== Day 013 ========== -->
 <div class="day-group" data-day="13" style="display:none">
-<div style="padding:14px 0 8px;display:flex;align-items:center;justify-content:space-between">
-<div><span style="font-weight:700;font-size:17px">Day 013</span> <span style="color:var(--t3);font-size:13px;margin-left:8px">2026-04-23</span></div>
-<div style="font-size:12px;color:var(--t4)">💰 心理账户 x 🏆 禀赋效应 x 🖼️ 框架效应 | 💎 游戏经济UI x 🪙 货币显示设计</div>
-</div>
+<div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 013</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-04-23</span></div><h1 class="day-num">Day <em>013</em></h1><div class="day-summary">💰 心理账户 x 🏆 禀赋效应 x 🖼️ 框架效应 | 💎 游戏经济UI x 🪙 货币显示设计</div></div>
 
 <div class="today-think">
 <div class="card" data-fav-id="d13-mental-accounting" data-fav-title="💰 心理账户 · Mental Accounting">
@@ -1195,10 +1130,7 @@ body{font-family:var(--font);background:var(--bg);background-image:var(--bg-grad
 
 <!-- ========== Day 012 ========== -->
 <div class="day-group" data-day="12" style="display:none">
-<div style="padding:14px 0 8px;display:flex;align-items:center;justify-content:space-between">
-<div><span style="font-weight:700;font-size:17px">Day 012</span> <span style="color:var(--t3);font-size:13px;margin-left:8px">2026-04-22</span></div>
-<div style="font-size:12px;color:var(--t4)">🌐 系统思维 x 🎯 杠杆点 x ⏳ 延迟效应 | 📡 系统状态可视化 x ⏱️ 进度反馈设计</div>
-</div>
+<div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 012</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-04-22</span></div><h1 class="day-num">Day <em>012</em></h1><div class="day-summary">🌐 系统思维 x 🎯 杠杆点 x ⏳ 延迟效应 | 📡 系统状态可视化 x ⏱️ 进度反馈设计</div></div>
 
 <div class="today-think">
 <div class="card" data-fav-id="d12-systems-thinking" data-fav-title="🌐 系统思维 · Systems Thinking">
@@ -1244,10 +1176,7 @@ body{font-family:var(--font);background:var(--bg);background-image:var(--bg-grad
 
 <!-- ========== Day 011 ========== -->
 <div class="day-group" data-day="11" style="display:none">
-<div style="padding:14px 0 8px;display:flex;align-items:center;justify-content:space-between">
-<div><span style="font-weight:700;font-size:17px">Day 011</span> <span style="color:var(--t3);font-size:13px;margin-left:8px">2026-04-21</span></div>
-<div style="font-size:12px;color:var(--t4)">♟️ 博弈论 x ⚖️ 纳什均衡 x 🔒 囚徒困境 | 💬 社交互动UI x 🎮 多人游戏HUD</div>
-</div>
+<div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 011</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-04-21</span></div><h1 class="day-num">Day <em>011</em></h1><div class="day-summary">♟️ 博弈论 x ⚖️ 纳什均衡 x 🔒 囚徒困境 | 💬 社交互动UI x 🎮 多人游戏HUD</div></div>
 
 <div class="today-think">
 <div class="card" data-fav-id="d11-game-theory" data-fav-title="♟️ 博弈论 · Game Theory">
@@ -1293,10 +1222,7 @@ body{font-family:var(--font);background:var(--bg);background-image:var(--bg-grad
 
 <!-- ========== Day 010 ========== -->
 <div class="day-group" data-day="10" style="display:none">
-<div style="padding:14px 0 8px;display:flex;align-items:center;justify-content:space-between">
-<div><span style="font-weight:700;font-size:17px">Day 010</span> <span style="color:var(--t3);font-size:13px;margin-left:8px">2026-04-20</span></div>
-<div style="font-size:12px;color:var(--t4)">👻 幸存者偏差 x ✂️ 奥卡姆剃刀 x 🛤️ 路径依赖 | 📊 数据可视化层级 x 🖥️ 仪表盘设计</div>
-</div>
+<div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 010</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-04-20</span></div><h1 class="day-num">Day <em>010</em></h1><div class="day-summary">👻 幸存者偏差 x ✂️ 奥卡姆剃刀 x 🛤️ 路径依赖 | 📊 数据可视化层级 x 🖥️ 仪表盘设计</div></div>
 
 <div class="today-think">
 <div class="card" data-fav-id="d10-survivorship-bias" data-fav-title="👻 幸存者偏差 · Survivorship Bias">
@@ -1342,10 +1268,7 @@ body{font-family:var(--font);background:var(--bg);background-image:var(--bg-grad
 
 <!-- ========== Day 009 ========== -->
 <div class="day-group" data-day="9" style="display:none">
-<div style="padding:14px 0 8px;display:flex;align-items:center;justify-content:space-between">
-<div><span style="font-weight:700;font-size:17px">Day 009</span> <span style="color:var(--t3);font-size:13px;margin-left:8px">2026-04-19</span></div>
-<div style="font-size:12px;color:var(--t4)">🔍 确认偏差 x 📈 均值回归 x 🔄 反馈循环 | 📝 表单验证设计 x 💬 输入反馈模式</div>
-</div>
+<div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 009</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-04-19</span></div><h1 class="day-num">Day <em>009</em></h1><div class="day-summary">🔍 确认偏差 x 📈 均值回归 x 🔄 反馈循环 | 📝 表单验证设计 x 💬 输入反馈模式</div></div>
 
 <div class="today-think">
 <div class="card" data-fav-id="d9-confirmation-bias" data-fav-title="🔍 确认偏差 · Confirmation Bias">
@@ -1391,10 +1314,7 @@ body{font-family:var(--font);background:var(--bg);background-image:var(--bg-grad
 
 <!-- ========== Day 008 ========== -->
 <div class="day-group" data-day="8" style="display:none">
-<div style="padding:14px 0 8px;display:flex;align-items:center;justify-content:space-between">
-<div><span style="font-weight:700;font-size:17px">Day 008</span> <span style="color:var(--t3);font-size:13px;margin-left:8px">2026-04-18</span></div>
-<div style="font-size:12px;color:var(--t4)">概率思维 × 沉没成本 × 网络效应 | 叙事化UI × 自适应界面 × 触觉设计</div>
-</div>
+<div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 008</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-04-18</span></div><h1 class="day-num">Day <em>008</em></h1><div class="day-summary">概率思维 × 沉没成本 × 网络效应 | 叙事化UI × 自适应界面 × 触觉设计</div></div>
 
 <!-- Think cards -->
 <div class="today-think">
@@ -1515,10 +1435,7 @@ body{font-family:var(--font);background:var(--bg);background-image:var(--bg-grad
 
 <!-- ========== Day 007 ========== -->
 <div class="day-group" data-day="7" style="display:none">
-<div style="padding:14px 0 8px;display:flex;align-items:center;justify-content:space-between">
-<div><span style="font-weight:700;font-size:17px">Day 007</span> <span style="color:var(--t3);font-size:13px;margin-left:8px">2026-04-17</span></div>
-<div style="font-size:12px;color:var(--t4)">锚定效应 × 第二序思维 × 杠铃策略 | Agentic UX × 动效即材质 × 生成式UI</div>
-</div>
+<div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 007</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-04-17</span></div><h1 class="day-num">Day <em>007</em></h1><div class="day-summary">锚定效应 × 第二序思维 × 杠铃策略 | Agentic UX × 动效即材质 × 生成式UI</div></div>
 
 <!-- Think cards -->
 <div class="today-think">
@@ -1639,10 +1556,7 @@ body{font-family:var(--font);background:var(--bg);background-image:var(--bg-grad
 
 <!-- ========== Day 006 ========== -->
 <div class="day-group" data-day="6" style="display:none">
-<div style="padding:14px 0 8px;display:flex;align-items:center;justify-content:space-between">
-<div><span style="font-weight:700;font-size:17px">Day 006</span> <span style="color:var(--t3);font-size:13px;margin-left:8px">2026-04-16</span></div>
-<div style="font-size:12px;color:var(--t4)">双轨过程理论 × 熵增定律 × 飞轮效应 | 菲茨定律 × 微交互状态机</div>
-</div>
+<div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 006</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-04-16</span></div><h1 class="day-num">Day <em>006</em></h1><div class="day-summary">双轨过程理论 × 熵增定律 × 飞轮效应 | 菲茨定律 × 微交互状态机</div></div>
 <div class="today-think">
 <div class="card"><div class="card-head"><h3>⚡ 双轨过程理论 · System 1 & System 2</h3><span class="tag tag-t">思维模型</span></div><p>卡尼曼在《思考，快与慢》中的核心框架：<strong>System 1（快思考）</strong>——自动、直觉、无意识，处理95%的日常决策；<strong>System 2（慢思考）</strong>——刻意、分析、消耗精力。大多数"理性决策"其实是S1在做主，S2只是事后合理化。</p><ul><li><strong>核心启示：</strong>人类不是"偶尔不理性的理性动物"，而是"偶尔理性的不理性动物"。所有设计都应该先满足S1（直觉可用），再考虑S2（分析可用）</li><li><strong>S1的特性：</strong>① 极快（<200ms做出判断）② 不费力 ③ 无法关闭 ④ 容易被情绪/锚定/框架效应劫持 ⑤ 基于模式匹配而非逻辑推导</li><li><strong>S2的特性：</strong>① 慢（需要数秒到数分钟）② 极其消耗精力 ③ 懒惰（能不启动就不启动）④ 容量有限（同一时间只能处理一个复杂问题）</li></ul><div class="tip"><b>🎮 设计启发：</b>游戏UI必须让S1就能操作——按钮的颜色/大小/位置要符合直觉预期（绿=确认、红=危险、大=重要）。需要S2参与的复杂决策（装备对比/天赋加点）必须提供充分的信息辅助，因为S2很懒——稍有困难它就放弃让S1瞎选。</div></div>
 <div class="card"><div class="card-head"><h3>🌡️ 熵增定律与耗散结构</h3><span class="tag tag-t">思维模型</span></div><p><strong>热力学第二定律告诉你一个残酷的事实：封闭系统必然走向混乱</strong>。房间不收拾会越来越乱，代码不重构会越来越烂，关系不维护会越来越淡。但普里戈金的耗散结构理论给出了希望：<strong>开放系统+远离平衡态+与外界交换能量=可以涌现出新的秩序</strong>。</p><ul><li><strong>对个人的启示：</strong>① 不主动学习=认知熵增=思维僵化 ② 只在一个圈子=封闭系统=必然退化 ③ 主动引入新信息/新关系/新挑战=开放系统=有机会涌现新秩序</li><li><strong>芒格的实践：</strong>每年深入一个新学科=持续对抗认知熵增。他90岁时的思维活力超过大多数30岁的人——因为他60年如一日地保持"开放系统"</li></ul><div class="tip"><b>🎮 设计启发：</b>设计系统不维护=熵增→不一致性累积→最终崩溃。每个季度做一次"设计系统熵检"：① 有多少组件偏离了Token规范？② 有多少"临时方案"变成了永久方案？③ 新加的组件有没有遵循命名规范？熵检不是可选的，是对抗必然混乱的唯一手段。</div></div>
@@ -1652,10 +1566,7 @@ body{font-family:var(--font);background:var(--bg);background-image:var(--bg-grad
 
 <!-- ========== Day 005 ========== -->
 <div class="day-group" data-day="5" style="display:none">
-<div style="padding:14px 0 8px;display:flex;align-items:center;justify-content:space-between">
-<div><span style="font-weight:700;font-size:17px">Day 005</span> <span style="color:var(--t3);font-size:13px;margin-left:8px">2026-04-15</span></div>
-<div style="font-size:12px;color:var(--t4)">非对称风险 × 帕累托法则 × 极度透明 | 可供性设计 × 视觉层级 × 渐进引导</div>
-</div>
+<div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 005</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-04-15</span></div><h1 class="day-num">Day <em>005</em></h1><div class="day-summary">非对称风险 × 帕累托法则 × 极度透明 | 可供性设计 × 视觉层级 × 渐进引导</div></div>
 <div class="today-think">
 <div class="card"><div class="card-head"><h3>⚖️ 非对称风险 · Skin in the Game</h3><span class="tag tag-t">思维模型</span></div><p>塔勒布在《非对称风险》中的核心论点：<strong>决策者必须承担自己决策的后果</strong>。当顾问可以给出建议但不承担失败后果时，他们的建议不可信——因为激励不对称。</p><ul><li><strong>核心原则：</strong>不要听那些没有"Skin in the Game"的人的建议。投资顾问自己买不买他推荐的股票？设计咨询师自己用不用他推荐的方案？</li><li><strong>构建正向非对称：</strong>让自己处于"下行有限、上行无限"的位置=杠铃策略的另一种表述</li></ul><div class="tip"><b>🎮 设计启发：</b>设计师应该"用自己的设计"——不是画完交给开发就走人，而是自己作为用户去体验。有Skin in the Game的设计师做出的设计质量远高于没有的。</div></div>
 <div class="card"><div class="card-head"><h3>📊 帕累托法则 · The 80/20 Principle</h3><span class="tag tag-t">思维模型</span></div><p>理查德·科赫将帕累托的发现推到极致：不只是80/20，而是<strong>可以层层递进——20%的20%产生80%的80%，即4%的努力产生64%的结果</strong>。找到那4%就是杠杆支点。</p><ul><li><strong>实操方法：</strong>列出你所有工作任务→按"产出/投入"比排序→Top 20%是你的杠杆区→Bottom 20%考虑削减/委托/自动化</li><li><strong>在UI设计中：</strong>20%的界面承载80%的用户操作——找到那20%，把设计精力集中在那里</li></ul><div class="tip"><b>🎮 设计启发：</b>用数据找到你游戏中"被使用最多的20%界面"——主HUD、背包、商城。这20%值得投入80%的设计精力。剩下80%的低频界面用设计系统标准组件快速搭建。</div></div>
@@ -1665,10 +1576,7 @@ body{font-family:var(--font);background:var(--bg);background-image:var(--bg-grad
 
 <!-- ========== Day 004 ========== -->
 <div class="day-group" data-day="4" style="display:none">
-<div style="padding:14px 0 8px;display:flex;align-items:center;justify-content:space-between">
-<div><span style="font-weight:700;font-size:17px">Day 004</span> <span style="color:var(--t3);font-size:13px;margin-left:8px">2026-04-14</span></div>
-<div style="font-size:12px;color:var(--t4)">林迪效应 × 地图非疆域 × 决策日志法 | 格式塔分组 × 情感化微状态 × 上下文感知菜单</div>
-</div>
+<div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 004</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-04-14</span></div><h1 class="day-num">Day <em>004</em></h1><div class="day-summary">林迪效应 × 地图非疆域 × 决策日志法 | 格式塔分组 × 情感化微状态 × 上下文感知菜单</div></div>
 <div class="today-think">
 <div class="card"><div class="card-head"><h3>⏳ 林迪效应 · The Lindy Effect</h3><span class="tag tag-t">思维模型</span></div><p>塔勒布在《反脆弱》中系统化的概念：<strong>非易腐事物的预期剩余寿命与其已存活时间成正比</strong>。存活100年的书预计再活100年。上周刚火的框架大概率活不过明年。技术选型优先选"老而活"的。</p><ul><li><strong>林迪兼容策略：</strong>技术年龄>10年=绿灯（PostgreSQL > 新DB）；学习投资给经典知识（设计原理 > 框架API）；副业选"需求已存在10年+"的品类</li><li><strong>反林迪注意：</strong>别用在会自然衰老的事物上——身体、硬件、客户关系需要主动维护</li></ul><div class="tip"><b>🎮 设计启发：</b>血条、小地图、快捷栏——从90年代存活至今的UI范式就是"林迪赢家"。创新不等于推翻经典，而是在经典框架上微创新。</div></div>
 <div class="card"><div class="card-head"><h3>🗺️ 地图非疆域 · The Map Is Not the Territory</h3><span class="tag tag-t">思维模型</span></div><p>你对现实的认知（地图）永远不等于现实本身（疆域）。你的用户画像不是真实用户，你的流程图不是真实流程。<strong>地图越精致，越容易让人忘记它只是近似</strong>。</p><ul><li><strong>三种地图陷阱：</strong>数据陷阱（DAU增长≠满意度）、原型陷阱（Figma顺畅≠真实用户能找到入口）、竞品陷阱（竞品做法≠正确做法）</li><li><strong>校准方法：</strong>定期拉3个非团队成员做5分钟游击测试，30分钟发现地图与疆域的偏差</li></ul><div class="tip"><b>🎮 设计启发：</b>交互流程图是"地图"，玩家实际操作路径是"疆域"。用热力图工具录制100个新玩家的前5分钟操作，标注设计意图路径与实际路径的分叉点——分叉点=设计失败。</div></div>
@@ -1678,7 +1586,7 @@ body{font-family:var(--font);background:var(--bg);background-image:var(--bg-grad
 
 <!-- ========== Day 003 ========== -->
 <div class="day-group" data-day="3" style="display:none">
-<div style="padding:14px 0 8px"><span style="font-weight:700;font-size:17px">Day 003</span> <span style="color:var(--t3);font-size:13px;margin-left:8px">2026-04-13</span></div>
+<div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 003</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-04-13</span></div><h1 class="day-num">Day <em>003</em></h1></div>
 <div class="today-think">
 <div class="card"><div class="card-head"><h3>🛡️ 安全边际 · Margin of Safety</h3><span class="tag tag-t">思维模型</span></div><p>格雷厄姆/芒格的核心投资原则：<strong>任何事都要预留足够的容错空间</strong>。不是因为预测不准，而是因为世界本质不可预测。预估工时×1.5，预算留30%应急。</p><div class="tip"><b>🎮</b> UI适配=安全边际实践：弹性布局适配±20%分辨率、触控44×44px最小区域、文本容器+30%余量给长语言翻译。</div></div>
 <div class="card"><div class="card-head"><h3>🦢 黑天鹅效应</h3><span class="tag tag-t">思维模型</span></div><p>塔勒布的核心理论：极端罕见但影响巨大的事件驱动世界。不要试图预测黑天鹅——<strong>让自己暴露在正面黑天鹅下，同时限制负面黑天鹅的杀伤力</strong>。</p><div class="tip"><b>🎮</b> 游戏UI要为极端情况设计——网络中断、数据异常、极端输入。这些"黑天鹅"场景如果没设计，出现时会毁掉整个体验。</div></div>
@@ -1688,7 +1596,7 @@ body{font-family:var(--font);background:var(--bg);background-image:var(--bg-grad
 
 <!-- ========== Day 002 ========== -->
 <div class="day-group" data-day="2" style="display:none">
-<div style="padding:14px 0 8px"><span style="font-weight:700;font-size:17px">Day 002</span> <span style="color:var(--t3);font-size:13px;margin-left:8px">2026-04-12</span></div>
+<div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 002</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-04-12</span></div><h1 class="day-num">Day <em>002</em></h1></div>
 <div class="today-think">
 <div class="card"><div class="card-head"><h3>💎 反脆弱 · Antifragile</h3><span class="tag tag-t">思维模型</span></div><p>塔勒布的哲学：不仅承受波动，还要<strong>从混乱中变强</strong>。杠铃策略=90%保守+10%冒险。关键不是避免波动，而是让波动成为你的燃料。</p><div class="tip"><b>🎮</b> 游戏UI的错误状态不是灾难而是建立信任的黄金时刻——优雅的错误处理比完美的正常流程更能赢得用户好感。</div></div>
 <div class="card"><div class="card-head"><h3>⚖️ 前景理论 · Prospect Theory</h3><span class="tag tag-t">思维模型</span></div><p>卡尼曼的诺贝尔奖级发现：<strong>损失的痛苦约是获得快乐的2-2.5倍</strong>。人类不是理性地评估绝对值，而是相对于参考点做判断。</p><div class="tip"><b>🎮</b> 付费设计用"避免损失"比"获得收益"有效2.5倍——"VIP即将到期"比"续费享受VIP"转化率高得多。</div></div>
@@ -1699,7 +1607,7 @@ body{font-family:var(--font);background:var(--bg);background-image:var(--bg-grad
 
 <!-- ========== Day 001 ========== -->
 <div class="day-group" data-day="1" style="display:none">
-<div style="padding:14px 0 8px"><span style="font-weight:700;font-size:17px">Day 001</span> <span style="color:var(--t3);font-size:13px;margin-left:8px">2026-04-11</span></div>
+<div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 001</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-04-11</span></div><h1 class="day-num">Day <em>001</em></h1></div>
 <div class="today-think">
 <div class="card"><div class="card-head"><h3>🔄 逆向思维 · Inversion</h3><span class="tag tag-t">思维模型</span></div><p>芒格最常用的思维武器：不问怎么成功，先问<strong>怎么确保失败</strong>，然后避开所有失败路径。失败路径有限可列举，成功路径无限不可穷举。</p><div class="tip"><b>🎮</b> 设计新UI前先列"玩家会因什么放弃使用"——找不到入口？步骤太多？反馈不明？出错不可回退？逐条消灭。</div></div>
 <div class="card"><div class="card-head"><h3>⚛️ 第一性原理 · First Principles</h3><span class="tag tag-t">思维模型</span></div><p>马斯克常用框架：拆解到基本事实，从原子级重建解决方案。<strong>不要类比照搬</strong>——"别人这么做所以我也这么做"不是思考，是偷懒。</p><div class="tip"><b>🎮</b> 为什么游戏HUD要有血条？不是因为别的游戏有，而是因为"玩家需要实时知道生存状态"——这是第一性原理。由此可能推导出不同于血条的全新方案。</div></div>
