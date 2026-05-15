@@ -156,6 +156,26 @@ svg.lucide{width:1em;height:1em;flex-shrink:0;display:inline-block;vertical-alig
 .day-pill.read::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--sage);flex-shrink:0}
 .day-pill.on.read::before{background:var(--bg)}
 
+/* === Personal Progress: locked / today === */
+.day-pill.locked{color:var(--ink-5);background:transparent;border-color:var(--line);opacity:.55;cursor:not-allowed;position:relative}
+.day-pill.locked::before{content:'';width:7px;height:9px;border:1.4px solid var(--ink-5);border-radius:1.5px 1.5px 0 0;border-bottom:none;background:transparent;flex-shrink:0;position:relative;top:-2px;margin-right:1px}
+.day-pill.locked::after{content:'';width:11px;height:8px;background:var(--ink-5);border-radius:1.5px;position:absolute;left:9px;top:14px;display:none}
+.day-pill.locked:hover{color:var(--ink-4);border-color:var(--line-2);background:rgba(255,255,255,.02)}
+.day-pill.today-mark{box-shadow:0 0 0 2px rgba(232,161,75,.4),0 0 12px rgba(232,161,75,.25)}
+.day-pill.today-mark:not(.on){border-color:var(--accent);color:var(--accent)}
+.day-pill.shake{animation:pillShake .4s cubic-bezier(.36,.07,.19,.97) both}
+@keyframes pillShake{
+10%,90%{transform:translateX(-1px)}
+20%,80%{transform:translateX(2px)}
+30%,50%,70%{transform:translateX(-3px)}
+40%,60%{transform:translateX(3px)}
+}
+
+/* Locked toast */
+.locked-toast{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%) scale(.9);background:var(--surface);border:1px solid var(--line-2);color:var(--ink);padding:14px 22px;border-radius:var(--r-lg);box-shadow:var(--sh-3);font-size:14px;font-weight:500;z-index:10000;display:flex;align-items:center;gap:10px;opacity:0;visibility:hidden;transition:opacity .25s ease,transform .25s ease,visibility .25s;letter-spacing:-.01em;backdrop-filter:blur(20px);pointer-events:none}
+.locked-toast.show{opacity:1;visibility:visible;transform:translate(-50%,-50%) scale(1)}
+.locked-toast i[data-lucide],.locked-toast svg{width:18px;height:18px;color:var(--accent);stroke-width:1.8;flex-shrink:0}
+
 .subtabs{display:flex;gap:4px;padding:14px 0 18px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none}
 .subtabs::-webkit-scrollbar{display:none}
 .subtab{padding:7px 14px;border-radius:var(--r-pill);font-size:12.5px;font-weight:500;color:var(--ink-3);cursor:pointer;transition:.2s;background:transparent;border:1px solid transparent;font-family:var(--sans);display:inline-flex;align-items:center;gap:6px;letter-spacing:-.005em;white-space:nowrap}
@@ -2620,6 +2640,154 @@ if(!m)return;
 const day=parseInt(m[1]);
 item.addEventListener('click',()=>goToDay(day));
 });
+
+// ===== Personal Day Progression (per-browser, IP-equivalent via localStorage) =====
+(function(){
+const TOTAL_DAYS=28;
+const STORAGE_KEY='df-user-progress';
+const DAY_MS=86400000;
+
+function todayISO(){
+const d=new Date();
+d.setHours(0,0,0,0);
+return d.getTime();
+}
+
+function getProgress(){
+try{
+const raw=localStorage.getItem(STORAGE_KEY);
+if(!raw)return null;
+const p=JSON.parse(raw);
+if(typeof p.firstVisit!=='number')return null;
+return p;
+}catch(e){return null}
+}
+
+function saveProgress(p){
+try{localStorage.setItem(STORAGE_KEY,JSON.stringify(p))}catch(e){}
+}
+
+function computeCurrentDay(){
+let p=getProgress();
+const today=todayISO();
+if(!p){
+p={firstVisit:today,lastVisit:today,createdAt:Date.now()};
+saveProgress(p);
+return 1;
+}
+const elapsed=Math.floor((today-p.firstVisit)/DAY_MS);
+const day=Math.min(TOTAL_DAYS,Math.max(1,elapsed+1));
+p.lastVisit=today;
+p.currentDay=day;
+saveProgress(p);
+return day;
+}
+
+const currentDay=computeCurrentDay();
+window.__userCurrentDay=currentDay;
+
+// Update day-pills: lock未解锁的, mark today
+function applyLockState(){
+document.querySelectorAll('#daySubs .day-pill').forEach(pill=>{
+const oc=pill.getAttribute('onclick')||'';
+const m=oc.match(/switchDay\(this,(\d+)\)/);
+if(!m)return;
+const d=parseInt(m[1]);
+pill.classList.toggle('locked',d>currentDay);
+pill.classList.toggle('today-mark',d===currentDay);
+if(d>currentDay){
+pill.setAttribute('data-locked-msg','还有 '+(d-currentDay)+' 天解锁');
+pill.setAttribute('aria-disabled','true');
+}else{
+pill.removeAttribute('data-locked-msg');
+pill.removeAttribute('aria-disabled');
+}
+});
+}
+
+// Override switchDay to block locked days
+const origSwitchDay=window.switchDay;
+window.switchDay=function(el,day){
+if(day>currentDay){
+// Visual feedback: shake
+if(el){
+el.classList.remove('shake');
+void el.offsetWidth;
+el.classList.add('shake');
+setTimeout(()=>el.classList.remove('shake'),500);
+}
+showLockedToast(day);
+return;
+}
+return origSwitchDay.call(this,el,day);
+};
+
+function showLockedToast(day){
+let toast=document.getElementById('lockedToast');
+if(!toast){
+toast=document.createElement('div');
+toast.id='lockedToast';
+toast.className='locked-toast';
+document.body.appendChild(toast);
+}
+const wait=day-currentDay;
+toast.innerHTML='<i data-lucide="lock"></i> Day '+String(day).padStart(3,'0')+' 还有 '+wait+' 天解锁';
+toast.classList.add('show');
+if(typeof lucide!=='undefined')lucide.createIcons();
+clearTimeout(toast._t);
+toast._t=setTimeout(()=>toast.classList.remove('show'),2200);
+}
+
+// Switch the day-group view to user's current day
+function switchToCurrentDay(){
+const targetPill=document.querySelector('#daySubs .day-pill[onclick*="switchDay(this,'+currentDay+')"]');
+if(targetPill&&origSwitchDay){
+origSwitchDay.call(window,targetPill,currentDay);
+}
+}
+
+// Update top-bar badge to show user progress
+function updateProgressBadge(){
+const badge=document.getElementById('readBadge');
+if(!badge)return;
+badge.innerHTML='Day '+String(currentDay).padStart(3,'0')+' / '+String(TOTAL_DAYS).padStart(3,'0');
+const wrap=badge.closest('.top-btn');
+if(wrap)wrap.setAttribute('title','你的个人进度（每天解锁一天，共 '+TOTAL_DAYS+' 天）');
+}
+
+// Mark today's pill specially
+function markToday(){
+document.querySelectorAll('#daySubs .day-pill.today-mark').forEach(p=>p.classList.add('is-today'));
+}
+
+// Apply on load
+applyLockState();
+markToday();
+switchToCurrentDay();
+updateProgressBadge();
+
+// Re-apply when daySubs is changed (e.g. read-mark add/remove)
+const origMarkRead=window.markDayAsRead;
+if(typeof origMarkRead==='function'){
+window.markDayAsRead=function(d){
+if(d>currentDay)return;// 不允许标记未来日已读
+return origMarkRead.call(this,d);
+};
+}
+
+// Update at midnight if user keeps page open
+setInterval(()=>{
+const newDay=computeCurrentDay();
+if(newDay!==currentDay){location.reload()}
+},60000);
+
+// Reset hint button (only show in console for now)
+window.__resetUserProgress=function(){
+localStorage.removeItem(STORAGE_KEY);
+location.reload();
+};
+console.info('%c[Daily Forge]','color:#e8a14b;font-weight:bold','你的进度: Day '+currentDay+' / '+TOTAL_DAYS+'。重置请在控制台执行 __resetUserProgress()');
+})();
 </script>
 </body>
 </html>
