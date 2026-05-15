@@ -51,6 +51,10 @@ body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1
 
 ::selection{background:var(--accent-soft);color:var(--ink)}
 
+/* === Global Lucide SVG default size guard === */
+svg.lucide{width:1em;height:1em;flex-shrink:0;display:inline-block;vertical-align:middle}
+[data-lucide]{width:1em;height:1em;flex-shrink:0}
+
 ::-webkit-scrollbar{width:10px;height:10px}
 ::-webkit-scrollbar-track{background:transparent}
 ::-webkit-scrollbar-thumb{background:var(--line-2);border-radius:10px;border:2px solid var(--bg)}
@@ -100,7 +104,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1
 .top-btn{padding:7px 13px;border-radius:var(--r-pill);border:1px solid var(--line);background:transparent;color:var(--ink-3);font-size:12.5px;font-weight:500;cursor:pointer;transition:all .2s ease;display:flex;align-items:center;gap:6px;font-family:var(--sans);white-space:nowrap;letter-spacing:-.005em}
 .top-btn:hover{border-color:var(--line-2);color:var(--ink);background:var(--surface)}
 .top-btn.active{background:var(--accent-soft);border-color:rgba(232,161,75,.35);color:var(--accent)}
-.top-btn i[data-lucide]{width:14px;height:14px;stroke-width:2}
+.top-btn i[data-lucide],.top-btn svg{width:14px;height:14px;stroke-width:2;flex-shrink:0}
 .top-btn .read-badge i[data-lucide],.top-btn[id="checkinBtn"] i[data-lucide]{margin-right:1px}
 .streak-badge{font-family:var(--mono);font-variant-numeric:tabular-nums;font-weight:600}
 
@@ -110,7 +114,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1
 .today-design,.today-side{margin-top:48px;padding-top:32px;position:relative}
 .today-design::before,.today-side::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent)}
 .section-eyebrow{display:flex;align-items:center;gap:14px;margin:0 0 24px;padding:0}
-.section-eyebrow i[data-lucide]{width:18px;height:18px;color:var(--accent);stroke-width:1.8}
+.section-eyebrow i[data-lucide],.section-eyebrow svg{width:18px;height:18px;color:var(--accent);stroke-width:1.8;flex-shrink:0}
 .section-eyebrow-num{font-family:var(--mono);font-size:11px;color:var(--ink-4);font-weight:600;letter-spacing:.18em;text-transform:uppercase;flex-shrink:0}
 .section-eyebrow-title{font-family:var(--serif);font-size:16px;color:var(--ink-2);font-weight:500;font-style:italic;letter-spacing:-.01em}
 .section-eyebrow-line{flex:1;height:1px;background:var(--line)}
@@ -129,11 +133,11 @@ body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1
 .nav{display:flex;gap:2px;padding:24px 0 0;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none;border-bottom:1px solid var(--line);margin-bottom:0}
 .nav::-webkit-scrollbar{display:none}
 .nav a{padding:14px 16px;font-size:14px;font-weight:500;color:var(--ink-3);cursor:pointer;transition:all .25s ease;text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;gap:8px;letter-spacing:-.01em;border-bottom:2px solid transparent;margin-bottom:-1px;position:relative}
-.nav a i[data-lucide]{width:15px;height:15px;opacity:.6;stroke-width:1.8}
+.nav a i[data-lucide],.nav a svg{width:15px;height:15px;opacity:.6;stroke-width:1.8;flex-shrink:0}
 .nav a:hover{color:var(--ink)}
-.nav a:hover i[data-lucide]{opacity:.9}
+.nav a:hover i[data-lucide],.nav a:hover svg{opacity:.9}
 .nav a.on{color:var(--ink);border-bottom-color:var(--accent)}
-.nav a.on i[data-lucide]{opacity:1;color:var(--accent)}
+.nav a.on i[data-lucide],.nav a.on svg{opacity:1;color:var(--accent)}
 
 .day-selector{display:flex;align-items:center;gap:14px;padding:20px 0;border-bottom:1px solid var(--line);margin-bottom:8px;overflow:hidden;position:relative}
 .day-selector-label{font-size:10.5px;color:var(--ink-4);font-family:var(--mono);font-weight:600;letter-spacing:.2em;text-transform:uppercase;white-space:nowrap;flex-shrink:0}
@@ -162,7 +166,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1
 @media(max-width:640px){.day-num{font-size:42px}.day-summary{font-size:15.5px}}
 
 .sec{display:none;padding:8px 0 80px}
-.sec.on{display:block;animation:fadeIn .5s cubic-bezier(.4,0,.2,1)}
+.sec.on{display:block !important;animation:fadeIn .5s cubic-bezier(.4,0,.2,1);min-height:60vh}
 @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 .sec-desc{padding:24px 0 8px;font-family:var(--serif);font-size:18px;color:var(--ink-2);line-height:1.55;max-width:720px;font-style:italic;letter-spacing:-.01em}
 
@@ -2286,8 +2290,11 @@ function go(el){
 document.querySelectorAll('.nav a').forEach(a=>a.classList.remove('on'));
 el.classList.add('on');
 document.querySelectorAll('.sec').forEach(s=>s.classList.remove('on'));
-document.getElementById('s-'+el.dataset.s).classList.add('on');
-window.scrollTo({top:0,behavior:'smooth'});
+const target=document.getElementById('s-'+el.dataset.s);
+if(target)target.classList.add('on');
+window.scrollTo(0,0);
+// Re-init lucide icons in newly displayed section
+if(typeof lucide!=='undefined')setTimeout(()=>lucide.createIcons(),0);
 }
 
 // ===== Day Switching (Today section) =====
