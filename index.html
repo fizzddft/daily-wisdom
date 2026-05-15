@@ -6,14 +6,15 @@
 <title>每日锻造 · Daily Forge</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
---bg:#09090b;--bg2:#111114;--bg3:#18181b;--bg4:#1e1e22;
---border:#27272a;--border2:#3f3f46;
---t1:#fafafa;--t2:#a1a1aa;--t3:#71717a;--t4:#52525b;
+--bg:#09090b;--bg2:#12121a;--bg3:#1a1a2e;--bg4:#1e1e32;
+--border:#27273a;--border2:#3f3f56;
+--t1:#f8fafc;--t2:#a1a1b8;--t3:#71718a;--t4:#52526b;
 --gold:#f59e0b;--gold2:#d97706;--blue:#3b82f6;--green:#22c55e;--purple:#a855f7;--red:#ef4444;--orange:#f97316;
---r:12px;--r2:8px;--r3:20px;
+--r:14px;--r2:10px;--r3:20px;
 --font:'Inter','Noto Sans SC',system-ui,-apple-system,sans-serif;
 --mono:'JetBrains Mono',monospace;
 }
@@ -38,10 +39,10 @@ body{font-family:var(--font);background:var(--bg);color:var(--t1);line-height:1.
 .view-count span{font-family:var(--mono);font-variant-numeric:tabular-nums}
 
 /* ===== Nav Tabs (Primary) ===== */
-.nav{display:flex;gap:4px;padding:14px 0 0;flex-wrap:wrap}
-.nav a{padding:8px 18px;border-radius:100px;font-size:14px;font-weight:600;color:var(--t3);cursor:pointer;transition:.2s;border:1px solid transparent;text-decoration:none;white-space:nowrap}
-.nav a:hover{color:var(--t1)}
-.nav a.on{color:var(--gold);background:rgba(245,158,11,.08);border-color:rgba(245,158,11,.2)}
+.nav{display:flex;gap:6px;padding:16px 0 0;flex-wrap:wrap}
+.nav a{padding:8px 18px;border-radius:100px;font-size:14px;font-weight:600;color:var(--t3);cursor:pointer;transition:.25s;border:1px solid transparent;text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;gap:6px}
+.nav a:hover{color:var(--t1);background:var(--bg3)}
+.nav a.on{color:var(--gold);background:rgba(245,158,11,.08);border-color:rgba(245,158,11,.25)}
 
 /* ===== Sub Tabs (Secondary) ===== */
 .subtabs{display:flex;gap:4px;padding:10px 0 12px;border-bottom:1px solid var(--border)}
@@ -61,7 +62,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t1);line-height:1.
 @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 
 .card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:24px 28px;margin-bottom:16px;position:relative;transition:.2s;overflow:hidden;word-wrap:break-word;overflow-wrap:break-word}
-.card:hover{border-color:var(--border2)}
+.card:hover{border-color:var(--border2);transform:translateY(-1px);box-shadow:0 8px 24px rgba(0,0,0,.3)}
 .card-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px;flex-wrap:wrap}
 .card h3{font-size:17px;font-weight:700;line-height:1.5;display:flex;align-items:center;gap:6px;flex:1;min-width:0}
 .tag{display:inline-block;padding:3px 10px;border-radius:100px;font-size:11px;font-weight:700;letter-spacing:.5px;white-space:nowrap;flex-shrink:0}
@@ -166,13 +167,14 @@ body{font-family:var(--font);background:var(--bg);color:var(--t1);line-height:1.
 
 <!-- Top Bar -->
 <div class="topbar"><div class="wrap topbar-inner">
-<div class="brand">🔨 每日锻造 <em>DAILY FORGE</em></div>
+<div class="brand"><i data-lucide="hammer" style="width:20px;height:20px;color:var(--gold)"></i> 每日锻造 <em>DAILY FORGE</em></div>
 <div class="top-actions">
-<span class="top-btn view-count" title="总浏览次数">👁 <span id="viewCount">0</span></span>
+<span class="top-btn view-count" title="上次阅读"><i data-lucide="bookmark" style="width:14px;height:14px"></i> <span id="readBadge">Day 028</span></span>
+<span class="top-btn view-count" title="总浏览次数"><i data-lucide="eye" style="width:14px;height:14px"></i> <span id="viewCount">0</span></span>
 <button class="top-btn" id="checkinBtn" onclick="showCheckin()">
-<span>🔥</span><span class="streak-badge" id="streakText">0天</span>
+<i data-lucide="flame" style="width:14px;height:14px"></i><span class="streak-badge" id="streakText">0天</span>
 </button>
-<button class="top-btn" id="favToggle" onclick="toggleFav()">⭐ 收藏 <span id="favCount">0</span></button>
+<button class="top-btn" id="favToggle" onclick="toggleFav()"><i data-lucide="star" style="width:14px;height:14px"></i> 收藏 <span id="favCount">0</span></button>
 </div>
 </div></div>
 
@@ -202,12 +204,12 @@ body{font-family:var(--font);background:var(--bg);color:var(--t1);line-height:1.
 
 <!-- Primary Nav -->
 <div class="nav" id="mainNav">
-<a class="on" data-s="today" onclick="go(this)">🔥 今日精选</a>
-<a data-s="thinking" onclick="go(this)">🧠 思维库</a>
-<a data-s="design" onclick="go(this)">🎮 设计启发</a>
-<a data-s="ai" onclick="go(this)">🤖 AI·设计前沿</a>
-<a data-s="munger" onclick="go(this)">👴 芒格专题</a>
-<a data-s="archive" onclick="go(this)">📚 归档</a>
+<a class="on" data-s="today" onclick="go(this)"><i data-lucide="zap" style="width:14px;height:14px"></i> 今日精选</a>
+<a data-s="thinking" onclick="go(this)"><i data-lucide="brain" style="width:14px;height:14px"></i> 思维库</a>
+<a data-s="design" onclick="go(this)"><i data-lucide="gamepad-2" style="width:14px;height:14px"></i> 设计启发</a>
+<a data-s="ai" onclick="go(this)"><i data-lucide="cpu" style="width:14px;height:14px"></i> AI·设计前沿</a>
+<a data-s="munger" onclick="go(this)"><i data-lucide="graduation-cap" style="width:14px;height:14px"></i> 芒格专题</a>
+<a data-s="archive" onclick="go(this)"><i data-lucide="archive" style="width:14px;height:14px"></i> 归档</a>
 </div>
 
 <!-- ==================== TODAY ==================== -->
@@ -216,6 +218,25 @@ body{font-family:var(--font);background:var(--bg);color:var(--t1);line-height:1.
 <!-- Day Selector -->
 <div class="subtabs" id="daySubs" style="border-bottom:none;padding-bottom:4px">
 <button class="subtab on" onclick="switchDay(this,28)">Day 028</button>
+<button class="subtab" onclick="switchDay(this,27)">Day 027</button>
+<button class="subtab" onclick="switchDay(this,26)">Day 026</button>
+<button class="subtab" onclick="switchDay(this,25)">Day 025</button>
+<button class="subtab" onclick="switchDay(this,24)">Day 024</button>
+<button class="subtab" onclick="switchDay(this,23)">Day 023</button>
+<button class="subtab" onclick="switchDay(this,22)">Day 022</button>
+<button class="subtab" onclick="switchDay(this,21)">Day 021</button>
+<button class="subtab" onclick="switchDay(this,20)">Day 020</button>
+<button class="subtab" onclick="switchDay(this,19)">Day 019</button>
+<button class="subtab" onclick="switchDay(this,18)">Day 018</button>
+<button class="subtab" onclick="switchDay(this,17)">Day 017</button>
+<button class="subtab" onclick="switchDay(this,16)">Day 016</button>
+<button class="subtab" onclick="switchDay(this,15)">Day 015</button>
+<button class="subtab" onclick="switchDay(this,14)">Day 014</button>
+<button class="subtab" onclick="switchDay(this,13)">Day 013</button>
+<button class="subtab" onclick="switchDay(this,12)">Day 012</button>
+<button class="subtab" onclick="switchDay(this,11)">Day 011</button>
+<button class="subtab" onclick="switchDay(this,10)">Day 010</button>
+<button class="subtab" onclick="switchDay(this,9)">Day 009</button>
 <button class="subtab" onclick="switchDay(this,8)">Day 008</button>
 <button class="subtab" onclick="switchDay(this,7)">Day 007</button>
 <button class="subtab" onclick="switchDay(this,6)">Day 006</button>
@@ -340,6 +361,937 @@ body{font-family:var(--font);background:var(--bg);color:var(--t1);line-height:1.
 <li><strong>启动步骤：</strong>① Week 1-2: 激励地图编辑器(React+D3.js) ② Week 3: 对齐度算法+根因追溯 ③ Week 4: 案例分析(原神/王者荣耀) ④ Month 2: 数据接入→付费试点</li>
 <li><strong>预估收入：</strong>¥12K-¥45K/月。基础 ¥299/月→Pro ¥999/月→企业 ¥3999/月→深度咨询 ¥19999/次。<strong>差异化：无人从"行为经济学激励理论"角度做系统诊断→你是芒格理论+游戏经验+技术能力的交叉点=唯一</strong></li>
 </ul>
+</div>
+</div>
+
+</div>
+
+<!-- ========== Day 027 ========== -->
+<div class="day-group" data-day="27" style="display:none">
+<div style="padding:14px 0 8px;display:flex;align-items:center;justify-content:space-between">
+<div><span style="font-weight:700;font-size:17px">Day 027</span> <span style="color:var(--t3);font-size:13px;margin-left:8px">2026-05-07</span></div>
+<div style="font-size:12px;color:var(--t4)">🧠 认知负荷理论 x 💾 工作记忆模型 x 🧩 分块编码 | 📊 信息密度优化 x 📁 折叠展开设计</div>
+</div>
+
+<div class="today-think">
+<div class="card" data-fav-id="d27-cognitive-load-theor" data-fav-title="🧠 认知负荷理论 · Cognitive Load Theory">
+<div class="card-head"><h3>🧠 认知负荷理论</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>斯威勒的研究：工作记忆容量有限(7±2项)→学习设计必须管理三种认知负荷：内在负荷(材料本身复杂度)、外在负荷(呈现方式增加的额外负荷)、关联负荷(整合新旧知识的有效负荷)。目标：减少外在负荷，优化关联负荷。</p>
+<div class="tip"><b>实践：</b>审视你的信息呈现方式：有多少'外在负荷'可以通过更好的设计消除？</div>
+</div>
+<div class="card" data-fav-id="d27-working-memory-model" data-fav-title="💾 工作记忆模型 · Working Memory Model">
+<div class="card-head"><h3>💾 工作记忆模型</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>巴德利的工作记忆模型：中央执行系统+语音环路+视觉空间画板+情景缓冲区。关键限制：同时处理的信息块≤4-7个。超出→信息丢失/混淆。UI设计的基本约束：任何时刻让用户需要记住的信息不超过4项。</p>
+<div class="tip"><b>实践：</b>设计界面时检查'用户此刻需要同时记住几样东西'——超过4个就需要外部化(显示出来)</div>
+</div>
+<div class="card" data-fav-id="d27-chunking" data-fav-title="🧩 分块编码 · Chunking">
+<div class="card-head"><h3>🧩 分块编码</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>米勒的解决方案：通过将信息组织成有意义的'块'(chunk)来扩展工作记忆的有效容量。电话号码分块(138-1234-5678比13812345678易记)。专家和新手的区别不是记忆力而是分块能力——象棋大师将整个棋局视为几个有意义的模式。</p>
+<div class="tip"><b>实践：</b>对复杂信息做'分块设计'：按逻辑分组、用视觉分隔、给每组命名——帮助用户形成心智模型</div>
+</div>
+</div>
+
+<div class="today-design">
+<div class="card" data-fav-id="d27-design-information-density-" data-fav-title="📊 信息密度优化">
+<div class="card-head"><h3>📊 信息密度优化</h3><span class="tag tag-d">设计启发</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>信息密度 = 有用信息量 / 界面面积。三个优化方向：① 渐进披露(先总结后详情) ② 按需加载(hover/展开获取次要信息) ③ 层次编码(用字号/颜色/位置区分重要程度)。游戏中：HUD信息密度过高=新手流失，过低=硬核玩家无聊——需要可配置密度等级。</p>
+</div>
+<div class="card" data-fav-id="d27-design-collapse-and-expand-" data-fav-title="📁 折叠展开设计">
+<div class="card-head"><h3>📁 折叠展开设计</h3><span class="tag tag-d">设计启发</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>折叠/展开(Accordion)设计原则：① 默认折叠状态要让用户知道'里面有什么'(标题+摘要/数量) ② 展开动效要流畅(150-300ms) ③ 同时只展开一个(手风琴)vs可多个——取决于是否需要对比 ④ 记住用户偏好(上次展开了什么)。认知负荷视角：折叠=按需加载认知资源。</p>
+</div>
+</div>
+
+<div class="today-side">
+<div class="card" data-fav-id="d27-ai-ai-information-archi" data-fav-title="🗂️ AI信息架构">
+<div class="card-head"><h3>🗂️ AI信息架构</h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>AI驱动的信息架构优化：① 基于用户行为数据自动重组导航(高频功能前置) ② 智能搜索(理解意图而非关键词匹配) ③ 个性化菜单(根据角色/频率/时间动态调整) ④ 自动标签和分类(对大量内容做语义组织)。</p>
+</div>
+<div class="card" data-fav-id="d27-ai-ai-smart-classificat" data-fav-title="🏷️ AI智能分类">
+<div class="card-head"><h3>🏷️ AI智能分类</h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>机器学习驱动的内容分类：自动识别并归类用户生成内容(帖子/截图/反馈)→结构化知识库自动生成。对游戏社区管理：AI自动分类玩家反馈(BUG/建议/投诉/赞美)→优先级队列→工单系统。分类准确率已超95%。</p>
+</div>
+</div>
+
+</div>
+
+<!-- ========== Day 026 ========== -->
+<div class="day-group" data-day="26" style="display:none">
+<div style="padding:14px 0 8px;display:flex;align-items:center;justify-content:space-between">
+<div><span style="font-weight:700;font-size:17px">Day 026</span> <span style="color:var(--t3);font-size:13px;margin-left:8px">2026-05-06</span></div>
+<div style="font-size:12px;color:var(--t4)">🧪 多巴胺系统 x ⚡ 奖赏预测误差 x 🔁 习惯回路 | ✨ 奖励动效设计 x 🏅 成就系统UI</div>
+</div>
+
+<div class="today-think">
+<div class="card" data-fav-id="d26-dopamine-system" data-fav-title="🧪 多巴胺系统 · Dopamine System">
+<div class="card-head"><h3>🧪 多巴胺系统</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>多巴胺不是'快乐物质'——是'期待物质'。它在你预期奖励时释放，而非获得奖励时。赌博机在'转动中'释放最多多巴胺(不是中奖时)。这解释了为什么追逐比获得更令人兴奋——以及为什么'可变奖励'比'固定奖励'更上瘾。</p>
+<div class="tip"><b>实践：</b>设计奖励系统时，最大化'期待阶段'的体验比'获得阶段'更重要</div>
+</div>
+<div class="card" data-fav-id="d26-reward-prediction-er" data-fav-title="⚡ 奖赏预测误差 · Reward Prediction Error">
+<div class="card-head"><h3>⚡ 奖赏预测误差</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>舒尔茨的发现：多巴胺编码的是'实际奖励-预期奖励'的差值(RPE)。预期内的奖励→不释放多巴胺。超预期→大量释放(惊喜)。低于预期→多巴胺降低(失望)。这就是为什么惊喜比确定性更让人开心。</p>
+<div class="tip"><b>实践：</b>定期给团队/用户'超预期的惊喜'——预期管理+偶尔超越预期=持续的正向激励</div>
+</div>
+<div class="card" data-fav-id="d26-habit-loop" data-fav-title="🔁 习惯回路 · Habit Loop">
+<div class="card-head"><h3>🔁 习惯回路</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>杜希格的习惯三要素：触发(Cue)→惯例(Routine)→奖励(Reward)。改变习惯的关键不是消除触发→而是替换惯例(保持相同触发和奖励)。建立新习惯：找到稳定触发+即时可见的奖励+极低的启动摩擦。</p>
+<div class="tip"><b>实践：</b>想建立新习惯？设计一个'触发→极简行动→即时奖励'的最小循环，然后逐步扩展</div>
+</div>
+</div>
+
+<div class="today-design">
+<div class="card" data-fav-id="d26-design-reward-animation-des" data-fav-title="✨ 奖励动效设计">
+<div class="card-head"><h3>✨ 奖励动效设计</h3><span class="tag tag-d">设计启发</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>奖励动效的心理学最优设计：① 预期阶段(开箱/转盘动画)要有张力和节奏感 ② 揭示瞬间(粒子爆发/金光闪烁)是多巴胺峰值 ③ 稀有度用不同特效层级(普通→闪光→全屏震动+粒子雨) ④ 结果停留时间够长让玩家'享受拥有'。</p>
+</div>
+<div class="card" data-fav-id="d26-design-achievement-system-u" data-fav-title="🏅 成就系统UI">
+<div class="card-head"><h3>🏅 成就系统UI</h3><span class="tag tag-d">设计启发</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>成就系统设计最佳实践：① 进度可见(X/Y已完成) ② 稀有度标注(全服仅3%完成) ③ 解锁动效有仪式感 ④ 成就展示橱窗(社交货币) ⑤ 隐藏成就制造惊喜(奖赏预测误差)。核心：成就是'已完成的身份认同'——展示不仅是数据，更是故事。</p>
+</div>
+</div>
+
+<div class="today-side">
+<div class="card" data-fav-id="d26-ai-ai-reward-system" data-fav-title="🧠 AI奖励系统">
+<div class="card-head"><h3>🧠 AI奖励系统</h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>AI个性化奖励系统：基于玩家行为数据预测'什么奖励对这个玩家最有激励效果'→动态调整奖励类型/时机/呈现方式。从'千人一面的奖励设计'到'每个人的多巴胺触发点不同'的精准激励。</p>
+</div>
+<div class="card" data-fav-id="d26-ai-ai-behavior-predicti" data-fav-title="📊 AI行为预测">
+<div class="card-head"><h3>📊 AI行为预测</h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>玩家行为预测模型：① 流失预测(7天内离开概率) ② 付费预测(转化窗口识别) ③ 社交行为预测(公会活跃度) ④ 作弊预测(异常行为模式)。准确率85%+的预测使'预防式运营'成为可能——在问题发生前干预。</p>
+</div>
+</div>
+
+</div>
+
+<!-- ========== Day 025 ========== -->
+<div class="day-group" data-day="25" style="display:none">
+<div style="padding:14px 0 8px;display:flex;align-items:center;justify-content:space-between">
+<div><span style="font-weight:700;font-size:17px">Day 025</span> <span style="color:var(--t3);font-size:13px;margin-left:8px">2026-05-05</span></div>
+<div style="font-size:12px;color:var(--t4)">⏰ 时间贴现 x 📉 双曲贴现 x 🍬 即时满足 | ⏳ 限时活动UI x ⏱️ 倒计时设计</div>
+</div>
+
+<div class="today-think">
+<div class="card" data-fav-id="d25-time-discounting" data-fav-title="⏰ 时间贴现 · Time Discounting">
+<div class="card-head"><h3>⏰ 时间贴现</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>人类系统性地低估未来收益的价值——今天的$100在心理上远比一年后的$110有价值(即使理性上应该等)。贴现率因人而异且不稳定——越是即时可得的选项，贴现越陡峭。这是储蓄不足/健康忽视/拖延症的根源。</p>
+<div class="tip"><b>实践：</b>做长期决策时问'如果这是别人的选择，我会怎么建议？'——用旁观者视角降低贴现偏差</div>
+</div>
+<div class="card" data-fav-id="d25-hyperbolic-discounti" data-fav-title="📉 双曲贴现 · Hyperbolic Discounting">
+<div class="card-head"><h3>📉 双曲贴现</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>人类的贴现函数不是指数型(理性)而是双曲型——在'现在vs明天'的选择中极度偏好现在，但在'365天后vs366天后'的选择中很理性。这导致'时间不一致性'：提前计划时很理性，到了当下又忍不住。节食/储蓄/学习的失败根源。</p>
+<div class="tip"><b>实践：</b>利用'预承诺机制'对抗双曲贴现：在理性时刻锁定未来行为(自动转账/闹钟/公开承诺)</div>
+</div>
+<div class="card" data-fav-id="d25-instant-gratificatio" data-fav-title="🍬 即时满足 · Instant Gratification">
+<div class="card-head"><h3>🍬 即时满足</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>棉花糖实验的延伸：能延迟满足的人长期表现更优。但近年研究修正：环境可靠性(承诺兑现率)比个人意志力更能预测能否延迟满足。启示：要促进延迟满足，不是'锻炼意志力'而是'建立可信的承诺兑现机制'。</p>
+<div class="tip"><b>实践：</b>想让自己/用户延迟满足：关键不是'忍住'而是让'等待后的回报可信且可见'</div>
+</div>
+</div>
+
+<div class="today-design">
+<div class="card" data-fav-id="d25-design-time-limited-event-u" data-fav-title="⏳ 限时活动UI">
+<div class="card-head"><h3>⏳ 限时活动UI</h3><span class="tag tag-d">设计启发</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>限时活动的紧迫感设计：① 倒计时必须醒目(动态数字/颜色变化) ② 剩余量展示(库存条/名额数) ③ '即将结束'分级预警(24h/1h/最后机会) ④ FOMO但不焦虑的平衡——提供'下次机会'信息减轻错过的痛苦。</p>
+</div>
+<div class="card" data-fav-id="d25-design-countdown-design" data-fav-title="⏱️ 倒计时设计">
+<div class="card-head"><h3>⏱️ 倒计时设计</h3><span class="tag tag-d">设计启发</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>倒计时UI的心理学：① 大单位用数字(3天14小时)→小单位用动画(秒在跳动) ② 最后1小时变红+加速感 ③ 结束时有仪式感(结果揭晓/奖励发放) ④ 倒计时的大小/位置传达重要程度。避免'倒计时疲劳'——不是所有事都需要倒计时。</p>
+</div>
+</div>
+
+<div class="today-side">
+<div class="card" data-fav-id="d25-ai-ai-game-operations" data-fav-title="🎮 AI游戏运营">
+<div class="card-head"><h3>🎮 AI游戏运营</h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>AI驱动的运营自动化：预测付费窗口→自动推送个性化优惠、预测流失→触发挽留机制、预测活跃高峰→自动调度活动。从'运营靠直觉'到'AI数据驱动的精准运营'的范式转变。</p>
+</div>
+<div class="card" data-fav-id="d25-ai-event-automation" data-fav-title="📅 活动自动化">
+<div class="card-head"><h3>📅 活动自动化</h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>AI活动管理系统：① 自动设计活动节奏(避免疲劳) ② 个性化活动门槛(不同玩家群体不同难度) ③ 实时效果监控+动态调优 ④ 自动AB测试最优奖励阈值。运营效率提升10x的同时提升玩家体验。</p>
+</div>
+</div>
+
+</div>
+
+<!-- ========== Day 024 ========== -->
+<div class="day-group" data-day="24" style="display:none">
+<div style="padding:14px 0 8px;display:flex;align-items:center;justify-content:space-between">
+<div><span style="font-weight:700;font-size:17px">Day 024</span> <span style="color:var(--t3);font-size:13px;margin-left:8px">2026-05-04</span></div>
+<div style="font-size:12px;color:var(--t4)">🕸️ 复杂适应系统 x 🐜 蚁群算法 x ⚡ 自组织 | 🔀 自适应布局 x 🤖 AI辅助排版</div>
+</div>
+
+<div class="today-think">
+<div class="card" data-fav-id="d24-complex-adaptive-sys" data-fav-title="🕸️ 复杂适应系统 · Complex Adaptive Systems">
+<div class="card-head"><h3>🕸️ 复杂适应系统</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>圣塔菲研究所的核心概念：由大量自主Agent组成的系统，Agent之间相互作用并根据结果调整行为——产生涌现性、非线性和不可预测的宏观行为。经济/生态/城市/互联网都是复杂适应系统。特点：去中心化、自组织、处于混沌边缘。</p>
+<div class="tip"><b>实践：</b>你所面对的'复杂问题'可能本质上是复杂适应系统——不能'解决'只能'引导演化'</div>
+</div>
+<div class="card" data-fav-id="d24-ant-colony-optimizat" data-fav-title="🐜 蚁群算法 · Ant Colony Optimization">
+<div class="card-head"><h3>🐜 蚁群算法</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>基于蚂蚁觅食行为的优化算法：蚂蚁随机探索→发现食物留信息素→后续蚂蚁跟随信息素→短路径信息素浓度更高(蒸发慢)→全群收敛到最优路径。启示：分布式探索+局部正反馈=全局最优涌现。</p>
+<div class="tip"><b>实践：</b>面对复杂优化问题时考虑'蚁群策略'：多条路径并行探索+对好结果加倍投入+对差结果让其自然'蒸发'</div>
+</div>
+<div class="card" data-fav-id="d24-self-organization" data-fav-title="⚡ 自组织 · Self-Organization">
+<div class="card-head"><h3>⚡ 自组织</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>没有中央控制者的情况下，系统通过局部交互自发产生全局秩序。鸟群V字队形/交通自组织/Wikipedia内容治理/开源社区协作。关键条件：简单规则+正负反馈+足够多的交互+边界约束=自组织涌现。</p>
+<div class="tip"><b>实践：</b>要促进自组织：设计好'局部规则'和'边界'，然后放手——过度干预会破坏自组织</div>
+</div>
+</div>
+
+<div class="today-design">
+<div class="card" data-fav-id="d24-design-adaptive-layout" data-fav-title="🔀 自适应布局">
+<div class="card-head"><h3>🔀 自适应布局</h3><span class="tag tag-d">设计启发</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>超越响应式的自适应UI：根据用户行为/内容类型/设备能力动态调整布局。不是'屏幕宽度断点'而是'内容驱动布局'。例：内容少时单列舒展、内容多时自动切换为网格/列表。CSS Container Queries使组件级自适应成为可能。</p>
+</div>
+<div class="card" data-fav-id="d24-design-ai-assisted-layout" data-fav-title="🤖 AI辅助排版">
+<div class="card-head"><h3>🤖 AI辅助排版</h3><span class="tag tag-d">设计启发</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>AI排版系统：输入内容和约束条件→AI生成最优布局方案。考虑因素：阅读顺序/视觉层级/空间平衡/信息分组/留白节奏。从'设计师手动排版'到'AI建议+设计师调整'的协作模式。</p>
+</div>
+</div>
+
+<div class="today-side">
+<div class="card" data-fav-id="d24-ai-ai-adaptive-interfac" data-fav-title="🎨 AI自适应界面">
+<div class="card-head"><h3>🎨 AI自适应界面</h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>基于用户行为的UI自动优化：AI追踪点击热力图→自动调整按钮位置/大小→A/B测试验证→最优方案推全。Netflix的'个性化UI'已经实现：不同用户看到不同的海报图、不同的信息排布。</p>
+</div>
+<div class="card" data-fav-id="d24-ai-personalized-ui-gene" data-fav-title="👤 个性化UI生成">
+<div class="card-head"><h3>👤 个性化UI生成</h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>AI根据用户偏好实时生成个性化界面：色彩偏好、信息密度、操作习惯、辅助功能需求——全部自动适配。从'一套UI服务所有人'到'千人千面的定制UI'。挑战：保持一致性体验的同时实现个性化。</p>
+</div>
+</div>
+
+</div>
+
+<!-- ========== Day 023 ========== -->
+<div class="day-group" data-day="23" style="display:none">
+<div style="padding:14px 0 8px;display:flex;align-items:center;justify-content:space-between">
+<div><span style="font-weight:700;font-size:17px">Day 023</span> <span style="color:var(--t3);font-size:13px;margin-left:8px">2026-05-03</span></div>
+<div style="font-size:12px;color:var(--t4)">📦 黑匣子思维 x 📝 失败学习 x 📈 边际收益 | 🔙 错误恢复UI x 📂 版本历史设计</div>
+</div>
+
+<div class="today-think">
+<div class="card" data-fav-id="d23-black-box-thinking" data-fav-title="📦 黑匣子思维 · Black Box Thinking">
+<div class="card-head"><h3>📦 黑匣子思维</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>马修·赛德的核心概念：航空业的'零容忍失败+完全透明调查'文化使其成为最安全的行业。对比医疗界的'隐藏错误'文化。关键不是'不犯错'而是'系统性地从错误中学习'——建立不惩罚报告错误的文化。</p>
+<div class="tip"><b>实践：</b>建立个人'黑匣子'：记录每次失败的完整过程，定期复盘，识别系统性改进点</div>
+</div>
+<div class="card" data-fav-id="d23-learning-from-failur" data-fav-title="📝 失败学习 · Learning from Failure">
+<div class="card-head"><h3>📝 失败学习</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>失败学习的三层模型：① 事后复盘(发生了什么) ② 根因分析(为什么发生) ③ 系统改进(如何防止再发)。达里奥的'痛苦+反思=进步'公式。关键：区分'可预防的失败'(系统问题)和'不可预防的失败'(创新的必要代价)。</p>
+<div class="tip"><b>实践：</b>对每次失败分类：流程失败(改流程)/判断失败(改决策框架)/探索失败(记录学习继续前进)</div>
+</div>
+<div class="card" data-fav-id="d23-marginal-gains" data-fav-title="📈 边际收益 · Marginal Gains">
+<div class="card-head"><h3>📈 边际收益</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>布雷斯福德(英国自行车队)的1%改进哲学：每个环节改进1%→复合效果巨大。不追求突破性创新→而是系统性地识别和改进所有可改进的小环节。但有陷阱：过度关注边际优化可能忽视范式跳跃的机会。</p>
+<div class="tip"><b>实践：</b>列出当前项目的所有环节，给每个评估'易改进程度×影响力'，优先攻击高分项</div>
+</div>
+</div>
+
+<div class="today-design">
+<div class="card" data-fav-id="d23-design-error-recovery-ui" data-fav-title="🔙 错误恢复UI">
+<div class="card-head"><h3>🔙 错误恢复UI</h3><span class="tag tag-d">设计启发</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>错误恢复设计四层防线：① 预防(危险操作二次确认) ② 撤销(Ctrl+Z/多步撤销) ③ 版本回退(保存历史状态) ④ 恢复(丢失后的数据恢复途径)。游戏中：误操作卖装备→回收站(限时)→客服恢复(兜底)。成本递增，覆盖递全。</p>
+</div>
+<div class="card" data-fav-id="d23-design-version-history-desi" data-fav-title="📂 版本历史设计">
+<div class="card-head"><h3>📂 版本历史设计</h3><span class="tag tag-d">设计启发</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>版本历史UI设计：① 时间线展示(日期+操作者+摘要) ② 版本对比(高亮差异) ③ 一键回滚(确认后恢复) ④ 分支(从历史版本创建新分支)。设计工具(Figma)的版本历史是最佳实践——游戏关卡编辑器也需要类似能力。</p>
+</div>
+</div>
+
+<div class="today-side">
+<div class="card" data-fav-id="d23-ai-ai-version-control" data-fav-title="🔄 AI版本控制">
+<div class="card-head"><h3>🔄 AI版本控制</h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>AI驱动的设计版本管理：自动标注'有意义的变更'(vs无关紧要的调整)、智能合并冲突、自动生成变更日志。Figma的AI版本摘要已上线——理解'改了什么'不再需要逐帧对比。</p>
+</div>
+<div class="card" data-fav-id="d23-ai-design-change-tracki" data-fav-title="📝 设计变更追踪">
+<div class="card-head"><h3>📝 设计变更追踪</h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>AI自动追踪设计变更的影响范围：改了一个Token→自动标注所有受影响的组件/页面。结合CI/CD：设计变更→自动截图对比→AI判断是否符合预期→通过则自动同步到开发。设计系统的'自动化测试'时代到来。</p>
+</div>
+</div>
+
+</div>
+
+<!-- ========== Day 022 ========== -->
+<div class="day-group" data-day="22" style="display:none">
+<div style="padding:14px 0 8px;display:flex;align-items:center;justify-content:space-between">
+<div><span style="font-weight:700;font-size:17px">Day 022</span> <span style="color:var(--t3);font-size:13px;margin-left:8px">2026-05-02</span></div>
+<div style="font-size:12px;color:var(--t4)">👁️ 注意力经济 x 💎 稀缺性 x 🌀 选择过载 | 🎯 注意力引导设计 x 🔦 焦点管理</div>
+</div>
+
+<div class="today-think">
+<div class="card" data-fav-id="d22-attention-economy" data-fav-title="👁️ 注意力经济 · Attention Economy">
+<div class="card-head"><h3>👁️ 注意力经济</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>赫伯特·西蒙预言：信息丰富的世界里，注意力是真正的稀缺资源。每个App/游戏/内容都在争夺同一资源——人类每天清醒的约16小时。注意力不是'消费'而是'投资'——注意力投向何处决定了你成为什么样的人。</p>
+<div class="tip"><b>实践：</b>审计你的注意力投资组合：哪些占用了注意力但不产生回报？哪些值得更多投入？</div>
+</div>
+<div class="card" data-fav-id="d22-scarcity" data-fav-title="💎 稀缺性 · Scarcity">
+<div class="card-head"><h3>💎 稀缺性</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>行为经济学核心原理：稀缺(无论真实或感知的)会极大提升人们对事物的估值和行动紧迫感。限时优惠/限量版/即将关闭都利用了稀缺性。但'制造假稀缺'会摧毁信任——稀缺必须真实或至少合理。</p>
+<div class="tip"><b>实践：</b>区分'真稀缺'(利用)和'假稀缺'(避免)——虚假紧迫感短期有效但长期侵蚀信任</div>
+</div>
+<div class="card" data-fav-id="d22-choice-overload" data-fav-title="🌀 选择过载 · Choice Overload">
+<div class="card-head"><h3>🌀 选择过载</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>施瓦茨的'选择的悖论'：选项过多→决策瘫痪+满意度下降。经典实验：6种果酱购买率30%→24种果酱购买率3%。关键区分：'选择者'(追求最优)比'满足者'(追求足够好)更容易被选择过载困扰。</p>
+<div class="tip"><b>实践：</b>减少决策数量：为自己设定默认选项(减少日常决策)，为用户提供推荐默认值</div>
+</div>
+</div>
+
+<div class="today-design">
+<div class="card" data-fav-id="d22-design-attention-guidance-d" data-fav-title="🎯 注意力引导设计">
+<div class="card-head"><h3>🎯 注意力引导设计</h3><span class="tag tag-d">设计启发</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>引导视觉注意力的工具箱：① 运动(动效)>② 颜色对比>③ 尺寸>④ 空间位置>⑤ 形状差异。游戏UI中：关键按钮用动效呼吸+颜色突出、次要信息灰色降噪。注意力是有限资源——每添加一个'注意力请求'都在稀释其他元素的注意力份额。</p>
+</div>
+<div class="card" data-fav-id="d22-design-focus-management" data-fav-title="🔦 焦点管理">
+<div class="card-head"><h3>🔦 焦点管理</h3><span class="tag tag-d">设计启发</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>UI焦点管理三原则：① 同时只有一个视觉焦点(主CTA) ② 焦点转移要有引导路径(F型/Z型阅读动线) ③ 弹窗/浮层获取焦点时背景要暗化(Modal Focus Trap)。游戏中：教程步骤用spotlight高亮当前关注区域。</p>
+</div>
+</div>
+
+<div class="today-side">
+<div class="card" data-fav-id="d22-ai-ai-attention-detecti" data-fav-title="👀 注意力AI检测">
+<div class="card-head"><h3>👀 注意力AI检测</h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>眼动追踪+AI分析：Tobii Pro等设备实时追踪用户视线→AI生成热力图→自动识别'被忽略的UI元素'和'过度关注的干扰元素'。从主观评测到客观数据的设计验证革命。</p>
+</div>
+<div class="card" data-fav-id="d22-ai-gaze-tracking-design" data-fav-title="📷 视线追踪设计">
+<div class="card-head"><h3>📷 视线追踪设计</h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>AI视线预测模型(无需硬件)：基于神经网络预测用户在特定设计中的注视分布。Attention Insight等工具已实现85%+准确率。设计师可在出图阶段就验证'用户会先看哪里'——快速迭代注意力引导策略。</p>
+</div>
+</div>
+
+</div>
+
+<!-- ========== Day 021 ========== -->
+<div class="day-group" data-day="21" style="display:none">
+<div style="padding:14px 0 8px;display:flex;align-items:center;justify-content:space-between">
+<div><span style="font-weight:700;font-size:17px">Day 021</span> <span style="color:var(--t3);font-size:13px;margin-left:8px">2026-05-01</span></div>
+<div style="font-size:12px;color:var(--t4)">🔄 反身性 x 💹 索罗斯模型 x 📖 市场叙事 | 📈 实时数据UI x 💰 行情展示设计</div>
+</div>
+
+<div class="today-think">
+<div class="card" data-fav-id="d21-reflexivity" data-fav-title="🔄 反身性 · Reflexivity">
+<div class="card-head"><h3>🔄 反身性</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>索罗斯的核心理论：市场参与者的认知影响市场基本面，市场基本面又反过来影响参与者认知——形成双向反馈循环。不是'认知反映现实'而是'认知塑造现实'。股价上涨→公司更容易融资→基本面改善→股价继续涨。</p>
+<div class="tip"><b>实践：</b>识别你所处的系统中是否存在反身性：你的信念和行为是否在改变你试图理解的对象？</div>
+</div>
+<div class="card" data-fav-id="d21-soros-model" data-fav-title="💹 索罗斯模型 · Soros Model">
+<div class="card-head"><h3>💹 索罗斯模型</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>索罗斯的'繁荣-衰退'模型：① 尚未被识别的趋势 ② 自我强化过程开始 ③ 预期接受市场检验 ④ 信念增长 ⑤ 现实与认知的差距(繁荣) ⑥ 临界点 ⑦ 自我强化反转(衰退)。关键：在⑤和⑥之间识别并行动。</p>
+<div class="tip"><b>实践：</b>观察任何'正在加速'的趋势：它是被反身性正反馈推高的吗？差距何时不可持续？</div>
+</div>
+<div class="card" data-fav-id="d21-market-narratives" data-fav-title="📖 市场叙事 · Market Narratives">
+<div class="card-head"><h3>📖 市场叙事</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>席勒的'叙事经济学'：推动经济波动的不只是数据——还有像病毒一样传播的'叙事'。'AI将取代所有工作'/'房价永远涨'/'加密货币是未来'都是叙事。叙事有传染力、变异性和消退周期——分析叙事的传播阶段能预测市场。</p>
+<div class="tip"><b>实践：</b>对当前热门叙事做'传播阶段分析'：早期(知情者)/加速(大众)/狂热(出租车司机也在说)/衰退</div>
+</div>
+</div>
+
+<div class="today-design">
+<div class="card" data-fav-id="d21-design-real-time-data-ui" data-fav-title="📈 实时数据UI">
+<div class="card-head"><h3>📈 实时数据UI</h3><span class="tag tag-d">设计启发</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>金融/游戏实时数据展示原则：① 数据更新要有视觉节奏(不是每毫秒闪烁) ② 涨跌用颜色+方向箭头双编码 ③ 大波动用动效强调(闪烁/缩放) ④ 提供时间维度切换(1分/5分/1时/1日) ⑤ 异常值自动标注。反身性启示：UI本身会影响用户行为(看到大跌→恐慌卖出)。</p>
+</div>
+<div class="card" data-fav-id="d21-design-market-display-desig" data-fav-title="💰 行情展示设计">
+<div class="card-head"><h3>💰 行情展示设计</h3><span class="tag tag-d">设计启发</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>行情类UI的信息层级：① 价格(最大/最醒目) ② 涨跌幅(颜色编码) ③ 趋势图(迷你K线/折线) ④ 成交量(柱状) ⑤ 技术指标(可折叠)。关键：为不同用户提供不同密度——新手看价格和涨跌，专家看全维度数据。</p>
+</div>
+</div>
+
+<div class="today-side">
+<div class="card" data-fav-id="d21-ai-ai-financial-visuali" data-fav-title="📊 AI金融可视化">
+<div class="card-head"><h3>📊 AI金融可视化</h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>AI驱动的智能图表：自动识别关键形态(头肩顶/双底)、标注异常波动原因(关联新闻事件)、预测趋势并标注置信区间。Bloomberg Terminal的AI增强正在重新定义专业金融信息的呈现方式。</p>
+</div>
+<div class="card" data-fav-id="d21-ai-ai-real-time-analysi" data-fav-title="⚡ AI实时分析">
+<div class="card-head"><h3>⚡ AI实时分析</h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>实时舆情+价格联动分析：AI同时处理价格流、新闻流、社交媒体流，毫秒级识别'信息→市场'传导。设计挑战：如何在不增加认知负荷的前提下呈现AI的多维分析结果？层级化信息架构是答案。</p>
+</div>
+</div>
+
+</div>
+
+<!-- ========== Day 020 ========== -->
+<div class="day-group" data-day="20" style="display:none">
+<div style="padding:14px 0 8px;display:flex;align-items:center;justify-content:space-between">
+<div><span style="font-weight:700;font-size:17px">Day 020</span> <span style="color:var(--t3);font-size:13px;margin-left:8px">2026-04-30</span></div>
+<div style="font-size:12px;color:var(--t4)">🌍 比较优势 x 🏭 专业化分工 x 💸 交易成本 | 🧩 模块化组件设计 x 📐 设计系统治理</div>
+</div>
+
+<div class="today-think">
+<div class="card" data-fav-id="d20-comparative-advantag" data-fav-title="🌍 比较优势 · Comparative Advantage">
+<div class="card-head"><h3>🌍 比较优势</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>李嘉图的核心洞见：即使A在所有方面都比B强，双方依然能通过专注各自'相对优势'领域并交换来同时受益。关键不是'谁更擅长什么'而是'做什么的机会成本最低'。个人时间管理也适用此原则。</p>
+<div class="tip"><b>实践：</b>即使你能做所有事，也应该只做你'比较优势'最大的事——其他事委托或外包</div>
+</div>
+<div class="card" data-fav-id="d20-specialization-and-d" data-fav-title="🏭 专业化分工 · Specialization & Division of Labor">
+<div class="card-head"><h3>🏭 专业化分工</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>亚当·斯密别针工厂：一人独立做1天产20根针→10人分工1天产48000根针(效率提升240倍)。但过度专业化有风险：① 脆弱性(一环断裂全线停) ② 意义丧失(只做螺丝的人不理解飞机) ③ 适应性降低(专才难转型)。</p>
+<div class="tip"><b>实践：</b>评估你的专业化程度是'甜蜜点'还是已过度——适度的T型能力结构最优</div>
+</div>
+<div class="card" data-fav-id="d20-transaction-costs" data-fav-title="💸 交易成本 · Transaction Costs">
+<div class="card-head"><h3>💸 交易成本</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>科斯定理的核心：市场交易存在搜索/谈判/执行/监督成本→当内部组织的管理成本<外部交易成本→企业存在的意义。反之当交易成本趋于零(互联网)→组织趋于瓦解为个人网络。区块链进一步降低信任成本。</p>
+<div class="tip"><b>实践：</b>每次犹豫'自己做vs外包'时，计算完整的交易成本(搜索+沟通+质控+迭代)而非只比较报价</div>
+</div>
+</div>
+
+<div class="today-design">
+<div class="card" data-fav-id="d20-design-modular-component-de" data-fav-title="🧩 模块化组件设计">
+<div class="card-head"><h3>🧩 模块化组件设计</h3><span class="tag tag-d">设计启发</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>设计系统的比较优势：每个组件只做一件事并做到最好。Atomic Design五层模型：原子(按钮/输入框)→分子(搜索栏)→有机体(导航栏)→模板→页面。游戏UI组件库同理：HUD组件/弹窗组件/列表组件各司其职。</p>
+</div>
+<div class="card" data-fav-id="d20-design-design-system-govern" data-fav-title="📐 设计系统治理">
+<div class="card-head"><h3>📐 设计系统治理</h3><span class="tag tag-d">设计启发</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>设计系统的长期维护模型：① 联邦制(各团队贡献组件+核心团队审核) ② 版本管理(语义化版本号) ③ 弃用策略(旧组件→deprecated→迁移→删除) ④ 贡献规范(提交组件的质量标准)。交易成本视角：好的设计系统降低了跨团队协作的交易成本。</p>
+</div>
+</div>
+
+<div class="today-side">
+<div class="card" data-fav-id="d20-ai-ai-design-system-aut" data-fav-title="🤖 设计系统AI自动化">
+<div class="card-head"><h3>🤖 设计系统AI自动化</h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>AI驱动的设计系统维护：自动检测设计稿中的Token违规、组件滥用、样式不一致。Figma插件+AI实现'设计债务自动审计'。未来趋势：AI根据品牌指南自动生成新组件变体。</p>
+</div>
+<div class="card" data-fav-id="d20-ai-ai-token-management" data-fav-title="🎨 Design Token AI管理">
+<div class="card-head"><h3>🎨 Design Token AI管理</h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>Design Token的AI化管理：① 自动从设计稿提取Token ② 跨平台Token翻译(Figma→CSS→Swift→Kotlin) ③ Token冲突检测 ④ 基于使用频率的Token精简建议。Token即代码，AI让Token管理系统性成为可能。</p>
+</div>
+</div>
+
+</div>
+
+<!-- ========== Day 019 ========== -->
+<div class="day-group" data-day="19" style="display:none">
+<div style="padding:14px 0 8px;display:flex;align-items:center;justify-content:space-between">
+<div><span style="font-weight:700;font-size:17px">Day 019</span> <span style="color:var(--t3);font-size:13px;margin-left:8px">2026-04-29</span></div>
+<div style="font-size:12px;color:var(--t4)">🧠 认知失调 x 🤝 承诺一致性 x 🪞 自我合理化 | 🎓 用户引导与教程 x ✨ 首次体验设计</div>
+</div>
+
+<div class="today-think">
+<div class="card" data-fav-id="d19-cognitive-dissonance" data-fav-title="🧠 认知失调 · Cognitive Dissonance">
+<div class="card-head"><h3>🧠 认知失调</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>费斯廷格的经典理论：当行为与信念矛盾时，大脑会自动修改信念以消除不适感。吸烟者合理化'我爷爷活到90还抽烟'。芒格：'人类大脑无法忍受认知失调——它会扭曲现实来保护自我形象，而你完全不知道自己在这么做。'</p>
+<div class="tip"><b>实践：</b>察觉自己在'合理化'什么——尤其在决策产生不好结果时的自我解释</div>
+</div>
+<div class="card" data-fav-id="d19-commitment-and-consi" data-fav-title="🤝 承诺一致性 · Commitment & Consistency">
+<div class="card-head"><h3>🤝 承诺一致性</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>西奥迪尼的影响力原则：一旦人们做出承诺(尤其是公开的)，会强烈倾向于行为与承诺一致——即使初始承诺是在错误信息下做出的。'脚在门内'技术：先获得小承诺，再逐步升级要求。</p>
+<div class="tip"><b>实践：</b>警惕自己因'之前说了'而坚持错误方向——允许自己根据新信息改变立场</div>
+</div>
+<div class="card" data-fav-id="d19-self-rationalization" data-fav-title="🪞 自我合理化 · Self-Rationalization">
+<div class="card-head"><h3>🪞 自我合理化</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>决策后大脑自动为选择构建合理化叙事，抑制替代选项的吸引力('酸葡萄效应')。本·富兰克林效应：帮过你的人会更喜欢你(因为大脑合理化'我帮他一定是因为我喜欢他')。理解这个机制才能对抗它。</p>
+<div class="tip"><b>实践：</b>做重大决策后刻意记录'放弃选项的优点'——防止合理化让你看不到纠正的机会</div>
+</div>
+</div>
+
+<div class="today-design">
+<div class="card" data-fav-id="d19-design-user-onboarding-and-" data-fav-title="🎓 用户引导与教程">
+<div class="card-head"><h3>🎓 用户引导与教程</h3><span class="tag tag-d">设计启发</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>游戏教程设计的黄金法则：① 不教不用的功能(即时教学>预先教学) ② 让玩家'做'而非'读'(交互式>文字说明) ③ 渐进披露(先核心操作，进阶功能延后) ④ 允许跳过(老玩家需求)。认知失调启示：让教程目标与玩家目标对齐=自然学习。</p>
+</div>
+<div class="card" data-fav-id="d19-design-first-time-user-expe" data-fav-title="✨ 首次体验设计">
+<div class="card-head"><h3>✨ 首次体验设计</h3><span class="tag tag-d">设计启发</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>FTUE(首次用户体验)决定30%的长期留存。设计框架：① 5秒内传达核心价值 ② 60秒内完成第一次'成功'(Aha时刻) ③ 5分钟内建立核心循环认知 ④ 首日结束时让用户有'下次回来的理由'。</p>
+</div>
+</div>
+
+<div class="today-side">
+<div class="card" data-fav-id="d19-ai-ai-powered-onboardin" data-fav-title="🤖 AI用户引导">
+<div class="card-head"><h3>🤖 AI用户引导</h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>智能教程系统根据玩家行为实时调整引导：卡关自动提示、跳过教程后在需要时补充、根据操作习惯推荐个性化按键绑定。从'一刀切教程'到'千人千面的学习路径'。</p>
+</div>
+<div class="card" data-fav-id="d19-ai-smart-tutorial-syste" data-fav-title="📚 智能教程系统">
+<div class="card-head"><h3>📚 智能教程系统</h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>AI教程2.0：① 行为追踪识别困惑点(点击密度/停留时间异常) ② NPC自然语境提示(非UI弹窗打断) ③ 难度动态调节(检测新手在挣扎时自动简化) ④ 成就反馈强化学习(做对立即正反馈)。</p>
+</div>
+</div>
+
+</div>
+
+<!-- ========== Day 018 ========== -->
+<div class="day-group" data-day="18" style="display:none">
+<div style="padding:14px 0 8px;display:flex;align-items:center;justify-content:space-between">
+<div><span style="font-weight:700;font-size:17px">Day 018</span> <span style="color:var(--t3);font-size:13px;margin-left:8px">2026-04-28</span></div>
+<div style="font-size:12px;color:var(--t4)">📏 规模效应 x 🦕 异速增长 x 📐 幂律分布 | 📱 响应式UI缩放 x 🖥️ 多端适配设计</div>
+</div>
+
+<div class="today-think">
+<div class="card" data-fav-id="d18-scale-effects" data-fav-title="📏 规模效应 · Scale Effects">
+<div class="card-head"><h3>📏 规模效应</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>杰弗里·韦斯特的研究揭示：规模变化不是简单的'放大缩小'——生物体体重增10倍，代谢率只增约5.6倍(次线性缩放)。城市人口增10倍，创新产出增约17倍(超线性缩放)。理解缩放规律是预测系统行为的关键。</p>
+<div class="tip"><b>实践：</b>评估你的项目/公司在规模变化时，哪些方面是次线性(效率提升)哪些是超线性(复杂度爆炸)</div>
+</div>
+<div class="card" data-fav-id="d18-allometric-scaling" data-fav-title="🦕 异速增长 · Allometric Scaling">
+<div class="card-head"><h3>🦕 异速增长</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>生物学规律推广：系统各部分不按相同比例增长。大象的腿骨比例远超老鼠(因为重量按体积³增长，支撑力按截面积²增长)。类比：10人团队→100人团队不是'×10'→沟通复杂度按n²增长→组织结构必须质变。</p>
+<div class="tip"><b>实践：</b>规模扩张前识别'异速增长'的瓶颈：什么会比主体增长更快？那就是将来的瓶颈</div>
+</div>
+<div class="card" data-fav-id="d18-power-law-distributi" data-fav-title="📐 幂律分布 · Power Law Distribution">
+<div class="card-head"><h3>📐 幂律分布</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>自然界和社会中大量现象不服从正态分布而服从幂律：极少数个体占据极大比例(地震能量/城市规模/财富分布/网站流量)。幂律意味着'黑天鹅'不是异常而是规律的一部分——均值和方差可能没有意义。</p>
+<div class="tip"><b>实践：</b>识别你所处系统是正态分布还是幂律分布——幂律系统中'平均值'是误导性的</div>
+</div>
+</div>
+
+<div class="today-design">
+<div class="card" data-fav-id="d18-design-responsive-ui-scalin" data-fav-title="📱 响应式UI缩放">
+<div class="card-head"><h3>📱 响应式UI缩放</h3><span class="tag tag-d">设计启发</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>游戏UI在不同分辨率/屏幕尺寸下的适配策略：① 锚点系统(元素相对于屏幕边/中心定位) ② 缩放策略(DPI Scaling vs 布局重排) ③ 断点设计(手机/平板/PC不同布局) ④ 字体最小值保护(≥12px可读性底线)。</p>
+</div>
+<div class="card" data-fav-id="d18-design-cross-platform-adapt" data-fav-title="🖥️ 多端适配设计">
+<div class="card-head"><h3>🖥️ 多端适配设计</h3><span class="tag tag-d">设计启发</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>同一游戏多端体验的UI差异化：手机=拇指操控区+简化信息、平板=混合交互+中等密度、PC=精确操作+高信息密度。核心原则：功能一致但交互方式和信息密度根据设备特性适配。</p>
+</div>
+</div>
+
+<div class="today-side">
+<div class="card" data-fav-id="d18-ai-multimodal-ai" data-fav-title="🌐 多模态AI">
+<div class="card-head"><h3>🌐 多模态AI</h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>GPT-4V/Gemini Ultra等多模态模型统一处理文字+图片+视频+音频。设计应用：一张截图→AI理解UI意图→生成代码+提出改进建议。从'描述需求'到'展示需求'的交互范式转变。</p>
+</div>
+<div class="card" data-fav-id="d18-ai-unified-vision-langu" data-fav-title="🎬 图文视频统一模型">
+<div class="card-head"><h3>🎬 图文视频统一模型</h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>Sora/Runway Gen-3实现从文本/图片/视频任意形式的相互转换。对设计工作流的影响：概念草图→AI生成完整设计稿→自动生成展示视频→客户预览。创作链条的每一步都被AI加速。</p>
+</div>
+</div>
+
+</div>
+
+<!-- ========== Day 017 ========== -->
+<div class="day-group" data-day="17" style="display:none">
+<div style="padding:14px 0 8px;display:flex;align-items:center;justify-content:space-between">
+<div><span style="font-weight:700;font-size:17px">Day 017</span> <span style="color:var(--t3);font-size:13px;margin-left:8px">2026-04-27</span></div>
+<div style="font-size:12px;color:var(--t4)">📊 贝叶斯推理 x 🎲 先验概率 x 🔄 证据更新 | 🔎 搜索与推荐UI x 🎨 个性化界面</div>
+</div>
+
+<div class="today-think">
+<div class="card" data-fav-id="d17-bayesian-reasoning" data-fav-title="📊 贝叶斯推理 · Bayesian Reasoning">
+<div class="card-head"><h3>📊 贝叶斯推理</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>用概率语言思考世界：所有信念都有一个置信度(0-100%)，每条新证据都应该按比例更新这个置信度。不是'对/错'的二元判断，而是'在当前证据下，这件事的概率是X%'。这是对抗过度自信和固执的最强工具。</p>
+<div class="tip"><b>实践：</b>把你最重要的3个信念写下来，给每个标注置信度百分比——然后寻找可能改变它们的证据</div>
+</div>
+<div class="card" data-fav-id="d17-prior-probability" data-fav-title="🎲 先验概率 · Prior Probability">
+<div class="card-head"><h3>🎲 先验概率</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>在看到具体证据之前，基于基础率(base rate)的初始概率估计。忽略先验是人类最常见的判断错误——卡尼曼的'基率忽视'。例：即使一个人看起来很像程序员，在护士数量是程序员10倍的地方，他更可能是护士。</p>
+<div class="tip"><b>实践：</b>做判断前先问'基础概率是多少'——在没有其他信息时，基率就是最佳估计</div>
+</div>
+<div class="card" data-fav-id="d17-evidence-updating" data-fav-title="🔄 证据更新 · Evidence Updating">
+<div class="card-head"><h3>🔄 证据更新</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>贝叶斯定理的核心操作：新证据的'诊断力'决定更新幅度。诊断力=这个证据在假设为真时出现的概率÷假设为假时出现的概率。比值>1→增强信念，<1→削弱信念，=1→不更新(无信息量的证据)。</p>
+<div class="tip"><b>实践：</b>收到新信息时问：如果我的判断是错的，这个信息出现的概率是多少？据此决定更新幅度</div>
+</div>
+</div>
+
+<div class="today-design">
+<div class="card" data-fav-id="d17-design-search-and-recommend" data-fav-title="🔎 搜索与推荐UI">
+<div class="card-head"><h3>🔎 搜索与推荐UI</h3><span class="tag tag-d">设计启发</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>搜索体验优化：① 即时建议(输入即推荐) ② 零结果友好(给替代建议而非空白) ③ 筛选器可视化(标签而非隐藏下拉) ④ 搜索历史智能利用(常搜项快捷入口)。游戏中：物品/技能/好友搜索都需要低摩擦设计。</p>
+</div>
+<div class="card" data-fav-id="d17-design-personalized-interfa" data-fav-title="🎨 个性化界面">
+<div class="card-head"><h3>🎨 个性化界面</h3><span class="tag tag-d">设计启发</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>界面个性化三个层次：① 布局自定义(拖拽组件) ② 内容个性化(推荐排序) ③ 交互适应(根据使用习惯调整快捷方式)。关键平衡：个性化不能让界面变得'不可预测'——主结构保持一致，细节个性化。</p>
+</div>
+</div>
+
+<div class="today-side">
+<div class="card" data-fav-id="d17-ai-search-ai-revolution" data-fav-title="🔮 搜索AI革命">
+<div class="card-head"><h3>🔮 搜索AI革命</h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>Perplexity/SearchGPT重新定义搜索：从'给你链接'变为'给你答案+来源'。传统搜索引擎流量下降15-30%。新搜索范式：对话式探索→AI整合多源信息→结构化呈现→支持追问深入。</p>
+</div>
+<div class="card" data-fav-id="d17-ai-perplexity-style-pro" data-fav-title="💡 Perplexity类产品设计">
+<div class="card-head"><h3>💡 Perplexity类产品设计</h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>AI搜索产品的UI设计模式：① 答案优先(结论在前，来源在后) ② 引用可追溯(每句话标注来源) ③ 追问引导(智能推荐后续问题) ④ 知识图谱可视化(概念关系网络)。信息密度与可读性的平衡是核心挑战。</p>
+</div>
+</div>
+
+</div>
+
+<!-- ========== Day 016 ========== -->
+<div class="day-group" data-day="16" style="display:none">
+<div style="padding:14px 0 8px;display:flex;align-items:center;justify-content:space-between">
+<div><span style="font-weight:700;font-size:17px">Day 016</span> <span style="color:var(--t3);font-size:13px;margin-left:8px">2026-04-26</span></div>
+<div style="font-size:12px;color:var(--t4)">💥 临界点 x 🧊 相变 x 🌊 网络传播动力学 | 🦠 病毒传播UI x 🔗 社交分享触发</div>
+</div>
+
+<div class="today-think">
+<div class="card" data-fav-id="d16-tipping-point" data-fav-title="💥 临界点 · Tipping Point">
+<div class="card-head"><h3>💥 临界点</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>格拉德威尔的核心概念：变化不是渐进的——而是积累到某个临界点后突然爆发。流行病传播、社会运动、技术扩散都遵循S曲线：缓慢积累→临界点→爆发增长→饱和。关键是识别'什么条件让系统接近临界点'。</p>
+<div class="tip"><b>实践：</b>评估你推动的变化处于S曲线什么位置？距离临界点还差什么条件？</div>
+</div>
+<div class="card" data-fav-id="d16-phase-transition" data-fav-title="🧊 相变 · Phase Transition">
+<div class="card-head"><h3>🧊 相变</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>物理学概念类比：水在99°C还是液体，100°C突然变成气体——同样的分子，完全不同的行为。组织/市场/技术都存在相变：量的积累最终导致质的跃迁。关键洞见：相变前后需要完全不同的策略。</p>
+<div class="tip"><b>实践：</b>识别你所在系统是否接近相变点——相变前的策略在相变后可能完全失效</div>
+</div>
+<div class="card" data-fav-id="d16-network-propagation-" data-fav-title="🌊 网络传播动力学 · Network Propagation Dynamics">
+<div class="card-head"><h3>🌊 网络传播动力学</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>信息/行为/情绪在网络中的传播遵循传染病模型：R0(基本再生数)>1=传播扩散，<1=消退。每个节点的传播概率×网络连接数=决定是否达到临界点。超级传播者的存在使分布极不均匀。</p>
+<div class="tip"><b>实践：</b>推广新事物时，找到网络中的'超级节点'(连接数极高的人)优先触达</div>
+</div>
+</div>
+
+<div class="today-design">
+<div class="card" data-fav-id="d16-design-viral-spread-ui" data-fav-title="🦠 病毒传播UI">
+<div class="card-head"><h3>🦠 病毒传播UI</h3><span class="tag tag-d">设计启发</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>促进自然分享的UI设计：① 分享按钮放在'成就时刻'(通关/新纪录/稀有掉落) ② 自动生成'可分享的内容'(成绩图/高光时刻视频) ③ 社交货币设计(分享后双方得奖励) ④ 低摩擦路径(一键分享到所有平台)。</p>
+</div>
+<div class="card" data-fav-id="d16-design-social-share-trigger" data-fav-title="🔗 社交分享触发">
+<div class="card-head"><h3>🔗 社交分享触发</h3><span class="tag tag-d">设计启发</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>高转化分享触发时机：① 首次通关(成就感峰值) ② 排名超越好友(竞争驱动) ③ 获得稀有物品(炫耀驱动) ④ 搞笑/意外时刻(娱乐驱动)。设计原则：不是让用户'帮你宣传'，而是让用户'表达自己'。</p>
+</div>
+</div>
+
+<div class="today-side">
+<div class="card" data-fav-id="d16-ai-ai-content-distribut" data-fav-title="📢 AI内容分发">
+<div class="card-head"><h3>📢 AI内容分发</h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>推荐算法的'过滤气泡'问题正被重视：TikTok/YouTube开始在推荐中强制注入多样性内容(exploration ratio)。平衡exploitation(推已知喜好)和exploration(发现新兴趣)成为核心设计挑战。</p>
+</div>
+<div class="card" data-fav-id="d16-ai-recommendation-trans" data-fav-title="🔍 推荐算法透明度">
+<div class="card-head"><h3>🔍 推荐算法透明度</h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>用户要求知道'为什么推荐这个给我'——Netflix/Spotify已增加推荐理由标签。设计趋势：让用户主动调节推荐偏好(滑块控制内容多样性vs精准度)。透明推荐增加用户对平台的信任感。</p>
+</div>
+</div>
+
+</div>
+
+<!-- ========== Day 015 ========== -->
+<div class="day-group" data-day="15" style="display:none">
+<div style="padding:14px 0 8px;display:flex;align-items:center;justify-content:space-between">
+<div><span style="font-weight:700;font-size:17px">Day 015</span> <span style="color:var(--t3);font-size:13px;margin-left:8px">2026-04-25</span></div>
+<div style="font-size:12px;color:var(--t4)">🔑 信息不对称 x 🍋 柠檬市场 x 📡 信号理论 | ✅ 信任标记设计 x ⭐ 评价系统UI</div>
+</div>
+
+<div class="today-think">
+<div class="card" data-fav-id="d15-information-asymmetr" data-fav-title="🔑 信息不对称 · Information Asymmetry">
+<div class="card-head"><h3>🔑 信息不对称</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>交易双方掌握的信息不对等——导致市场失灵。阿克洛夫的柠檬市场理论解释了为什么二手车市场充斥劣品：卖家知道车况但买家不知→好车退出→只剩'柠檬'。解法：信号传递、担保机制、信誉系统。</p>
+<div class="tip"><b>实践：</b>评估你参与的每个交易中：谁拥有更多信息？信息差如何影响决策？</div>
+</div>
+<div class="card" data-fav-id="d15-market-for-lemons" data-fav-title="🍋 柠檬市场 · Market for Lemons">
+<div class="card-head"><h3>🍋 柠檬市场</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>阿克洛夫1970年论文：信息不对称→逆向选择→市场崩溃。当买家无法区分好坏→只愿付平均价→好品质退出→平均质量下降→价格再降→恶性循环。保险/招聘/投资市场都存在'柠檬问题'。</p>
+<div class="tip"><b>实践：</b>设计产品或市场时，思考如何帮助买方识别质量差异——评价系统、认证体系、试用期</div>
+</div>
+<div class="card" data-fav-id="d15-signaling-theory" data-fav-title="📡 信号理论 · Signaling Theory">
+<div class="card-head"><h3>📡 信号理论</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>斯宾塞的信号理论：在信息不对称中，拥有优势的一方需要发送'可信信号'来证明自己的质量。学历是能力信号(因为获取成本高→低能力者难以模仿)。关键：有效信号必须对高质量者成本低、对低质量者成本高。</p>
+<div class="tip"><b>实践：</b>思考你在发送什么信号？这些信号是否'可信'(难以被低质量者模仿)？</div>
+</div>
+</div>
+
+<div class="today-design">
+<div class="card" data-fav-id="d15-design-trust-indicator-desi" data-fav-title="✅ 信任标记设计">
+<div class="card-head"><h3>✅ 信任标记设计</h3><span class="tag tag-d">设计启发</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>用户信任建立的UI工具箱：① 认证徽章(蓝勾/皇冠/等级) ② 历史数据(交易次数/好评率/在线时长) ③ 社会证明(共同好友/同公会) ④ 第三方担保(官方认证/托管交易)。游戏交易系统中信任设计直接影响经济活跃度。</p>
+</div>
+<div class="card" data-fav-id="d15-design-rating-system-ui" data-fav-title="⭐ 评价系统UI">
+<div class="card-head"><h3>⭐ 评价系统UI</h3><span class="tag tag-d">设计启发</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>评价系统设计五原则：① 结构化评价(多维度打分)比单一星级更有信息量 ② 显示评价分布(直方图)而非只显示均值 ③ 时间加权(近期评价权重更高) ④ 异常评价标注(刷分检测) ⑤ 回复机制(降低信息不对称)。</p>
+</div>
+</div>
+
+<div class="today-side">
+<div class="card" data-fav-id="d15-ai-ai-trust-and-explain" data-fav-title="🔮 AI信任与可解释性">
+<div class="card-head"><h3>🔮 AI信任与可解释性</h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>XAI(可解释AI)成为产品刚需：用户需要理解AI为什么这样推荐/决策。LIME/SHAP等算法可视化特征贡献。设计趋势：'AI信任仪表盘'——展示AI决策的依据、置信度、历史准确率。</p>
+</div>
+<div class="card" data-fav-id="d15-ai-xai-design-patterns" data-fav-title="📋 XAI设计模式">
+<div class="card-head"><h3>📋 XAI设计模式</h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>可解释AI的四种UI模式：① 特征归因(哪些因素影响了结果) ② 反事实解释(如果X不同，结果会是Y) ③ 相似案例(类似情况的历史结果) ④ 不确定性展示(置信区间可视化)。透明度=信任。</p>
+</div>
+</div>
+
+</div>
+
+<!-- ========== Day 014 ========== -->
+<div class="day-group" data-day="14" style="display:none">
+<div style="padding:14px 0 8px;display:flex;align-items:center;justify-content:space-between">
+<div><span style="font-weight:700;font-size:17px">Day 014</span> <span style="color:var(--t3);font-size:13px;margin-left:8px">2026-04-24</span></div>
+<div style="font-size:12px;color:var(--t4)">👑 红皇后效应 x 🏔️ 适应性景观 x 🧬 进化稳定策略 | 🏅 竞争排行榜设计 x 🏆 赛季系统UI</div>
+</div>
+
+<div class="today-think">
+<div class="card" data-fav-id="d14-red-queen-effect" data-fav-title="👑 红皇后效应 · Red Queen Effect">
+<div class="card-head"><h3>👑 红皇后效应</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>源自《爱丽丝镜中世界》：必须不停奔跑才能留在原地。进化生物学中：猎物进化更快→捕食者也必须进化更快→双方都在进步但相对位置不变。商业中：竞争对手持续改进=你不进步就是退步。</p>
+<div class="tip"><b>实践：</b>评估你所在领域的'红皇后速度'——必须跑多快才能维持当前位置？</div>
+</div>
+<div class="card" data-fav-id="d14-adaptive-landscape" data-fav-title="🏔️ 适应性景观 · Adaptive Landscape">
+<div class="card-head"><h3>🏔️ 适应性景观</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>赖特提出的进化概念：适应度想象为地形的高度，进化是在这个景观上攀登。局部最高点(local peak)可能远低于全局最高点——但到达全局峰值需要先'下山'(暂时变差)。很多公司卡在局部最优因为不愿承受短期退步。</p>
+<div class="tip"><b>实践：</b>识别你是否在'局部山顶'：当前策略很难小幅改进=可能需要跳跃式变革</div>
+</div>
+<div class="card" data-fav-id="d14-evolutionary-stable-" data-fav-title="🧬 进化稳定策略 · Evolutionary Stable Strategy">
+<div class="card-head"><h3>🧬 进化稳定策略</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>一旦种群采用了某策略，任何替代策略都无法入侵的状态(ESS)。类似纳什均衡的生物学版本。理解ESS帮助判断：现有市场格局是'稳定的'还是'可颠覆的'——如果存在能入侵的新策略，则颠覆窗口存在。</p>
+<div class="tip"><b>实践：</b>分析竞争格局：当前主流策略是ESS吗？有没有'变异策略'可以在边缘生长？</div>
+</div>
+</div>
+
+<div class="today-design">
+<div class="card" data-fav-id="d14-design-competitive-leaderbo" data-fav-title="🏅 竞争排行榜设计">
+<div class="card-head"><h3>🏅 竞争排行榜设计</h3><span class="tag tag-d">设计启发</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>排行榜心理学：① 只展示用户附近排名(±5名)比全部排名更有驱动力 ② 多维度排行(日/周/总/好友)让更多人有'第一名'体验 ③ 段位制比数字排名更友好(让80%的人都在'中上'段位)。红皇后效应启示：让玩家始终感觉'再努力一点就能超越前一名'。</p>
+</div>
+<div class="card" data-fav-id="d14-design-season-system-ui" data-fav-title="🏆 赛季系统UI">
+<div class="card-head"><h3>🏆 赛季系统UI</h3><span class="tag tag-d">设计启发</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>赛季设计UI要素：① 倒计时营造紧迫感 ② 赛季回顾总结(数据可视化) ③ 段位升降动效(仪式感) ④ 新赛季预告(期待感)。核心：赛季重置=消除路径依赖，给所有人重新开始的公平感。</p>
+</div>
+</div>
+
+<div class="today-side">
+<div class="card" data-fav-id="d14-ai-ai-competitive-match" data-fav-title="🎮 AI竞技匹配">
+<div class="card-head"><h3>🎮 AI竞技匹配</h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>Riot Games的AI匹配系统考虑50+维度：技术水平、英雄池广度、对线倾向、抗压能力、团队配合度。目标：每局游戏让所有人都感觉'势均力敌，稍微努力就能赢'。</p>
+</div>
+<div class="card" data-fav-id="d14-ai-ai-anti-cheat" data-fav-title="🛡️ AI反作弊系统">
+<div class="card-head"><h3>🛡️ AI反作弊系统</h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>Riot Vanguard/EasyAntiCheat的AI行为检测：不依赖特征码，而是分析玩家操作模式异常(反应速度/视角移动/射击精度分布)。AI反作弊准确率超99.7%，误判率<0.01%。</p>
+</div>
+</div>
+
+</div>
+
+<!-- ========== Day 013 ========== -->
+<div class="day-group" data-day="13" style="display:none">
+<div style="padding:14px 0 8px;display:flex;align-items:center;justify-content:space-between">
+<div><span style="font-weight:700;font-size:17px">Day 013</span> <span style="color:var(--t3);font-size:13px;margin-left:8px">2026-04-23</span></div>
+<div style="font-size:12px;color:var(--t4)">💰 心理账户 x 🏆 禀赋效应 x 🖼️ 框架效应 | 💎 游戏经济UI x 🪙 货币显示设计</div>
+</div>
+
+<div class="today-think">
+<div class="card" data-fav-id="d13-mental-accounting" data-fav-title="💰 心理账户 · Mental Accounting">
+<div class="card-head"><h3>💰 心理账户</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>塞勒发现人们会在心理上把钱分成不同'账户'(餐饮/娱乐/投资)，每个账户独立核算——导致非理性行为。例：赌场赢的钱更容易挥霍('赌金'账户≠'工资'账户)，但钱是可替代的(fungible)。</p>
+<div class="tip"><b>实践：</b>检查你是否对不同来源的资源(金钱/时间/精力)有非理性的差别对待</div>
+</div>
+<div class="card" data-fav-id="d13-endowment-effect" data-fav-title="🏆 禀赋效应 · Endowment Effect">
+<div class="card-head"><h3>🏆 禀赋效应</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>人们对已拥有的东西赋予不合理的高估值——卖家要价远高于买家出价。卡尼曼实验：随机获得杯子的人要$7才愿卖，没获得的人只愿出$3买同样的杯子。拥有感创造了不存在的价值。</p>
+<div class="tip"><b>实践：</b>做取舍决策时用'假如我没有这个东西，我会花多少去获得它？'来校准真实估值</div>
+</div>
+<div class="card" data-fav-id="d13-framing-effect" data-fav-title="🖼️ 框架效应 · Framing Effect">
+<div class="card-head"><h3>🖼️ 框架效应</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>同样的信息用不同方式表述会导致截然不同的决策。'95%存活率'比'5%死亡率'让人更愿意手术。塔勒布：'叙事(narrative)比数据(data)更影响人类决策——因为框架决定了哪些信息被注意到。'</p>
+<div class="tip"><b>实践：</b>表达重要信息时，准备正面和负面两种框架，根据目标选择合适的表述方式</div>
+</div>
+</div>
+
+<div class="today-design">
+<div class="card" data-fav-id="d13-design-game-economy-ui" data-fav-title="💎 游戏经济UI">
+<div class="card-head"><h3>💎 游戏经济UI</h3><span class="tag tag-d">设计启发</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>虚拟经济界面设计关键：① 多货币体系用颜色+图标明确区分 ② 大数值用缩写(1.2M)但精确值hover可见 ③ 收支流向可视化(来源→去向桑基图) ④ '划算程度'用折扣标签/原价划线直观传达——利用框架效应引导消费决策。</p>
+</div>
+<div class="card" data-fav-id="d13-design-currency-display-des" data-fav-title="🪙 货币显示设计">
+<div class="card-head"><h3>🪙 货币显示设计</h3><span class="tag tag-d">设计启发</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>游戏货币UI最佳实践：① 固定位置(右上角黄金法则) ② 变化时有动效(增加=绿色飞入,减少=红色飞出) ③ 不同货币用不同视觉重量(稀有货币更华丽) ④ 即将用完时变红预警。心理账户理论指导：帮用户建立清晰的'预算感'。</p>
+</div>
+</div>
+
+<div class="today-side">
+<div class="card" data-fav-id="d13-ai-game-ai-economy-bala" data-fav-title="⚖️ 游戏AI经济平衡">
+<div class="card-head"><h3>⚖️ 游戏AI经济平衡</h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>机器学习驱动的动态经济平衡系统：实时监控通胀率/物品流通量/贫富差距，自动调节掉落率和NPC商店价格。NetEase的AI经济官系统实现毫秒级价格响应，通胀率控制在目标区间。</p>
+</div>
+<div class="card" data-fav-id="d13-ai-ai-dynamic-pricing" data-fav-title="💲 AI动态定价">
+<div class="card-head"><h3>💲 AI动态定价</h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>个性化定价AI结合玩家付费意愿模型，动态调整商城展示和折扣力度。伦理边界：透明度要求——玩家应知道价格是个性化的。监管趋势：欧盟正在讨论游戏内动态定价的披露义务。</p>
+</div>
+</div>
+
+</div>
+
+<!-- ========== Day 012 ========== -->
+<div class="day-group" data-day="12" style="display:none">
+<div style="padding:14px 0 8px;display:flex;align-items:center;justify-content:space-between">
+<div><span style="font-weight:700;font-size:17px">Day 012</span> <span style="color:var(--t3);font-size:13px;margin-left:8px">2026-04-22</span></div>
+<div style="font-size:12px;color:var(--t4)">🌐 系统思维 x 🎯 杠杆点 x ⏳ 延迟效应 | 📡 系统状态可视化 x ⏱️ 进度反馈设计</div>
+</div>
+
+<div class="today-think">
+<div class="card" data-fav-id="d12-systems-thinking" data-fav-title="🌐 系统思维 · Systems Thinking">
+<div class="card-head"><h3>🌐 系统思维</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>将问题视为相互连接的系统而非孤立事件。德内拉·梅多斯：'系统行为来源于结构——改变元素不改变行为，改变连接和目的才会。'理解复杂问题需要看到整体结构、反馈环、延迟和非线性。</p>
+<div class="tip"><b>实践：</b>遇到反复出现的问题，画因果回路图寻找结构性原因而非表面症状</div>
+</div>
+<div class="card" data-fav-id="d12-leverage-points" data-fav-title="🎯 杠杆点 · Leverage Points">
+<div class="card-head"><h3>🎯 杠杆点</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>梅多斯的12个系统干预点层级：从参数调整(效果最弱)到改变系统范式(效果最强)。大多数人在最弱的杠杆点(调参数、加资源)上努力，而忽略了规则改变、信息流重塑、系统目标重定义等高杠杆干预。</p>
+<div class="tip"><b>实践：</b>下次想'加人/加钱'解决问题时，问'有没有更高层级的杠杆点可以撬动？'</div>
+</div>
+<div class="card" data-fav-id="d12-delay-effects" data-fav-title="⏳ 延迟效应 · Delay Effects">
+<div class="card-head"><h3>⏳ 延迟效应</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>系统中的反馈从行动到结果之间存在时间延迟。延迟导致过度反应和振荡——热水龙头转太快会烫到(因为延迟让你误以为没反应)。决策者最常犯的错误：因为没看到即时效果就加大力度，等效果累积叠加时已经过头。</p>
+<div class="tip"><b>实践：</b>评估每个行动的'见效延迟'，延迟越长越要谨慎避免过度干预</div>
+</div>
+</div>
+
+<div class="today-design">
+<div class="card" data-fav-id="d12-design-system-status-visual" data-fav-title="📡 系统状态可视化">
+<div class="card-head"><h3>📡 系统状态可视化</h3><span class="tag tag-d">设计启发</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>复杂系统状态的UI传达四层架构：① 健康指示灯(绿/黄/红一眼判断) ② 关键指标仪表(温度计/进度条/趋势线) ③ 因果关系图(为什么变红) ④ 操作建议(该怎么修)。游戏服务器状态/公会资源管理适用此模式。</p>
+</div>
+<div class="card" data-fav-id="d12-design-progress-feedback-de" data-fav-title="⏱️ 进度反馈设计">
+<div class="card-head"><h3>⏱️ 进度反馈设计</h3><span class="tag tag-d">设计启发</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>进度反馈心理学：① 显示预计完成时间比百分比更减焦虑 ② 前期快后期慢的假进度条比匀速更让人耐心 ③ 分阶段里程碑比一条长进度条更有成就感。游戏下载/副本进度/赛季通行证均需精心设计进度反馈。</p>
+</div>
+</div>
+
+<div class="today-side">
+<div class="card" data-fav-id="d12-ai-ai-performance-monit" data-fav-title="🔍 AI性能监控">
+<div class="card-head"><h3>🔍 AI性能监控</h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>Datadog/New Relic整合AI异常检测：自动识别性能退化模式、预测峰值压力、推荐扩容方案。游戏服务端AI运维已成标配——从被动告警到主动预防。</p>
+</div>
+<div class="card" data-fav-id="d12-ai-smart-alert-design" data-fav-title="🚨 智能报警设计">
+<div class="card-head"><h3>🚨 智能报警设计</h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>AI报警系统进化：从阈值触发→异常检测→根因定位→自动修复建议。设计要点：报警疲劳是最大杀手——AI去噪聚合，只推送需要人类决策的关键告警。</p>
+</div>
+</div>
+
+</div>
+
+<!-- ========== Day 011 ========== -->
+<div class="day-group" data-day="11" style="display:none">
+<div style="padding:14px 0 8px;display:flex;align-items:center;justify-content:space-between">
+<div><span style="font-weight:700;font-size:17px">Day 011</span> <span style="color:var(--t3);font-size:13px;margin-left:8px">2026-04-21</span></div>
+<div style="font-size:12px;color:var(--t4)">♟️ 博弈论 x ⚖️ 纳什均衡 x 🔒 囚徒困境 | 💬 社交互动UI x 🎮 多人游戏HUD</div>
+</div>
+
+<div class="today-think">
+<div class="card" data-fav-id="d11-game-theory" data-fav-title="♟️ 博弈论 · Game Theory">
+<div class="card-head"><h3>♟️ 博弈论</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>研究理性决策者之间策略互动的数学框架。核心洞见：你的最优选择取决于对手的选择，而对手的选择也取决于你。不是'我应该怎么做'而是'考虑到对方会怎么反应，我应该怎么做'。</p>
+<div class="tip"><b>实践：</b>重要决策前列出所有参与者及其激励，用博弈矩阵分析可能结果</div>
+</div>
+<div class="card" data-fav-id="d11-nash-equilibrium" data-fav-title="⚖️ 纳什均衡 · Nash Equilibrium">
+<div class="card-head"><h3>⚖️ 纳什均衡</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>所有参与者都选择了对自己最优策略后，没有人有动机单方面改变策略的状态。纳什证明：任何有限博弈至少存在一个均衡。关键洞见：纳什均衡不一定是'最好'的结果——囚徒困境中双方背叛就是均衡但非最优。</p>
+<div class="tip"><b>实践：</b>识别你所处系统的纳什均衡——当前稳态是否对所有人最优？如果不是，如何改变博弈规则？</div>
+</div>
+<div class="card" data-fav-id="d11-prisoner's-dilemma" data-fav-title="🔒 囚徒困境 · Prisoner's Dilemma">
+<div class="card-head"><h3>🔒 囚徒困境</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>两个囚犯独立决策：合作vs背叛。个体理性(背叛)导致集体非理性(双输)。阿克塞尔罗德锦标赛证明：重复博弈中'以牙还牙'(先合作，对方背叛则惩罚)是最优策略。启示：建立重复博弈关系=促进合作。</p>
+<div class="tip"><b>实践：</b>把一次性交易转变为重复博弈(长期合作)来促进信任和合作</div>
+</div>
+</div>
+
+<div class="today-design">
+<div class="card" data-fav-id="d11-design-social-interaction-u" data-fav-title="💬 社交互动UI">
+<div class="card-head"><h3>💬 社交互动UI</h3><span class="tag tag-d">设计启发</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>社交功能的UI设计三层模型：① 发现层(谁在线/谁在附近/推荐好友) ② 互动层(聊天/赠送/组队/交易) ③ 关系层(好友等级/亲密度可视化)。关键：降低社交启动成本——'一键组队'比'搜索ID→发送请求→等待确认'转化率高5倍。</p>
+</div>
+<div class="card" data-fav-id="d11-design-multiplayer-game-hud" data-fav-title="🎮 多人游戏HUD">
+<div class="card-head"><h3>🎮 多人游戏HUD</h3><span class="tag tag-d">设计启发</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>多人HUD信息管理：队友状态(血条/位置/状态)必须常驻但不遮挡。最佳实践：队友信息放屏幕边缘、用颜色编码区分角色、危险状态自动放大提醒。信息优先级：自己>队友>敌人>环境。</p>
+</div>
+</div>
+
+<div class="today-side">
+<div class="card" data-fav-id="d11-ai-ai-social-recommenda" data-fav-title="🤝 AI社交推荐">
+<div class="card-head"><h3>🤝 AI社交推荐</h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>游戏内AI匹配系统从简单的'等级相近'进化到'游玩风格/在线时间/性格相似度'多维匹配。Epic Games的Social Graph AI实现跨游戏好友推荐，社交活跃度提升34%。</p>
+</div>
+<div class="card" data-fav-id="d11-ai-player-matching-algo" data-fav-title="🎯 玩家匹配算法">
+<div class="card-head"><h3>🎯 玩家匹配算法</h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>TrueSkill 2.0引入玩家情绪模型：连败后自动匹配较弱对手恢复信心；连胜后提供更强挑战维持心流。公平性与体验的平衡成为竞技游戏核心AI课题。</p>
+</div>
+</div>
+
+</div>
+
+<!-- ========== Day 010 ========== -->
+<div class="day-group" data-day="10" style="display:none">
+<div style="padding:14px 0 8px;display:flex;align-items:center;justify-content:space-between">
+<div><span style="font-weight:700;font-size:17px">Day 010</span> <span style="color:var(--t3);font-size:13px;margin-left:8px">2026-04-20</span></div>
+<div style="font-size:12px;color:var(--t4)">👻 幸存者偏差 x ✂️ 奥卡姆剃刀 x 🛤️ 路径依赖 | 📊 数据可视化层级 x 🖥️ 仪表盘设计</div>
+</div>
+
+<div class="today-think">
+<div class="card" data-fav-id="d10-survivorship-bias" data-fav-title="👻 幸存者偏差 · Survivorship Bias">
+<div class="card-head"><h3>👻 幸存者偏差</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>只关注'存活'样本而忽略失败案例，导致系统性认知偏差。二战飞机装甲案例：弹孔集中机翼的不是应加固处——因为那些被击中引擎的飞机没回来。芒格：'研究失败案例比研究成功案例能学到更多。'</p>
+<div class="tip"><b>实践：</b>每次学习成功案例时，问'同样做了这件事但失败的人有多少？他们为什么失败？'</div>
+</div>
+<div class="card" data-fav-id="d10-occam's-razor" data-fav-title="✂️ 奥卡姆剃刀 · Occam's Razor">
+<div class="card-head"><h3>✂️ 奥卡姆剃刀</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>如无必要，勿增实体。在多个可以解释现象的假设中，选择假设最少的那个。芒格：'我总是试图找到最简单的解释——如果一个理论需要太多假设才能成立，它大概率是错的。'</p>
+<div class="tip"><b>实践：</b>决策时列出所有可能解释，优先验证需要最少假设的那个</div>
+</div>
+<div class="card" data-fav-id="d10-path-dependence" data-fav-title="🛤️ 路径依赖 · Path Dependence">
+<div class="card-head"><h3>🛤️ 路径依赖</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>早期的偶然选择会锁定后续发展方向，即使存在更优路径也难以切换。QWERTY键盘布局并非最优但已不可逆。技术选型、架构决策、产品定位都有强路径依赖性——初始方向的影响远超后续所有努力。</p>
+<div class="tip"><b>实践：</b>重大决策前评估'锁定成本'：这个选择会在多大程度上限制未来选项？</div>
+</div>
+</div>
+
+<div class="today-design">
+<div class="card" data-fav-id="d10-design-data-visualization-h" data-fav-title="📊 数据可视化层级">
+<div class="card-head"><h3>📊 数据可视化层级</h3><span class="tag tag-d">设计启发</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>信息密度五层模型：总览→趋势→对比→详情→原始数据。仪表盘设计核心：首屏只放关键指标(≤5个)，下钻获取细节。游戏中：主界面战力值→点击展开属性→继续展开装备明细。</p>
+</div>
+<div class="card" data-fav-id="d10-design-dashboard-design" data-fav-title="🖥️ 仪表盘设计">
+<div class="card-head"><h3>🖥️ 仪表盘设计</h3><span class="tag tag-d">设计启发</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>高效仪表盘三原则：① 最重要的数据占最大面积(格式塔-面积原则) ② 异常状态用颜色突出(红/黄/绿信号灯) ③ 趋势比绝对值更重要(折线图>数字)。游戏中公会管理面板同理。</p>
+</div>
+</div>
+
+<div class="today-side">
+<div class="card" data-fav-id="d10-ai-data-driven-design" data-fav-title="📈 数据驱动设计决策">
+<div class="card-head"><h3>📈 数据驱动设计决策</h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>Amplitude/Mixpanel等产品分析工具结合AI，自动识别用户行为模式异常。2026年新趋势：AI自动生成'设计建议'——基于漏斗数据直接提出UI改进方案。</p>
+</div>
+<div class="card" data-fav-id="d10-ai-automated-a/b-testin" data-fav-title="🧪 A/B测试自动化">
+<div class="card-head"><h3>🧪 A/B测试自动化</h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>Eppo/Statsig等平台实现全自动化实验：AI设计变体→自动分流→统计显著性判断→自动推全。设计师从'猜测哪个好'变为'让数据说话'，迭代周期从周级降到天级。</p>
+</div>
+</div>
+
+</div>
+
+<!-- ========== Day 009 ========== -->
+<div class="day-group" data-day="9" style="display:none">
+<div style="padding:14px 0 8px;display:flex;align-items:center;justify-content:space-between">
+<div><span style="font-weight:700;font-size:17px">Day 009</span> <span style="color:var(--t3);font-size:13px;margin-left:8px">2026-04-19</span></div>
+<div style="font-size:12px;color:var(--t4)">🔍 确认偏差 x 📈 均值回归 x 🔄 反馈循环 | 📝 表单验证设计 x 💬 输入反馈模式</div>
+</div>
+
+<div class="today-think">
+<div class="card" data-fav-id="d9-confirmation-bias" data-fav-title="🔍 确认偏差 · Confirmation Bias">
+<div class="card-head"><h3>🔍 确认偏差</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>人类倾向于寻找、解读、记忆符合已有信念的信息，忽略矛盾证据。芒格警告：'人类大脑运作方式是先确定结论，再寻找支持证据——科学方法要求我们做相反的事。'对抗方法：主动寻找反驳自己观点的最强论据。</p>
+<div class="tip"><b>实践：</b>主动记录每次决策时被忽略的反面证据，建立'反驳清单'习惯</div>
+</div>
+<div class="card" data-fav-id="d9-regression-to-the-me" data-fav-title="📈 均值回归 · Regression to the Mean">
+<div class="card-head"><h3>📈 均值回归</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>极端表现之后，后续结果大概率趋向平均水平。高尔顿发现身高极高父母的孩子往往接近均值。投资中连续跑赢市场的基金经理之后往往表现平庸——不是能力消失，而是统计规律在起作用。</p>
+<div class="tip"><b>实践：</b>区分'运气'和'实力'：极端结果后不急于下结论，等待均值回归验证</div>
+</div>
+<div class="card" data-fav-id="d9-feedback-loops" data-fav-title="🔄 反馈循环 · Feedback Loops">
+<div class="card-head"><h3>🔄 反馈循环</h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>系统中输出影响输入的机制：正反馈放大变化(雪球效应)，负反馈维持稳定(恒温器)。达里奥：'理解一个系统的关键是找到其中的反馈循环——正循环创造趋势，负循环创造均衡。'</p>
+<div class="tip"><b>实践：</b>画出你关注系统的因果回路图，标注正负反馈，找到杠杆点</div>
+</div>
+</div>
+
+<div class="today-design">
+<div class="card" data-fav-id="d9-design-form-validation-patt" data-fav-title="📝 表单验证设计">
+<div class="card-head"><h3>📝 表单验证设计</h3><span class="tag tag-d">设计启发</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>即时内联验证比提交后批量报错体验好85%。规则：输入时实时反馈(颜色+图标+文字)、错误信息紧贴出错字段、成功状态用绿色勾号确认。游戏中装备强化/交易确认同理——即时反馈减少焦虑。</p>
+</div>
+<div class="card" data-fav-id="d9-design-input-feedback-patte" data-fav-title="💬 输入反馈模式">
+<div class="card-head"><h3>💬 输入反馈模式</h3><span class="tag tag-d">设计启发</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>三层反馈模型：① 即时层(按键响应<50ms) ② 过程层(进度指示/实时预览) ③ 结果层(成功/失败状态)。游戏中技能施放：按键振动→蓄力动画→命中特效，三层反馈缺一不可。</p>
+</div>
+</div>
+
+<div class="today-side">
+<div class="card" data-fav-id="d9-ai-ai-code-review" data-fav-title="🤖 AI代码审查工具">
+<div class="card-head"><h3>🤖 AI代码审查工具</h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>GitHub Copilot Code Review、CodeRabbit等工具已能自动检测逻辑缺陷、安全漏洞和性能瓶颈，准确率达到人类审查员的78%。设计团队可用于审查组件代码一致性。</p>
+</div>
+<div class="card" data-fav-id="d9-ai-design-to-code-ai" data-fav-title="🎨 设计稿转代码">
+<div class="card-head"><h3>🎨 设计稿转代码</h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
+<p>Anima/Locofy/Builder.io实现设计稿→生产级代码的自动转换。2026年准确率已达92%，支持响应式布局和设计Token自动映射。对游戏UI：Figma→UE5 Widget的自动化管线成为可能。</p>
 </div>
 </div>
 
@@ -684,6 +1636,44 @@ body{font-family:var(--font);background:var(--bg);color:var(--t1);line-height:1.
 <div style="padding:12px 0 6px;font-size:15px;color:var(--t3)">将顶级思维模型与游戏UI/UX实践深度融合</div>
 <div class="tl">
 <div class="tl-item"><div class="tl-date">Day 028 · 2026-05-15</div><h4>📊 风险感知仪表盘 · ⚡ 激励可视化系统 · 🌊 涌现式关卡设计</h4><p>遍历性×UI——风险感知仪表盘让玩家直观理解"期望值为正但可能破产"的系统风险；激励×UI——可视化激励结构让玩家看到行为→奖励的因果链；涌现×关卡——简单规则组合产生无限可能的关卡设计范式</p></div>
+<div class="tl-item"><div class="tl-date">Day 027 · 2026-05-07</div><h4>🧠 认知负荷理论 · 💾 工作记忆模型 · 🧩 分块编码</h4><p>认知负荷理论——斯威勒的研究：工作记忆容量有限(7±2项)→学习设计必须管理三种认知负荷：内在负；工作记忆模型——巴德利的工作记忆模型：中央执行系统+语音环路+视觉空间画板+情景缓冲区。关键限制；分块编码——米勒的解决方案：通过将信息组织成有意义的'块'(chunk)来扩展工作记忆的有效</p></div>
+<div class="tl-item"><div class="tl-date">Day 026 · 2026-05-06</div><h4>🧪 多巴胺系统 · ⚡ 奖赏预测误差 · 🔁 习惯回路</h4><p>多巴胺系统——多巴胺不是'快乐物质'——是'期待物质'。它在你预期奖励时释放，而非获得奖励时。；奖赏预测误差——舒尔茨的发现：多巴胺编码的是'实际奖励-预期奖励'的差值(RPE)。预期内的奖励；习惯回路——杜希格的习惯三要素：触发(Cue)→惯例(Routine)→奖励(Reward)</p></div>
+<div class="tl-item"><div class="tl-date">Day 025 · 2026-05-05</div><h4>⏰ 时间贴现 · 📉 双曲贴现 · 🍬 即时满足</h4><p>时间贴现——人类系统性地低估未来收益的价值——今天的$100在心理上远比一年后的$110有价；双曲贴现——人类的贴现函数不是指数型(理性)而是双曲型——在'现在vs明天'的选择中极度偏好；即时满足——棉花糖实验的延伸：能延迟满足的人长期表现更优。但近年研究修正：环境可靠性(承诺兑</p></div>
+<div class="tl-item"><div class="tl-date">Day 024 · 2026-05-04</div><h4>🕸️ 复杂适应系统 · 🐜 蚁群算法 · ⚡ 自组织</h4><p>复杂适应系统——圣塔菲研究所的核心概念：由大量自主Agent组成的系统，Agent之间相互作用并；蚁群算法——基于蚂蚁觅食行为的优化算法：蚂蚁随机探索→发现食物留信息素→后续蚂蚁跟随信息素→；自组织——没有中央控制者的情况下，系统通过局部交互自发产生全局秩序。鸟群V字队形/交通自组</p></div>
+<div class="tl-item"><div class="tl-date">Day 023 · 2026-05-03</div><h4>📦 黑匣子思维 · 📝 失败学习 · 📈 边际收益</h4><p>黑匣子思维——马修·赛德的核心概念：航空业的'零容忍失败+完全透明调查'文化使其成为最安全的行；失败学习——失败学习的三层模型：① 事后复盘(发生了什么) ② 根因分析(为什么发生) ③ ；边际收益——布雷斯福德(英国自行车队)的1%改进哲学：每个环节改进1%→复合效果巨大。不追求</p></div>
+<div class="tl-item"><div class="tl-date">Day 022 · 2026-05-02</div><h4>👁️ 注意力经济 · 💎 稀缺性 · 🌀 选择过载</h4><p>注意力经济——赫伯特·西蒙预言：信息丰富的世界里，注意力是真正的稀缺资源。每个App/游戏/内；稀缺性——行为经济学核心原理：稀缺(无论真实或感知的)会极大提升人们对事物的估值和行动紧迫；选择过载——施瓦茨的'选择的悖论'：选项过多→决策瘫痪+满意度下降。经典实验：6种果酱购买率</p></div>
+<div class="tl-item"><div class="tl-date">Day 021 · 2026-05-01</div><h4>🔄 反身性 · 💹 索罗斯模型 · 📖 市场叙事</h4><p>反身性——索罗斯的核心理论：市场参与者的认知影响市场基本面，市场基本面又反过来影响参与者认；索罗斯模型——索罗斯的'繁荣-衰退'模型：① 尚未被识别的趋势 ② 自我强化过程开始 ③ 预期；市场叙事——席勒的'叙事经济学'：推动经济波动的不只是数据——还有像病毒一样传播的'叙事'。</p></div>
+<div class="tl-item"><div class="tl-date">Day 020 · 2026-04-30</div><h4>🌍 比较优势 · 🏭 专业化分工 · 💸 交易成本</h4><p>比较优势——李嘉图的核心洞见：即使A在所有方面都比B强，双方依然能通过专注各自'相对优势'领；专业化分工——亚当·斯密别针工厂：一人独立做1天产20根针→10人分工1天产48000根针(效；交易成本——科斯定理的核心：市场交易存在搜索/谈判/执行/监督成本→当内部组织的管理成本<外</p></div>
+<div class="tl-item"><div class="tl-date">Day 019 · 2026-04-29</div><h4>🧠 认知失调 · 🤝 承诺一致性 · 🪞 自我合理化</h4><p>认知失调——费斯廷格的经典理论：当行为与信念矛盾时，大脑会自动修改信念以消除不适感。吸烟者合；承诺一致性——西奥迪尼的影响力原则：一旦人们做出承诺(尤其是公开的)，会强烈倾向于行为与承诺一；自我合理化——决策后大脑自动为选择构建合理化叙事，抑制替代选项的吸引力('酸葡萄效应')。本·</p></div>
+<div class="tl-item"><div class="tl-date">Day 018 · 2026-04-28</div><h4>📏 规模效应 · 🦕 异速增长 · 📐 幂律分布</h4><p>规模效应——杰弗里·韦斯特的研究揭示：规模变化不是简单的'放大缩小'——生物体体重增10倍，；异速增长——生物学规律推广：系统各部分不按相同比例增长。大象的腿骨比例远超老鼠(因为重量按体；幂律分布——自然界和社会中大量现象不服从正态分布而服从幂律：极少数个体占据极大比例(地震能量</p></div>
+<div class="tl-item"><div class="tl-date">Day 017 · 2026-04-27</div><h4>📊 贝叶斯推理 · 🎲 先验概率 · 🔄 证据更新</h4><p>贝叶斯推理——用概率语言思考世界：所有信念都有一个置信度(0-100%)，每条新证据都应该按比；先验概率——在看到具体证据之前，基于基础率(base rate)的初始概率估计。忽略先验是人；证据更新——贝叶斯定理的核心操作：新证据的'诊断力'决定更新幅度。诊断力=这个证据在假设为真</p></div>
+<div class="tl-item"><div class="tl-date">Day 016 · 2026-04-26</div><h4>💥 临界点 · 🧊 相变 · 🌊 网络传播动力学</h4><p>临界点——格拉德威尔的核心概念：变化不是渐进的——而是积累到某个临界点后突然爆发。流行病传；相变——物理学概念类比：水在99°C还是液体，100°C突然变成气体——同样的分子，完全；网络传播动力学——信息/行为/情绪在网络中的传播遵循传染病模型：R0(基本再生数)>1=传播扩散，</p></div>
+<div class="tl-item"><div class="tl-date">Day 015 · 2026-04-25</div><h4>🔑 信息不对称 · 🍋 柠檬市场 · 📡 信号理论</h4><p>信息不对称——交易双方掌握的信息不对等——导致市场失灵。阿克洛夫的柠檬市场理论解释了为什么二手；柠檬市场——阿克洛夫1970年论文：信息不对称→逆向选择→市场崩溃。当买家无法区分好坏→只愿；信号理论——斯宾塞的信号理论：在信息不对称中，拥有优势的一方需要发送'可信信号'来证明自己的</p></div>
+<div class="tl-item"><div class="tl-date">Day 014 · 2026-04-24</div><h4>👑 红皇后效应 · 🏔️ 适应性景观 · 🧬 进化稳定策略</h4><p>红皇后效应——源自《爱丽丝镜中世界》：必须不停奔跑才能留在原地。进化生物学中：猎物进化更快→捕；适应性景观——赖特提出的进化概念：适应度想象为地形的高度，进化是在这个景观上攀登。局部最高点(；进化稳定策略——一旦种群采用了某策略，任何替代策略都无法入侵的状态(ESS)。类似纳什均衡的生物</p></div>
+<div class="tl-item"><div class="tl-date">Day 013 · 2026-04-23</div><h4>💰 心理账户 · 🏆 禀赋效应 · 🖼️ 框架效应</h4><p>心理账户——塞勒发现人们会在心理上把钱分成不同'账户'(餐饮/娱乐/投资)，每个账户独立核算；禀赋效应——人们对已拥有的东西赋予不合理的高估值——卖家要价远高于买家出价。卡尼曼实验：随机；框架效应——同样的信息用不同方式表述会导致截然不同的决策。'95%存活率'比'5%死亡率'让</p></div>
+<div class="tl-item"><div class="tl-date">Day 012 · 2026-04-22</div><h4>🌐 系统思维 · 🎯 杠杆点 · ⏳ 延迟效应</h4><p>系统思维——将问题视为相互连接的系统而非孤立事件。德内拉·梅多斯：'系统行为来源于结构——改；杠杆点——梅多斯的12个系统干预点层级：从参数调整(效果最弱)到改变系统范式(效果最强)。；延迟效应——系统中的反馈从行动到结果之间存在时间延迟。延迟导致过度反应和振荡——热水龙头转太</p></div>
+<div class="tl-item"><div class="tl-date">Day 011 · 2026-04-21</div><h4>♟️ 博弈论 · ⚖️ 纳什均衡 · 🔒 囚徒困境</h4><p>博弈论——研究理性决策者之间策略互动的数学框架。核心洞见：你的最优选择取决于对手的选择，而；纳什均衡——所有参与者都选择了对自己最优策略后，没有人有动机单方面改变策略的状态。纳什证明：；囚徒困境——两个囚犯独立决策：合作vs背叛。个体理性(背叛)导致集体非理性(双输)。阿克塞尔</p></div>
+<div class="tl-item"><div class="tl-date">Day 010 · 2026-04-20</div><h4>👻 幸存者偏差 · ✂️ 奥卡姆剃刀 · 🛤️ 路径依赖</h4><p>幸存者偏差——只关注'存活'样本而忽略失败案例，导致系统性认知偏差。二战飞机装甲案例：弹孔集中；奥卡姆剃刀——如无必要，勿增实体。在多个可以解释现象的假设中，选择假设最少的那个。芒格：'我总；路径依赖——早期的偶然选择会锁定后续发展方向，即使存在更优路径也难以切换。QWERTY键盘布</p></div>
+<div class="tl-item"><div class="tl-date">Day 009 · 2026-04-19</div><h4>🔍 确认偏差 · 📈 均值回归 · 🔄 反馈循环</h4><p>确认偏差——人类倾向于寻找、解读、记忆符合已有信念的信息，忽略矛盾证据。芒格警告：'人类大脑；均值回归——极端表现之后，后续结果大概率趋向平均水平。高尔顿发现身高极高父母的孩子往往接近均；反馈循环——系统中输出影响输入的机制：正反馈放大变化(雪球效应)，负反馈维持稳定(恒温器)。</p></div>
+<div class="tl-item"><div class="tl-date">Day 027 · 2026-05-07</div><h4>📊 信息密度优化 · 📁 折叠展开设计</h4><p>信息密度优化——信息密度 = 有用信息量 / 界面面积。三个优化方向：① 渐进披露(先总结后详情；折叠展开设计——折叠/展开(Accordion)设计原则：① 默认折叠状态要让用户知道'里面有什</p></div>
+<div class="tl-item"><div class="tl-date">Day 026 · 2026-05-06</div><h4>✨ 奖励动效设计 · 🏅 成就系统UI</h4><p>奖励动效设计——奖励动效的心理学最优设计：① 预期阶段(开箱/转盘动画)要有张力和节奏感 ② 揭；成就系统UI——成就系统设计最佳实践：① 进度可见(X/Y已完成) ② 稀有度标注(全服仅3%完</p></div>
+<div class="tl-item"><div class="tl-date">Day 025 · 2026-05-05</div><h4>⏳ 限时活动UI · ⏱️ 倒计时设计</h4><p>限时活动UI——限时活动的紧迫感设计：① 倒计时必须醒目(动态数字/颜色变化) ② 剩余量展示(；倒计时设计——倒计时UI的心理学：① 大单位用数字(3天14小时)→小单位用动画(秒在跳动) </p></div>
+<div class="tl-item"><div class="tl-date">Day 024 · 2026-05-04</div><h4>🔀 自适应布局 · 🤖 AI辅助排版</h4><p>自适应布局——超越响应式的自适应UI：根据用户行为/内容类型/设备能力动态调整布局。不是'屏幕；AI辅助排版——AI排版系统：输入内容和约束条件→AI生成最优布局方案。考虑因素：阅读顺序/视觉</p></div>
+<div class="tl-item"><div class="tl-date">Day 023 · 2026-05-03</div><h4>🔙 错误恢复UI · 📂 版本历史设计</h4><p>错误恢复UI——错误恢复设计四层防线：① 预防(危险操作二次确认) ② 撤销(Ctrl+Z/多步；版本历史设计——版本历史UI设计：① 时间线展示(日期+操作者+摘要) ② 版本对比(高亮差异)</p></div>
+<div class="tl-item"><div class="tl-date">Day 022 · 2026-05-02</div><h4>🎯 注意力引导设计 · 🔦 焦点管理</h4><p>注意力引导设计——引导视觉注意力的工具箱：① 运动(动效)>② 颜色对比>③ 尺寸>④ 空间位置>；焦点管理——UI焦点管理三原则：① 同时只有一个视觉焦点(主CTA) ② 焦点转移要有引导路</p></div>
+<div class="tl-item"><div class="tl-date">Day 021 · 2026-05-01</div><h4>📈 实时数据UI · 💰 行情展示设计</h4><p>实时数据UI——金融/游戏实时数据展示原则：① 数据更新要有视觉节奏(不是每毫秒闪烁) ② 涨跌；行情展示设计——行情类UI的信息层级：① 价格(最大/最醒目) ② 涨跌幅(颜色编码) ③ 趋势</p></div>
+<div class="tl-item"><div class="tl-date">Day 020 · 2026-04-30</div><h4>🧩 模块化组件设计 · 📐 设计系统治理</h4><p>模块化组件设计——设计系统的比较优势：每个组件只做一件事并做到最好。Atomic Design五层；设计系统治理——设计系统的长期维护模型：① 联邦制(各团队贡献组件+核心团队审核) ② 版本管理</p></div>
+<div class="tl-item"><div class="tl-date">Day 019 · 2026-04-29</div><h4>🎓 用户引导与教程 · ✨ 首次体验设计</h4><p>用户引导与教程——游戏教程设计的黄金法则：① 不教不用的功能(即时教学>预先教学) ② 让玩家'做；首次体验设计——FTUE(首次用户体验)决定30%的长期留存。设计框架：① 5秒内传达核心价值 </p></div>
+<div class="tl-item"><div class="tl-date">Day 018 · 2026-04-28</div><h4>📱 响应式UI缩放 · 🖥️ 多端适配设计</h4><p>响应式UI缩放——游戏UI在不同分辨率/屏幕尺寸下的适配策略：① 锚点系统(元素相对于屏幕边/中心；多端适配设计——同一游戏多端体验的UI差异化：手机=拇指操控区+简化信息、平板=混合交互+中等密</p></div>
+<div class="tl-item"><div class="tl-date">Day 017 · 2026-04-27</div><h4>🔎 搜索与推荐UI · 🎨 个性化界面</h4><p>搜索与推荐UI——搜索体验优化：① 即时建议(输入即推荐) ② 零结果友好(给替代建议而非空白) ；个性化界面——界面个性化三个层次：① 布局自定义(拖拽组件) ② 内容个性化(推荐排序) ③ </p></div>
+<div class="tl-item"><div class="tl-date">Day 016 · 2026-04-26</div><h4>🦠 病毒传播UI · 🔗 社交分享触发</h4><p>病毒传播UI——促进自然分享的UI设计：① 分享按钮放在'成就时刻'(通关/新纪录/稀有掉落) ；社交分享触发——高转化分享触发时机：① 首次通关(成就感峰值) ② 排名超越好友(竞争驱动) ③</p></div>
+<div class="tl-item"><div class="tl-date">Day 015 · 2026-04-25</div><h4>✅ 信任标记设计 · ⭐ 评价系统UI</h4><p>信任标记设计——用户信任建立的UI工具箱：① 认证徽章(蓝勾/皇冠/等级) ② 历史数据(交易次；评价系统UI——评价系统设计五原则：① 结构化评价(多维度打分)比单一星级更有信息量 ② 显示评</p></div>
+<div class="tl-item"><div class="tl-date">Day 014 · 2026-04-24</div><h4>🏅 竞争排行榜设计 · 🏆 赛季系统UI</h4><p>竞争排行榜设计——排行榜心理学：① 只展示用户附近排名(±5名)比全部排名更有驱动力 ② 多维度排；赛季系统UI——赛季设计UI要素：① 倒计时营造紧迫感 ② 赛季回顾总结(数据可视化) ③ 段位</p></div>
+<div class="tl-item"><div class="tl-date">Day 013 · 2026-04-23</div><h4>💎 游戏经济UI · 🪙 货币显示设计</h4><p>游戏经济UI——虚拟经济界面设计关键：① 多货币体系用颜色+图标明确区分 ② 大数值用缩写(1.；货币显示设计——游戏货币UI最佳实践：① 固定位置(右上角黄金法则) ② 变化时有动效(增加=绿</p></div>
+<div class="tl-item"><div class="tl-date">Day 012 · 2026-04-22</div><h4>📡 系统状态可视化 · ⏱️ 进度反馈设计</h4><p>系统状态可视化——复杂系统状态的UI传达四层架构：① 健康指示灯(绿/黄/红一眼判断) ② 关键指；进度反馈设计——进度反馈心理学：① 显示预计完成时间比百分比更减焦虑 ② 前期快后期慢的假进度条</p></div>
+<div class="tl-item"><div class="tl-date">Day 011 · 2026-04-21</div><h4>💬 社交互动UI · 🎮 多人游戏HUD</h4><p>社交互动UI——社交功能的UI设计三层模型：① 发现层(谁在线/谁在附近/推荐好友) ② 互动层；多人游戏HUD——多人HUD信息管理：队友状态(血条/位置/状态)必须常驻但不遮挡。最佳实践：队友</p></div>
+<div class="tl-item"><div class="tl-date">Day 010 · 2026-04-20</div><h4>📊 数据可视化层级 · 🖥️ 仪表盘设计</h4><p>数据可视化层级——信息密度五层模型：总览→趋势→对比→详情→原始数据。仪表盘设计核心：首屏只放关键；仪表盘设计——高效仪表盘三原则：① 最重要的数据占最大面积(格式塔-面积原则) ② 异常状态用</p></div>
+<div class="tl-item"><div class="tl-date">Day 009 · 2026-04-19</div><h4>📝 表单验证设计 · 💬 输入反馈模式</h4><p>表单验证设计——即时内联验证比提交后批量报错体验好85%。规则：输入时实时反馈(颜色+图标+文字；输入反馈模式——三层反馈模型：① 即时层(按键响应<50ms) ② 过程层(进度指示/实时预览)</p></div>
 <div class="tl-item"><div class="tl-date">Day 008 · 2026-04-18</div><h4>🎭 叙事化UI · 🔮 自适应动态UI · 📳 触觉反馈设计语言</h4><p>Diegetic Interface四层光谱——从Non-Diegetic到完全叙事，《死亡空间》教科书级案例，每个HUD元素问"角色怎么获取这个信息"；自适应UI三维度——复杂度/布局/信息密度根据玩家行为实时调整，Data Table驱动规则可热更新；触觉Token化——三层触觉语言(确认/通知/叙事)，像颜色一样管理振动参数</p></div>
 <div class="tl-item"><div class="tl-date">Day 007 · 2026-04-17</div><h4>🤖 Agentic UX与信任节奏 · 🎬 动效即材质 · 🧬 生成式UI规则</h4><p>Agentic UX四层架构——AI代理替用户跑流程，UI只在确认时出现，设计师从"画版面"转向"写规则"；Motion-as-Material——动效Token化，四层级信息传达系统；Generative UI——界面即时组装，设计系统语义化升级驱动个性化界面</p></div>
 <div class="tl-item"><div class="tl-date">Day 006 · 2026-04-16</div><h4>🎯 菲茨定律深度应用 · 🔧 微交互状态机设计</h4><p>菲茨定律T=a+b×log₂(1+D/W)——高频操作放手指热区，角落与边缘效应，D/W＞10即高风险区；微交互状态机TRFL四要素——把"感觉做对"变成"系统性做对"，8态按钮设计</p></div>
@@ -1306,6 +2296,32 @@ document.getElementById('favOverlay').classList.toggle('open');
 
 // Init favs
 updateFavUI();
+
+// ===== Reading Progress Tracker =====
+function getReadProgress(){
+const d=localStorage.getItem('df-read-progress');
+return d?JSON.parse(d):{lastDay:28,lastTab:'today',lastScroll:0};
+}
+function saveReadProgress(){
+const activeDay=document.querySelector('.day-group[style*="display: block"], .day-group:not([style*="display: none"]):not([style])');
+const dayNum=activeDay?activeDay.dataset.day:'28';
+const activeTab=document.querySelector('.nav a.on');
+const tabName=activeTab?activeTab.dataset.s:'today';
+localStorage.setItem('df-read-progress',JSON.stringify({lastDay:parseInt(dayNum),lastTab:tabName,lastScroll:window.scrollY,timestamp:Date.now()}));
+}
+// Auto-save reading position every 5 seconds
+setInterval(saveReadProgress,5000);
+// Restore reading position on load
+(function(){
+const prog=getReadProgress();
+if(prog.timestamp&&Date.now()-prog.timestamp<86400000){
+const badge=document.getElementById('readBadge');
+if(badge)badge.textContent='Day '+String(prog.lastDay).padStart(3,'0');
+}
+})();
+
+// ===== Init Lucide Icons =====
+if(typeof lucide!=='undefined')lucide.createIcons();
 </script>
 </body>
 </html>
