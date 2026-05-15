@@ -102,10 +102,10 @@ svg.lucide{width:1em;height:1em;flex-shrink:0;display:inline-block;vertical-alig
 .topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:16px}
 .brand{display:inline-flex;align-items:center;gap:14px;color:var(--ink);white-space:nowrap;text-decoration:none;cursor:pointer}
 .brand:hover .brand-mark{color:var(--ink)}
-.brand:hover .brand-mark svg{transform:rotate(360deg)}
+.brand:hover .brand-mark svg{transform:scale(1.04)}
 .brand:hover .brand-cn{color:var(--accent)}
 .brand-mark{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;flex-shrink:0;color:var(--ink-2);position:relative;transition:color .35s ease}
-.brand-mark svg{transition:transform 1.2s cubic-bezier(.4,0,.2,1)}
+.brand-mark svg{transition:transform .45s cubic-bezier(.4,0,.2,1),filter .45s ease;filter:drop-shadow(0 6px 18px rgba(232,161,75,.08))}
 .brand-text{display:flex;flex-direction:column;line-height:1;gap:5px}
 .brand-cn{font-family:var(--serif);font-weight:600;font-size:20px;letter-spacing:-.025em;transition:color .25s}
 .brand-en{font-family:var(--mono);font-weight:600;font-size:9px;color:var(--ink-4);letter-spacing:.18em;text-transform:uppercase}
