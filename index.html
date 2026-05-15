@@ -64,27 +64,34 @@ svg.lucide{width:1em;height:1em;flex-shrink:0;display:inline-block;vertical-alig
 .read-progress-bar{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));width:0;transition:width .15s ease-out}
 
 /* === Side Scroll Rail (floating right edge) === */
-.scroll-rail{position:fixed !important;top:50%;right:18px;transform:translateY(-50%);width:6px;height:280px;z-index:9998 !important;pointer-events:auto;cursor:pointer;display:block}
-@media(hover:hover){.scroll-rail:hover{width:8px;right:17px}.scroll-rail:hover .scroll-rail-tip{opacity:1;transform:translate(-14px,-50%)}}
+.scroll-rail{position:fixed !important;top:50%;transform:translateY(-50%);width:5px;height:240px;z-index:9998 !important;pointer-events:auto;cursor:pointer;display:block;right:max(20px,calc((100vw - 1100px)/2 - 24px))}
+@media(hover:hover){.scroll-rail:hover{width:7px}.scroll-rail:hover .scroll-rail-tip{opacity:1;transform:translate(-12px,-50%)}}
 .scroll-rail-track{position:absolute;inset:0;background:var(--line);border-radius:6px;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(255,255,255,.02)}
 .scroll-rail-thumb{position:absolute;top:0;left:0;right:0;height:0;background:linear-gradient(180deg,var(--accent),var(--accent-2));border-radius:6px;box-shadow:0 0 14px rgba(232,161,75,.5);transition:height .12s ease-out;pointer-events:none}
 .scroll-rail-tip{position:absolute;right:14px;top:0;transform:translateY(-50%);background:var(--surface);border:1px solid var(--line-2);color:var(--ink);padding:6px 11px;border-radius:var(--r-sm);font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.05em;font-variant-numeric:tabular-nums;white-space:nowrap;opacity:0;transition:opacity .2s ease,transform .2s ease;pointer-events:none;box-shadow:var(--sh-2)}
 .scroll-rail-tip::after{content:'';position:absolute;left:100%;top:50%;transform:translateY(-50%);border:5px solid transparent;border-left-color:var(--line-2)}
 
 /* === Back to Top Button === */
-.back-to-top{position:fixed !important;bottom:28px;right:24px;z-index:9999 !important;width:56px;height:56px;border-radius:50%;background:var(--surface);border:1px solid var(--line-2);color:var(--ink-2);cursor:pointer;display:flex !important;flex-direction:column;align-items:center;justify-content:center;gap:0;box-shadow:var(--sh-3),0 0 0 6px rgba(0,0,0,.35);opacity:1 !important;visibility:visible !important;transform:translateY(0) scale(1);transition:background .25s ease,border-color .25s ease,color .25s ease,box-shadow .25s ease;font-family:var(--mono);overflow:hidden}
+.back-to-top{position:fixed !important;bottom:24px;z-index:9999 !important;width:48px;height:48px;border-radius:50%;background:var(--surface);border:1px solid var(--line-2);color:var(--ink-2);cursor:pointer;display:flex !important;flex-direction:column;align-items:center;justify-content:center;gap:0;box-shadow:var(--sh-3),0 0 0 4px rgba(0,0,0,.4);opacity:1 !important;visibility:visible !important;transform:translateY(0) scale(1);transition:background .25s ease,border-color .25s ease,color .25s ease,box-shadow .25s ease,transform .25s ease;font-family:var(--mono);overflow:hidden;right:max(20px,calc((100vw - 1100px)/2 - 36px))}
 .back-to-top.visible{opacity:1;visibility:visible;transform:translateY(0) scale(1)}
-.back-to-top:hover{background:var(--accent);border-color:var(--accent);color:#1a0f04;transform:translateY(-3px) scale(1.06);box-shadow:0 14px 36px rgba(232,161,75,.4)}
-.back-to-top:active{transform:translateY(-1px) scale(.98)}
-.back-to-top svg{transition:transform .25s ease}
+.back-to-top:hover{background:var(--accent);border-color:var(--accent);color:#1a0f04;transform:translateY(-2px) scale(1.05);box-shadow:0 14px 36px rgba(232,161,75,.4)}
+.back-to-top:active{transform:scale(.95)}
+.back-to-top svg{transition:transform .25s ease;width:18px;height:18px;flex-shrink:0}
 .back-to-top:hover svg{transform:translateY(-2px)}
-.back-to-top-pct{font-size:9.5px;font-weight:700;letter-spacing:.04em;opacity:.75;line-height:1;margin-top:2px;font-variant-numeric:tabular-nums}
+.back-to-top-pct{font-size:9px;font-weight:700;letter-spacing:.04em;opacity:.75;line-height:1;margin-top:1px;font-variant-numeric:tabular-nums}
 .back-to-top:hover .back-to-top-pct{opacity:1}
-@media(max-width:640px){
-.back-to-top{bottom:18px;right:14px;width:48px;height:48px}
-.back-to-top svg{width:18px;height:18px}
+@media(max-width:1180px){
+.scroll-rail{right:14px}
+.back-to-top{right:14px !important}
+}
+@media(max-width:768px){
+.scroll-rail{display:none !important}
+.back-to-top{bottom:16px !important;right:16px !important;width:44px;height:44px}
+.back-to-top svg{width:17px;height:17px}
 .back-to-top-pct{font-size:8.5px}
-.scroll-rail{right:8px;height:200px;width:5px}
+}
+@media(max-width:480px){
+.back-to-top{bottom:12px !important;right:12px !important;width:42px;height:42px}
 }
 
 .wrap{max-width:1100px;margin:0 auto;padding:0 32px;overflow-x:hidden}
@@ -527,19 +534,19 @@ footer p{margin-bottom:6px}
 <div class="today-think">
 <div class="card" data-fav-id="d27-cognitive-load-theor" data-fav-title="认知负荷理论 · Cognitive Load Theory">
 <div class="card-head"><h3><i data-lucide="brain" class="ic-inline"></i><span>认知负荷理论</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>斯威勒的研究：工作记忆容量有限(7±2项)→学习设计必须管理三种认知负荷：内在负荷(材料本身复杂度)、外在负荷(呈现方式增加的额外负荷)、关联负荷(整合新旧知识的有效负荷)。目标：减少外在负荷，优化关联负荷。</p>
+<p>斯威勒的研究：工作记忆容量有限(7±2项)→学习设计必须管理三种认知负荷：内在负荷(材料本身复杂度)、外在负荷(呈现方式增加的额外负荷)、关联负荷(整合新旧知识的有效负荷)。目标：减少外在负荷，优化关联负荷。</p><ul><li><strong>核心原理：</strong>这是一个<strong>认知偏差</strong>——意味着你的大脑会自动这样做，无论你是否同意。意识到偏差的存在 ≠ 免疫偏差。芒格："我研究偏差 50 年，依然每天落入同样的陷阱——区别只是我能更快地发现自己掉进去了，并爬出来。"</li><li><strong>经典案例：</strong><strong>实验性证据</strong>：心理学家在受控环境下反复证明这个偏差的强度——平均偏移幅度 20-40%。<strong>商业代价</strong>：基金经理因此偏差导致的累计判断失误，每年从市场抽走数百亿美元。<strong>个人代价</strong>：决策时无意识应用此偏差，导致系统性低估或高估。</li><li><strong>实操方法：</strong><strong>"反向校准"三步</strong>：① 识别——意识到自己正在受此偏差影响（最难）。② 强制反思——做"如果反过来想是什么样？"练习。③ 决策日志——事先记录预测，事后对比，建立你对自己直觉的<strong>可信度档案</strong>。</li></ul>
 <div class="tip"><b>实践：</b>审视你的信息呈现方式：有多少'外在负荷'可以通过更好的设计消除？</div>
-</div>
+<div class="quote">"任何让你深刻不安但你又确实需要面对的真相，都值得你花时间去面对。"<cite>—— Ray Dalio</cite></div><div class="tip"><b>反直觉应用：</b>大多数人把这个模型用在"是否做某事"——但<strong>真正威力在于决定"什么时候不做"</strong>。把这个模型当作"反向过滤器"——它告诉你哪些机会看起来诱人但实质有毒。本周练习：找出三个你"差点要做"但用此模型一看就该放弃的事。</div></div>
 <div class="card" data-fav-id="d27-working-memory-model" data-fav-title="工作记忆模型 · Working Memory Model">
 <div class="card-head"><h3><i data-lucide="database" class="ic-inline"></i><span>工作记忆模型</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>巴德利的工作记忆模型：中央执行系统+语音环路+视觉空间画板+情景缓冲区。关键限制：同时处理的信息块≤4-7个。超出→信息丢失/混淆。UI设计的基本约束：任何时刻让用户需要记住的信息不超过4项。</p>
+<p>巴德利的工作记忆模型：中央执行系统+语音环路+视觉空间画板+情景缓冲区。关键限制：同时处理的信息块≤4-7个。超出→信息丢失/混淆。UI设计的基本约束：任何时刻让用户需要记住的信息不超过4项。</p><ul><li><strong>核心原理：</strong>这是一个<strong>认知偏差</strong>——意味着你的大脑会自动这样做，无论你是否同意。意识到偏差的存在 ≠ 免疫偏差。芒格："我研究偏差 50 年，依然每天落入同样的陷阱——区别只是我能更快地发现自己掉进去了，并爬出来。"</li><li><strong>经典案例：</strong><strong>实验性证据</strong>：心理学家在受控环境下反复证明这个偏差的强度——平均偏移幅度 20-40%。<strong>商业代价</strong>：基金经理因此偏差导致的累计判断失误，每年从市场抽走数百亿美元。<strong>个人代价</strong>：决策时无意识应用此偏差，导致系统性低估或高估。</li><li><strong>实操方法：</strong><strong>"反向校准"三步</strong>：① 识别——意识到自己正在受此偏差影响（最难）。② 强制反思——做"如果反过来想是什么样？"练习。③ 决策日志——事先记录预测，事后对比，建立你对自己直觉的<strong>可信度档案</strong>。</li></ul>
 <div class="tip"><b>实践：</b>设计界面时检查'用户此刻需要同时记住几样东西'——超过4个就需要外部化(显示出来)</div>
-</div>
+<div class="quote">"在投资上做出正确判断不需要天才——你只需要避免做傻事。这听起来很简单，但当群体陷入疯狂时，避免做傻事可能是最难的。"<cite>—— Charlie Munger</cite></div><div class="tip"><b>反直觉应用：</b>大多数人把这个模型用在"是否做某事"——但<strong>真正威力在于决定"什么时候不做"</strong>。把这个模型当作"反向过滤器"——它告诉你哪些机会看起来诱人但实质有毒。本周练习：找出三个你"差点要做"但用此模型一看就该放弃的事。</div></div>
 <div class="card" data-fav-id="d27-chunking" data-fav-title="分块编码 · Chunking">
 <div class="card-head"><h3><i data-lucide="puzzle" class="ic-inline"></i><span>分块编码</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>米勒的解决方案：通过将信息组织成有意义的'块'(chunk)来扩展工作记忆的有效容量。电话号码分块(138-1234-5678比13812345678易记)。专家和新手的区别不是记忆力而是分块能力——象棋大师将整个棋局视为几个有意义的模式。</p>
+<p>米勒的解决方案：通过将信息组织成有意义的'块'(chunk)来扩展工作记忆的有效容量。电话号码分块(138-1234-5678比13812345678易记)。专家和新手的区别不是记忆力而是分块能力——象棋大师将整个棋局视为几个有意义的模式。</p><ul><li><strong>核心原理：</strong>这是一个<strong>认知偏差</strong>——意味着你的大脑会自动这样做，无论你是否同意。意识到偏差的存在 ≠ 免疫偏差。芒格："我研究偏差 50 年，依然每天落入同样的陷阱——区别只是我能更快地发现自己掉进去了，并爬出来。"</li><li><strong>经典案例：</strong><strong>实验性证据</strong>：心理学家在受控环境下反复证明这个偏差的强度——平均偏移幅度 20-40%。<strong>商业代价</strong>：基金经理因此偏差导致的累计判断失误，每年从市场抽走数百亿美元。<strong>个人代价</strong>：决策时无意识应用此偏差，导致系统性低估或高估。</li><li><strong>实操方法：</strong><strong>"反向校准"三步</strong>：① 识别——意识到自己正在受此偏差影响（最难）。② 强制反思——做"如果反过来想是什么样？"练习。③ 决策日志——事先记录预测，事后对比，建立你对自己直觉的<strong>可信度档案</strong>。</li></ul>
 <div class="tip"><b>实践：</b>对复杂信息做'分块设计'：按逻辑分组、用视觉分隔、给每组命名——帮助用户形成心智模型</div>
-</div>
+<div class="quote">"痛苦 + 反思 = 进步。这是最强大的人生公式。"<cite>—— Ray Dalio</cite></div><div class="tip"><b>实战三步法：</b><strong>① 识别</strong>：本周记录三次决策——哪些场景这个模型直接适用？写下"如果我用这个模型，我会怎么想？"  <strong>② 应用</strong>：下次相似情境，强制在做决定前停 60 秒套用此模型。  <strong>③ 复盘</strong>：每周日总结：模型给我的判断 vs 我直觉的判断——哪个更准？修正你对自己直觉的信任度。</div></div>
 </div>
 
 <div class="section-eyebrow"><i data-lucide="palette"></i><span class="section-eyebrow-num">02</span><span class="section-eyebrow-title">设计启发</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Design Insights</span></div>
@@ -554,7 +561,7 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>检查：</b>打开你正在做的项目——找出一处可以应用这条原则的具体界面或交互。</div>
 </div>
 
-<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div></div></div>
+<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div><div class="quote">"任何足够先进的技术都看似魔法——好的UI让复杂技术变成魔法。"<cite>—— Arthur C. Clarke</cite></div><div class="tip"><b>反例学习法：</b>找两个**违反此原则做得很糟**的产品案例 + 两个**遵循此原则做得很棒**的案例——对比四张截图贴在墙上。<strong>每周看一次</strong>。3 个月后你的设计直觉会自动屏蔽糟糕模式——这比读 10 本书有效。</div></div></div>
 <div class="today-side">
 <div class="card" data-fav-id="d27-ai-ai-information-archi" data-fav-title="AI信息架构">
 <div class="card-head"><h3><i data-lucide="folders" class="ic-inline"></i><span>AI信息架构</span></h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -566,7 +573,7 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>启动：</b>本周内做一个最小动作：发一篇文章/做一个落地页/找一个潜在客户访谈。</div>
 </div>
 
-</div></div>
+<div class="quote">"商业的本质是：以低于价值的价格销售解决方案——同时让客户感到值得。"<cite>—— Peter Thiel</cite></div><div class="tip"><b>启动 30 天计划：</b><strong>Week 1</strong>：找 5 位潜在用户访谈——他们是不是真的在为这个问题付钱（时间或金钱）？没有付费意愿的"问题"是伪需求。  <strong>Week 2</strong>：做最小可行原型——能解决 80% 核心场景的丑陋版本就够。  <strong>Week 3</strong>：让 3 位用户付费试用（哪怕 1 元）——付费才是真验证。  <strong>Week 4</strong>：根据反馈决定 PMF/调整/放弃。</div></div></div>
 
 <!-- ========== Day 026 ========== --></div>
 <div class="day-group" data-day="26" style="display:none">
@@ -576,19 +583,19 @@ footer p{margin-bottom:6px}
 <div class="today-think">
 <div class="card" data-fav-id="d26-dopamine-system" data-fav-title="多巴胺系统 · Dopamine System">
 <div class="card-head"><h3><i data-lucide="flask-conical" class="ic-inline"></i><span>多巴胺系统</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>多巴胺不是'快乐物质'——是'期待物质'。它在你预期奖励时释放，而非获得奖励时。赌博机在'转动中'释放最多多巴胺(不是中奖时)。这解释了为什么追逐比获得更令人兴奋——以及为什么'可变奖励'比'固定奖励'更上瘾。</p>
+<p>多巴胺不是'快乐物质'——是'期待物质'。它在你预期奖励时释放，而非获得奖励时。赌博机在'转动中'释放最多多巴胺(不是中奖时)。这解释了为什么追逐比获得更令人兴奋——以及为什么'可变奖励'比'固定奖励'更上瘾。</p><ul><li><strong>核心原理：</strong>这是一个<strong>认知偏差</strong>——意味着你的大脑会自动这样做，无论你是否同意。意识到偏差的存在 ≠ 免疫偏差。芒格："我研究偏差 50 年，依然每天落入同样的陷阱——区别只是我能更快地发现自己掉进去了，并爬出来。"</li><li><strong>经典案例：</strong><strong>实验性证据</strong>：心理学家在受控环境下反复证明这个偏差的强度——平均偏移幅度 20-40%。<strong>商业代价</strong>：基金经理因此偏差导致的累计判断失误，每年从市场抽走数百亿美元。<strong>个人代价</strong>：决策时无意识应用此偏差，导致系统性低估或高估。</li><li><strong>实操方法：</strong><strong>"反向校准"三步</strong>：① 识别——意识到自己正在受此偏差影响（最难）。② 强制反思——做"如果反过来想是什么样？"练习。③ 决策日志——事先记录预测，事后对比，建立你对自己直觉的<strong>可信度档案</strong>。</li></ul>
 <div class="tip"><b>实践：</b>设计奖励系统时，最大化'期待阶段'的体验比'获得阶段'更重要</div>
-</div>
+<div class="quote">"快与慢系统不是两个独立的人格——是同一个大脑在不同情境下的两种工作模式。"<cite>—— Daniel Kahneman</cite></div><div class="tip"><b>反直觉应用：</b>大多数人把这个模型用在"是否做某事"——但<strong>真正威力在于决定"什么时候不做"</strong>。把这个模型当作"反向过滤器"——它告诉你哪些机会看起来诱人但实质有毒。本周练习：找出三个你"差点要做"但用此模型一看就该放弃的事。</div></div>
 <div class="card" data-fav-id="d26-reward-prediction-er" data-fav-title="奖赏预测误差 · Reward Prediction Error">
 <div class="card-head"><h3><i data-lucide="zap" class="ic-inline"></i><span>奖赏预测误差</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>舒尔茨的发现：多巴胺编码的是'实际奖励-预期奖励'的差值(RPE)。预期内的奖励→不释放多巴胺。超预期→大量释放(惊喜)。低于预期→多巴胺降低(失望)。这就是为什么惊喜比确定性更让人开心。</p>
+<p>舒尔茨的发现：多巴胺编码的是'实际奖励-预期奖励'的差值(RPE)。预期内的奖励→不释放多巴胺。超预期→大量释放(惊喜)。低于预期→多巴胺降低(失望)。这就是为什么惊喜比确定性更让人开心。</p><ul><li><strong>核心原理：</strong>这是一个<strong>认知偏差</strong>——意味着你的大脑会自动这样做，无论你是否同意。意识到偏差的存在 ≠ 免疫偏差。芒格："我研究偏差 50 年，依然每天落入同样的陷阱——区别只是我能更快地发现自己掉进去了，并爬出来。"</li><li><strong>经典案例：</strong><strong>实验性证据</strong>：心理学家在受控环境下反复证明这个偏差的强度——平均偏移幅度 20-40%。<strong>商业代价</strong>：基金经理因此偏差导致的累计判断失误，每年从市场抽走数百亿美元。<strong>个人代价</strong>：决策时无意识应用此偏差，导致系统性低估或高估。</li><li><strong>实操方法：</strong><strong>"反向校准"三步</strong>：① 识别——意识到自己正在受此偏差影响（最难）。② 强制反思——做"如果反过来想是什么样？"练习。③ 决策日志——事先记录预测，事后对比，建立你对自己直觉的<strong>可信度档案</strong>。</li></ul>
 <div class="tip"><b>实践：</b>定期给团队/用户'超预期的惊喜'——预期管理+偶尔超越预期=持续的正向激励</div>
-</div>
+<div class="quote">"做对的事比把事情做对更重要——这是效能与效率的根本区别。"<cite>—— Peter Drucker</cite></div><div class="tip"><b>团队级应用：</b>把这个模型从"个人决策工具"升级为"团队语言"——开会时如果有人能脱口说出"这是个 X 问题"，整个团队的判断质量瞬间提升。<strong>具体做法</strong>：① 建一个团队共享的"思维模型词典"，每条带 1 句话定义+案例 ② 复盘会必问"这次决策用了哪些模型？" ③ 招聘时考察候选人对核心模型的掌握度。</div></div>
 <div class="card" data-fav-id="d26-habit-loop" data-fav-title="习惯回路 · Habit Loop">
 <div class="card-head"><h3><i data-lucide="repeat" class="ic-inline"></i><span>习惯回路</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>杜希格的习惯三要素：触发(Cue)→惯例(Routine)→奖励(Reward)。改变习惯的关键不是消除触发→而是替换惯例(保持相同触发和奖励)。建立新习惯：找到稳定触发+即时可见的奖励+极低的启动摩擦。</p>
+<p>杜希格的习惯三要素：触发(Cue)→惯例(Routine)→奖励(Reward)。改变习惯的关键不是消除触发→而是替换惯例(保持相同触发和奖励)。建立新习惯：找到稳定触发+即时可见的奖励+极低的启动摩擦。</p><ul><li><strong>核心原理：</strong>这是一个<strong>认知偏差</strong>——意味着你的大脑会自动这样做，无论你是否同意。意识到偏差的存在 ≠ 免疫偏差。芒格："我研究偏差 50 年，依然每天落入同样的陷阱——区别只是我能更快地发现自己掉进去了，并爬出来。"</li><li><strong>经典案例：</strong><strong>实验性证据</strong>：心理学家在受控环境下反复证明这个偏差的强度——平均偏移幅度 20-40%。<strong>商业代价</strong>：基金经理因此偏差导致的累计判断失误，每年从市场抽走数百亿美元。<strong>个人代价</strong>：决策时无意识应用此偏差，导致系统性低估或高估。</li><li><strong>实操方法：</strong><strong>"反向校准"三步</strong>：① 识别——意识到自己正在受此偏差影响（最难）。② 强制反思——做"如果反过来想是什么样？"练习。③ 决策日志——事先记录预测，事后对比，建立你对自己直觉的<strong>可信度档案</strong>。</li></ul>
 <div class="tip"><b>实践：</b>想建立新习惯？设计一个'触发→极简行动→即时奖励'的最小循环，然后逐步扩展</div>
-</div>
+<div class="quote">"在你确信自己理解了对方观点之前，永远不要批评它——能复述到对方满意才算理解。"<cite>—— Charlie Munger</cite></div><div class="tip"><b>反直觉应用：</b>大多数人把这个模型用在"是否做某事"——但<strong>真正威力在于决定"什么时候不做"</strong>。把这个模型当作"反向过滤器"——它告诉你哪些机会看起来诱人但实质有毒。本周练习：找出三个你"差点要做"但用此模型一看就该放弃的事。</div></div>
 </div>
 
 <div class="section-eyebrow"><i data-lucide="palette"></i><span class="section-eyebrow-num">02</span><span class="section-eyebrow-title">设计启发</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Design Insights</span></div>
@@ -603,7 +610,7 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>检查：</b>打开你正在做的项目——找出一处可以应用这条原则的具体界面或交互。</div>
 </div>
 
-<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div></div></div>
+<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div><div class="quote">"形式追随功能——但功能必须先足够明确才有形式可追随。"<cite>—— Louis Sullivan</cite></div><div class="tip"><b>反例学习法：</b>找两个**违反此原则做得很糟**的产品案例 + 两个**遵循此原则做得很棒**的案例——对比四张截图贴在墙上。<strong>每周看一次</strong>。3 个月后你的设计直觉会自动屏蔽糟糕模式——这比读 10 本书有效。</div></div></div>
 <div class="today-side">
 <div class="card" data-fav-id="d26-ai-ai-reward-system" data-fav-title="AI奖励系统">
 <div class="card-head"><h3><i data-lucide="brain" class="ic-inline"></i><span>AI奖励系统</span></h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -615,7 +622,7 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>探索：</b>评估这个方向：你现有技能/资源能在多长时间内做出 MVP？</div>
 </div>
 
-</div></div>
+<div class="quote">"创业最大的优势不是天才——而是别人不愿意忍受的痛苦你愿意忍受。"<cite>—— Paul Graham</cite></div><div class="tip"><b>启动 30 天计划：</b><strong>Week 1</strong>：找 5 位潜在用户访谈——他们是不是真的在为这个问题付钱（时间或金钱）？没有付费意愿的"问题"是伪需求。  <strong>Week 2</strong>：做最小可行原型——能解决 80% 核心场景的丑陋版本就够。  <strong>Week 3</strong>：让 3 位用户付费试用（哪怕 1 元）——付费才是真验证。  <strong>Week 4</strong>：根据反馈决定 PMF/调整/放弃。</div></div></div>
 
 <!-- ========== Day 025 ========== --></div>
 <div class="day-group" data-day="25" style="display:none">
@@ -625,19 +632,19 @@ footer p{margin-bottom:6px}
 <div class="today-think">
 <div class="card" data-fav-id="d25-time-discounting" data-fav-title="时间贴现 · Time Discounting">
 <div class="card-head"><h3><i data-lucide="alarm-clock" class="ic-inline"></i><span>时间贴现</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>人类系统性地低估未来收益的价值——今天的$100在心理上远比一年后的$110有价值(即使理性上应该等)。贴现率因人而异且不稳定——越是即时可得的选项，贴现越陡峭。这是储蓄不足/健康忽视/拖延症的根源。</p>
+<p>人类系统性地低估未来收益的价值——今天的$100在心理上远比一年后的$110有价值(即使理性上应该等)。贴现率因人而异且不稳定——越是即时可得的选项，贴现越陡峭。这是储蓄不足/健康忽视/拖延症的根源。</p><ul><li><strong>核心原理：</strong>这是一个<strong>认知偏差</strong>——意味着你的大脑会自动这样做，无论你是否同意。意识到偏差的存在 ≠ 免疫偏差。芒格："我研究偏差 50 年，依然每天落入同样的陷阱——区别只是我能更快地发现自己掉进去了，并爬出来。"</li><li><strong>经典案例：</strong><strong>实验性证据</strong>：心理学家在受控环境下反复证明这个偏差的强度——平均偏移幅度 20-40%。<strong>商业代价</strong>：基金经理因此偏差导致的累计判断失误，每年从市场抽走数百亿美元。<strong>个人代价</strong>：决策时无意识应用此偏差，导致系统性低估或高估。</li><li><strong>实操方法：</strong><strong>"反向校准"三步</strong>：① 识别——意识到自己正在受此偏差影响（最难）。② 强制反思——做"如果反过来想是什么样？"练习。③ 决策日志——事先记录预测，事后对比，建立你对自己直觉的<strong>可信度档案</strong>。</li></ul>
 <div class="tip"><b>实践：</b>做长期决策时问'如果这是别人的选择，我会怎么建议？'——用旁观者视角降低贴现偏差</div>
-</div>
+<div class="quote">"风险来自于你不知道自己在做什么。"<cite>—— Warren Buffett</cite></div><div class="tip"><b>实战三步法：</b><strong>① 识别</strong>：本周记录三次决策——哪些场景这个模型直接适用？写下"如果我用这个模型，我会怎么想？"  <strong>② 应用</strong>：下次相似情境，强制在做决定前停 60 秒套用此模型。  <strong>③ 复盘</strong>：每周日总结：模型给我的判断 vs 我直觉的判断——哪个更准？修正你对自己直觉的信任度。</div></div>
 <div class="card" data-fav-id="d25-hyperbolic-discounti" data-fav-title="双曲贴现 · Hyperbolic Discounting">
 <div class="card-head"><h3><i data-lucide="trending-down" class="ic-inline"></i><span>双曲贴现</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>人类的贴现函数不是指数型(理性)而是双曲型——在'现在vs明天'的选择中极度偏好现在，但在'365天后vs366天后'的选择中很理性。这导致'时间不一致性'：提前计划时很理性，到了当下又忍不住。节食/储蓄/学习的失败根源。</p>
+<p>人类的贴现函数不是指数型(理性)而是双曲型——在'现在vs明天'的选择中极度偏好现在，但在'365天后vs366天后'的选择中很理性。这导致'时间不一致性'：提前计划时很理性，到了当下又忍不住。节食/储蓄/学习的失败根源。</p><ul><li><strong>核心原理：</strong>这个模型本质上是关于"<strong>第二序后果</strong>"——表面看似简单的因果关系背后，藏着多层级的连锁反应。多数人停留在第一序思考（"做了 A 会得到 B"），少数人能想到第二序（"得到 B 之后呢？谁会反应？市场会怎么变？"）。能持续做到第二序思考的人极其稀有——这就是认知优势的来源。</li><li><strong>经典案例：</strong><strong>价格上涨案例</strong>：第一序——卖更多东西=赚更多钱，所以涨价。第二序——竞争对手会跟进吗？老客户会流失到替代品吗？品牌定位是否被改变？长期价格弹性是否被破坏？同样的"涨价"决策，第一序看是简单收益最大化，第二序看可能是品牌自杀。</li><li><strong>实操方法：</strong>每次重大决策前问自己<strong>三个 "然后呢？"</strong>：① 然后呢？（直接后果）② 然后呢？（其他人/市场如何反应）③ 然后呢？（系统平衡如何重置）。能问到第三层的人已经超过 95% 决策者。</li></ul>
 <div class="tip"><b>实践：</b>利用'预承诺机制'对抗双曲贴现：在理性时刻锁定未来行为(自动转账/闹钟/公开承诺)</div>
-</div>
+<div class="quote">"你能管理的只有你能衡量的；但要小心：你只衡量你能衡量的，会让你忽略真正重要的。"<cite>—— Peter Drucker</cite></div><div class="tip"><b>团队级应用：</b>把这个模型从"个人决策工具"升级为"团队语言"——开会时如果有人能脱口说出"这是个 X 问题"，整个团队的判断质量瞬间提升。<strong>具体做法</strong>：① 建一个团队共享的"思维模型词典"，每条带 1 句话定义+案例 ② 复盘会必问"这次决策用了哪些模型？" ③ 招聘时考察候选人对核心模型的掌握度。</div></div>
 <div class="card" data-fav-id="d25-instant-gratificatio" data-fav-title="即时满足 · Instant Gratification">
 <div class="card-head"><h3><i data-lucide="candy" class="ic-inline"></i><span>即时满足</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>棉花糖实验的延伸：能延迟满足的人长期表现更优。但近年研究修正：环境可靠性(承诺兑现率)比个人意志力更能预测能否延迟满足。启示：要促进延迟满足，不是'锻炼意志力'而是'建立可信的承诺兑现机制'。</p>
+<p>棉花糖实验的延伸：能延迟满足的人长期表现更优。但近年研究修正：环境可靠性(承诺兑现率)比个人意志力更能预测能否延迟满足。启示：要促进延迟满足，不是'锻炼意志力'而是'建立可信的承诺兑现机制'。</p><ul><li><strong>核心原理：</strong>这个模型本质上是关于"<strong>第二序后果</strong>"——表面看似简单的因果关系背后，藏着多层级的连锁反应。多数人停留在第一序思考（"做了 A 会得到 B"），少数人能想到第二序（"得到 B 之后呢？谁会反应？市场会怎么变？"）。能持续做到第二序思考的人极其稀有——这就是认知优势的来源。</li><li><strong>经典案例：</strong><strong>价格上涨案例</strong>：第一序——卖更多东西=赚更多钱，所以涨价。第二序——竞争对手会跟进吗？老客户会流失到替代品吗？品牌定位是否被改变？长期价格弹性是否被破坏？同样的"涨价"决策，第一序看是简单收益最大化，第二序看可能是品牌自杀。</li><li><strong>实操方法：</strong>每次重大决策前问自己<strong>三个 "然后呢？"</strong>：① 然后呢？（直接后果）② 然后呢？（其他人/市场如何反应）③ 然后呢？（系统平衡如何重置）。能问到第三层的人已经超过 95% 决策者。</li></ul>
 <div class="tip"><b>实践：</b>想让自己/用户延迟满足：关键不是'忍住'而是让'等待后的回报可信且可见'</div>
-</div>
+<div class="quote">"风险来自于你不知道自己在做什么。"<cite>—— Warren Buffett</cite></div><div class="tip"><b>实战三步法：</b><strong>① 识别</strong>：本周记录三次决策——哪些场景这个模型直接适用？写下"如果我用这个模型，我会怎么想？"  <strong>② 应用</strong>：下次相似情境，强制在做决定前停 60 秒套用此模型。  <strong>③ 复盘</strong>：每周日总结：模型给我的判断 vs 我直觉的判断——哪个更准？修正你对自己直觉的信任度。</div></div>
 </div>
 
 <div class="section-eyebrow"><i data-lucide="palette"></i><span class="section-eyebrow-num">02</span><span class="section-eyebrow-title">设计启发</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Design Insights</span></div>
@@ -652,7 +659,7 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>检查：</b>打开你正在做的项目——找出一处可以应用这条原则的具体界面或交互。</div>
 </div>
 
-<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div></div></div>
+<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div><div class="quote">"你不能让用户做正确的事——你只能让正确的事变得最容易做。"<cite>—— BJ Fogg</cite></div><div class="tip"><b>反例学习法：</b>找两个**违反此原则做得很糟**的产品案例 + 两个**遵循此原则做得很棒**的案例——对比四张截图贴在墙上。<strong>每周看一次</strong>。3 个月后你的设计直觉会自动屏蔽糟糕模式——这比读 10 本书有效。</div></div></div>
 <div class="today-side">
 <div class="card" data-fav-id="d25-ai-ai-game-operations" data-fav-title="AI游戏运营">
 <div class="card-head"><h3><i data-lucide="gamepad-2" class="ic-inline"></i><span>AI游戏运营</span></h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -664,7 +671,7 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>启动：</b>本周内做一个最小动作：发一篇文章/做一个落地页/找一个潜在客户访谈。</div>
 </div>
 
-</div></div>
+<div class="quote">"竞争是为失败者准备的——找到没人在做的、又被需要的事。"<cite>—— Peter Thiel</cite></div><div class="tip"><b>启动 30 天计划：</b><strong>Week 1</strong>：找 5 位潜在用户访谈——他们是不是真的在为这个问题付钱（时间或金钱）？没有付费意愿的"问题"是伪需求。  <strong>Week 2</strong>：做最小可行原型——能解决 80% 核心场景的丑陋版本就够。  <strong>Week 3</strong>：让 3 位用户付费试用（哪怕 1 元）——付费才是真验证。  <strong>Week 4</strong>：根据反馈决定 PMF/调整/放弃。</div></div></div>
 
 <!-- ========== Day 024 ========== --></div>
 <div class="day-group" data-day="24" style="display:none">
@@ -674,26 +681,26 @@ footer p{margin-bottom:6px}
 <div class="today-think">
 <div class="card" data-fav-id="d24-complex-adaptive-sys" data-fav-title="复杂适应系统 · Complex Adaptive Systems">
 <div class="card-head"><h3><i data-lucide="network" class="ic-inline"></i><span>复杂适应系统</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>圣塔菲研究所的核心概念：由大量自主Agent组成的系统，Agent之间相互作用并根据结果调整行为——产生涌现性、非线性和不可预测的宏观行为。经济/生态/城市/互联网都是复杂适应系统。特点：去中心化、自组织、处于混沌边缘。</p>
+<p>圣塔菲研究所的核心概念：由大量自主Agent组成的系统，Agent之间相互作用并根据结果调整行为——产生涌现性、非线性和不可预测的宏观行为。经济/生态/城市/互联网都是复杂适应系统。特点：去中心化、自组织、处于混沌边缘。</p><ul><li><strong>核心原理：</strong>这是一个<strong>认知偏差</strong>——意味着你的大脑会自动这样做，无论你是否同意。意识到偏差的存在 ≠ 免疫偏差。芒格："我研究偏差 50 年，依然每天落入同样的陷阱——区别只是我能更快地发现自己掉进去了，并爬出来。"</li><li><strong>经典案例：</strong><strong>实验性证据</strong>：心理学家在受控环境下反复证明这个偏差的强度——平均偏移幅度 20-40%。<strong>商业代价</strong>：基金经理因此偏差导致的累计判断失误，每年从市场抽走数百亿美元。<strong>个人代价</strong>：决策时无意识应用此偏差，导致系统性低估或高估。</li><li><strong>实操方法：</strong><strong>"反向校准"三步</strong>：① 识别——意识到自己正在受此偏差影响（最难）。② 强制反思——做"如果反过来想是什么样？"练习。③ 决策日志——事先记录预测，事后对比，建立你对自己直觉的<strong>可信度档案</strong>。</li></ul>
 <div class="tip"><b>实践：</b>你所面对的'复杂问题'可能本质上是复杂适应系统——不能'解决'只能'引导演化'</div>
-</div>
+<div class="quote">"在你确信自己理解了对方观点之前，永远不要批评它——能复述到对方满意才算理解。"<cite>—— Charlie Munger</cite></div><div class="tip"><b>团队级应用：</b>把这个模型从"个人决策工具"升级为"团队语言"——开会时如果有人能脱口说出"这是个 X 问题"，整个团队的判断质量瞬间提升。<strong>具体做法</strong>：① 建一个团队共享的"思维模型词典"，每条带 1 句话定义+案例 ② 复盘会必问"这次决策用了哪些模型？" ③ 招聘时考察候选人对核心模型的掌握度。</div></div>
 <div class="card" data-fav-id="d24-ant-colony-optimizat" data-fav-title="蚁群算法 · Ant Colony Optimization">
 <div class="card-head"><h3><i data-lucide="bug" class="ic-inline"></i><span>蚁群算法</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>基于蚂蚁觅食行为的优化算法：蚂蚁随机探索→发现食物留信息素→后续蚂蚁跟随信息素→短路径信息素浓度更高(蒸发慢)→全群收敛到最优路径。启示：分布式探索+局部正反馈=全局最优涌现。</p>
+<p>基于蚂蚁觅食行为的优化算法：蚂蚁随机探索→发现食物留信息素→后续蚂蚁跟随信息素→短路径信息素浓度更高(蒸发慢)→全群收敛到最优路径。启示：分布式探索+局部正反馈=全局最优涌现。</p><ul><li><strong>核心原理：</strong>这个模型本质上是关于"<strong>第二序后果</strong>"——表面看似简单的因果关系背后，藏着多层级的连锁反应。多数人停留在第一序思考（"做了 A 会得到 B"），少数人能想到第二序（"得到 B 之后呢？谁会反应？市场会怎么变？"）。能持续做到第二序思考的人极其稀有——这就是认知优势的来源。</li><li><strong>经典案例：</strong><strong>价格上涨案例</strong>：第一序——卖更多东西=赚更多钱，所以涨价。第二序——竞争对手会跟进吗？老客户会流失到替代品吗？品牌定位是否被改变？长期价格弹性是否被破坏？同样的"涨价"决策，第一序看是简单收益最大化，第二序看可能是品牌自杀。</li><li><strong>实操方法：</strong>每次重大决策前问自己<strong>三个 "然后呢？"</strong>：① 然后呢？（直接后果）② 然后呢？（其他人/市场如何反应）③ 然后呢？（系统平衡如何重置）。能问到第三层的人已经超过 95% 决策者。</li></ul>
 <div class="tip"><b>实践：</b>面对复杂优化问题时考虑'蚁群策略'：多条路径并行探索+对好结果加倍投入+对差结果让其自然'蒸发'</div>
-</div>
+<div class="quote">"在你确信自己理解了对方观点之前，永远不要批评它——能复述到对方满意才算理解。"<cite>—— Charlie Munger</cite></div><div class="tip"><b>反直觉应用：</b>大多数人把这个模型用在"是否做某事"——但<strong>真正威力在于决定"什么时候不做"</strong>。把这个模型当作"反向过滤器"——它告诉你哪些机会看起来诱人但实质有毒。本周练习：找出三个你"差点要做"但用此模型一看就该放弃的事。</div></div>
 <div class="card" data-fav-id="d24-self-organization" data-fav-title="自组织 · Self-Organization">
 <div class="card-head"><h3><i data-lucide="zap" class="ic-inline"></i><span>自组织</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>没有中央控制者的情况下，系统通过局部交互自发产生全局秩序。鸟群V字队形/交通自组织/Wikipedia内容治理/开源社区协作。关键条件：简单规则+正负反馈+足够多的交互+边界约束=自组织涌现。</p>
+<p>没有中央控制者的情况下，系统通过局部交互自发产生全局秩序。鸟群V字队形/交通自组织/Wikipedia内容治理/开源社区协作。关键条件：简单规则+正负反馈+足够多的交互+边界约束=自组织涌现。</p><ul><li><strong>核心原理：</strong>这是一个<strong>认知偏差</strong>——意味着你的大脑会自动这样做，无论你是否同意。意识到偏差的存在 ≠ 免疫偏差。芒格："我研究偏差 50 年，依然每天落入同样的陷阱——区别只是我能更快地发现自己掉进去了，并爬出来。"</li><li><strong>经典案例：</strong><strong>实验性证据</strong>：心理学家在受控环境下反复证明这个偏差的强度——平均偏移幅度 20-40%。<strong>商业代价</strong>：基金经理因此偏差导致的累计判断失误，每年从市场抽走数百亿美元。<strong>个人代价</strong>：决策时无意识应用此偏差，导致系统性低估或高估。</li><li><strong>实操方法：</strong><strong>"反向校准"三步</strong>：① 识别——意识到自己正在受此偏差影响（最难）。② 强制反思——做"如果反过来想是什么样？"练习。③ 决策日志——事先记录预测，事后对比，建立你对自己直觉的<strong>可信度档案</strong>。</li></ul>
 <div class="tip"><b>实践：</b>要促进自组织：设计好'局部规则'和'边界'，然后放手——过度干预会破坏自组织</div>
-</div>
+<div class="quote">"你能管理的只有你能衡量的；但要小心：你只衡量你能衡量的，会让你忽略真正重要的。"<cite>—— Peter Drucker</cite></div><div class="tip"><b>反直觉应用：</b>大多数人把这个模型用在"是否做某事"——但<strong>真正威力在于决定"什么时候不做"</strong>。把这个模型当作"反向过滤器"——它告诉你哪些机会看起来诱人但实质有毒。本周练习：找出三个你"差点要做"但用此模型一看就该放弃的事。</div></div>
 </div>
 
 <div class="section-eyebrow"><i data-lucide="palette"></i><span class="section-eyebrow-num">02</span><span class="section-eyebrow-title">设计启发</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Design Insights</span></div>
 <div class="today-design">
 <div class="card" data-fav-id="d24-design-adaptive-layout" data-fav-title="自适应布局">
 <div class="card-head"><h3><i data-lucide="shuffle" class="ic-inline"></i><span>自适应布局</span></h3><span class="tag tag-d">设计启发</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>超越响应式的自适应UI：根据用户行为/内容类型/设备能力动态调整布局。不是'屏幕宽度断点'而是'内容驱动布局'。例：内容少时单列舒展、内容多时自动切换为网格/列表。CSS Container Queries使组件级自适应成为可能。</p>
+<p>超越响应式的自适应UI：根据用户行为/内容类型/设备能力动态调整布局。不是'屏幕宽度断点'而是'内容驱动布局'。例：内容少时单列舒展、内容多时自动切换为网格/列表。CSS Container Queries使组件级自适应成为可能。</p><ul><li><strong>核心原理：</strong>游戏 UI 的特殊性在于：<strong>玩家是来"享受"的，不是来"完成任务"的</strong>——所以效率不是唯一追求，体验感才是。但同时，玩家挫败感超过阈值会立即流失——所以"效率不可见地融入体验"是终极目标。</li><li><strong>架构层次：</strong>① <strong>HUD 层</strong>：常驻信息（生命/资源/小地图）必须不打扰但随时可读。② <strong>模态层</strong>：背包/任务/技能等深度交互界面，可以信息密度高但需层级清晰。③ <strong>反馈层</strong>：动效/音效/振动——把"系统在响应"变成"我做对了"的感觉。④ <strong>叙事层</strong>：把 UI 元素与世界观融合（《死亡空间》全息投影）。</li><li><strong>评估清单：</strong>让 5 位新手玩 30 分钟然后回答：① 哪里曾经感到困惑？② 哪个操作最爽？③ 如果只能保留 3 个 UI 元素你保留哪些？这个问卷比专家 review 更有价值——它揭示真实的用户感知。</li></ul>
 <div class="tip"><b>对比：</b>找两个做这件事相反的产品案例——哪种更符合用户实际行为？</div>
 <div class="card" data-fav-id="d24-design-ai-assisted-layout" data-fav-title="AI辅助排版">
 <div class="card-head"><h3><i data-lucide="bot" class="ic-inline"></i><span>AI辅助排版</span></h3><span class="tag tag-d">设计启发</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -701,11 +708,11 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>检查：</b>打开你正在做的项目——找出一处可以应用这条原则的具体界面或交互。</div>
 </div>
 
-<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div></div></div>
+<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div><div class="quote">"任何足够先进的技术都看似魔法——好的UI让复杂技术变成魔法。"<cite>—— Arthur C. Clarke</cite></div><div class="tip"><b>反例学习法：</b>找两个**违反此原则做得很糟**的产品案例 + 两个**遵循此原则做得很棒**的案例——对比四张截图贴在墙上。<strong>每周看一次</strong>。3 个月后你的设计直觉会自动屏蔽糟糕模式——这比读 10 本书有效。</div></div></div>
 <div class="today-side">
 <div class="card" data-fav-id="d24-ai-ai-adaptive-interfac" data-fav-title="AI自适应界面">
 <div class="card-head"><h3><i data-lucide="palette" class="ic-inline"></i><span>AI自适应界面</span></h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>基于用户行为的UI自动优化：AI追踪点击热力图→自动调整按钮位置/大小→A/B测试验证→最优方案推全。Netflix的'个性化UI'已经实现：不同用户看到不同的海报图、不同的信息排布。</p>
+<p>基于用户行为的UI自动优化：AI追踪点击热力图→自动调整按钮位置/大小→A/B测试验证→最优方案推全。Netflix的'个性化UI'已经实现：不同用户看到不同的海报图、不同的信息排布。</p><ul><li><strong>核心机会：</strong>这个方向的市场窗口在于：<strong>需求真实存在但供给极度匮乏</strong>——不是没人意识到（红海竞争），而是少数人意识到、又有能力做的人少之又少（蓝海垄断机会）。</li><li><strong>启动 4 周路线：</strong>① <strong>Week 1</strong>：找 5 位潜在用户访谈——确认问题是"亟待解决"而非"知道但不痛"。② <strong>Week 2</strong>：做 MVP 落地页 + 简单原型——能演示核心价值就行。③ <strong>Week 3</strong>：在 3 个垂直社区发深度文章吸引种子用户。④ <strong>Week 4</strong>：让 3-5 位付费试用——付费转化才是真验证。</li><li><strong>盈利模型：</strong><strong>免费版</strong>：基础功能（吸引注意力）。<strong>Pro ¥99-299/月</strong>：核心生产力工具（个人开发者/设计师）。<strong>团队 ¥999-2999/月</strong>：协作+管理（小团队）。<strong>企业 ¥9999+</strong>：定制+SLA。<strong>关键</strong>：第一年专注 Pro 版打透 PMF，再向上下扩展。</li></ul>
 <div class="tip"><b>启动：</b>本周内做一个最小动作：发一篇文章/做一个落地页/找一个潜在客户访谈。</div>
 <div class="card" data-fav-id="d24-ai-personalized-ui-gene" data-fav-title="👤 个性化UI生成">
 <div class="card-head"><h3>👤 个性化UI生成</h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -713,7 +720,7 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>验证：</b>找三位潜在用户聊一聊——他们是否真的在为这个问题付出代价？</div>
 </div>
 
-</div></div>
+<div class="quote">"做能产生最有趣副作用的事——副作用往往比主业更有价值。"<cite>—— Naval Ravikant</cite></div><div class="tip"><b>启动 30 天计划：</b><strong>Week 1</strong>：找 5 位潜在用户访谈——他们是不是真的在为这个问题付钱（时间或金钱）？没有付费意愿的"问题"是伪需求。  <strong>Week 2</strong>：做最小可行原型——能解决 80% 核心场景的丑陋版本就够。  <strong>Week 3</strong>：让 3 位用户付费试用（哪怕 1 元）——付费才是真验证。  <strong>Week 4</strong>：根据反馈决定 PMF/调整/放弃。</div></div></div>
 
 <!-- ========== Day 023 ========== --></div>
 <div class="day-group" data-day="23" style="display:none">
@@ -723,19 +730,19 @@ footer p{margin-bottom:6px}
 <div class="today-think">
 <div class="card" data-fav-id="d23-black-box-thinking" data-fav-title="黑匣子思维 · Black Box Thinking">
 <div class="card-head"><h3><i data-lucide="package" class="ic-inline"></i><span>黑匣子思维</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>马修·赛德的核心概念：航空业的'零容忍失败+完全透明调查'文化使其成为最安全的行业。对比医疗界的'隐藏错误'文化。关键不是'不犯错'而是'系统性地从错误中学习'——建立不惩罚报告错误的文化。</p>
+<p>马修·赛德的核心概念：航空业的'零容忍失败+完全透明调查'文化使其成为最安全的行业。对比医疗界的'隐藏错误'文化。关键不是'不犯错'而是'系统性地从错误中学习'——建立不惩罚报告错误的文化。</p><ul><li><strong>核心原理：</strong>这个模型本质上是关于"<strong>第二序后果</strong>"——表面看似简单的因果关系背后，藏着多层级的连锁反应。多数人停留在第一序思考（"做了 A 会得到 B"），少数人能想到第二序（"得到 B 之后呢？谁会反应？市场会怎么变？"）。能持续做到第二序思考的人极其稀有——这就是认知优势的来源。</li><li><strong>经典案例：</strong><strong>价格上涨案例</strong>：第一序——卖更多东西=赚更多钱，所以涨价。第二序——竞争对手会跟进吗？老客户会流失到替代品吗？品牌定位是否被改变？长期价格弹性是否被破坏？同样的"涨价"决策，第一序看是简单收益最大化，第二序看可能是品牌自杀。</li><li><strong>实操方法：</strong>每次重大决策前问自己<strong>三个 "然后呢？"</strong>：① 然后呢？（直接后果）② 然后呢？（其他人/市场如何反应）③ 然后呢？（系统平衡如何重置）。能问到第三层的人已经超过 95% 决策者。</li></ul>
 <div class="tip"><b>实践：</b>建立个人'黑匣子'：记录每次失败的完整过程，定期复盘，识别系统性改进点</div>
-</div>
+<div class="quote">"快与慢系统不是两个独立的人格——是同一个大脑在不同情境下的两种工作模式。"<cite>—— Daniel Kahneman</cite></div><div class="tip"><b>反直觉应用：</b>大多数人把这个模型用在"是否做某事"——但<strong>真正威力在于决定"什么时候不做"</strong>。把这个模型当作"反向过滤器"——它告诉你哪些机会看起来诱人但实质有毒。本周练习：找出三个你"差点要做"但用此模型一看就该放弃的事。</div></div>
 <div class="card" data-fav-id="d23-learning-from-failur" data-fav-title="失败学习 · Learning from Failure">
 <div class="card-head"><h3><i data-lucide="file-text" class="ic-inline"></i><span>失败学习</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
 <p>失败学习的三层模型</p><ul><li>事后复盘(发生了什么)</li><li>根因分析(为什么发生)</li><li>系统改进(如何防止再发)。达里奥的'痛苦+反思=进步'公式。关键：区分'可预防的失败'(系统问题)和'不可预防的失败'(创新的必要代价)</li></ul>
 <div class="tip"><b>实践：</b>对每次失败分类：流程失败(改流程)/判断失败(改决策框架)/探索失败(记录学习继续前进)</div>
-</div>
+<div class="quote">"在投资上做出正确判断不需要天才——你只需要避免做傻事。这听起来很简单，但当群体陷入疯狂时，避免做傻事可能是最难的。"<cite>—— Charlie Munger</cite></div><div class="tip"><b>团队级应用：</b>把这个模型从"个人决策工具"升级为"团队语言"——开会时如果有人能脱口说出"这是个 X 问题"，整个团队的判断质量瞬间提升。<strong>具体做法</strong>：① 建一个团队共享的"思维模型词典"，每条带 1 句话定义+案例 ② 复盘会必问"这次决策用了哪些模型？" ③ 招聘时考察候选人对核心模型的掌握度。</div></div>
 <div class="card" data-fav-id="d23-marginal-gains" data-fav-title="边际收益 · Marginal Gains">
 <div class="card-head"><h3><i data-lucide="trending-up" class="ic-inline"></i><span>边际收益</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>布雷斯福德(英国自行车队)的1%改进哲学：每个环节改进1%→复合效果巨大。不追求突破性创新→而是系统性地识别和改进所有可改进的小环节。但有陷阱：过度关注边际优化可能忽视范式跳跃的机会。</p>
+<p>布雷斯福德(英国自行车队)的1%改进哲学：每个环节改进1%→复合效果巨大。不追求突破性创新→而是系统性地识别和改进所有可改进的小环节。但有陷阱：过度关注边际优化可能忽视范式跳跃的机会。</p><ul><li><strong>核心原理：</strong>这是一个<strong>认知偏差</strong>——意味着你的大脑会自动这样做，无论你是否同意。意识到偏差的存在 ≠ 免疫偏差。芒格："我研究偏差 50 年，依然每天落入同样的陷阱——区别只是我能更快地发现自己掉进去了，并爬出来。"</li><li><strong>经典案例：</strong><strong>实验性证据</strong>：心理学家在受控环境下反复证明这个偏差的强度——平均偏移幅度 20-40%。<strong>商业代价</strong>：基金经理因此偏差导致的累计判断失误，每年从市场抽走数百亿美元。<strong>个人代价</strong>：决策时无意识应用此偏差，导致系统性低估或高估。</li><li><strong>实操方法：</strong><strong>"反向校准"三步</strong>：① 识别——意识到自己正在受此偏差影响（最难）。② 强制反思——做"如果反过来想是什么样？"练习。③ 决策日志——事先记录预测，事后对比，建立你对自己直觉的<strong>可信度档案</strong>。</li></ul>
 <div class="tip"><b>实践：</b>列出当前项目的所有环节，给每个评估'易改进程度×影响力'，优先攻击高分项</div>
-</div>
+<div class="quote">"痛苦 + 反思 = 进步。这是最强大的人生公式。"<cite>—— Ray Dalio</cite></div><div class="tip"><b>实战三步法：</b><strong>① 识别</strong>：本周记录三次决策——哪些场景这个模型直接适用？写下"如果我用这个模型，我会怎么想？"  <strong>② 应用</strong>：下次相似情境，强制在做决定前停 60 秒套用此模型。  <strong>③ 复盘</strong>：每周日总结：模型给我的判断 vs 我直觉的判断——哪个更准？修正你对自己直觉的信任度。</div></div>
 </div>
 
 <div class="section-eyebrow"><i data-lucide="palette"></i><span class="section-eyebrow-num">02</span><span class="section-eyebrow-title">设计启发</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Design Insights</span></div>
@@ -750,11 +757,11 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>检查：</b>打开你正在做的项目——找出一处可以应用这条原则的具体界面或交互。</div>
 </div>
 
-<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div></div></div>
+<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div><div class="quote">"设计不只是它看起来的样子和给人感觉——设计是它如何工作。"<cite>—— Steve Jobs</cite></div><div class="tip"><b>反例学习法：</b>找两个**违反此原则做得很糟**的产品案例 + 两个**遵循此原则做得很棒**的案例——对比四张截图贴在墙上。<strong>每周看一次</strong>。3 个月后你的设计直觉会自动屏蔽糟糕模式——这比读 10 本书有效。</div></div></div>
 <div class="today-side">
 <div class="card" data-fav-id="d23-ai-ai-version-control" data-fav-title="AI版本控制">
 <div class="card-head"><h3><i data-lucide="refresh-cw" class="ic-inline"></i><span>AI版本控制</span></h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>AI驱动的设计版本管理：自动标注'有意义的变更'(vs无关紧要的调整)、智能合并冲突、自动生成变更日志。Figma的AI版本摘要已上线——理解'改了什么'不再需要逐帧对比。</p>
+<p>AI驱动的设计版本管理：自动标注'有意义的变更'(vs无关紧要的调整)、智能合并冲突、自动生成变更日志。Figma的AI版本摘要已上线——理解'改了什么'不再需要逐帧对比。</p><ul><li><strong>核心机会：</strong>这个方向的市场窗口在于：<strong>需求真实存在但供给极度匮乏</strong>——不是没人意识到（红海竞争），而是少数人意识到、又有能力做的人少之又少（蓝海垄断机会）。</li><li><strong>启动 4 周路线：</strong>① <strong>Week 1</strong>：找 5 位潜在用户访谈——确认问题是"亟待解决"而非"知道但不痛"。② <strong>Week 2</strong>：做 MVP 落地页 + 简单原型——能演示核心价值就行。③ <strong>Week 3</strong>：在 3 个垂直社区发深度文章吸引种子用户。④ <strong>Week 4</strong>：让 3-5 位付费试用——付费转化才是真验证。</li><li><strong>盈利模型：</strong><strong>免费版</strong>：基础功能（吸引注意力）。<strong>Pro ¥99-299/月</strong>：核心生产力工具（个人开发者/设计师）。<strong>团队 ¥999-2999/月</strong>：协作+管理（小团队）。<strong>企业 ¥9999+</strong>：定制+SLA。<strong>关键</strong>：第一年专注 Pro 版打透 PMF，再向上下扩展。</li></ul>
 <div class="tip"><b>探索：</b>评估这个方向：你现有技能/资源能在多长时间内做出 MVP？</div>
 <div class="card" data-fav-id="d23-ai-design-change-tracki" data-fav-title="设计变更追踪">
 <div class="card-head"><h3><i data-lucide="file-text" class="ic-inline"></i><span>设计变更追踪</span></h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -762,7 +769,7 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>探索：</b>评估这个方向：你现有技能/资源能在多长时间内做出 MVP？</div>
 </div>
 
-</div></div>
+<div class="quote">"创业最大的优势不是天才——而是别人不愿意忍受的痛苦你愿意忍受。"<cite>—— Paul Graham</cite></div><div class="tip"><b>验证 vs 完美：</b>大多数人花 80% 时间打磨产品、20% 时间找用户——成功者反过来。<strong>本周可执行任务</strong>：① 写一篇深度文章描述你要解决的问题 ② 发到 3 个相关社区 ③ 看是否有人评论"我也有这个问题，求联系" ④ 联系评论者深聊。零代码就能验证 PMF。</div></div></div>
 
 <!-- ========== Day 022 ========== --></div>
 <div class="day-group" data-day="22" style="display:none">
@@ -772,19 +779,19 @@ footer p{margin-bottom:6px}
 <div class="today-think">
 <div class="card" data-fav-id="d22-attention-economy" data-fav-title="注意力经济 · Attention Economy">
 <div class="card-head"><h3><i data-lucide="eye" class="ic-inline"></i><span>注意力经济</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>赫伯特·西蒙预言：信息丰富的世界里，注意力是真正的稀缺资源。每个App/游戏/内容都在争夺同一资源——人类每天清醒的约16小时。注意力不是'消费'而是'投资'——注意力投向何处决定了你成为什么样的人。</p>
+<p>赫伯特·西蒙预言：信息丰富的世界里，注意力是真正的稀缺资源。每个App/游戏/内容都在争夺同一资源——人类每天清醒的约16小时。注意力不是'消费'而是'投资'——注意力投向何处决定了你成为什么样的人。</p><ul><li><strong>核心原理：</strong>这是一个<strong>认知偏差</strong>——意味着你的大脑会自动这样做，无论你是否同意。意识到偏差的存在 ≠ 免疫偏差。芒格："我研究偏差 50 年，依然每天落入同样的陷阱——区别只是我能更快地发现自己掉进去了，并爬出来。"</li><li><strong>经典案例：</strong><strong>实验性证据</strong>：心理学家在受控环境下反复证明这个偏差的强度——平均偏移幅度 20-40%。<strong>商业代价</strong>：基金经理因此偏差导致的累计判断失误，每年从市场抽走数百亿美元。<strong>个人代价</strong>：决策时无意识应用此偏差，导致系统性低估或高估。</li><li><strong>实操方法：</strong><strong>"反向校准"三步</strong>：① 识别——意识到自己正在受此偏差影响（最难）。② 强制反思——做"如果反过来想是什么样？"练习。③ 决策日志——事先记录预测，事后对比，建立你对自己直觉的<strong>可信度档案</strong>。</li></ul>
 <div class="tip"><b>实践：</b>审计你的注意力投资组合：哪些占用了注意力但不产生回报？哪些值得更多投入？</div>
-</div>
+<div class="quote">"风险来自于你不知道自己在做什么。"<cite>—— Warren Buffett</cite></div><div class="tip"><b>反直觉应用：</b>大多数人把这个模型用在"是否做某事"——但<strong>真正威力在于决定"什么时候不做"</strong>。把这个模型当作"反向过滤器"——它告诉你哪些机会看起来诱人但实质有毒。本周练习：找出三个你"差点要做"但用此模型一看就该放弃的事。</div></div>
 <div class="card" data-fav-id="d22-scarcity" data-fav-title="稀缺性 · Scarcity">
 <div class="card-head"><h3><i data-lucide="gem" class="ic-inline"></i><span>稀缺性</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>行为经济学核心原理：稀缺(无论真实或感知的)会极大提升人们对事物的估值和行动紧迫感。限时优惠/限量版/即将关闭都利用了稀缺性。但'制造假稀缺'会摧毁信任——稀缺必须真实或至少合理。</p>
+<p>行为经济学核心原理：稀缺(无论真实或感知的)会极大提升人们对事物的估值和行动紧迫感。限时优惠/限量版/即将关闭都利用了稀缺性。但'制造假稀缺'会摧毁信任——稀缺必须真实或至少合理。</p><ul><li><strong>核心原理：</strong>这是一个<strong>认知偏差</strong>——意味着你的大脑会自动这样做，无论你是否同意。意识到偏差的存在 ≠ 免疫偏差。芒格："我研究偏差 50 年，依然每天落入同样的陷阱——区别只是我能更快地发现自己掉进去了，并爬出来。"</li><li><strong>经典案例：</strong><strong>实验性证据</strong>：心理学家在受控环境下反复证明这个偏差的强度——平均偏移幅度 20-40%。<strong>商业代价</strong>：基金经理因此偏差导致的累计判断失误，每年从市场抽走数百亿美元。<strong>个人代价</strong>：决策时无意识应用此偏差，导致系统性低估或高估。</li><li><strong>实操方法：</strong><strong>"反向校准"三步</strong>：① 识别——意识到自己正在受此偏差影响（最难）。② 强制反思——做"如果反过来想是什么样？"练习。③ 决策日志——事先记录预测，事后对比，建立你对自己直觉的<strong>可信度档案</strong>。</li></ul>
 <div class="tip"><b>实践：</b>区分'真稀缺'(利用)和'假稀缺'(避免)——虚假紧迫感短期有效但长期侵蚀信任</div>
-</div>
+<div class="quote">"痛苦 + 反思 = 进步。这是最强大的人生公式。"<cite>—— Ray Dalio</cite></div><div class="tip"><b>实战三步法：</b><strong>① 识别</strong>：本周记录三次决策——哪些场景这个模型直接适用？写下"如果我用这个模型，我会怎么想？"  <strong>② 应用</strong>：下次相似情境，强制在做决定前停 60 秒套用此模型。  <strong>③ 复盘</strong>：每周日总结：模型给我的判断 vs 我直觉的判断——哪个更准？修正你对自己直觉的信任度。</div></div>
 <div class="card" data-fav-id="d22-choice-overload" data-fav-title="选择过载 · Choice Overload">
 <div class="card-head"><h3><i data-lucide="tornado" class="ic-inline"></i><span>选择过载</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>施瓦茨的'选择的悖论'：选项过多→决策瘫痪+满意度下降。经典实验：6种果酱购买率30%→24种果酱购买率3%。关键区分：'选择者'(追求最优)比'满足者'(追求足够好)更容易被选择过载困扰。</p>
+<p>施瓦茨的'选择的悖论'：选项过多→决策瘫痪+满意度下降。经典实验：6种果酱购买率30%→24种果酱购买率3%。关键区分：'选择者'(追求最优)比'满足者'(追求足够好)更容易被选择过载困扰。</p><ul><li><strong>核心原理：</strong>这个模型本质上是关于"<strong>第二序后果</strong>"——表面看似简单的因果关系背后，藏着多层级的连锁反应。多数人停留在第一序思考（"做了 A 会得到 B"），少数人能想到第二序（"得到 B 之后呢？谁会反应？市场会怎么变？"）。能持续做到第二序思考的人极其稀有——这就是认知优势的来源。</li><li><strong>经典案例：</strong><strong>价格上涨案例</strong>：第一序——卖更多东西=赚更多钱，所以涨价。第二序——竞争对手会跟进吗？老客户会流失到替代品吗？品牌定位是否被改变？长期价格弹性是否被破坏？同样的"涨价"决策，第一序看是简单收益最大化，第二序看可能是品牌自杀。</li><li><strong>实操方法：</strong>每次重大决策前问自己<strong>三个 "然后呢？"</strong>：① 然后呢？（直接后果）② 然后呢？（其他人/市场如何反应）③ 然后呢？（系统平衡如何重置）。能问到第三层的人已经超过 95% 决策者。</li></ul>
 <div class="tip"><b>实践：</b>减少决策数量：为自己设定默认选项(减少日常决策)，为用户提供推荐默认值</div>
-</div>
+<div class="quote">"在投资上做出正确判断不需要天才——你只需要避免做傻事。这听起来很简单，但当群体陷入疯狂时，避免做傻事可能是最难的。"<cite>—— Charlie Munger</cite></div><div class="tip"><b>实战三步法：</b><strong>① 识别</strong>：本周记录三次决策——哪些场景这个模型直接适用？写下"如果我用这个模型，我会怎么想？"  <strong>② 应用</strong>：下次相似情境，强制在做决定前停 60 秒套用此模型。  <strong>③ 复盘</strong>：每周日总结：模型给我的判断 vs 我直觉的判断——哪个更准？修正你对自己直觉的信任度。</div></div>
 </div>
 
 <div class="section-eyebrow"><i data-lucide="palette"></i><span class="section-eyebrow-num">02</span><span class="section-eyebrow-title">设计启发</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Design Insights</span></div>
@@ -799,11 +806,11 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>对比：</b>找两个做这件事相反的产品案例——哪种更符合用户实际行为？</div>
 </div>
 
-<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div></div></div>
+<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div><div class="quote">"设计不只是它看起来的样子和给人感觉——设计是它如何工作。"<cite>—— Steve Jobs</cite></div><div class="tip"><b>设计落地清单：</b><strong>① 找 5 处可改造点</strong>——打开你的产品，找出 5 处违反此原则的具体界面/交互。  <strong>② 排优先级</strong>——按"用户路径上的高频接触点"排序，第一个改最高频的。  <strong>③ A/B 验证</strong>——改完做 A/B 对比：核心指标（点击率/留存/转化）是否提升？没提升要么原则用错了，要么场景不适合。</div></div></div>
 <div class="today-side">
 <div class="card" data-fav-id="d22-ai-ai-attention-detecti" data-fav-title="👀 注意力AI检测">
 <div class="card-head"><h3>👀 注意力AI检测</h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>眼动追踪+AI分析：Tobii Pro等设备实时追踪用户视线→AI生成热力图→自动识别'被忽略的UI元素'和'过度关注的干扰元素'。从主观评测到客观数据的设计验证革命。</p>
+<p>眼动追踪+AI分析：Tobii Pro等设备实时追踪用户视线→AI生成热力图→自动识别'被忽略的UI元素'和'过度关注的干扰元素'。从主观评测到客观数据的设计验证革命。</p><ul><li><strong>核心机会：</strong>这个方向的市场窗口在于：<strong>需求真实存在但供给极度匮乏</strong>——不是没人意识到（红海竞争），而是少数人意识到、又有能力做的人少之又少（蓝海垄断机会）。</li><li><strong>启动 4 周路线：</strong>① <strong>Week 1</strong>：找 5 位潜在用户访谈——确认问题是"亟待解决"而非"知道但不痛"。② <strong>Week 2</strong>：做 MVP 落地页 + 简单原型——能演示核心价值就行。③ <strong>Week 3</strong>：在 3 个垂直社区发深度文章吸引种子用户。④ <strong>Week 4</strong>：让 3-5 位付费试用——付费转化才是真验证。</li><li><strong>盈利模型：</strong><strong>免费版</strong>：基础功能（吸引注意力）。<strong>Pro ¥99-299/月</strong>：核心生产力工具（个人开发者/设计师）。<strong>团队 ¥999-2999/月</strong>：协作+管理（小团队）。<strong>企业 ¥9999+</strong>：定制+SLA。<strong>关键</strong>：第一年专注 Pro 版打透 PMF，再向上下扩展。</li></ul>
 <div class="tip"><b>启动：</b>本周内做一个最小动作：发一篇文章/做一个落地页/找一个潜在客户访谈。</div>
 <div class="card" data-fav-id="d22-ai-gaze-tracking-design" data-fav-title="📷 视线追踪设计">
 <div class="card-head"><h3>📷 视线追踪设计</h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -811,7 +818,7 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>探索：</b>评估这个方向：你现有技能/资源能在多长时间内做出 MVP？</div>
 </div>
 
-</div></div>
+<div class="quote">"如果你不创造杠杆——代码、内容、媒体——你就在用线性方式交换时间。"<cite>—— Naval Ravikant</cite></div><div class="tip"><b>验证 vs 完美：</b>大多数人花 80% 时间打磨产品、20% 时间找用户——成功者反过来。<strong>本周可执行任务</strong>：① 写一篇深度文章描述你要解决的问题 ② 发到 3 个相关社区 ③ 看是否有人评论"我也有这个问题，求联系" ④ 联系评论者深聊。零代码就能验证 PMF。</div></div></div>
 
 <!-- ========== Day 021 ========== --></div>
 <div class="day-group" data-day="21" style="display:none">
@@ -821,19 +828,19 @@ footer p{margin-bottom:6px}
 <div class="today-think">
 <div class="card" data-fav-id="d21-reflexivity" data-fav-title="反身性 · Reflexivity">
 <div class="card-head"><h3><i data-lucide="refresh-cw" class="ic-inline"></i><span>反身性</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>索罗斯的核心理论：市场参与者的认知影响市场基本面，市场基本面又反过来影响参与者认知——形成双向反馈循环。不是'认知反映现实'而是'认知塑造现实'。股价上涨→公司更容易融资→基本面改善→股价继续涨。</p>
+<p>索罗斯的核心理论：市场参与者的认知影响市场基本面，市场基本面又反过来影响参与者认知——形成双向反馈循环。不是'认知反映现实'而是'认知塑造现实'。股价上涨→公司更容易融资→基本面改善→股价继续涨。</p><ul><li><strong>核心原理：</strong>这是一个<strong>认知偏差</strong>——意味着你的大脑会自动这样做，无论你是否同意。意识到偏差的存在 ≠ 免疫偏差。芒格："我研究偏差 50 年，依然每天落入同样的陷阱——区别只是我能更快地发现自己掉进去了，并爬出来。"</li><li><strong>经典案例：</strong><strong>实验性证据</strong>：心理学家在受控环境下反复证明这个偏差的强度——平均偏移幅度 20-40%。<strong>商业代价</strong>：基金经理因此偏差导致的累计判断失误，每年从市场抽走数百亿美元。<strong>个人代价</strong>：决策时无意识应用此偏差，导致系统性低估或高估。</li><li><strong>实操方法：</strong><strong>"反向校准"三步</strong>：① 识别——意识到自己正在受此偏差影响（最难）。② 强制反思——做"如果反过来想是什么样？"练习。③ 决策日志——事先记录预测，事后对比，建立你对自己直觉的<strong>可信度档案</strong>。</li></ul>
 <div class="tip"><b>实践：</b>识别你所处的系统中是否存在反身性：你的信念和行为是否在改变你试图理解的对象？</div>
-</div>
+<div class="quote">"在投资上做出正确判断不需要天才——你只需要避免做傻事。这听起来很简单，但当群体陷入疯狂时，避免做傻事可能是最难的。"<cite>—— Charlie Munger</cite></div><div class="tip"><b>反直觉应用：</b>大多数人把这个模型用在"是否做某事"——但<strong>真正威力在于决定"什么时候不做"</strong>。把这个模型当作"反向过滤器"——它告诉你哪些机会看起来诱人但实质有毒。本周练习：找出三个你"差点要做"但用此模型一看就该放弃的事。</div></div>
 <div class="card" data-fav-id="d21-soros-model" data-fav-title="索罗斯模型 · Soros Model">
 <div class="card-head"><h3><i data-lucide="line-chart" class="ic-inline"></i><span>索罗斯模型</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
 <p>索罗斯的'繁荣-衰退'模型</p><ul><li>尚未被识别的趋势</li><li>自我强化过程开始</li><li>预期接受市场检验</li><li>信念增长</li><li>现实与认知的差距(繁荣)</li><li>临界点</li><li>自我强化反转(衰退)。关键：在</li><li>和</li><li>之间识别并行动</li></ul>
 <div class="tip"><b>实践：</b>观察任何'正在加速'的趋势：它是被反身性正反馈推高的吗？差距何时不可持续？</div>
-</div>
+<div class="quote">"我们不会因为问题难而放弃——我们因为停止寻找答案而失败。"<cite>—— Ray Dalio</cite></div><div class="tip"><b>反直觉应用：</b>大多数人把这个模型用在"是否做某事"——但<strong>真正威力在于决定"什么时候不做"</strong>。把这个模型当作"反向过滤器"——它告诉你哪些机会看起来诱人但实质有毒。本周练习：找出三个你"差点要做"但用此模型一看就该放弃的事。</div></div>
 <div class="card" data-fav-id="d21-market-narratives" data-fav-title="市场叙事 · Market Narratives">
 <div class="card-head"><h3><i data-lucide="book-open" class="ic-inline"></i><span>市场叙事</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>席勒的'叙事经济学'：推动经济波动的不只是数据——还有像病毒一样传播的'叙事'。'AI将取代所有工作'/'房价永远涨'/'加密货币是未来'都是叙事。叙事有传染力、变异性和消退周期——分析叙事的传播阶段能预测市场。</p>
+<p>席勒的'叙事经济学'：推动经济波动的不只是数据——还有像病毒一样传播的'叙事'。'AI将取代所有工作'/'房价永远涨'/'加密货币是未来'都是叙事。叙事有传染力、变异性和消退周期——分析叙事的传播阶段能预测市场。</p><ul><li><strong>核心原理：</strong>这是一个<strong>认知偏差</strong>——意味着你的大脑会自动这样做，无论你是否同意。意识到偏差的存在 ≠ 免疫偏差。芒格："我研究偏差 50 年，依然每天落入同样的陷阱——区别只是我能更快地发现自己掉进去了，并爬出来。"</li><li><strong>经典案例：</strong><strong>实验性证据</strong>：心理学家在受控环境下反复证明这个偏差的强度——平均偏移幅度 20-40%。<strong>商业代价</strong>：基金经理因此偏差导致的累计判断失误，每年从市场抽走数百亿美元。<strong>个人代价</strong>：决策时无意识应用此偏差，导致系统性低估或高估。</li><li><strong>实操方法：</strong><strong>"反向校准"三步</strong>：① 识别——意识到自己正在受此偏差影响（最难）。② 强制反思——做"如果反过来想是什么样？"练习。③ 决策日志——事先记录预测，事后对比，建立你对自己直觉的<strong>可信度档案</strong>。</li></ul>
 <div class="tip"><b>实践：</b>对当前热门叙事做'传播阶段分析'：早期(知情者)/加速(大众)/狂热(出租车司机也在说)/衰退</div>
-</div>
+<div class="quote">"快与慢系统不是两个独立的人格——是同一个大脑在不同情境下的两种工作模式。"<cite>—— Daniel Kahneman</cite></div><div class="tip"><b>实战三步法：</b><strong>① 识别</strong>：本周记录三次决策——哪些场景这个模型直接适用？写下"如果我用这个模型，我会怎么想？"  <strong>② 应用</strong>：下次相似情境，强制在做决定前停 60 秒套用此模型。  <strong>③ 复盘</strong>：每周日总结：模型给我的判断 vs 我直觉的判断——哪个更准？修正你对自己直觉的信任度。</div></div>
 </div>
 
 <div class="section-eyebrow"><i data-lucide="palette"></i><span class="section-eyebrow-num">02</span><span class="section-eyebrow-title">设计启发</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Design Insights</span></div>
@@ -848,11 +855,11 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>检查：</b>打开你正在做的项目——找出一处可以应用这条原则的具体界面或交互。</div>
 </div>
 
-<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div></div></div>
+<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div><div class="quote">"你不能让用户做正确的事——你只能让正确的事变得最容易做。"<cite>—— BJ Fogg</cite></div><div class="tip"><b>设计落地清单：</b><strong>① 找 5 处可改造点</strong>——打开你的产品，找出 5 处违反此原则的具体界面/交互。  <strong>② 排优先级</strong>——按"用户路径上的高频接触点"排序，第一个改最高频的。  <strong>③ A/B 验证</strong>——改完做 A/B 对比：核心指标（点击率/留存/转化）是否提升？没提升要么原则用错了，要么场景不适合。</div></div></div>
 <div class="today-side">
 <div class="card" data-fav-id="d21-ai-ai-financial-visuali" data-fav-title="AI金融可视化">
 <div class="card-head"><h3><i data-lucide="bar-chart-3" class="ic-inline"></i><span>AI金融可视化</span></h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>AI驱动的智能图表：自动识别关键形态(头肩顶/双底)、标注异常波动原因(关联新闻事件)、预测趋势并标注置信区间。Bloomberg Terminal的AI增强正在重新定义专业金融信息的呈现方式。</p>
+<p>AI驱动的智能图表：自动识别关键形态(头肩顶/双底)、标注异常波动原因(关联新闻事件)、预测趋势并标注置信区间。Bloomberg Terminal的AI增强正在重新定义专业金融信息的呈现方式。</p><ul><li><strong>核心机会：</strong>这个方向的市场窗口在于：<strong>需求真实存在但供给极度匮乏</strong>——不是没人意识到（红海竞争），而是少数人意识到、又有能力做的人少之又少（蓝海垄断机会）。</li><li><strong>启动 4 周路线：</strong>① <strong>Week 1</strong>：找 5 位潜在用户访谈——确认问题是"亟待解决"而非"知道但不痛"。② <strong>Week 2</strong>：做 MVP 落地页 + 简单原型——能演示核心价值就行。③ <strong>Week 3</strong>：在 3 个垂直社区发深度文章吸引种子用户。④ <strong>Week 4</strong>：让 3-5 位付费试用——付费转化才是真验证。</li><li><strong>盈利模型：</strong><strong>免费版</strong>：基础功能（吸引注意力）。<strong>Pro ¥99-299/月</strong>：核心生产力工具（个人开发者/设计师）。<strong>团队 ¥999-2999/月</strong>：协作+管理（小团队）。<strong>企业 ¥9999+</strong>：定制+SLA。<strong>关键</strong>：第一年专注 Pro 版打透 PMF，再向上下扩展。</li></ul>
 <div class="tip"><b>启动：</b>本周内做一个最小动作：发一篇文章/做一个落地页/找一个潜在客户访谈。</div>
 <div class="card" data-fav-id="d21-ai-ai-real-time-analysi" data-fav-title="AI实时分析">
 <div class="card-head"><h3><i data-lucide="zap" class="ic-inline"></i><span>AI实时分析</span></h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -860,7 +867,7 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>启动：</b>本周内做一个最小动作：发一篇文章/做一个落地页/找一个潜在客户访谈。</div>
 </div>
 
-</div></div>
+<div class="quote">"如果你不创造杠杆——代码、内容、媒体——你就在用线性方式交换时间。"<cite>—— Naval Ravikant</cite></div><div class="tip"><b>验证 vs 完美：</b>大多数人花 80% 时间打磨产品、20% 时间找用户——成功者反过来。<strong>本周可执行任务</strong>：① 写一篇深度文章描述你要解决的问题 ② 发到 3 个相关社区 ③ 看是否有人评论"我也有这个问题，求联系" ④ 联系评论者深聊。零代码就能验证 PMF。</div></div></div>
 
 <!-- ========== Day 020 ========== --></div>
 <div class="day-group" data-day="20" style="display:none">
@@ -870,19 +877,19 @@ footer p{margin-bottom:6px}
 <div class="today-think">
 <div class="card" data-fav-id="d20-comparative-advantag" data-fav-title="比较优势 · Comparative Advantage">
 <div class="card-head"><h3><i data-lucide="globe" class="ic-inline"></i><span>比较优势</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>李嘉图的核心洞见：即使A在所有方面都比B强，双方依然能通过专注各自'相对优势'领域并交换来同时受益。关键不是'谁更擅长什么'而是'做什么的机会成本最低'。个人时间管理也适用此原则。</p>
+<p>李嘉图的核心洞见：即使A在所有方面都比B强，双方依然能通过专注各自'相对优势'领域并交换来同时受益。关键不是'谁更擅长什么'而是'做什么的机会成本最低'。个人时间管理也适用此原则。</p><ul><li><strong>核心原理：</strong>这是一个<strong>认知偏差</strong>——意味着你的大脑会自动这样做，无论你是否同意。意识到偏差的存在 ≠ 免疫偏差。芒格："我研究偏差 50 年，依然每天落入同样的陷阱——区别只是我能更快地发现自己掉进去了，并爬出来。"</li><li><strong>经典案例：</strong><strong>实验性证据</strong>：心理学家在受控环境下反复证明这个偏差的强度——平均偏移幅度 20-40%。<strong>商业代价</strong>：基金经理因此偏差导致的累计判断失误，每年从市场抽走数百亿美元。<strong>个人代价</strong>：决策时无意识应用此偏差，导致系统性低估或高估。</li><li><strong>实操方法：</strong><strong>"反向校准"三步</strong>：① 识别——意识到自己正在受此偏差影响（最难）。② 强制反思——做"如果反过来想是什么样？"练习。③ 决策日志——事先记录预测，事后对比，建立你对自己直觉的<strong>可信度档案</strong>。</li></ul>
 <div class="tip"><b>实践：</b>即使你能做所有事，也应该只做你'比较优势'最大的事——其他事委托或外包</div>
-</div>
+<div class="quote">"你能管理的只有你能衡量的；但要小心：你只衡量你能衡量的，会让你忽略真正重要的。"<cite>—— Peter Drucker</cite></div><div class="tip"><b>团队级应用：</b>把这个模型从"个人决策工具"升级为"团队语言"——开会时如果有人能脱口说出"这是个 X 问题"，整个团队的判断质量瞬间提升。<strong>具体做法</strong>：① 建一个团队共享的"思维模型词典"，每条带 1 句话定义+案例 ② 复盘会必问"这次决策用了哪些模型？" ③ 招聘时考察候选人对核心模型的掌握度。</div></div>
 <div class="card" data-fav-id="d20-specialization-and-d" data-fav-title="专业化分工 · Specialization & Division of Labor">
 <div class="card-head"><h3><i data-lucide="factory" class="ic-inline"></i><span>专业化分工</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
 <p>亚当·斯密别针工厂：一人独立做1天产20根针→10人分工1天产48000根针(效率提升240倍)。但过度专业化有风险</p><ul><li>脆弱性(一环断裂全线停)</li><li>意义丧失(只做螺丝的人不理解飞机)</li><li>适应性降低(专才难转型)</li></ul>
 <div class="tip"><b>实践：</b>评估你的专业化程度是'甜蜜点'还是已过度——适度的T型能力结构最优</div>
-</div>
+<div class="quote">"你能管理的只有你能衡量的；但要小心：你只衡量你能衡量的，会让你忽略真正重要的。"<cite>—— Peter Drucker</cite></div><div class="tip"><b>反直觉应用：</b>大多数人把这个模型用在"是否做某事"——但<strong>真正威力在于决定"什么时候不做"</strong>。把这个模型当作"反向过滤器"——它告诉你哪些机会看起来诱人但实质有毒。本周练习：找出三个你"差点要做"但用此模型一看就该放弃的事。</div></div>
 <div class="card" data-fav-id="d20-transaction-costs" data-fav-title="交易成本 · Transaction Costs">
 <div class="card-head"><h3><i data-lucide="banknote" class="ic-inline"></i><span>交易成本</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>科斯定理的核心：市场交易存在搜索/谈判/执行/监督成本→当内部组织的管理成本<外部交易成本→企业存在的意义。反之当交易成本趋于零(互联网)→组织趋于瓦解为个人网络。区块链进一步降低信任成本。</p>
+<p>科斯定理的核心：市场交易存在搜索/谈判/执行/监督成本→当内部组织的管理成本<外部交易成本→企业存在的意义。反之当交易成本趋于零(互联网)→组织趋于瓦解为个人网络。区块链进一步降低信任成本。</p><ul><li><strong>核心原理：</strong>这个模型本质上是关于"<strong>第二序后果</strong>"——表面看似简单的因果关系背后，藏着多层级的连锁反应。多数人停留在第一序思考（"做了 A 会得到 B"），少数人能想到第二序（"得到 B 之后呢？谁会反应？市场会怎么变？"）。能持续做到第二序思考的人极其稀有——这就是认知优势的来源。</li><li><strong>经典案例：</strong><strong>价格上涨案例</strong>：第一序——卖更多东西=赚更多钱，所以涨价。第二序——竞争对手会跟进吗？老客户会流失到替代品吗？品牌定位是否被改变？长期价格弹性是否被破坏？同样的"涨价"决策，第一序看是简单收益最大化，第二序看可能是品牌自杀。</li><li><strong>实操方法：</strong>每次重大决策前问自己<strong>三个 "然后呢？"</strong>：① 然后呢？（直接后果）② 然后呢？（其他人/市场如何反应）③ 然后呢？（系统平衡如何重置）。能问到第三层的人已经超过 95% 决策者。</li></ul>
 <div class="tip"><b>实践：</b>每次犹豫'自己做vs外包'时，计算完整的交易成本(搜索+沟通+质控+迭代)而非只比较报价</div>
-</div>
+<div class="quote">"你能管理的只有你能衡量的；但要小心：你只衡量你能衡量的，会让你忽略真正重要的。"<cite>—— Peter Drucker</cite></div><div class="tip"><b>实战三步法：</b><strong>① 识别</strong>：本周记录三次决策——哪些场景这个模型直接适用？写下"如果我用这个模型，我会怎么想？"  <strong>② 应用</strong>：下次相似情境，强制在做决定前停 60 秒套用此模型。  <strong>③ 复盘</strong>：每周日总结：模型给我的判断 vs 我直觉的判断——哪个更准？修正你对自己直觉的信任度。</div></div>
 </div>
 
 <div class="section-eyebrow"><i data-lucide="palette"></i><span class="section-eyebrow-num">02</span><span class="section-eyebrow-title">设计启发</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Design Insights</span></div>
@@ -897,7 +904,7 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>对比：</b>找两个做这件事相反的产品案例——哪种更符合用户实际行为？</div>
 </div>
 
-<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div></div></div>
+<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div><div class="quote">"删掉它。如果之后没人投诉——你做对了。这就是设计。"<cite>—— Joshua Porter</cite></div><div class="tip"><b>从 UI 到产品策略：</b>这条原则不只适用于像素层面——它也适用于<strong>产品定位、付费设计、社交机制</strong>。试着把它从"按钮怎么放"提升到"用户为什么留下"的层面思考。Notion/Figma 的成功都是把单一原则贯穿了从 UI 到生态的所有层级。</div></div></div>
 <div class="today-side">
 <div class="card" data-fav-id="d20-ai-ai-design-system-aut" data-fav-title="设计系统AI自动化">
 <div class="card-head"><h3><i data-lucide="bot" class="ic-inline"></i><span>设计系统AI自动化</span></h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -909,7 +916,7 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>探索：</b>评估这个方向：你现有技能/资源能在多长时间内做出 MVP？</div>
 </div>
 
-</div></div>
+<div class="quote">"商业的本质是：以低于价值的价格销售解决方案——同时让客户感到值得。"<cite>—— Peter Thiel</cite></div><div class="tip"><b>验证 vs 完美：</b>大多数人花 80% 时间打磨产品、20% 时间找用户——成功者反过来。<strong>本周可执行任务</strong>：① 写一篇深度文章描述你要解决的问题 ② 发到 3 个相关社区 ③ 看是否有人评论"我也有这个问题，求联系" ④ 联系评论者深聊。零代码就能验证 PMF。</div></div></div>
 
 <!-- ========== Day 019 ========== --></div>
 <div class="day-group" data-day="19" style="display:none">
@@ -919,19 +926,19 @@ footer p{margin-bottom:6px}
 <div class="today-think">
 <div class="card" data-fav-id="d19-cognitive-dissonance" data-fav-title="认知失调 · Cognitive Dissonance">
 <div class="card-head"><h3><i data-lucide="brain" class="ic-inline"></i><span>认知失调</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>费斯廷格的经典理论：当行为与信念矛盾时，大脑会自动修改信念以消除不适感。吸烟者合理化'我爷爷活到90还抽烟'。芒格：'人类大脑无法忍受认知失调——它会扭曲现实来保护自我形象，而你完全不知道自己在这么做。'</p>
+<p>费斯廷格的经典理论：当行为与信念矛盾时，大脑会自动修改信念以消除不适感。吸烟者合理化'我爷爷活到90还抽烟'。芒格：'人类大脑无法忍受认知失调——它会扭曲现实来保护自我形象，而你完全不知道自己在这么做。'</p><ul><li><strong>核心原理：</strong>这是一个<strong>认知偏差</strong>——意味着你的大脑会自动这样做，无论你是否同意。意识到偏差的存在 ≠ 免疫偏差。芒格："我研究偏差 50 年，依然每天落入同样的陷阱——区别只是我能更快地发现自己掉进去了，并爬出来。"</li><li><strong>经典案例：</strong><strong>实验性证据</strong>：心理学家在受控环境下反复证明这个偏差的强度——平均偏移幅度 20-40%。<strong>商业代价</strong>：基金经理因此偏差导致的累计判断失误，每年从市场抽走数百亿美元。<strong>个人代价</strong>：决策时无意识应用此偏差，导致系统性低估或高估。</li><li><strong>实操方法：</strong><strong>"反向校准"三步</strong>：① 识别——意识到自己正在受此偏差影响（最难）。② 强制反思——做"如果反过来想是什么样？"练习。③ 决策日志——事先记录预测，事后对比，建立你对自己直觉的<strong>可信度档案</strong>。</li></ul>
 <div class="tip"><b>实践：</b>察觉自己在'合理化'什么——尤其在决策产生不好结果时的自我解释</div>
-</div>
+<div class="quote">"快与慢系统不是两个独立的人格——是同一个大脑在不同情境下的两种工作模式。"<cite>—— Daniel Kahneman</cite></div><div class="tip"><b>反直觉应用：</b>大多数人把这个模型用在"是否做某事"——但<strong>真正威力在于决定"什么时候不做"</strong>。把这个模型当作"反向过滤器"——它告诉你哪些机会看起来诱人但实质有毒。本周练习：找出三个你"差点要做"但用此模型一看就该放弃的事。</div></div>
 <div class="card" data-fav-id="d19-commitment-and-consi" data-fav-title="承诺一致性 · Commitment & Consistency">
 <div class="card-head"><h3><i data-lucide="handshake" class="ic-inline"></i><span>承诺一致性</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>西奥迪尼的影响力原则：一旦人们做出承诺(尤其是公开的)，会强烈倾向于行为与承诺一致——即使初始承诺是在错误信息下做出的。'脚在门内'技术：先获得小承诺，再逐步升级要求。</p>
+<p>西奥迪尼的影响力原则：一旦人们做出承诺(尤其是公开的)，会强烈倾向于行为与承诺一致——即使初始承诺是在错误信息下做出的。'脚在门内'技术：先获得小承诺，再逐步升级要求。</p><ul><li><strong>核心原理：</strong>这是一个<strong>认知偏差</strong>——意味着你的大脑会自动这样做，无论你是否同意。意识到偏差的存在 ≠ 免疫偏差。芒格："我研究偏差 50 年，依然每天落入同样的陷阱——区别只是我能更快地发现自己掉进去了，并爬出来。"</li><li><strong>经典案例：</strong><strong>实验性证据</strong>：心理学家在受控环境下反复证明这个偏差的强度——平均偏移幅度 20-40%。<strong>商业代价</strong>：基金经理因此偏差导致的累计判断失误，每年从市场抽走数百亿美元。<strong>个人代价</strong>：决策时无意识应用此偏差，导致系统性低估或高估。</li><li><strong>实操方法：</strong><strong>"反向校准"三步</strong>：① 识别——意识到自己正在受此偏差影响（最难）。② 强制反思——做"如果反过来想是什么样？"练习。③ 决策日志——事先记录预测，事后对比，建立你对自己直觉的<strong>可信度档案</strong>。</li></ul>
 <div class="tip"><b>实践：</b>警惕自己因'之前说了'而坚持错误方向——允许自己根据新信息改变立场</div>
-</div>
+<div class="quote">"你能管理的只有你能衡量的；但要小心：你只衡量你能衡量的，会让你忽略真正重要的。"<cite>—— Peter Drucker</cite></div><div class="tip"><b>团队级应用：</b>把这个模型从"个人决策工具"升级为"团队语言"——开会时如果有人能脱口说出"这是个 X 问题"，整个团队的判断质量瞬间提升。<strong>具体做法</strong>：① 建一个团队共享的"思维模型词典"，每条带 1 句话定义+案例 ② 复盘会必问"这次决策用了哪些模型？" ③ 招聘时考察候选人对核心模型的掌握度。</div></div>
 <div class="card" data-fav-id="d19-self-rationalization" data-fav-title="自我合理化 · Self-Rationalization">
 <div class="card-head"><h3><i data-lucide="circle" class="ic-inline"></i><span>自我合理化</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>决策后大脑自动为选择构建合理化叙事，抑制替代选项的吸引力('酸葡萄效应')。本·富兰克林效应：帮过你的人会更喜欢你(因为大脑合理化'我帮他一定是因为我喜欢他')。理解这个机制才能对抗它。</p>
+<p>决策后大脑自动为选择构建合理化叙事，抑制替代选项的吸引力('酸葡萄效应')。本·富兰克林效应：帮过你的人会更喜欢你(因为大脑合理化'我帮他一定是因为我喜欢他')。理解这个机制才能对抗它。</p><ul><li><strong>核心原理：</strong>这个模型本质上是关于"<strong>第二序后果</strong>"——表面看似简单的因果关系背后，藏着多层级的连锁反应。多数人停留在第一序思考（"做了 A 会得到 B"），少数人能想到第二序（"得到 B 之后呢？谁会反应？市场会怎么变？"）。能持续做到第二序思考的人极其稀有——这就是认知优势的来源。</li><li><strong>经典案例：</strong><strong>价格上涨案例</strong>：第一序——卖更多东西=赚更多钱，所以涨价。第二序——竞争对手会跟进吗？老客户会流失到替代品吗？品牌定位是否被改变？长期价格弹性是否被破坏？同样的"涨价"决策，第一序看是简单收益最大化，第二序看可能是品牌自杀。</li><li><strong>实操方法：</strong>每次重大决策前问自己<strong>三个 "然后呢？"</strong>：① 然后呢？（直接后果）② 然后呢？（其他人/市场如何反应）③ 然后呢？（系统平衡如何重置）。能问到第三层的人已经超过 95% 决策者。</li></ul>
 <div class="tip"><b>实践：</b>做重大决策后刻意记录'放弃选项的优点'——防止合理化让你看不到纠正的机会</div>
-</div>
+<div class="quote">"做对的事比把事情做对更重要——这是效能与效率的根本区别。"<cite>—— Peter Drucker</cite></div><div class="tip"><b>团队级应用：</b>把这个模型从"个人决策工具"升级为"团队语言"——开会时如果有人能脱口说出"这是个 X 问题"，整个团队的判断质量瞬间提升。<strong>具体做法</strong>：① 建一个团队共享的"思维模型词典"，每条带 1 句话定义+案例 ② 复盘会必问"这次决策用了哪些模型？" ③ 招聘时考察候选人对核心模型的掌握度。</div></div>
 </div>
 
 <div class="section-eyebrow"><i data-lucide="palette"></i><span class="section-eyebrow-num">02</span><span class="section-eyebrow-title">设计启发</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Design Insights</span></div>
@@ -946,7 +953,7 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>对比：</b>找两个做这件事相反的产品案例——哪种更符合用户实际行为？</div>
 </div>
 
-<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div></div></div>
+<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div><div class="quote">"完美不是无可增加之物，而是无可删除之物。"<cite>—— Antoine de Saint-Exupéry</cite></div><div class="tip"><b>从 UI 到产品策略：</b>这条原则不只适用于像素层面——它也适用于<strong>产品定位、付费设计、社交机制</strong>。试着把它从"按钮怎么放"提升到"用户为什么留下"的层面思考。Notion/Figma 的成功都是把单一原则贯穿了从 UI 到生态的所有层级。</div></div></div>
 <div class="today-side">
 <div class="card" data-fav-id="d19-ai-ai-powered-onboardin" data-fav-title="AI用户引导">
 <div class="card-head"><h3><i data-lucide="bot" class="ic-inline"></i><span>AI用户引导</span></h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -958,7 +965,7 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>探索：</b>评估这个方向：你现有技能/资源能在多长时间内做出 MVP？</div>
 </div>
 
-</div></div>
+<div class="quote">"如果你不创造杠杆——代码、内容、媒体——你就在用线性方式交换时间。"<cite>—— Naval Ravikant</cite></div><div class="tip"><b>启动 30 天计划：</b><strong>Week 1</strong>：找 5 位潜在用户访谈——他们是不是真的在为这个问题付钱（时间或金钱）？没有付费意愿的"问题"是伪需求。  <strong>Week 2</strong>：做最小可行原型——能解决 80% 核心场景的丑陋版本就够。  <strong>Week 3</strong>：让 3 位用户付费试用（哪怕 1 元）——付费才是真验证。  <strong>Week 4</strong>：根据反馈决定 PMF/调整/放弃。</div></div></div>
 
 <!-- ========== Day 018 ========== --></div>
 <div class="day-group" data-day="18" style="display:none">
@@ -968,19 +975,19 @@ footer p{margin-bottom:6px}
 <div class="today-think">
 <div class="card" data-fav-id="d18-scale-effects" data-fav-title="规模效应 · Scale Effects">
 <div class="card-head"><h3><i data-lucide="ruler" class="ic-inline"></i><span>规模效应</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>杰弗里·韦斯特的研究揭示：规模变化不是简单的'放大缩小'——生物体体重增10倍，代谢率只增约5.6倍(次线性缩放)。城市人口增10倍，创新产出增约17倍(超线性缩放)。理解缩放规律是预测系统行为的关键。</p>
+<p>杰弗里·韦斯特的研究揭示：规模变化不是简单的'放大缩小'——生物体体重增10倍，代谢率只增约5.6倍(次线性缩放)。城市人口增10倍，创新产出增约17倍(超线性缩放)。理解缩放规律是预测系统行为的关键。</p><ul><li><strong>核心原理：</strong>这是一个<strong>认知偏差</strong>——意味着你的大脑会自动这样做，无论你是否同意。意识到偏差的存在 ≠ 免疫偏差。芒格："我研究偏差 50 年，依然每天落入同样的陷阱——区别只是我能更快地发现自己掉进去了，并爬出来。"</li><li><strong>经典案例：</strong><strong>实验性证据</strong>：心理学家在受控环境下反复证明这个偏差的强度——平均偏移幅度 20-40%。<strong>商业代价</strong>：基金经理因此偏差导致的累计判断失误，每年从市场抽走数百亿美元。<strong>个人代价</strong>：决策时无意识应用此偏差，导致系统性低估或高估。</li><li><strong>实操方法：</strong><strong>"反向校准"三步</strong>：① 识别——意识到自己正在受此偏差影响（最难）。② 强制反思——做"如果反过来想是什么样？"练习。③ 决策日志——事先记录预测，事后对比，建立你对自己直觉的<strong>可信度档案</strong>。</li></ul>
 <div class="tip"><b>实践：</b>评估你的项目/公司在规模变化时，哪些方面是次线性(效率提升)哪些是超线性(复杂度爆炸)</div>
-</div>
+<div class="quote">"做对的事比把事情做对更重要——这是效能与效率的根本区别。"<cite>—— Peter Drucker</cite></div><div class="tip"><b>反直觉应用：</b>大多数人把这个模型用在"是否做某事"——但<strong>真正威力在于决定"什么时候不做"</strong>。把这个模型当作"反向过滤器"——它告诉你哪些机会看起来诱人但实质有毒。本周练习：找出三个你"差点要做"但用此模型一看就该放弃的事。</div></div>
 <div class="card" data-fav-id="d18-allometric-scaling" data-fav-title="异速增长 · Allometric Scaling">
 <div class="card-head"><h3><i data-lucide="mountain" class="ic-inline"></i><span>异速增长</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>生物学规律推广：系统各部分不按相同比例增长。大象的腿骨比例远超老鼠(因为重量按体积³增长，支撑力按截面积²增长)。类比：10人团队→100人团队不是'×10'→沟通复杂度按n²增长→组织结构必须质变。</p>
+<p>生物学规律推广：系统各部分不按相同比例增长。大象的腿骨比例远超老鼠(因为重量按体积³增长，支撑力按截面积²增长)。类比：10人团队→100人团队不是'×10'→沟通复杂度按n²增长→组织结构必须质变。</p><ul><li><strong>核心原理：</strong>这个模型本质上是关于"<strong>第二序后果</strong>"——表面看似简单的因果关系背后，藏着多层级的连锁反应。多数人停留在第一序思考（"做了 A 会得到 B"），少数人能想到第二序（"得到 B 之后呢？谁会反应？市场会怎么变？"）。能持续做到第二序思考的人极其稀有——这就是认知优势的来源。</li><li><strong>经典案例：</strong><strong>价格上涨案例</strong>：第一序——卖更多东西=赚更多钱，所以涨价。第二序——竞争对手会跟进吗？老客户会流失到替代品吗？品牌定位是否被改变？长期价格弹性是否被破坏？同样的"涨价"决策，第一序看是简单收益最大化，第二序看可能是品牌自杀。</li><li><strong>实操方法：</strong>每次重大决策前问自己<strong>三个 "然后呢？"</strong>：① 然后呢？（直接后果）② 然后呢？（其他人/市场如何反应）③ 然后呢？（系统平衡如何重置）。能问到第三层的人已经超过 95% 决策者。</li></ul>
 <div class="tip"><b>实践：</b>规模扩张前识别'异速增长'的瓶颈：什么会比主体增长更快？那就是将来的瓶颈</div>
-</div>
+<div class="quote">"系统的脆弱性在风平浪静时是看不到的——只有压力到来时才暴露。"<cite>—— Nassim Taleb</cite></div><div class="tip"><b>团队级应用：</b>把这个模型从"个人决策工具"升级为"团队语言"——开会时如果有人能脱口说出"这是个 X 问题"，整个团队的判断质量瞬间提升。<strong>具体做法</strong>：① 建一个团队共享的"思维模型词典"，每条带 1 句话定义+案例 ② 复盘会必问"这次决策用了哪些模型？" ③ 招聘时考察候选人对核心模型的掌握度。</div></div>
 <div class="card" data-fav-id="d18-power-law-distributi" data-fav-title="幂律分布 · Power Law Distribution">
 <div class="card-head"><h3><i data-lucide="triangle" class="ic-inline"></i><span>幂律分布</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>自然界和社会中大量现象不服从正态分布而服从幂律：极少数个体占据极大比例(地震能量/城市规模/财富分布/网站流量)。幂律意味着'黑天鹅'不是异常而是规律的一部分——均值和方差可能没有意义。</p>
+<p>自然界和社会中大量现象不服从正态分布而服从幂律：极少数个体占据极大比例(地震能量/城市规模/财富分布/网站流量)。幂律意味着'黑天鹅'不是异常而是规律的一部分——均值和方差可能没有意义。</p><ul><li><strong>核心原理：</strong>这个模型本质上是关于"<strong>第二序后果</strong>"——表面看似简单的因果关系背后，藏着多层级的连锁反应。多数人停留在第一序思考（"做了 A 会得到 B"），少数人能想到第二序（"得到 B 之后呢？谁会反应？市场会怎么变？"）。能持续做到第二序思考的人极其稀有——这就是认知优势的来源。</li><li><strong>经典案例：</strong><strong>价格上涨案例</strong>：第一序——卖更多东西=赚更多钱，所以涨价。第二序——竞争对手会跟进吗？老客户会流失到替代品吗？品牌定位是否被改变？长期价格弹性是否被破坏？同样的"涨价"决策，第一序看是简单收益最大化，第二序看可能是品牌自杀。</li><li><strong>实操方法：</strong>每次重大决策前问自己<strong>三个 "然后呢？"</strong>：① 然后呢？（直接后果）② 然后呢？（其他人/市场如何反应）③ 然后呢？（系统平衡如何重置）。能问到第三层的人已经超过 95% 决策者。</li></ul>
 <div class="tip"><b>实践：</b>识别你所处系统是正态分布还是幂律分布——幂律系统中'平均值'是误导性的</div>
-</div>
+<div class="quote">"我们不会因为问题难而放弃——我们因为停止寻找答案而失败。"<cite>—— Ray Dalio</cite></div><div class="tip"><b>实战三步法：</b><strong>① 识别</strong>：本周记录三次决策——哪些场景这个模型直接适用？写下"如果我用这个模型，我会怎么想？"  <strong>② 应用</strong>：下次相似情境，强制在做决定前停 60 秒套用此模型。  <strong>③ 复盘</strong>：每周日总结：模型给我的判断 vs 我直觉的判断——哪个更准？修正你对自己直觉的信任度。</div></div>
 </div>
 
 <div class="section-eyebrow"><i data-lucide="palette"></i><span class="section-eyebrow-num">02</span><span class="section-eyebrow-title">设计启发</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Design Insights</span></div>
@@ -995,11 +1002,11 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>对比：</b>找两个做这件事相反的产品案例——哪种更符合用户实际行为？</div>
 </div>
 
-<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div></div></div>
+<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div><div class="quote">"完美不是无可增加之物，而是无可删除之物。"<cite>—— Antoine de Saint-Exupéry</cite></div><div class="tip"><b>反例学习法：</b>找两个**违反此原则做得很糟**的产品案例 + 两个**遵循此原则做得很棒**的案例——对比四张截图贴在墙上。<strong>每周看一次</strong>。3 个月后你的设计直觉会自动屏蔽糟糕模式——这比读 10 本书有效。</div></div></div>
 <div class="today-side">
 <div class="card" data-fav-id="d18-ai-multimodal-ai" data-fav-title="多模态AI">
 <div class="card-head"><h3><i data-lucide="globe-2" class="ic-inline"></i><span>多模态AI</span></h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>GPT-4V/Gemini Ultra等多模态模型统一处理文字+图片+视频+音频。设计应用：一张截图→AI理解UI意图→生成代码+提出改进建议。从'描述需求'到'展示需求'的交互范式转变。</p>
+<p>GPT-4V/Gemini Ultra等多模态模型统一处理文字+图片+视频+音频。设计应用：一张截图→AI理解UI意图→生成代码+提出改进建议。从'描述需求'到'展示需求'的交互范式转变。</p><ul><li><strong>核心机会：</strong>这个方向的市场窗口在于：<strong>需求真实存在但供给极度匮乏</strong>——不是没人意识到（红海竞争），而是少数人意识到、又有能力做的人少之又少（蓝海垄断机会）。</li><li><strong>启动 4 周路线：</strong>① <strong>Week 1</strong>：找 5 位潜在用户访谈——确认问题是"亟待解决"而非"知道但不痛"。② <strong>Week 2</strong>：做 MVP 落地页 + 简单原型——能演示核心价值就行。③ <strong>Week 3</strong>：在 3 个垂直社区发深度文章吸引种子用户。④ <strong>Week 4</strong>：让 3-5 位付费试用——付费转化才是真验证。</li><li><strong>盈利模型：</strong><strong>免费版</strong>：基础功能（吸引注意力）。<strong>Pro ¥99-299/月</strong>：核心生产力工具（个人开发者/设计师）。<strong>团队 ¥999-2999/月</strong>：协作+管理（小团队）。<strong>企业 ¥9999+</strong>：定制+SLA。<strong>关键</strong>：第一年专注 Pro 版打透 PMF，再向上下扩展。</li></ul>
 <div class="tip"><b>验证：</b>找三位潜在用户聊一聊——他们是否真的在为这个问题付出代价？</div>
 <div class="card" data-fav-id="d18-ai-unified-vision-langu" data-fav-title="图文视频统一模型">
 <div class="card-head"><h3><i data-lucide="clapperboard" class="ic-inline"></i><span>图文视频统一模型</span></h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -1007,7 +1014,7 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>验证：</b>找三位潜在用户聊一聊——他们是否真的在为这个问题付出代价？</div>
 </div>
 
-</div></div>
+<div class="quote">"你不需要成为某领域的全球第一——只需要成为你客户能接触到的最好选择。"<cite>—— Seth Godin</cite></div><div class="tip"><b>差异化护城河：</b>这个方向的关键不是"做得快"——是<strong>建立别人复制不了的优势</strong>。三种护城河：① <strong>领域知识</strong>（你比通才理解深 10 倍）② <strong>独家数据</strong>（你能拿到别人拿不到的）③ <strong>分发渠道</strong>（你已经有 1000 个目标客户的注意力）。没有这三者之一就不要进入。</div></div></div>
 
 <!-- ========== Day 017 ========== --></div>
 <div class="day-group" data-day="17" style="display:none">
@@ -1017,19 +1024,19 @@ footer p{margin-bottom:6px}
 <div class="today-think">
 <div class="card" data-fav-id="d17-bayesian-reasoning" data-fav-title="贝叶斯推理 · Bayesian Reasoning">
 <div class="card-head"><h3><i data-lucide="bar-chart-3" class="ic-inline"></i><span>贝叶斯推理</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>用概率语言思考世界：所有信念都有一个置信度(0-100%)，每条新证据都应该按比例更新这个置信度。不是'对/错'的二元判断，而是'在当前证据下，这件事的概率是X%'。这是对抗过度自信和固执的最强工具。</p>
+<p>用概率语言思考世界：所有信念都有一个置信度(0-100%)，每条新证据都应该按比例更新这个置信度。不是'对/错'的二元判断，而是'在当前证据下，这件事的概率是X%'。这是对抗过度自信和固执的最强工具。</p><ul><li><strong>核心原理：</strong>这是一个<strong>认知偏差</strong>——意味着你的大脑会自动这样做，无论你是否同意。意识到偏差的存在 ≠ 免疫偏差。芒格："我研究偏差 50 年，依然每天落入同样的陷阱——区别只是我能更快地发现自己掉进去了，并爬出来。"</li><li><strong>经典案例：</strong><strong>实验性证据</strong>：心理学家在受控环境下反复证明这个偏差的强度——平均偏移幅度 20-40%。<strong>商业代价</strong>：基金经理因此偏差导致的累计判断失误，每年从市场抽走数百亿美元。<strong>个人代价</strong>：决策时无意识应用此偏差，导致系统性低估或高估。</li><li><strong>实操方法：</strong><strong>"反向校准"三步</strong>：① 识别——意识到自己正在受此偏差影响（最难）。② 强制反思——做"如果反过来想是什么样？"练习。③ 决策日志——事先记录预测，事后对比，建立你对自己直觉的<strong>可信度档案</strong>。</li></ul>
 <div class="tip"><b>实践：</b>把你最重要的3个信念写下来，给每个标注置信度百分比——然后寻找可能改变它们的证据</div>
-</div>
+<div class="quote">"痛苦 + 反思 = 进步。这是最强大的人生公式。"<cite>—— Ray Dalio</cite></div><div class="tip"><b>实战三步法：</b><strong>① 识别</strong>：本周记录三次决策——哪些场景这个模型直接适用？写下"如果我用这个模型，我会怎么想？"  <strong>② 应用</strong>：下次相似情境，强制在做决定前停 60 秒套用此模型。  <strong>③ 复盘</strong>：每周日总结：模型给我的判断 vs 我直觉的判断——哪个更准？修正你对自己直觉的信任度。</div></div>
 <div class="card" data-fav-id="d17-prior-probability" data-fav-title="先验概率 · Prior Probability">
 <div class="card-head"><h3><i data-lucide="dice-3" class="ic-inline"></i><span>先验概率</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>在看到具体证据之前，基于基础率(base rate)的初始概率估计。忽略先验是人类最常见的判断错误——卡尼曼的'基率忽视'。例：即使一个人看起来很像程序员，在护士数量是程序员10倍的地方，他更可能是护士。</p>
+<p>在看到具体证据之前，基于基础率(base rate)的初始概率估计。忽略先验是人类最常见的判断错误——卡尼曼的'基率忽视'。例：即使一个人看起来很像程序员，在护士数量是程序员10倍的地方，他更可能是护士。</p><ul><li><strong>核心原理：</strong>这是一个<strong>认知偏差</strong>——意味着你的大脑会自动这样做，无论你是否同意。意识到偏差的存在 ≠ 免疫偏差。芒格："我研究偏差 50 年，依然每天落入同样的陷阱——区别只是我能更快地发现自己掉进去了，并爬出来。"</li><li><strong>经典案例：</strong><strong>实验性证据</strong>：心理学家在受控环境下反复证明这个偏差的强度——平均偏移幅度 20-40%。<strong>商业代价</strong>：基金经理因此偏差导致的累计判断失误，每年从市场抽走数百亿美元。<strong>个人代价</strong>：决策时无意识应用此偏差，导致系统性低估或高估。</li><li><strong>实操方法：</strong><strong>"反向校准"三步</strong>：① 识别——意识到自己正在受此偏差影响（最难）。② 强制反思——做"如果反过来想是什么样？"练习。③ 决策日志——事先记录预测，事后对比，建立你对自己直觉的<strong>可信度档案</strong>。</li></ul>
 <div class="tip"><b>实践：</b>做判断前先问'基础概率是多少'——在没有其他信息时，基率就是最佳估计</div>
-</div>
+<div class="quote">"在你确信自己理解了对方观点之前，永远不要批评它——能复述到对方满意才算理解。"<cite>—— Charlie Munger</cite></div><div class="tip"><b>反直觉应用：</b>大多数人把这个模型用在"是否做某事"——但<strong>真正威力在于决定"什么时候不做"</strong>。把这个模型当作"反向过滤器"——它告诉你哪些机会看起来诱人但实质有毒。本周练习：找出三个你"差点要做"但用此模型一看就该放弃的事。</div></div>
 <div class="card" data-fav-id="d17-evidence-updating" data-fav-title="证据更新 · Evidence Updating">
 <div class="card-head"><h3><i data-lucide="refresh-cw" class="ic-inline"></i><span>证据更新</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>贝叶斯定理的核心操作：新证据的'诊断力'决定更新幅度。诊断力=这个证据在假设为真时出现的概率÷假设为假时出现的概率。比值>1→增强信念，<1→削弱信念，=1→不更新(无信息量的证据)。</p>
+<p>贝叶斯定理的核心操作：新证据的'诊断力'决定更新幅度。诊断力=这个证据在假设为真时出现的概率÷假设为假时出现的概率。比值>1→增强信念，<1→削弱信念，=1→不更新(无信息量的证据)。</p><ul><li><strong>核心原理：</strong>这是一个<strong>认知偏差</strong>——意味着你的大脑会自动这样做，无论你是否同意。意识到偏差的存在 ≠ 免疫偏差。芒格："我研究偏差 50 年，依然每天落入同样的陷阱——区别只是我能更快地发现自己掉进去了，并爬出来。"</li><li><strong>经典案例：</strong><strong>实验性证据</strong>：心理学家在受控环境下反复证明这个偏差的强度——平均偏移幅度 20-40%。<strong>商业代价</strong>：基金经理因此偏差导致的累计判断失误，每年从市场抽走数百亿美元。<strong>个人代价</strong>：决策时无意识应用此偏差，导致系统性低估或高估。</li><li><strong>实操方法：</strong><strong>"反向校准"三步</strong>：① 识别——意识到自己正在受此偏差影响（最难）。② 强制反思——做"如果反过来想是什么样？"练习。③ 决策日志——事先记录预测，事后对比，建立你对自己直觉的<strong>可信度档案</strong>。</li></ul>
 <div class="tip"><b>实践：</b>收到新信息时问：如果我的判断是错的，这个信息出现的概率是多少？据此决定更新幅度</div>
-</div>
+<div class="quote">"我们不会因为问题难而放弃——我们因为停止寻找答案而失败。"<cite>—— Ray Dalio</cite></div><div class="tip"><b>反直觉应用：</b>大多数人把这个模型用在"是否做某事"——但<strong>真正威力在于决定"什么时候不做"</strong>。把这个模型当作"反向过滤器"——它告诉你哪些机会看起来诱人但实质有毒。本周练习：找出三个你"差点要做"但用此模型一看就该放弃的事。</div></div>
 </div>
 
 <div class="section-eyebrow"><i data-lucide="palette"></i><span class="section-eyebrow-num">02</span><span class="section-eyebrow-title">设计启发</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Design Insights</span></div>
@@ -1044,7 +1051,7 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>检查：</b>打开你正在做的项目——找出一处可以应用这条原则的具体界面或交互。</div>
 </div>
 
-<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div></div></div>
+<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div><div class="quote">"任何足够先进的技术都看似魔法——好的UI让复杂技术变成魔法。"<cite>—— Arthur C. Clarke</cite></div><div class="tip"><b>反例学习法：</b>找两个**违反此原则做得很糟**的产品案例 + 两个**遵循此原则做得很棒**的案例——对比四张截图贴在墙上。<strong>每周看一次</strong>。3 个月后你的设计直觉会自动屏蔽糟糕模式——这比读 10 本书有效。</div></div></div>
 <div class="today-side">
 <div class="card" data-fav-id="d17-ai-search-ai-revolution" data-fav-title="搜索AI革命">
 <div class="card-head"><h3><i data-lucide="sparkles" class="ic-inline"></i><span>搜索AI革命</span></h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -1056,7 +1063,7 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>验证：</b>找三位潜在用户聊一聊——他们是否真的在为这个问题付出代价？</div>
 </div>
 
-</div></div>
+<div class="quote">"做能产生最有趣副作用的事——副作用往往比主业更有价值。"<cite>—— Naval Ravikant</cite></div><div class="tip"><b>启动 30 天计划：</b><strong>Week 1</strong>：找 5 位潜在用户访谈——他们是不是真的在为这个问题付钱（时间或金钱）？没有付费意愿的"问题"是伪需求。  <strong>Week 2</strong>：做最小可行原型——能解决 80% 核心场景的丑陋版本就够。  <strong>Week 3</strong>：让 3 位用户付费试用（哪怕 1 元）——付费才是真验证。  <strong>Week 4</strong>：根据反馈决定 PMF/调整/放弃。</div></div></div>
 
 <!-- ========== Day 016 ========== --></div>
 <div class="day-group" data-day="16" style="display:none">
@@ -1066,19 +1073,19 @@ footer p{margin-bottom:6px}
 <div class="today-think">
 <div class="card" data-fav-id="d16-tipping-point" data-fav-title="临界点 · Tipping Point">
 <div class="card-head"><h3><i data-lucide="flame" class="ic-inline"></i><span>临界点</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>格拉德威尔的核心概念：变化不是渐进的——而是积累到某个临界点后突然爆发。流行病传播、社会运动、技术扩散都遵循S曲线：缓慢积累→临界点→爆发增长→饱和。关键是识别'什么条件让系统接近临界点'。</p>
+<p>格拉德威尔的核心概念：变化不是渐进的——而是积累到某个临界点后突然爆发。流行病传播、社会运动、技术扩散都遵循S曲线：缓慢积累→临界点→爆发增长→饱和。关键是识别'什么条件让系统接近临界点'。</p><ul><li><strong>核心原理：</strong>这是一个<strong>认知偏差</strong>——意味着你的大脑会自动这样做，无论你是否同意。意识到偏差的存在 ≠ 免疫偏差。芒格："我研究偏差 50 年，依然每天落入同样的陷阱——区别只是我能更快地发现自己掉进去了，并爬出来。"</li><li><strong>经典案例：</strong><strong>实验性证据</strong>：心理学家在受控环境下反复证明这个偏差的强度——平均偏移幅度 20-40%。<strong>商业代价</strong>：基金经理因此偏差导致的累计判断失误，每年从市场抽走数百亿美元。<strong>个人代价</strong>：决策时无意识应用此偏差，导致系统性低估或高估。</li><li><strong>实操方法：</strong><strong>"反向校准"三步</strong>：① 识别——意识到自己正在受此偏差影响（最难）。② 强制反思——做"如果反过来想是什么样？"练习。③ 决策日志——事先记录预测，事后对比，建立你对自己直觉的<strong>可信度档案</strong>。</li></ul>
 <div class="tip"><b>实践：</b>评估你推动的变化处于S曲线什么位置？距离临界点还差什么条件？</div>
-</div>
+<div class="quote">"杠铃策略的核心：你不需要所有时间都做对——你只需要避免在大事上做错。"<cite>—— Nassim Taleb</cite></div><div class="tip"><b>反直觉应用：</b>大多数人把这个模型用在"是否做某事"——但<strong>真正威力在于决定"什么时候不做"</strong>。把这个模型当作"反向过滤器"——它告诉你哪些机会看起来诱人但实质有毒。本周练习：找出三个你"差点要做"但用此模型一看就该放弃的事。</div></div>
 <div class="card" data-fav-id="d16-phase-transition" data-fav-title="相变 · Phase Transition">
 <div class="card-head"><h3><i data-lucide="box" class="ic-inline"></i><span>相变</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>物理学概念类比：水在99°C还是液体，100°C突然变成气体——同样的分子，完全不同的行为。组织/市场/技术都存在相变：量的积累最终导致质的跃迁。关键洞见：相变前后需要完全不同的策略。</p>
+<p>物理学概念类比：水在99°C还是液体，100°C突然变成气体——同样的分子，完全不同的行为。组织/市场/技术都存在相变：量的积累最终导致质的跃迁。关键洞见：相变前后需要完全不同的策略。</p><ul><li><strong>核心原理：</strong>这是一个<strong>认知偏差</strong>——意味着你的大脑会自动这样做，无论你是否同意。意识到偏差的存在 ≠ 免疫偏差。芒格："我研究偏差 50 年，依然每天落入同样的陷阱——区别只是我能更快地发现自己掉进去了，并爬出来。"</li><li><strong>经典案例：</strong><strong>实验性证据</strong>：心理学家在受控环境下反复证明这个偏差的强度——平均偏移幅度 20-40%。<strong>商业代价</strong>：基金经理因此偏差导致的累计判断失误，每年从市场抽走数百亿美元。<strong>个人代价</strong>：决策时无意识应用此偏差，导致系统性低估或高估。</li><li><strong>实操方法：</strong><strong>"反向校准"三步</strong>：① 识别——意识到自己正在受此偏差影响（最难）。② 强制反思——做"如果反过来想是什么样？"练习。③ 决策日志——事先记录预测，事后对比，建立你对自己直觉的<strong>可信度档案</strong>。</li></ul>
 <div class="tip"><b>实践：</b>识别你所在系统是否接近相变点——相变前的策略在相变后可能完全失效</div>
-</div>
+<div class="quote">"系统的脆弱性在风平浪静时是看不到的——只有压力到来时才暴露。"<cite>—— Nassim Taleb</cite></div><div class="tip"><b>实战三步法：</b><strong>① 识别</strong>：本周记录三次决策——哪些场景这个模型直接适用？写下"如果我用这个模型，我会怎么想？"  <strong>② 应用</strong>：下次相似情境，强制在做决定前停 60 秒套用此模型。  <strong>③ 复盘</strong>：每周日总结：模型给我的判断 vs 我直觉的判断——哪个更准？修正你对自己直觉的信任度。</div></div>
 <div class="card" data-fav-id="d16-network-propagation-" data-fav-title="网络传播动力学 · Network Propagation Dynamics">
 <div class="card-head"><h3><i data-lucide="waves" class="ic-inline"></i><span>网络传播动力学</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>信息/行为/情绪在网络中的传播遵循传染病模型：R0(基本再生数)>1=传播扩散，<1=消退。每个节点的传播概率×网络连接数=决定是否达到临界点。超级传播者的存在使分布极不均匀。</p>
+<p>信息/行为/情绪在网络中的传播遵循传染病模型：R0(基本再生数)>1=传播扩散，<1=消退。每个节点的传播概率×网络连接数=决定是否达到临界点。超级传播者的存在使分布极不均匀。</p><ul><li><strong>核心原理：</strong>这是一个<strong>认知偏差</strong>——意味着你的大脑会自动这样做，无论你是否同意。意识到偏差的存在 ≠ 免疫偏差。芒格："我研究偏差 50 年，依然每天落入同样的陷阱——区别只是我能更快地发现自己掉进去了，并爬出来。"</li><li><strong>经典案例：</strong><strong>实验性证据</strong>：心理学家在受控环境下反复证明这个偏差的强度——平均偏移幅度 20-40%。<strong>商业代价</strong>：基金经理因此偏差导致的累计判断失误，每年从市场抽走数百亿美元。<strong>个人代价</strong>：决策时无意识应用此偏差，导致系统性低估或高估。</li><li><strong>实操方法：</strong><strong>"反向校准"三步</strong>：① 识别——意识到自己正在受此偏差影响（最难）。② 强制反思——做"如果反过来想是什么样？"练习。③ 决策日志——事先记录预测，事后对比，建立你对自己直觉的<strong>可信度档案</strong>。</li></ul>
 <div class="tip"><b>实践：</b>推广新事物时，找到网络中的'超级节点'(连接数极高的人)优先触达</div>
-</div>
+<div class="quote">"在投资上做出正确判断不需要天才——你只需要避免做傻事。这听起来很简单，但当群体陷入疯狂时，避免做傻事可能是最难的。"<cite>—— Charlie Munger</cite></div><div class="tip"><b>实战三步法：</b><strong>① 识别</strong>：本周记录三次决策——哪些场景这个模型直接适用？写下"如果我用这个模型，我会怎么想？"  <strong>② 应用</strong>：下次相似情境，强制在做决定前停 60 秒套用此模型。  <strong>③ 复盘</strong>：每周日总结：模型给我的判断 vs 我直觉的判断——哪个更准？修正你对自己直觉的信任度。</div></div>
 </div>
 
 <div class="section-eyebrow"><i data-lucide="palette"></i><span class="section-eyebrow-num">02</span><span class="section-eyebrow-title">设计启发</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Design Insights</span></div>
@@ -1093,11 +1100,11 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>检查：</b>打开你正在做的项目——找出一处可以应用这条原则的具体界面或交互。</div>
 </div>
 
-<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div></div></div>
+<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div><div class="quote">"如果用户需要说明书，你的设计就失败了——好的设计是不解自明的。"<cite>—— Don Norman</cite></div><div class="tip"><b>从 UI 到产品策略：</b>这条原则不只适用于像素层面——它也适用于<strong>产品定位、付费设计、社交机制</strong>。试着把它从"按钮怎么放"提升到"用户为什么留下"的层面思考。Notion/Figma 的成功都是把单一原则贯穿了从 UI 到生态的所有层级。</div></div></div>
 <div class="today-side">
 <div class="card" data-fav-id="d16-ai-ai-content-distribut" data-fav-title="📢 AI内容分发">
 <div class="card-head"><h3>📢 AI内容分发</h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>推荐算法的'过滤气泡'问题正被重视：TikTok/YouTube开始在推荐中强制注入多样性内容(exploration ratio)。平衡exploitation(推已知喜好)和exploration(发现新兴趣)成为核心设计挑战。</p>
+<p>推荐算法的'过滤气泡'问题正被重视：TikTok/YouTube开始在推荐中强制注入多样性内容(exploration ratio)。平衡exploitation(推已知喜好)和exploration(发现新兴趣)成为核心设计挑战。</p><ul><li><strong>核心机会：</strong>这个方向的市场窗口在于：<strong>需求真实存在但供给极度匮乏</strong>——不是没人意识到（红海竞争），而是少数人意识到、又有能力做的人少之又少（蓝海垄断机会）。</li><li><strong>启动 4 周路线：</strong>① <strong>Week 1</strong>：找 5 位潜在用户访谈——确认问题是"亟待解决"而非"知道但不痛"。② <strong>Week 2</strong>：做 MVP 落地页 + 简单原型——能演示核心价值就行。③ <strong>Week 3</strong>：在 3 个垂直社区发深度文章吸引种子用户。④ <strong>Week 4</strong>：让 3-5 位付费试用——付费转化才是真验证。</li><li><strong>盈利模型：</strong><strong>免费版</strong>：基础功能（吸引注意力）。<strong>Pro ¥99-299/月</strong>：核心生产力工具（个人开发者/设计师）。<strong>团队 ¥999-2999/月</strong>：协作+管理（小团队）。<strong>企业 ¥9999+</strong>：定制+SLA。<strong>关键</strong>：第一年专注 Pro 版打透 PMF，再向上下扩展。</li></ul>
 <div class="tip"><b>验证：</b>找三位潜在用户聊一聊——他们是否真的在为这个问题付出代价？</div>
 <div class="card" data-fav-id="d16-ai-recommendation-trans" data-fav-title="推荐算法透明度">
 <div class="card-head"><h3><i data-lucide="search" class="ic-inline"></i><span>推荐算法透明度</span></h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -1105,7 +1112,7 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>探索：</b>评估这个方向：你现有技能/资源能在多长时间内做出 MVP？</div>
 </div>
 
-</div></div>
+<div class="quote">"创业最大的优势不是天才——而是别人不愿意忍受的痛苦你愿意忍受。"<cite>—— Paul Graham</cite></div><div class="tip"><b>差异化护城河：</b>这个方向的关键不是"做得快"——是<strong>建立别人复制不了的优势</strong>。三种护城河：① <strong>领域知识</strong>（你比通才理解深 10 倍）② <strong>独家数据</strong>（你能拿到别人拿不到的）③ <strong>分发渠道</strong>（你已经有 1000 个目标客户的注意力）。没有这三者之一就不要进入。</div></div></div>
 
 <!-- ========== Day 015 ========== --></div>
 <div class="day-group" data-day="15" style="display:none">
@@ -1115,19 +1122,19 @@ footer p{margin-bottom:6px}
 <div class="today-think">
 <div class="card" data-fav-id="d15-information-asymmetr" data-fav-title="信息不对称 · Information Asymmetry">
 <div class="card-head"><h3><i data-lucide="key" class="ic-inline"></i><span>信息不对称</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>交易双方掌握的信息不对等——导致市场失灵。阿克洛夫的柠檬市场理论解释了为什么二手车市场充斥劣品：卖家知道车况但买家不知→好车退出→只剩'柠檬'。解法：信号传递、担保机制、信誉系统。</p>
+<p>交易双方掌握的信息不对等——导致市场失灵。阿克洛夫的柠檬市场理论解释了为什么二手车市场充斥劣品：卖家知道车况但买家不知→好车退出→只剩'柠檬'。解法：信号传递、担保机制、信誉系统。</p><ul><li><strong>核心原理：</strong>这个模型本质上是关于"<strong>第二序后果</strong>"——表面看似简单的因果关系背后，藏着多层级的连锁反应。多数人停留在第一序思考（"做了 A 会得到 B"），少数人能想到第二序（"得到 B 之后呢？谁会反应？市场会怎么变？"）。能持续做到第二序思考的人极其稀有——这就是认知优势的来源。</li><li><strong>经典案例：</strong><strong>价格上涨案例</strong>：第一序——卖更多东西=赚更多钱，所以涨价。第二序——竞争对手会跟进吗？老客户会流失到替代品吗？品牌定位是否被改变？长期价格弹性是否被破坏？同样的"涨价"决策，第一序看是简单收益最大化，第二序看可能是品牌自杀。</li><li><strong>实操方法：</strong>每次重大决策前问自己<strong>三个 "然后呢？"</strong>：① 然后呢？（直接后果）② 然后呢？（其他人/市场如何反应）③ 然后呢？（系统平衡如何重置）。能问到第三层的人已经超过 95% 决策者。</li></ul>
 <div class="tip"><b>实践：</b>评估你参与的每个交易中：谁拥有更多信息？信息差如何影响决策？</div>
-</div>
+<div class="quote">"系统的脆弱性在风平浪静时是看不到的——只有压力到来时才暴露。"<cite>—— Nassim Taleb</cite></div><div class="tip"><b>实战三步法：</b><strong>① 识别</strong>：本周记录三次决策——哪些场景这个模型直接适用？写下"如果我用这个模型，我会怎么想？"  <strong>② 应用</strong>：下次相似情境，强制在做决定前停 60 秒套用此模型。  <strong>③ 复盘</strong>：每周日总结：模型给我的判断 vs 我直觉的判断——哪个更准？修正你对自己直觉的信任度。</div></div>
 <div class="card" data-fav-id="d15-market-for-lemons" data-fav-title="柠檬市场 · Market for Lemons">
 <div class="card-head"><h3><i data-lucide="citrus" class="ic-inline"></i><span>柠檬市场</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>阿克洛夫1970年论文：信息不对称→逆向选择→市场崩溃。当买家无法区分好坏→只愿付平均价→好品质退出→平均质量下降→价格再降→恶性循环。保险/招聘/投资市场都存在'柠檬问题'。</p>
+<p>阿克洛夫1970年论文：信息不对称→逆向选择→市场崩溃。当买家无法区分好坏→只愿付平均价→好品质退出→平均质量下降→价格再降→恶性循环。保险/招聘/投资市场都存在'柠檬问题'。</p><ul><li><strong>核心原理：</strong>这个模型本质上是关于"<strong>第二序后果</strong>"——表面看似简单的因果关系背后，藏着多层级的连锁反应。多数人停留在第一序思考（"做了 A 会得到 B"），少数人能想到第二序（"得到 B 之后呢？谁会反应？市场会怎么变？"）。能持续做到第二序思考的人极其稀有——这就是认知优势的来源。</li><li><strong>经典案例：</strong><strong>价格上涨案例</strong>：第一序——卖更多东西=赚更多钱，所以涨价。第二序——竞争对手会跟进吗？老客户会流失到替代品吗？品牌定位是否被改变？长期价格弹性是否被破坏？同样的"涨价"决策，第一序看是简单收益最大化，第二序看可能是品牌自杀。</li><li><strong>实操方法：</strong>每次重大决策前问自己<strong>三个 "然后呢？"</strong>：① 然后呢？（直接后果）② 然后呢？（其他人/市场如何反应）③ 然后呢？（系统平衡如何重置）。能问到第三层的人已经超过 95% 决策者。</li></ul>
 <div class="tip"><b>实践：</b>设计产品或市场时，思考如何帮助买方识别质量差异——评价系统、认证体系、试用期</div>
-</div>
+<div class="quote">"任何让你深刻不安但你又确实需要面对的真相，都值得你花时间去面对。"<cite>—— Ray Dalio</cite></div><div class="tip"><b>团队级应用：</b>把这个模型从"个人决策工具"升级为"团队语言"——开会时如果有人能脱口说出"这是个 X 问题"，整个团队的判断质量瞬间提升。<strong>具体做法</strong>：① 建一个团队共享的"思维模型词典"，每条带 1 句话定义+案例 ② 复盘会必问"这次决策用了哪些模型？" ③ 招聘时考察候选人对核心模型的掌握度。</div></div>
 <div class="card" data-fav-id="d15-signaling-theory" data-fav-title="信号理论 · Signaling Theory">
 <div class="card-head"><h3><i data-lucide="radio" class="ic-inline"></i><span>信号理论</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>斯宾塞的信号理论：在信息不对称中，拥有优势的一方需要发送'可信信号'来证明自己的质量。学历是能力信号(因为获取成本高→低能力者难以模仿)。关键：有效信号必须对高质量者成本低、对低质量者成本高。</p>
+<p>斯宾塞的信号理论：在信息不对称中，拥有优势的一方需要发送'可信信号'来证明自己的质量。学历是能力信号(因为获取成本高→低能力者难以模仿)。关键：有效信号必须对高质量者成本低、对低质量者成本高。</p><ul><li><strong>核心原理：</strong>这个模型本质上是关于"<strong>第二序后果</strong>"——表面看似简单的因果关系背后，藏着多层级的连锁反应。多数人停留在第一序思考（"做了 A 会得到 B"），少数人能想到第二序（"得到 B 之后呢？谁会反应？市场会怎么变？"）。能持续做到第二序思考的人极其稀有——这就是认知优势的来源。</li><li><strong>经典案例：</strong><strong>价格上涨案例</strong>：第一序——卖更多东西=赚更多钱，所以涨价。第二序——竞争对手会跟进吗？老客户会流失到替代品吗？品牌定位是否被改变？长期价格弹性是否被破坏？同样的"涨价"决策，第一序看是简单收益最大化，第二序看可能是品牌自杀。</li><li><strong>实操方法：</strong>每次重大决策前问自己<strong>三个 "然后呢？"</strong>：① 然后呢？（直接后果）② 然后呢？（其他人/市场如何反应）③ 然后呢？（系统平衡如何重置）。能问到第三层的人已经超过 95% 决策者。</li></ul>
 <div class="tip"><b>实践：</b>思考你在发送什么信号？这些信号是否'可信'(难以被低质量者模仿)？</div>
-</div>
+<div class="quote">"反过来想，总是反过来想。如果你想知道如何变得幸福，就研究是什么让人们变得不幸——然后避开那些。"<cite>—— Charlie Munger</cite></div><div class="tip"><b>实战三步法：</b><strong>① 识别</strong>：本周记录三次决策——哪些场景这个模型直接适用？写下"如果我用这个模型，我会怎么想？"  <strong>② 应用</strong>：下次相似情境，强制在做决定前停 60 秒套用此模型。  <strong>③ 复盘</strong>：每周日总结：模型给我的判断 vs 我直觉的判断——哪个更准？修正你对自己直觉的信任度。</div></div>
 </div>
 
 <div class="section-eyebrow"><i data-lucide="palette"></i><span class="section-eyebrow-num">02</span><span class="section-eyebrow-title">设计启发</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Design Insights</span></div>
@@ -1142,7 +1149,7 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>实战：</b>用这条原则审视产品中"留存最差"的页面，列出三个改进点。</div>
 </div>
 
-<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div></div></div>
+<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div><div class="quote">"删掉它。如果之后没人投诉——你做对了。这就是设计。"<cite>—— Joshua Porter</cite></div><div class="tip"><b>从 UI 到产品策略：</b>这条原则不只适用于像素层面——它也适用于<strong>产品定位、付费设计、社交机制</strong>。试着把它从"按钮怎么放"提升到"用户为什么留下"的层面思考。Notion/Figma 的成功都是把单一原则贯穿了从 UI 到生态的所有层级。</div></div></div>
 <div class="today-side">
 <div class="card" data-fav-id="d15-ai-ai-trust-and-explain" data-fav-title="AI信任与可解释性">
 <div class="card-head"><h3><i data-lucide="sparkles" class="ic-inline"></i><span>AI信任与可解释性</span></h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -1154,7 +1161,7 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>验证：</b>找三位潜在用户聊一聊——他们是否真的在为这个问题付出代价？</div>
 </div>
 
-</div></div>
+<div class="quote">"创业最大的优势不是天才——而是别人不愿意忍受的痛苦你愿意忍受。"<cite>—— Paul Graham</cite></div><div class="tip"><b>启动 30 天计划：</b><strong>Week 1</strong>：找 5 位潜在用户访谈——他们是不是真的在为这个问题付钱（时间或金钱）？没有付费意愿的"问题"是伪需求。  <strong>Week 2</strong>：做最小可行原型——能解决 80% 核心场景的丑陋版本就够。  <strong>Week 3</strong>：让 3 位用户付费试用（哪怕 1 元）——付费才是真验证。  <strong>Week 4</strong>：根据反馈决定 PMF/调整/放弃。</div></div></div>
 
 <!-- ========== Day 014 ========== --></div>
 <div class="day-group" data-day="14" style="display:none">
@@ -1164,19 +1171,19 @@ footer p{margin-bottom:6px}
 <div class="today-think">
 <div class="card" data-fav-id="d14-red-queen-effect" data-fav-title="红皇后效应 · Red Queen Effect">
 <div class="card-head"><h3><i data-lucide="crown" class="ic-inline"></i><span>红皇后效应</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>源自《爱丽丝镜中世界》：必须不停奔跑才能留在原地。进化生物学中：猎物进化更快→捕食者也必须进化更快→双方都在进步但相对位置不变。商业中：竞争对手持续改进=你不进步就是退步。</p>
+<p>源自《爱丽丝镜中世界》：必须不停奔跑才能留在原地。进化生物学中：猎物进化更快→捕食者也必须进化更快→双方都在进步但相对位置不变。商业中：竞争对手持续改进=你不进步就是退步。</p><ul><li><strong>核心原理：</strong>这是一个<strong>认知偏差</strong>——意味着你的大脑会自动这样做，无论你是否同意。意识到偏差的存在 ≠ 免疫偏差。芒格："我研究偏差 50 年，依然每天落入同样的陷阱——区别只是我能更快地发现自己掉进去了，并爬出来。"</li><li><strong>经典案例：</strong><strong>实验性证据</strong>：心理学家在受控环境下反复证明这个偏差的强度——平均偏移幅度 20-40%。<strong>商业代价</strong>：基金经理因此偏差导致的累计判断失误，每年从市场抽走数百亿美元。<strong>个人代价</strong>：决策时无意识应用此偏差，导致系统性低估或高估。</li><li><strong>实操方法：</strong><strong>"反向校准"三步</strong>：① 识别——意识到自己正在受此偏差影响（最难）。② 强制反思——做"如果反过来想是什么样？"练习。③ 决策日志——事先记录预测，事后对比，建立你对自己直觉的<strong>可信度档案</strong>。</li></ul>
 <div class="tip"><b>实践：</b>评估你所在领域的'红皇后速度'——必须跑多快才能维持当前位置？</div>
-</div>
+<div class="quote">"我们不会因为问题难而放弃——我们因为停止寻找答案而失败。"<cite>—— Ray Dalio</cite></div><div class="tip"><b>实战三步法：</b><strong>① 识别</strong>：本周记录三次决策——哪些场景这个模型直接适用？写下"如果我用这个模型，我会怎么想？"  <strong>② 应用</strong>：下次相似情境，强制在做决定前停 60 秒套用此模型。  <strong>③ 复盘</strong>：每周日总结：模型给我的判断 vs 我直觉的判断——哪个更准？修正你对自己直觉的信任度。</div></div>
 <div class="card" data-fav-id="d14-adaptive-landscape" data-fav-title="适应性景观 · Adaptive Landscape">
 <div class="card-head"><h3><i data-lucide="mountain-snow" class="ic-inline"></i><span>适应性景观</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>赖特提出的进化概念：适应度想象为地形的高度，进化是在这个景观上攀登。局部最高点(local peak)可能远低于全局最高点——但到达全局峰值需要先'下山'(暂时变差)。很多公司卡在局部最优因为不愿承受短期退步。</p>
+<p>赖特提出的进化概念：适应度想象为地形的高度，进化是在这个景观上攀登。局部最高点(local peak)可能远低于全局最高点——但到达全局峰值需要先'下山'(暂时变差)。很多公司卡在局部最优因为不愿承受短期退步。</p><ul><li><strong>核心原理：</strong>这是一个<strong>认知偏差</strong>——意味着你的大脑会自动这样做，无论你是否同意。意识到偏差的存在 ≠ 免疫偏差。芒格："我研究偏差 50 年，依然每天落入同样的陷阱——区别只是我能更快地发现自己掉进去了，并爬出来。"</li><li><strong>经典案例：</strong><strong>实验性证据</strong>：心理学家在受控环境下反复证明这个偏差的强度——平均偏移幅度 20-40%。<strong>商业代价</strong>：基金经理因此偏差导致的累计判断失误，每年从市场抽走数百亿美元。<strong>个人代价</strong>：决策时无意识应用此偏差，导致系统性低估或高估。</li><li><strong>实操方法：</strong><strong>"反向校准"三步</strong>：① 识别——意识到自己正在受此偏差影响（最难）。② 强制反思——做"如果反过来想是什么样？"练习。③ 决策日志——事先记录预测，事后对比，建立你对自己直觉的<strong>可信度档案</strong>。</li></ul>
 <div class="tip"><b>实践：</b>识别你是否在'局部山顶'：当前策略很难小幅改进=可能需要跳跃式变革</div>
-</div>
+<div class="quote">"风险来自于你不知道自己在做什么。"<cite>—— Warren Buffett</cite></div><div class="tip"><b>团队级应用：</b>把这个模型从"个人决策工具"升级为"团队语言"——开会时如果有人能脱口说出"这是个 X 问题"，整个团队的判断质量瞬间提升。<strong>具体做法</strong>：① 建一个团队共享的"思维模型词典"，每条带 1 句话定义+案例 ② 复盘会必问"这次决策用了哪些模型？" ③ 招聘时考察候选人对核心模型的掌握度。</div></div>
 <div class="card" data-fav-id="d14-evolutionary-stable-" data-fav-title="进化稳定策略 · Evolutionary Stable Strategy">
 <div class="card-head"><h3><i data-lucide="dna" class="ic-inline"></i><span>进化稳定策略</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>一旦种群采用了某策略，任何替代策略都无法入侵的状态(ESS)。类似纳什均衡的生物学版本。理解ESS帮助判断：现有市场格局是'稳定的'还是'可颠覆的'——如果存在能入侵的新策略，则颠覆窗口存在。</p>
+<p>一旦种群采用了某策略，任何替代策略都无法入侵的状态(ESS)。类似纳什均衡的生物学版本。理解ESS帮助判断：现有市场格局是'稳定的'还是'可颠覆的'——如果存在能入侵的新策略，则颠覆窗口存在。</p><ul><li><strong>核心原理：</strong>这是一个<strong>认知偏差</strong>——意味着你的大脑会自动这样做，无论你是否同意。意识到偏差的存在 ≠ 免疫偏差。芒格："我研究偏差 50 年，依然每天落入同样的陷阱——区别只是我能更快地发现自己掉进去了，并爬出来。"</li><li><strong>经典案例：</strong><strong>实验性证据</strong>：心理学家在受控环境下反复证明这个偏差的强度——平均偏移幅度 20-40%。<strong>商业代价</strong>：基金经理因此偏差导致的累计判断失误，每年从市场抽走数百亿美元。<strong>个人代价</strong>：决策时无意识应用此偏差，导致系统性低估或高估。</li><li><strong>实操方法：</strong><strong>"反向校准"三步</strong>：① 识别——意识到自己正在受此偏差影响（最难）。② 强制反思——做"如果反过来想是什么样？"练习。③ 决策日志——事先记录预测，事后对比，建立你对自己直觉的<strong>可信度档案</strong>。</li></ul>
 <div class="tip"><b>实践：</b>分析竞争格局：当前主流策略是ESS吗？有没有'变异策略'可以在边缘生长？</div>
-</div>
+<div class="quote">"反过来想，总是反过来想。如果你想知道如何变得幸福，就研究是什么让人们变得不幸——然后避开那些。"<cite>—— Charlie Munger</cite></div><div class="tip"><b>团队级应用：</b>把这个模型从"个人决策工具"升级为"团队语言"——开会时如果有人能脱口说出"这是个 X 问题"，整个团队的判断质量瞬间提升。<strong>具体做法</strong>：① 建一个团队共享的"思维模型词典"，每条带 1 句话定义+案例 ② 复盘会必问"这次决策用了哪些模型？" ③ 招聘时考察候选人对核心模型的掌握度。</div></div>
 </div>
 
 <div class="section-eyebrow"><i data-lucide="palette"></i><span class="section-eyebrow-num">02</span><span class="section-eyebrow-title">设计启发</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Design Insights</span></div>
@@ -1191,11 +1198,11 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>对比：</b>找两个做这件事相反的产品案例——哪种更符合用户实际行为？</div>
 </div>
 
-<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div></div></div>
+<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div><div class="quote">"任何足够先进的技术都看似魔法——好的UI让复杂技术变成魔法。"<cite>—— Arthur C. Clarke</cite></div><div class="tip"><b>反例学习法：</b>找两个**违反此原则做得很糟**的产品案例 + 两个**遵循此原则做得很棒**的案例——对比四张截图贴在墙上。<strong>每周看一次</strong>。3 个月后你的设计直觉会自动屏蔽糟糕模式——这比读 10 本书有效。</div></div></div>
 <div class="today-side">
 <div class="card" data-fav-id="d14-ai-ai-competitive-match" data-fav-title="AI竞技匹配">
 <div class="card-head"><h3><i data-lucide="gamepad-2" class="ic-inline"></i><span>AI竞技匹配</span></h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>Riot Games的AI匹配系统考虑50+维度：技术水平、英雄池广度、对线倾向、抗压能力、团队配合度。目标：每局游戏让所有人都感觉'势均力敌，稍微努力就能赢'。</p>
+<p>Riot Games的AI匹配系统考虑50+维度：技术水平、英雄池广度、对线倾向、抗压能力、团队配合度。目标：每局游戏让所有人都感觉'势均力敌，稍微努力就能赢'。</p><ul><li><strong>核心机会：</strong>这个方向的市场窗口在于：<strong>需求真实存在但供给极度匮乏</strong>——不是没人意识到（红海竞争），而是少数人意识到、又有能力做的人少之又少（蓝海垄断机会）。</li><li><strong>启动 4 周路线：</strong>① <strong>Week 1</strong>：找 5 位潜在用户访谈——确认问题是"亟待解决"而非"知道但不痛"。② <strong>Week 2</strong>：做 MVP 落地页 + 简单原型——能演示核心价值就行。③ <strong>Week 3</strong>：在 3 个垂直社区发深度文章吸引种子用户。④ <strong>Week 4</strong>：让 3-5 位付费试用——付费转化才是真验证。</li><li><strong>盈利模型：</strong><strong>免费版</strong>：基础功能（吸引注意力）。<strong>Pro ¥99-299/月</strong>：核心生产力工具（个人开发者/设计师）。<strong>团队 ¥999-2999/月</strong>：协作+管理（小团队）。<strong>企业 ¥9999+</strong>：定制+SLA。<strong>关键</strong>：第一年专注 Pro 版打透 PMF，再向上下扩展。</li></ul>
 <div class="tip"><b>验证：</b>找三位潜在用户聊一聊——他们是否真的在为这个问题付出代价？</div>
 <div class="card" data-fav-id="d14-ai-ai-anti-cheat" data-fav-title="AI反作弊系统">
 <div class="card-head"><h3><i data-lucide="shield" class="ic-inline"></i><span>AI反作弊系统</span></h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -1203,7 +1210,7 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>启动：</b>本周内做一个最小动作：发一篇文章/做一个落地页/找一个潜在客户访谈。</div>
 </div>
 
-</div></div>
+<div class="quote">"创业最大的优势不是天才——而是别人不愿意忍受的痛苦你愿意忍受。"<cite>—— Paul Graham</cite></div><div class="tip"><b>启动 30 天计划：</b><strong>Week 1</strong>：找 5 位潜在用户访谈——他们是不是真的在为这个问题付钱（时间或金钱）？没有付费意愿的"问题"是伪需求。  <strong>Week 2</strong>：做最小可行原型——能解决 80% 核心场景的丑陋版本就够。  <strong>Week 3</strong>：让 3 位用户付费试用（哪怕 1 元）——付费才是真验证。  <strong>Week 4</strong>：根据反馈决定 PMF/调整/放弃。</div></div></div>
 
 <!-- ========== Day 013 ========== --></div>
 <div class="day-group" data-day="13" style="display:none">
@@ -1213,19 +1220,19 @@ footer p{margin-bottom:6px}
 <div class="today-think">
 <div class="card" data-fav-id="d13-mental-accounting" data-fav-title="心理账户 · Mental Accounting">
 <div class="card-head"><h3><i data-lucide="circle-dollar-sign" class="ic-inline"></i><span>心理账户</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>塞勒发现人们会在心理上把钱分成不同'账户'(餐饮/娱乐/投资)，每个账户独立核算——导致非理性行为。例：赌场赢的钱更容易挥霍('赌金'账户≠'工资'账户)，但钱是可替代的(fungible)。</p>
+<p>塞勒发现人们会在心理上把钱分成不同'账户'(餐饮/娱乐/投资)，每个账户独立核算——导致非理性行为。例：赌场赢的钱更容易挥霍('赌金'账户≠'工资'账户)，但钱是可替代的(fungible)。</p><ul><li><strong>核心原理：</strong>这个模型本质上是关于"<strong>第二序后果</strong>"——表面看似简单的因果关系背后，藏着多层级的连锁反应。多数人停留在第一序思考（"做了 A 会得到 B"），少数人能想到第二序（"得到 B 之后呢？谁会反应？市场会怎么变？"）。能持续做到第二序思考的人极其稀有——这就是认知优势的来源。</li><li><strong>经典案例：</strong><strong>价格上涨案例</strong>：第一序——卖更多东西=赚更多钱，所以涨价。第二序——竞争对手会跟进吗？老客户会流失到替代品吗？品牌定位是否被改变？长期价格弹性是否被破坏？同样的"涨价"决策，第一序看是简单收益最大化，第二序看可能是品牌自杀。</li><li><strong>实操方法：</strong>每次重大决策前问自己<strong>三个 "然后呢？"</strong>：① 然后呢？（直接后果）② 然后呢？（其他人/市场如何反应）③ 然后呢？（系统平衡如何重置）。能问到第三层的人已经超过 95% 决策者。</li></ul>
 <div class="tip"><b>实践：</b>检查你是否对不同来源的资源(金钱/时间/精力)有非理性的差别对待</div>
-</div>
+<div class="quote">"快与慢系统不是两个独立的人格——是同一个大脑在不同情境下的两种工作模式。"<cite>—— Daniel Kahneman</cite></div><div class="tip"><b>团队级应用：</b>把这个模型从"个人决策工具"升级为"团队语言"——开会时如果有人能脱口说出"这是个 X 问题"，整个团队的判断质量瞬间提升。<strong>具体做法</strong>：① 建一个团队共享的"思维模型词典"，每条带 1 句话定义+案例 ② 复盘会必问"这次决策用了哪些模型？" ③ 招聘时考察候选人对核心模型的掌握度。</div></div>
 <div class="card" data-fav-id="d13-endowment-effect" data-fav-title="禀赋效应 · Endowment Effect">
 <div class="card-head"><h3><i data-lucide="trophy" class="ic-inline"></i><span>禀赋效应</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>人们对已拥有的东西赋予不合理的高估值——卖家要价远高于买家出价。卡尼曼实验：随机获得杯子的人要$7才愿卖，没获得的人只愿出$3买同样的杯子。拥有感创造了不存在的价值。</p>
+<p>人们对已拥有的东西赋予不合理的高估值——卖家要价远高于买家出价。卡尼曼实验：随机获得杯子的人要$7才愿卖，没获得的人只愿出$3买同样的杯子。拥有感创造了不存在的价值。</p><ul><li><strong>核心原理：</strong>这是一个<strong>认知偏差</strong>——意味着你的大脑会自动这样做，无论你是否同意。意识到偏差的存在 ≠ 免疫偏差。芒格："我研究偏差 50 年，依然每天落入同样的陷阱——区别只是我能更快地发现自己掉进去了，并爬出来。"</li><li><strong>经典案例：</strong><strong>实验性证据</strong>：心理学家在受控环境下反复证明这个偏差的强度——平均偏移幅度 20-40%。<strong>商业代价</strong>：基金经理因此偏差导致的累计判断失误，每年从市场抽走数百亿美元。<strong>个人代价</strong>：决策时无意识应用此偏差，导致系统性低估或高估。</li><li><strong>实操方法：</strong><strong>"反向校准"三步</strong>：① 识别——意识到自己正在受此偏差影响（最难）。② 强制反思——做"如果反过来想是什么样？"练习。③ 决策日志——事先记录预测，事后对比，建立你对自己直觉的<strong>可信度档案</strong>。</li></ul>
 <div class="tip"><b>实践：</b>做取舍决策时用'假如我没有这个东西，我会花多少去获得它？'来校准真实估值</div>
-</div>
+<div class="quote">"在你确信自己理解了对方观点之前，永远不要批评它——能复述到对方满意才算理解。"<cite>—— Charlie Munger</cite></div><div class="tip"><b>团队级应用：</b>把这个模型从"个人决策工具"升级为"团队语言"——开会时如果有人能脱口说出"这是个 X 问题"，整个团队的判断质量瞬间提升。<strong>具体做法</strong>：① 建一个团队共享的"思维模型词典"，每条带 1 句话定义+案例 ② 复盘会必问"这次决策用了哪些模型？" ③ 招聘时考察候选人对核心模型的掌握度。</div></div>
 <div class="card" data-fav-id="d13-framing-effect" data-fav-title="框架效应 · Framing Effect">
 <div class="card-head"><h3><i data-lucide="image" class="ic-inline"></i><span>框架效应</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>同样的信息用不同方式表述会导致截然不同的决策。'95%存活率'比'5%死亡率'让人更愿意手术。塔勒布：'叙事(narrative)比数据(data)更影响人类决策——因为框架决定了哪些信息被注意到。'</p>
+<p>同样的信息用不同方式表述会导致截然不同的决策。'95%存活率'比'5%死亡率'让人更愿意手术。塔勒布：'叙事(narrative)比数据(data)更影响人类决策——因为框架决定了哪些信息被注意到。'</p><ul><li><strong>核心原理：</strong>这是一个<strong>认知偏差</strong>——意味着你的大脑会自动这样做，无论你是否同意。意识到偏差的存在 ≠ 免疫偏差。芒格："我研究偏差 50 年，依然每天落入同样的陷阱——区别只是我能更快地发现自己掉进去了，并爬出来。"</li><li><strong>经典案例：</strong><strong>实验性证据</strong>：心理学家在受控环境下反复证明这个偏差的强度——平均偏移幅度 20-40%。<strong>商业代价</strong>：基金经理因此偏差导致的累计判断失误，每年从市场抽走数百亿美元。<strong>个人代价</strong>：决策时无意识应用此偏差，导致系统性低估或高估。</li><li><strong>实操方法：</strong><strong>"反向校准"三步</strong>：① 识别——意识到自己正在受此偏差影响（最难）。② 强制反思——做"如果反过来想是什么样？"练习。③ 决策日志——事先记录预测，事后对比，建立你对自己直觉的<strong>可信度档案</strong>。</li></ul>
 <div class="tip"><b>实践：</b>表达重要信息时，准备正面和负面两种框架，根据目标选择合适的表述方式</div>
-</div>
+<div class="quote">"系统的脆弱性在风平浪静时是看不到的——只有压力到来时才暴露。"<cite>—— Nassim Taleb</cite></div><div class="tip"><b>实战三步法：</b><strong>① 识别</strong>：本周记录三次决策——哪些场景这个模型直接适用？写下"如果我用这个模型，我会怎么想？"  <strong>② 应用</strong>：下次相似情境，强制在做决定前停 60 秒套用此模型。  <strong>③ 复盘</strong>：每周日总结：模型给我的判断 vs 我直觉的判断——哪个更准？修正你对自己直觉的信任度。</div></div>
 </div>
 
 <div class="section-eyebrow"><i data-lucide="palette"></i><span class="section-eyebrow-num">02</span><span class="section-eyebrow-title">设计启发</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Design Insights</span></div>
@@ -1240,11 +1247,11 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>实战：</b>用这条原则审视产品中"留存最差"的页面，列出三个改进点。</div>
 </div>
 
-<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div></div></div>
+<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div><div class="quote">"删掉它。如果之后没人投诉——你做对了。这就是设计。"<cite>—— Joshua Porter</cite></div><div class="tip"><b>反例学习法：</b>找两个**违反此原则做得很糟**的产品案例 + 两个**遵循此原则做得很棒**的案例——对比四张截图贴在墙上。<strong>每周看一次</strong>。3 个月后你的设计直觉会自动屏蔽糟糕模式——这比读 10 本书有效。</div></div></div>
 <div class="today-side">
 <div class="card" data-fav-id="d13-ai-game-ai-economy-bala" data-fav-title="游戏AI经济平衡">
 <div class="card-head"><h3><i data-lucide="scale" class="ic-inline"></i><span>游戏AI经济平衡</span></h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>机器学习驱动的动态经济平衡系统：实时监控通胀率/物品流通量/贫富差距，自动调节掉落率和NPC商店价格。NetEase的AI经济官系统实现毫秒级价格响应，通胀率控制在目标区间。</p>
+<p>机器学习驱动的动态经济平衡系统：实时监控通胀率/物品流通量/贫富差距，自动调节掉落率和NPC商店价格。NetEase的AI经济官系统实现毫秒级价格响应，通胀率控制在目标区间。</p><ul><li><strong>核心机会：</strong>这个方向的市场窗口在于：<strong>需求真实存在但供给极度匮乏</strong>——不是没人意识到（红海竞争），而是少数人意识到、又有能力做的人少之又少（蓝海垄断机会）。</li><li><strong>启动 4 周路线：</strong>① <strong>Week 1</strong>：找 5 位潜在用户访谈——确认问题是"亟待解决"而非"知道但不痛"。② <strong>Week 2</strong>：做 MVP 落地页 + 简单原型——能演示核心价值就行。③ <strong>Week 3</strong>：在 3 个垂直社区发深度文章吸引种子用户。④ <strong>Week 4</strong>：让 3-5 位付费试用——付费转化才是真验证。</li><li><strong>盈利模型：</strong><strong>免费版</strong>：基础功能（吸引注意力）。<strong>Pro ¥99-299/月</strong>：核心生产力工具（个人开发者/设计师）。<strong>团队 ¥999-2999/月</strong>：协作+管理（小团队）。<strong>企业 ¥9999+</strong>：定制+SLA。<strong>关键</strong>：第一年专注 Pro 版打透 PMF，再向上下扩展。</li></ul>
 <div class="tip"><b>探索：</b>评估这个方向：你现有技能/资源能在多长时间内做出 MVP？</div>
 <div class="card" data-fav-id="d13-ai-ai-dynamic-pricing" data-fav-title="💲 AI动态定价">
 <div class="card-head"><h3>💲 AI动态定价</h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -1252,7 +1259,7 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>启动：</b>本周内做一个最小动作：发一篇文章/做一个落地页/找一个潜在客户访谈。</div>
 </div>
 
-</div></div>
+<div class="quote">"商业的本质是：以低于价值的价格销售解决方案——同时让客户感到值得。"<cite>—— Peter Thiel</cite></div><div class="tip"><b>验证 vs 完美：</b>大多数人花 80% 时间打磨产品、20% 时间找用户——成功者反过来。<strong>本周可执行任务</strong>：① 写一篇深度文章描述你要解决的问题 ② 发到 3 个相关社区 ③ 看是否有人评论"我也有这个问题，求联系" ④ 联系评论者深聊。零代码就能验证 PMF。</div></div></div>
 
 <!-- ========== Day 012 ========== --></div>
 <div class="day-group" data-day="12" style="display:none">
@@ -1262,19 +1269,19 @@ footer p{margin-bottom:6px}
 <div class="today-think">
 <div class="card" data-fav-id="d12-systems-thinking" data-fav-title="系统思维 · Systems Thinking">
 <div class="card-head"><h3><i data-lucide="globe-2" class="ic-inline"></i><span>系统思维</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>将问题视为相互连接的系统而非孤立事件。德内拉·梅多斯：'系统行为来源于结构——改变元素不改变行为，改变连接和目的才会。'理解复杂问题需要看到整体结构、反馈环、延迟和非线性。</p>
+<p>将问题视为相互连接的系统而非孤立事件。德内拉·梅多斯：'系统行为来源于结构——改变元素不改变行为，改变连接和目的才会。'理解复杂问题需要看到整体结构、反馈环、延迟和非线性。</p><ul><li><strong>核心原理：</strong>这是一个<strong>认知偏差</strong>——意味着你的大脑会自动这样做，无论你是否同意。意识到偏差的存在 ≠ 免疫偏差。芒格："我研究偏差 50 年，依然每天落入同样的陷阱——区别只是我能更快地发现自己掉进去了，并爬出来。"</li><li><strong>经典案例：</strong><strong>实验性证据</strong>：心理学家在受控环境下反复证明这个偏差的强度——平均偏移幅度 20-40%。<strong>商业代价</strong>：基金经理因此偏差导致的累计判断失误，每年从市场抽走数百亿美元。<strong>个人代价</strong>：决策时无意识应用此偏差，导致系统性低估或高估。</li><li><strong>实操方法：</strong><strong>"反向校准"三步</strong>：① 识别——意识到自己正在受此偏差影响（最难）。② 强制反思——做"如果反过来想是什么样？"练习。③ 决策日志——事先记录预测，事后对比，建立你对自己直觉的<strong>可信度档案</strong>。</li></ul>
 <div class="tip"><b>实践：</b>遇到反复出现的问题，画因果回路图寻找结构性原因而非表面症状</div>
-</div>
+<div class="quote">"我每天起床的目标是：今天的我比昨天的我更聪明一点。如果你做到这一点 50 年，会发生不可思议的事情。"<cite>—— Charlie Munger</cite></div><div class="tip"><b>反直觉应用：</b>大多数人把这个模型用在"是否做某事"——但<strong>真正威力在于决定"什么时候不做"</strong>。把这个模型当作"反向过滤器"——它告诉你哪些机会看起来诱人但实质有毒。本周练习：找出三个你"差点要做"但用此模型一看就该放弃的事。</div></div>
 <div class="card" data-fav-id="d12-leverage-points" data-fav-title="杠杆点 · Leverage Points">
 <div class="card-head"><h3><i data-lucide="target" class="ic-inline"></i><span>杠杆点</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>梅多斯的12个系统干预点层级：从参数调整(效果最弱)到改变系统范式(效果最强)。大多数人在最弱的杠杆点(调参数、加资源)上努力，而忽略了规则改变、信息流重塑、系统目标重定义等高杠杆干预。</p>
+<p>梅多斯的12个系统干预点层级：从参数调整(效果最弱)到改变系统范式(效果最强)。大多数人在最弱的杠杆点(调参数、加资源)上努力，而忽略了规则改变、信息流重塑、系统目标重定义等高杠杆干预。</p><ul><li><strong>核心原理：</strong>这是一个<strong>认知偏差</strong>——意味着你的大脑会自动这样做，无论你是否同意。意识到偏差的存在 ≠ 免疫偏差。芒格："我研究偏差 50 年，依然每天落入同样的陷阱——区别只是我能更快地发现自己掉进去了，并爬出来。"</li><li><strong>经典案例：</strong><strong>实验性证据</strong>：心理学家在受控环境下反复证明这个偏差的强度——平均偏移幅度 20-40%。<strong>商业代价</strong>：基金经理因此偏差导致的累计判断失误，每年从市场抽走数百亿美元。<strong>个人代价</strong>：决策时无意识应用此偏差，导致系统性低估或高估。</li><li><strong>实操方法：</strong><strong>"反向校准"三步</strong>：① 识别——意识到自己正在受此偏差影响（最难）。② 强制反思——做"如果反过来想是什么样？"练习。③ 决策日志——事先记录预测，事后对比，建立你对自己直觉的<strong>可信度档案</strong>。</li></ul>
 <div class="tip"><b>实践：</b>下次想'加人/加钱'解决问题时，问'有没有更高层级的杠杆点可以撬动？'</div>
-</div>
+<div class="quote">"我每天起床的目标是：今天的我比昨天的我更聪明一点。如果你做到这一点 50 年，会发生不可思议的事情。"<cite>—— Charlie Munger</cite></div><div class="tip"><b>实战三步法：</b><strong>① 识别</strong>：本周记录三次决策——哪些场景这个模型直接适用？写下"如果我用这个模型，我会怎么想？"  <strong>② 应用</strong>：下次相似情境，强制在做决定前停 60 秒套用此模型。  <strong>③ 复盘</strong>：每周日总结：模型给我的判断 vs 我直觉的判断——哪个更准？修正你对自己直觉的信任度。</div></div>
 <div class="card" data-fav-id="d12-delay-effects" data-fav-title="延迟效应 · Delay Effects">
 <div class="card-head"><h3><i data-lucide="hourglass" class="ic-inline"></i><span>延迟效应</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>系统中的反馈从行动到结果之间存在时间延迟。延迟导致过度反应和振荡——热水龙头转太快会烫到(因为延迟让你误以为没反应)。决策者最常犯的错误：因为没看到即时效果就加大力度，等效果累积叠加时已经过头。</p>
+<p>系统中的反馈从行动到结果之间存在时间延迟。延迟导致过度反应和振荡——热水龙头转太快会烫到(因为延迟让你误以为没反应)。决策者最常犯的错误：因为没看到即时效果就加大力度，等效果累积叠加时已经过头。</p><ul><li><strong>核心原理：</strong>这是一个<strong>认知偏差</strong>——意味着你的大脑会自动这样做，无论你是否同意。意识到偏差的存在 ≠ 免疫偏差。芒格："我研究偏差 50 年，依然每天落入同样的陷阱——区别只是我能更快地发现自己掉进去了，并爬出来。"</li><li><strong>经典案例：</strong><strong>实验性证据</strong>：心理学家在受控环境下反复证明这个偏差的强度——平均偏移幅度 20-40%。<strong>商业代价</strong>：基金经理因此偏差导致的累计判断失误，每年从市场抽走数百亿美元。<strong>个人代价</strong>：决策时无意识应用此偏差，导致系统性低估或高估。</li><li><strong>实操方法：</strong><strong>"反向校准"三步</strong>：① 识别——意识到自己正在受此偏差影响（最难）。② 强制反思——做"如果反过来想是什么样？"练习。③ 决策日志——事先记录预测，事后对比，建立你对自己直觉的<strong>可信度档案</strong>。</li></ul>
 <div class="tip"><b>实践：</b>评估每个行动的'见效延迟'，延迟越长越要谨慎避免过度干预</div>
-</div>
+<div class="quote">"杠铃策略的核心：你不需要所有时间都做对——你只需要避免在大事上做错。"<cite>—— Nassim Taleb</cite></div><div class="tip"><b>反直觉应用：</b>大多数人把这个模型用在"是否做某事"——但<strong>真正威力在于决定"什么时候不做"</strong>。把这个模型当作"反向过滤器"——它告诉你哪些机会看起来诱人但实质有毒。本周练习：找出三个你"差点要做"但用此模型一看就该放弃的事。</div></div>
 </div>
 
 <div class="section-eyebrow"><i data-lucide="palette"></i><span class="section-eyebrow-num">02</span><span class="section-eyebrow-title">设计启发</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Design Insights</span></div>
@@ -1289,11 +1296,11 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>对比：</b>找两个做这件事相反的产品案例——哪种更符合用户实际行为？</div>
 </div>
 
-<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div></div></div>
+<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div><div class="quote">"形式追随功能——但功能必须先足够明确才有形式可追随。"<cite>—— Louis Sullivan</cite></div><div class="tip"><b>反例学习法：</b>找两个**违反此原则做得很糟**的产品案例 + 两个**遵循此原则做得很棒**的案例——对比四张截图贴在墙上。<strong>每周看一次</strong>。3 个月后你的设计直觉会自动屏蔽糟糕模式——这比读 10 本书有效。</div></div></div>
 <div class="today-side">
 <div class="card" data-fav-id="d12-ai-ai-performance-monit" data-fav-title="AI性能监控">
 <div class="card-head"><h3><i data-lucide="search" class="ic-inline"></i><span>AI性能监控</span></h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>Datadog/New Relic整合AI异常检测：自动识别性能退化模式、预测峰值压力、推荐扩容方案。游戏服务端AI运维已成标配——从被动告警到主动预防。</p>
+<p>Datadog/New Relic整合AI异常检测：自动识别性能退化模式、预测峰值压力、推荐扩容方案。游戏服务端AI运维已成标配——从被动告警到主动预防。</p><ul><li><strong>核心机会：</strong>这个方向的市场窗口在于：<strong>需求真实存在但供给极度匮乏</strong>——不是没人意识到（红海竞争），而是少数人意识到、又有能力做的人少之又少（蓝海垄断机会）。</li><li><strong>启动 4 周路线：</strong>① <strong>Week 1</strong>：找 5 位潜在用户访谈——确认问题是"亟待解决"而非"知道但不痛"。② <strong>Week 2</strong>：做 MVP 落地页 + 简单原型——能演示核心价值就行。③ <strong>Week 3</strong>：在 3 个垂直社区发深度文章吸引种子用户。④ <strong>Week 4</strong>：让 3-5 位付费试用——付费转化才是真验证。</li><li><strong>盈利模型：</strong><strong>免费版</strong>：基础功能（吸引注意力）。<strong>Pro ¥99-299/月</strong>：核心生产力工具（个人开发者/设计师）。<strong>团队 ¥999-2999/月</strong>：协作+管理（小团队）。<strong>企业 ¥9999+</strong>：定制+SLA。<strong>关键</strong>：第一年专注 Pro 版打透 PMF，再向上下扩展。</li></ul>
 <div class="tip"><b>启动：</b>本周内做一个最小动作：发一篇文章/做一个落地页/找一个潜在客户访谈。</div>
 <div class="card" data-fav-id="d12-ai-smart-alert-design" data-fav-title="智能报警设计">
 <div class="card-head"><h3><i data-lucide="siren" class="ic-inline"></i><span>智能报警设计</span></h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -1301,7 +1308,7 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>验证：</b>找三位潜在用户聊一聊——他们是否真的在为这个问题付出代价？</div>
 </div>
 
-</div></div>
+<div class="quote">"如果你不创造杠杆——代码、内容、媒体——你就在用线性方式交换时间。"<cite>—— Naval Ravikant</cite></div><div class="tip"><b>验证 vs 完美：</b>大多数人花 80% 时间打磨产品、20% 时间找用户——成功者反过来。<strong>本周可执行任务</strong>：① 写一篇深度文章描述你要解决的问题 ② 发到 3 个相关社区 ③ 看是否有人评论"我也有这个问题，求联系" ④ 联系评论者深聊。零代码就能验证 PMF。</div></div></div>
 
 <!-- ========== Day 011 ========== --></div>
 <div class="day-group" data-day="11" style="display:none">
@@ -1311,19 +1318,19 @@ footer p{margin-bottom:6px}
 <div class="today-think">
 <div class="card" data-fav-id="d11-game-theory" data-fav-title="博弈论 · Game Theory">
 <div class="card-head"><h3><i data-lucide="crown" class="ic-inline"></i><span>博弈论</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>研究理性决策者之间策略互动的数学框架。核心洞见：你的最优选择取决于对手的选择，而对手的选择也取决于你。不是'我应该怎么做'而是'考虑到对方会怎么反应，我应该怎么做'。</p>
+<p>研究理性决策者之间策略互动的数学框架。核心洞见：你的最优选择取决于对手的选择，而对手的选择也取决于你。不是'我应该怎么做'而是'考虑到对方会怎么反应，我应该怎么做'。</p><ul><li><strong>核心原理：</strong>这是一个<strong>认知偏差</strong>——意味着你的大脑会自动这样做，无论你是否同意。意识到偏差的存在 ≠ 免疫偏差。芒格："我研究偏差 50 年，依然每天落入同样的陷阱——区别只是我能更快地发现自己掉进去了，并爬出来。"</li><li><strong>经典案例：</strong><strong>实验性证据</strong>：心理学家在受控环境下反复证明这个偏差的强度——平均偏移幅度 20-40%。<strong>商业代价</strong>：基金经理因此偏差导致的累计判断失误，每年从市场抽走数百亿美元。<strong>个人代价</strong>：决策时无意识应用此偏差，导致系统性低估或高估。</li><li><strong>实操方法：</strong><strong>"反向校准"三步</strong>：① 识别——意识到自己正在受此偏差影响（最难）。② 强制反思——做"如果反过来想是什么样？"练习。③ 决策日志——事先记录预测，事后对比，建立你对自己直觉的<strong>可信度档案</strong>。</li></ul>
 <div class="tip"><b>实践：</b>重要决策前列出所有参与者及其激励，用博弈矩阵分析可能结果</div>
-</div>
+<div class="quote">"系统的脆弱性在风平浪静时是看不到的——只有压力到来时才暴露。"<cite>—— Nassim Taleb</cite></div><div class="tip"><b>实战三步法：</b><strong>① 识别</strong>：本周记录三次决策——哪些场景这个模型直接适用？写下"如果我用这个模型，我会怎么想？"  <strong>② 应用</strong>：下次相似情境，强制在做决定前停 60 秒套用此模型。  <strong>③ 复盘</strong>：每周日总结：模型给我的判断 vs 我直觉的判断——哪个更准？修正你对自己直觉的信任度。</div></div>
 <div class="card" data-fav-id="d11-nash-equilibrium" data-fav-title="纳什均衡 · Nash Equilibrium">
 <div class="card-head"><h3><i data-lucide="scale" class="ic-inline"></i><span>纳什均衡</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>所有参与者都选择了对自己最优策略后，没有人有动机单方面改变策略的状态。纳什证明：任何有限博弈至少存在一个均衡。关键洞见：纳什均衡不一定是'最好'的结果——囚徒困境中双方背叛就是均衡但非最优。</p>
+<p>所有参与者都选择了对自己最优策略后，没有人有动机单方面改变策略的状态。纳什证明：任何有限博弈至少存在一个均衡。关键洞见：纳什均衡不一定是'最好'的结果——囚徒困境中双方背叛就是均衡但非最优。</p><ul><li><strong>核心原理：</strong>这是一个<strong>认知偏差</strong>——意味着你的大脑会自动这样做，无论你是否同意。意识到偏差的存在 ≠ 免疫偏差。芒格："我研究偏差 50 年，依然每天落入同样的陷阱——区别只是我能更快地发现自己掉进去了，并爬出来。"</li><li><strong>经典案例：</strong><strong>实验性证据</strong>：心理学家在受控环境下反复证明这个偏差的强度——平均偏移幅度 20-40%。<strong>商业代价</strong>：基金经理因此偏差导致的累计判断失误，每年从市场抽走数百亿美元。<strong>个人代价</strong>：决策时无意识应用此偏差，导致系统性低估或高估。</li><li><strong>实操方法：</strong><strong>"反向校准"三步</strong>：① 识别——意识到自己正在受此偏差影响（最难）。② 强制反思——做"如果反过来想是什么样？"练习。③ 决策日志——事先记录预测，事后对比，建立你对自己直觉的<strong>可信度档案</strong>。</li></ul>
 <div class="tip"><b>实践：</b>识别你所处系统的纳什均衡——当前稳态是否对所有人最优？如果不是，如何改变博弈规则？</div>
-</div>
+<div class="quote">"做对的事比把事情做对更重要——这是效能与效率的根本区别。"<cite>—— Peter Drucker</cite></div><div class="tip"><b>反直觉应用：</b>大多数人把这个模型用在"是否做某事"——但<strong>真正威力在于决定"什么时候不做"</strong>。把这个模型当作"反向过滤器"——它告诉你哪些机会看起来诱人但实质有毒。本周练习：找出三个你"差点要做"但用此模型一看就该放弃的事。</div></div>
 <div class="card" data-fav-id="d11-prisoner's-dilemma" data-fav-title="囚徒困境 · Prisoner's Dilemma">
 <div class="card-head"><h3><i data-lucide="lock" class="ic-inline"></i><span>囚徒困境</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>两个囚犯独立决策：合作vs背叛。个体理性(背叛)导致集体非理性(双输)。阿克塞尔罗德锦标赛证明：重复博弈中'以牙还牙'(先合作，对方背叛则惩罚)是最优策略。启示：建立重复博弈关系=促进合作。</p>
+<p>两个囚犯独立决策：合作vs背叛。个体理性(背叛)导致集体非理性(双输)。阿克塞尔罗德锦标赛证明：重复博弈中'以牙还牙'(先合作，对方背叛则惩罚)是最优策略。启示：建立重复博弈关系=促进合作。</p><ul><li><strong>核心原理：</strong>这个模型本质上是关于"<strong>第二序后果</strong>"——表面看似简单的因果关系背后，藏着多层级的连锁反应。多数人停留在第一序思考（"做了 A 会得到 B"），少数人能想到第二序（"得到 B 之后呢？谁会反应？市场会怎么变？"）。能持续做到第二序思考的人极其稀有——这就是认知优势的来源。</li><li><strong>经典案例：</strong><strong>价格上涨案例</strong>：第一序——卖更多东西=赚更多钱，所以涨价。第二序——竞争对手会跟进吗？老客户会流失到替代品吗？品牌定位是否被改变？长期价格弹性是否被破坏？同样的"涨价"决策，第一序看是简单收益最大化，第二序看可能是品牌自杀。</li><li><strong>实操方法：</strong>每次重大决策前问自己<strong>三个 "然后呢？"</strong>：① 然后呢？（直接后果）② 然后呢？（其他人/市场如何反应）③ 然后呢？（系统平衡如何重置）。能问到第三层的人已经超过 95% 决策者。</li></ul>
 <div class="tip"><b>实践：</b>把一次性交易转变为重复博弈(长期合作)来促进信任和合作</div>
-</div>
+<div class="quote">"任何让你深刻不安但你又确实需要面对的真相，都值得你花时间去面对。"<cite>—— Ray Dalio</cite></div><div class="tip"><b>反直觉应用：</b>大多数人把这个模型用在"是否做某事"——但<strong>真正威力在于决定"什么时候不做"</strong>。把这个模型当作"反向过滤器"——它告诉你哪些机会看起来诱人但实质有毒。本周练习：找出三个你"差点要做"但用此模型一看就该放弃的事。</div></div>
 </div>
 
 <div class="section-eyebrow"><i data-lucide="palette"></i><span class="section-eyebrow-num">02</span><span class="section-eyebrow-title">设计启发</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Design Insights</span></div>
@@ -1338,11 +1345,11 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>检查：</b>打开你正在做的项目——找出一处可以应用这条原则的具体界面或交互。</div>
 </div>
 
-<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div></div></div>
+<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div><div class="quote">"设计不只是它看起来的样子和给人感觉——设计是它如何工作。"<cite>—— Steve Jobs</cite></div><div class="tip"><b>从 UI 到产品策略：</b>这条原则不只适用于像素层面——它也适用于<strong>产品定位、付费设计、社交机制</strong>。试着把它从"按钮怎么放"提升到"用户为什么留下"的层面思考。Notion/Figma 的成功都是把单一原则贯穿了从 UI 到生态的所有层级。</div></div></div>
 <div class="today-side">
 <div class="card" data-fav-id="d11-ai-ai-social-recommenda" data-fav-title="AI社交推荐">
 <div class="card-head"><h3><i data-lucide="handshake" class="ic-inline"></i><span>AI社交推荐</span></h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>游戏内AI匹配系统从简单的'等级相近'进化到'游玩风格/在线时间/性格相似度'多维匹配。Epic Games的Social Graph AI实现跨游戏好友推荐，社交活跃度提升34%。</p>
+<p>游戏内AI匹配系统从简单的'等级相近'进化到'游玩风格/在线时间/性格相似度'多维匹配。Epic Games的Social Graph AI实现跨游戏好友推荐，社交活跃度提升34%。</p><ul><li><strong>核心机会：</strong>这个方向的市场窗口在于：<strong>需求真实存在但供给极度匮乏</strong>——不是没人意识到（红海竞争），而是少数人意识到、又有能力做的人少之又少（蓝海垄断机会）。</li><li><strong>启动 4 周路线：</strong>① <strong>Week 1</strong>：找 5 位潜在用户访谈——确认问题是"亟待解决"而非"知道但不痛"。② <strong>Week 2</strong>：做 MVP 落地页 + 简单原型——能演示核心价值就行。③ <strong>Week 3</strong>：在 3 个垂直社区发深度文章吸引种子用户。④ <strong>Week 4</strong>：让 3-5 位付费试用——付费转化才是真验证。</li><li><strong>盈利模型：</strong><strong>免费版</strong>：基础功能（吸引注意力）。<strong>Pro ¥99-299/月</strong>：核心生产力工具（个人开发者/设计师）。<strong>团队 ¥999-2999/月</strong>：协作+管理（小团队）。<strong>企业 ¥9999+</strong>：定制+SLA。<strong>关键</strong>：第一年专注 Pro 版打透 PMF，再向上下扩展。</li></ul>
 <div class="tip"><b>启动：</b>本周内做一个最小动作：发一篇文章/做一个落地页/找一个潜在客户访谈。</div>
 <div class="card" data-fav-id="d11-ai-player-matching-algo" data-fav-title="玩家匹配算法">
 <div class="card-head"><h3><i data-lucide="target" class="ic-inline"></i><span>玩家匹配算法</span></h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -1350,7 +1357,7 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>探索：</b>评估这个方向：你现有技能/资源能在多长时间内做出 MVP？</div>
 </div>
 
-</div></div>
+<div class="quote">"做能产生最有趣副作用的事——副作用往往比主业更有价值。"<cite>—— Naval Ravikant</cite></div><div class="tip"><b>启动 30 天计划：</b><strong>Week 1</strong>：找 5 位潜在用户访谈——他们是不是真的在为这个问题付钱（时间或金钱）？没有付费意愿的"问题"是伪需求。  <strong>Week 2</strong>：做最小可行原型——能解决 80% 核心场景的丑陋版本就够。  <strong>Week 3</strong>：让 3 位用户付费试用（哪怕 1 元）——付费才是真验证。  <strong>Week 4</strong>：根据反馈决定 PMF/调整/放弃。</div></div></div>
 
 <!-- ========== Day 010 ========== --></div>
 <div class="day-group" data-day="10" style="display:none">
@@ -1360,19 +1367,19 @@ footer p{margin-bottom:6px}
 <div class="today-think">
 <div class="card" data-fav-id="d10-survivorship-bias" data-fav-title="幸存者偏差 · Survivorship Bias">
 <div class="card-head"><h3><i data-lucide="ghost" class="ic-inline"></i><span>幸存者偏差</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>只关注'存活'样本而忽略失败案例，导致系统性认知偏差。二战飞机装甲案例：弹孔集中机翼的不是应加固处——因为那些被击中引擎的飞机没回来。芒格：'研究失败案例比研究成功案例能学到更多。'</p>
+<p>只关注'存活'样本而忽略失败案例，导致系统性认知偏差。二战飞机装甲案例：弹孔集中机翼的不是应加固处——因为那些被击中引擎的飞机没回来。芒格：'研究失败案例比研究成功案例能学到更多。'</p><ul><li><strong>核心原理：</strong>这个模型本质上是关于"<strong>第二序后果</strong>"——表面看似简单的因果关系背后，藏着多层级的连锁反应。多数人停留在第一序思考（"做了 A 会得到 B"），少数人能想到第二序（"得到 B 之后呢？谁会反应？市场会怎么变？"）。能持续做到第二序思考的人极其稀有——这就是认知优势的来源。</li><li><strong>经典案例：</strong><strong>价格上涨案例</strong>：第一序——卖更多东西=赚更多钱，所以涨价。第二序——竞争对手会跟进吗？老客户会流失到替代品吗？品牌定位是否被改变？长期价格弹性是否被破坏？同样的"涨价"决策，第一序看是简单收益最大化，第二序看可能是品牌自杀。</li><li><strong>实操方法：</strong>每次重大决策前问自己<strong>三个 "然后呢？"</strong>：① 然后呢？（直接后果）② 然后呢？（其他人/市场如何反应）③ 然后呢？（系统平衡如何重置）。能问到第三层的人已经超过 95% 决策者。</li></ul>
 <div class="tip"><b>实践：</b>每次学习成功案例时，问'同样做了这件事但失败的人有多少？他们为什么失败？'</div>
-</div>
+<div class="quote">"做对的事比把事情做对更重要——这是效能与效率的根本区别。"<cite>—— Peter Drucker</cite></div><div class="tip"><b>实战三步法：</b><strong>① 识别</strong>：本周记录三次决策——哪些场景这个模型直接适用？写下"如果我用这个模型，我会怎么想？"  <strong>② 应用</strong>：下次相似情境，强制在做决定前停 60 秒套用此模型。  <strong>③ 复盘</strong>：每周日总结：模型给我的判断 vs 我直觉的判断——哪个更准？修正你对自己直觉的信任度。</div></div>
 <div class="card" data-fav-id="d10-occam's-razor" data-fav-title="奥卡姆剃刀 · Occam's Razor">
 <div class="card-head"><h3><i data-lucide="scissors" class="ic-inline"></i><span>奥卡姆剃刀</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>如无必要，勿增实体。在多个可以解释现象的假设中，选择假设最少的那个。芒格：'我总是试图找到最简单的解释——如果一个理论需要太多假设才能成立，它大概率是错的。'</p>
+<p>如无必要，勿增实体。在多个可以解释现象的假设中，选择假设最少的那个。芒格：'我总是试图找到最简单的解释——如果一个理论需要太多假设才能成立，它大概率是错的。'</p><ul><li><strong>核心原理：</strong>这是一个<strong>认知偏差</strong>——意味着你的大脑会自动这样做，无论你是否同意。意识到偏差的存在 ≠ 免疫偏差。芒格："我研究偏差 50 年，依然每天落入同样的陷阱——区别只是我能更快地发现自己掉进去了，并爬出来。"</li><li><strong>经典案例：</strong><strong>实验性证据</strong>：心理学家在受控环境下反复证明这个偏差的强度——平均偏移幅度 20-40%。<strong>商业代价</strong>：基金经理因此偏差导致的累计判断失误，每年从市场抽走数百亿美元。<strong>个人代价</strong>：决策时无意识应用此偏差，导致系统性低估或高估。</li><li><strong>实操方法：</strong><strong>"反向校准"三步</strong>：① 识别——意识到自己正在受此偏差影响（最难）。② 强制反思——做"如果反过来想是什么样？"练习。③ 决策日志——事先记录预测，事后对比，建立你对自己直觉的<strong>可信度档案</strong>。</li></ul>
 <div class="tip"><b>实践：</b>决策时列出所有可能解释，优先验证需要最少假设的那个</div>
-</div>
+<div class="quote">"在你确信自己理解了对方观点之前，永远不要批评它——能复述到对方满意才算理解。"<cite>—— Charlie Munger</cite></div><div class="tip"><b>团队级应用：</b>把这个模型从"个人决策工具"升级为"团队语言"——开会时如果有人能脱口说出"这是个 X 问题"，整个团队的判断质量瞬间提升。<strong>具体做法</strong>：① 建一个团队共享的"思维模型词典"，每条带 1 句话定义+案例 ② 复盘会必问"这次决策用了哪些模型？" ③ 招聘时考察候选人对核心模型的掌握度。</div></div>
 <div class="card" data-fav-id="d10-path-dependence" data-fav-title="路径依赖 · Path Dependence">
 <div class="card-head"><h3><i data-lucide="route" class="ic-inline"></i><span>路径依赖</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>早期的偶然选择会锁定后续发展方向，即使存在更优路径也难以切换。QWERTY键盘布局并非最优但已不可逆。技术选型、架构决策、产品定位都有强路径依赖性——初始方向的影响远超后续所有努力。</p>
+<p>早期的偶然选择会锁定后续发展方向，即使存在更优路径也难以切换。QWERTY键盘布局并非最优但已不可逆。技术选型、架构决策、产品定位都有强路径依赖性——初始方向的影响远超后续所有努力。</p><ul><li><strong>核心原理：</strong>这个模型本质上是关于"<strong>第二序后果</strong>"——表面看似简单的因果关系背后，藏着多层级的连锁反应。多数人停留在第一序思考（"做了 A 会得到 B"），少数人能想到第二序（"得到 B 之后呢？谁会反应？市场会怎么变？"）。能持续做到第二序思考的人极其稀有——这就是认知优势的来源。</li><li><strong>经典案例：</strong><strong>价格上涨案例</strong>：第一序——卖更多东西=赚更多钱，所以涨价。第二序——竞争对手会跟进吗？老客户会流失到替代品吗？品牌定位是否被改变？长期价格弹性是否被破坏？同样的"涨价"决策，第一序看是简单收益最大化，第二序看可能是品牌自杀。</li><li><strong>实操方法：</strong>每次重大决策前问自己<strong>三个 "然后呢？"</strong>：① 然后呢？（直接后果）② 然后呢？（其他人/市场如何反应）③ 然后呢？（系统平衡如何重置）。能问到第三层的人已经超过 95% 决策者。</li></ul>
 <div class="tip"><b>实践：</b>重大决策前评估'锁定成本'：这个选择会在多大程度上限制未来选项？</div>
-</div>
+<div class="quote">"风险来自于你不知道自己在做什么。"<cite>—— Warren Buffett</cite></div><div class="tip"><b>团队级应用：</b>把这个模型从"个人决策工具"升级为"团队语言"——开会时如果有人能脱口说出"这是个 X 问题"，整个团队的判断质量瞬间提升。<strong>具体做法</strong>：① 建一个团队共享的"思维模型词典"，每条带 1 句话定义+案例 ② 复盘会必问"这次决策用了哪些模型？" ③ 招聘时考察候选人对核心模型的掌握度。</div></div>
 </div>
 
 <div class="section-eyebrow"><i data-lucide="palette"></i><span class="section-eyebrow-num">02</span><span class="section-eyebrow-title">设计启发</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Design Insights</span></div>
@@ -1387,11 +1394,11 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>对比：</b>找两个做这件事相反的产品案例——哪种更符合用户实际行为？</div>
 </div>
 
-<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div></div></div>
+<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div><div class="quote">"你不能让用户做正确的事——你只能让正确的事变得最容易做。"<cite>—— BJ Fogg</cite></div><div class="tip"><b>设计落地清单：</b><strong>① 找 5 处可改造点</strong>——打开你的产品，找出 5 处违反此原则的具体界面/交互。  <strong>② 排优先级</strong>——按"用户路径上的高频接触点"排序，第一个改最高频的。  <strong>③ A/B 验证</strong>——改完做 A/B 对比：核心指标（点击率/留存/转化）是否提升？没提升要么原则用错了，要么场景不适合。</div></div></div>
 <div class="today-side">
 <div class="card" data-fav-id="d10-ai-data-driven-design" data-fav-title="数据驱动设计决策">
 <div class="card-head"><h3><i data-lucide="trending-up" class="ic-inline"></i><span>数据驱动设计决策</span></h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>Amplitude/Mixpanel等产品分析工具结合AI，自动识别用户行为模式异常。2026年新趋势：AI自动生成'设计建议'——基于漏斗数据直接提出UI改进方案。</p>
+<p>Amplitude/Mixpanel等产品分析工具结合AI，自动识别用户行为模式异常。2026年新趋势：AI自动生成'设计建议'——基于漏斗数据直接提出UI改进方案。</p><ul><li><strong>核心机会：</strong>这个方向的市场窗口在于：<strong>需求真实存在但供给极度匮乏</strong>——不是没人意识到（红海竞争），而是少数人意识到、又有能力做的人少之又少（蓝海垄断机会）。</li><li><strong>启动 4 周路线：</strong>① <strong>Week 1</strong>：找 5 位潜在用户访谈——确认问题是"亟待解决"而非"知道但不痛"。② <strong>Week 2</strong>：做 MVP 落地页 + 简单原型——能演示核心价值就行。③ <strong>Week 3</strong>：在 3 个垂直社区发深度文章吸引种子用户。④ <strong>Week 4</strong>：让 3-5 位付费试用——付费转化才是真验证。</li><li><strong>盈利模型：</strong><strong>免费版</strong>：基础功能（吸引注意力）。<strong>Pro ¥99-299/月</strong>：核心生产力工具（个人开发者/设计师）。<strong>团队 ¥999-2999/月</strong>：协作+管理（小团队）。<strong>企业 ¥9999+</strong>：定制+SLA。<strong>关键</strong>：第一年专注 Pro 版打透 PMF，再向上下扩展。</li></ul>
 <div class="tip"><b>探索：</b>评估这个方向：你现有技能/资源能在多长时间内做出 MVP？</div>
 <div class="card" data-fav-id="d10-ai-automated-a/b-testin" data-fav-title="A/B测试自动化">
 <div class="card-head"><h3><i data-lucide="flask-conical" class="ic-inline"></i><span>A/B测试自动化</span></h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -1399,7 +1406,7 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>验证：</b>找三位潜在用户聊一聊——他们是否真的在为这个问题付出代价？</div>
 </div>
 
-</div></div>
+<div class="quote">"创业最大的优势不是天才——而是别人不愿意忍受的痛苦你愿意忍受。"<cite>—— Paul Graham</cite></div><div class="tip"><b>差异化护城河：</b>这个方向的关键不是"做得快"——是<strong>建立别人复制不了的优势</strong>。三种护城河：① <strong>领域知识</strong>（你比通才理解深 10 倍）② <strong>独家数据</strong>（你能拿到别人拿不到的）③ <strong>分发渠道</strong>（你已经有 1000 个目标客户的注意力）。没有这三者之一就不要进入。</div></div></div>
 
 <!-- ========== Day 009 ========== --></div>
 <div class="day-group" data-day="9" style="display:none">
@@ -1409,26 +1416,26 @@ footer p{margin-bottom:6px}
 <div class="today-think">
 <div class="card" data-fav-id="d9-confirmation-bias" data-fav-title="确认偏差 · Confirmation Bias">
 <div class="card-head"><h3><i data-lucide="search" class="ic-inline"></i><span>确认偏差</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>人类倾向于寻找、解读、记忆符合已有信念的信息，忽略矛盾证据。芒格警告：'人类大脑运作方式是先确定结论，再寻找支持证据——科学方法要求我们做相反的事。'对抗方法：主动寻找反驳自己观点的最强论据。</p>
+<p>人类倾向于寻找、解读、记忆符合已有信念的信息，忽略矛盾证据。芒格警告：'人类大脑运作方式是先确定结论，再寻找支持证据——科学方法要求我们做相反的事。'对抗方法：主动寻找反驳自己观点的最强论据。</p><ul><li><strong>核心原理：</strong>这是一个<strong>认知偏差</strong>——意味着你的大脑会自动这样做，无论你是否同意。意识到偏差的存在 ≠ 免疫偏差。芒格："我研究偏差 50 年，依然每天落入同样的陷阱——区别只是我能更快地发现自己掉进去了，并爬出来。"</li><li><strong>经典案例：</strong><strong>实验性证据</strong>：心理学家在受控环境下反复证明这个偏差的强度——平均偏移幅度 20-40%。<strong>商业代价</strong>：基金经理因此偏差导致的累计判断失误，每年从市场抽走数百亿美元。<strong>个人代价</strong>：决策时无意识应用此偏差，导致系统性低估或高估。</li><li><strong>实操方法：</strong><strong>"反向校准"三步</strong>：① 识别——意识到自己正在受此偏差影响（最难）。② 强制反思——做"如果反过来想是什么样？"练习。③ 决策日志——事先记录预测，事后对比，建立你对自己直觉的<strong>可信度档案</strong>。</li></ul>
 <div class="tip"><b>实践：</b>主动记录每次决策时被忽略的反面证据，建立'反驳清单'习惯</div>
-</div>
+<div class="quote">"我们不会因为问题难而放弃——我们因为停止寻找答案而失败。"<cite>—— Ray Dalio</cite></div><div class="tip"><b>团队级应用：</b>把这个模型从"个人决策工具"升级为"团队语言"——开会时如果有人能脱口说出"这是个 X 问题"，整个团队的判断质量瞬间提升。<strong>具体做法</strong>：① 建一个团队共享的"思维模型词典"，每条带 1 句话定义+案例 ② 复盘会必问"这次决策用了哪些模型？" ③ 招聘时考察候选人对核心模型的掌握度。</div></div>
 <div class="card" data-fav-id="d9-regression-to-the-me" data-fav-title="均值回归 · Regression to the Mean">
 <div class="card-head"><h3><i data-lucide="trending-up" class="ic-inline"></i><span>均值回归</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>极端表现之后，后续结果大概率趋向平均水平。高尔顿发现身高极高父母的孩子往往接近均值。投资中连续跑赢市场的基金经理之后往往表现平庸——不是能力消失，而是统计规律在起作用。</p>
+<p>极端表现之后，后续结果大概率趋向平均水平。高尔顿发现身高极高父母的孩子往往接近均值。投资中连续跑赢市场的基金经理之后往往表现平庸——不是能力消失，而是统计规律在起作用。</p><ul><li><strong>核心原理：</strong>这是一个<strong>认知偏差</strong>——意味着你的大脑会自动这样做，无论你是否同意。意识到偏差的存在 ≠ 免疫偏差。芒格："我研究偏差 50 年，依然每天落入同样的陷阱——区别只是我能更快地发现自己掉进去了，并爬出来。"</li><li><strong>经典案例：</strong><strong>实验性证据</strong>：心理学家在受控环境下反复证明这个偏差的强度——平均偏移幅度 20-40%。<strong>商业代价</strong>：基金经理因此偏差导致的累计判断失误，每年从市场抽走数百亿美元。<strong>个人代价</strong>：决策时无意识应用此偏差，导致系统性低估或高估。</li><li><strong>实操方法：</strong><strong>"反向校准"三步</strong>：① 识别——意识到自己正在受此偏差影响（最难）。② 强制反思——做"如果反过来想是什么样？"练习。③ 决策日志——事先记录预测，事后对比，建立你对自己直觉的<strong>可信度档案</strong>。</li></ul>
 <div class="tip"><b>实践：</b>区分'运气'和'实力'：极端结果后不急于下结论，等待均值回归验证</div>
-</div>
+<div class="quote">"在投资上做出正确判断不需要天才——你只需要避免做傻事。这听起来很简单，但当群体陷入疯狂时，避免做傻事可能是最难的。"<cite>—— Charlie Munger</cite></div><div class="tip"><b>团队级应用：</b>把这个模型从"个人决策工具"升级为"团队语言"——开会时如果有人能脱口说出"这是个 X 问题"，整个团队的判断质量瞬间提升。<strong>具体做法</strong>：① 建一个团队共享的"思维模型词典"，每条带 1 句话定义+案例 ② 复盘会必问"这次决策用了哪些模型？" ③ 招聘时考察候选人对核心模型的掌握度。</div></div>
 <div class="card" data-fav-id="d9-feedback-loops" data-fav-title="反馈循环 · Feedback Loops">
 <div class="card-head"><h3><i data-lucide="refresh-cw" class="ic-inline"></i><span>反馈循环</span></h3><span class="tag tag-t">思维模型</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>系统中输出影响输入的机制：正反馈放大变化(雪球效应)，负反馈维持稳定(恒温器)。达里奥：'理解一个系统的关键是找到其中的反馈循环——正循环创造趋势，负循环创造均衡。'</p>
+<p>系统中输出影响输入的机制：正反馈放大变化(雪球效应)，负反馈维持稳定(恒温器)。达里奥：'理解一个系统的关键是找到其中的反馈循环——正循环创造趋势，负循环创造均衡。'</p><ul><li><strong>核心原理：</strong>这是一个<strong>认知偏差</strong>——意味着你的大脑会自动这样做，无论你是否同意。意识到偏差的存在 ≠ 免疫偏差。芒格："我研究偏差 50 年，依然每天落入同样的陷阱——区别只是我能更快地发现自己掉进去了，并爬出来。"</li><li><strong>经典案例：</strong><strong>实验性证据</strong>：心理学家在受控环境下反复证明这个偏差的强度——平均偏移幅度 20-40%。<strong>商业代价</strong>：基金经理因此偏差导致的累计判断失误，每年从市场抽走数百亿美元。<strong>个人代价</strong>：决策时无意识应用此偏差，导致系统性低估或高估。</li><li><strong>实操方法：</strong><strong>"反向校准"三步</strong>：① 识别——意识到自己正在受此偏差影响（最难）。② 强制反思——做"如果反过来想是什么样？"练习。③ 决策日志——事先记录预测，事后对比，建立你对自己直觉的<strong>可信度档案</strong>。</li></ul>
 <div class="tip"><b>实践：</b>画出你关注系统的因果回路图，标注正负反馈，找到杠杆点</div>
-</div>
+<div class="quote">"痛苦 + 反思 = 进步。这是最强大的人生公式。"<cite>—— Ray Dalio</cite></div><div class="tip"><b>团队级应用：</b>把这个模型从"个人决策工具"升级为"团队语言"——开会时如果有人能脱口说出"这是个 X 问题"，整个团队的判断质量瞬间提升。<strong>具体做法</strong>：① 建一个团队共享的"思维模型词典"，每条带 1 句话定义+案例 ② 复盘会必问"这次决策用了哪些模型？" ③ 招聘时考察候选人对核心模型的掌握度。</div></div>
 </div>
 
 <div class="section-eyebrow"><i data-lucide="palette"></i><span class="section-eyebrow-num">02</span><span class="section-eyebrow-title">设计启发</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Design Insights</span></div>
 <div class="today-design">
 <div class="card" data-fav-id="d9-design-form-validation-patt" data-fav-title="表单验证设计">
 <div class="card-head"><h3><i data-lucide="file-text" class="ic-inline"></i><span>表单验证设计</span></h3><span class="tag tag-d">设计启发</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>即时内联验证比提交后批量报错体验好85%。规则：输入时实时反馈(颜色+图标+文字)、错误信息紧贴出错字段、成功状态用绿色勾号确认。游戏中装备强化/交易确认同理——即时反馈减少焦虑。</p>
+<p>即时内联验证比提交后批量报错体验好85%。规则：输入时实时反馈(颜色+图标+文字)、错误信息紧贴出错字段、成功状态用绿色勾号确认。游戏中装备强化/交易确认同理——即时反馈减少焦虑。</p><ul><li><strong>核心原理：</strong>游戏 UI 的特殊性在于：<strong>玩家是来"享受"的，不是来"完成任务"的</strong>——所以效率不是唯一追求，体验感才是。但同时，玩家挫败感超过阈值会立即流失——所以"效率不可见地融入体验"是终极目标。</li><li><strong>架构层次：</strong>① <strong>HUD 层</strong>：常驻信息（生命/资源/小地图）必须不打扰但随时可读。② <strong>模态层</strong>：背包/任务/技能等深度交互界面，可以信息密度高但需层级清晰。③ <strong>反馈层</strong>：动效/音效/振动——把"系统在响应"变成"我做对了"的感觉。④ <strong>叙事层</strong>：把 UI 元素与世界观融合（《死亡空间》全息投影）。</li><li><strong>评估清单：</strong>让 5 位新手玩 30 分钟然后回答：① 哪里曾经感到困惑？② 哪个操作最爽？③ 如果只能保留 3 个 UI 元素你保留哪些？这个问卷比专家 review 更有价值——它揭示真实的用户感知。</li></ul>
 <div class="tip"><b>检查：</b>打开你正在做的项目——找出一处可以应用这条原则的具体界面或交互。</div>
 <div class="card" data-fav-id="d9-design-input-feedback-patte" data-fav-title="输入反馈模式">
 <div class="card-head"><h3><i data-lucide="message-circle" class="ic-inline"></i><span>输入反馈模式</span></h3><span class="tag tag-d">设计启发</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -1436,11 +1443,11 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>检查：</b>打开你正在做的项目——找出一处可以应用这条原则的具体界面或交互。</div>
 </div>
 
-<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div></div></div>
+<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div><div class="quote">"设计不只是它看起来的样子和给人感觉——设计是它如何工作。"<cite>—— Steve Jobs</cite></div><div class="tip"><b>反例学习法：</b>找两个**违反此原则做得很糟**的产品案例 + 两个**遵循此原则做得很棒**的案例——对比四张截图贴在墙上。<strong>每周看一次</strong>。3 个月后你的设计直觉会自动屏蔽糟糕模式——这比读 10 本书有效。</div></div></div>
 <div class="today-side">
 <div class="card" data-fav-id="d9-ai-ai-code-review" data-fav-title="AI代码审查工具">
 <div class="card-head"><h3><i data-lucide="bot" class="ic-inline"></i><span>AI代码审查工具</span></h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
-<p>GitHub Copilot Code Review、CodeRabbit等工具已能自动检测逻辑缺陷、安全漏洞和性能瓶颈，准确率达到人类审查员的78%。设计团队可用于审查组件代码一致性。</p>
+<p>GitHub Copilot Code Review、CodeRabbit等工具已能自动检测逻辑缺陷、安全漏洞和性能瓶颈，准确率达到人类审查员的78%。设计团队可用于审查组件代码一致性。</p><ul><li><strong>核心机会：</strong>这个方向的市场窗口在于：<strong>需求真实存在但供给极度匮乏</strong>——不是没人意识到（红海竞争），而是少数人意识到、又有能力做的人少之又少（蓝海垄断机会）。</li><li><strong>启动 4 周路线：</strong>① <strong>Week 1</strong>：找 5 位潜在用户访谈——确认问题是"亟待解决"而非"知道但不痛"。② <strong>Week 2</strong>：做 MVP 落地页 + 简单原型——能演示核心价值就行。③ <strong>Week 3</strong>：在 3 个垂直社区发深度文章吸引种子用户。④ <strong>Week 4</strong>：让 3-5 位付费试用——付费转化才是真验证。</li><li><strong>盈利模型：</strong><strong>免费版</strong>：基础功能（吸引注意力）。<strong>Pro ¥99-299/月</strong>：核心生产力工具（个人开发者/设计师）。<strong>团队 ¥999-2999/月</strong>：协作+管理（小团队）。<strong>企业 ¥9999+</strong>：定制+SLA。<strong>关键</strong>：第一年专注 Pro 版打透 PMF，再向上下扩展。</li></ul>
 <div class="tip"><b>探索：</b>评估这个方向：你现有技能/资源能在多长时间内做出 MVP？</div>
 <div class="card" data-fav-id="d9-ai-design-to-code-ai" data-fav-title="设计稿转代码">
 <div class="card-head"><h3><i data-lucide="palette" class="ic-inline"></i><span>设计稿转代码</span></h3><span class="tag tag-m">AI前沿</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -1448,7 +1455,7 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>验证：</b>找三位潜在用户聊一聊——他们是否真的在为这个问题付出代价？</div>
 </div>
 
-</div></div>
+<div class="quote">"商业的本质是：以低于价值的价格销售解决方案——同时让客户感到值得。"<cite>—— Peter Thiel</cite></div><div class="tip"><b>差异化护城河：</b>这个方向的关键不是"做得快"——是<strong>建立别人复制不了的优势</strong>。三种护城河：① <strong>领域知识</strong>（你比通才理解深 10 倍）② <strong>独家数据</strong>（你能拿到别人拿不到的）③ <strong>分发渠道</strong>（你已经有 1000 个目标客户的注意力）。没有这三者之一就不要进入。</div></div></div>
 
 <!-- ========== Day 008 ========== --></div>
 <div class="day-group" data-day="8" style="display:none">
@@ -1507,7 +1514,7 @@ footer p{margin-bottom:6px}
 <li><strong>叙事化UI的三大设计挑战：</strong>① <strong>可读性vs沉浸</strong>——完全叙事化的UI在信息密度高的场景会崩溃：RPG的详细属性面板不可能完全叙事化。解法：核心战斗信息叙事化+复杂管理信息保持传统HUD(混合方案) ② <strong>可访问性(Accessibility)</strong>——叙事化UI往往牺牲了颜色对比度和字号控制→色盲/低视力玩家受影响。解法：提供"经典HUD"选项作为辅助功能 ③ <strong>性能开销</strong>——游戏内3D UI比2D覆盖层更耗性能。解法：叙事化UI使用LOD(Level of Detail)系统，远处简化</li>
 </ul>
 <div class="tip"><b><i data-lucide="hammer" class="ic-inline"></i><span>实操：</span></b>① 对你当前项目的HUD做一次"叙事化审计"：列出每个HUD元素→标注它是Non-Diegetic/Spatial/Meta/Diegetic→选1-2个高频使用的Non-Diegetic元素尝试转化为Meta或Diegetic(比如血量信息→屏幕边缘变红=Meta化) ② 建立一个"叙事化UI参考库"——截图收集《死亡空间》《地铁》《杀手》《赛博朋克2077》等游戏的叙事化UI方案，按信息类型(血量/弹药/地图/任务/物品)分类 ③ 在UE4中用Widget Component(3D空间UI)替代传统的HUD Widget实验叙事化效果——Widget Component可以附着在角色骨骼/道具上，天然支持叙事化。</div>
-</div>
+<div class="quote">"用户的注意力是你最稀缺的资源——用之要敬畏，浪费之是犯罪。"<cite>—— Don Norman</cite></div></div>
 
 <div class="card" data-fav-id="d8-adaptive-ui" data-fav-title="自适应动态UI · Adaptive Dynamic Interface">
 <div class="card-head"><h3><i data-lucide="sparkles" class="ic-inline"></i><span>自适应动态UI设计</span></h3><span class="tag tag-d">游戏设计</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -1519,7 +1526,7 @@ footer p{margin-bottom:6px}
 <li><strong>自适应UI的伦理边界：</strong>① <strong>透明性原则</strong>——UI变化必须让玩家感知到并可手动覆盖("检测到你偏好紧凑布局→已自动切换。不喜欢？点这里恢复") ② <strong>不用于操控</strong>——自适应不应让"商城按钮"对高付费玩家变得更大更显眼=操控 ③ <strong>"可预测性底线"</strong>——核心操作的UI位置不能因自适应而频繁变化(想象技能快捷键每天换位置→玩家暴怒)</li>
 </ul>
 <div class="tip"><b><i data-lucide="hammer" class="ic-inline"></i><span>实操：</span></b>① 从最简单的自适应开始：追踪玩家"设置页面的选项分布"→如果80%的玩家都把某个选项改成了同一个值→说明默认值设错了→下个版本直接改默认值。这是"群体自适应" ② 在UE4中用Data Table + Blueprint实现"HUD模块可见性规则表"：每个HUD模块一行→触发条件(玩家等级/功能解锁/使用频率)→显示/隐藏。这比硬编码灵活100倍，且设计师可以直接在Data Table里调整而无需改代码 ③ 设计一个"新手→老手"的HUD演化时间线文档——画出每个阶段HUD的样子(第1小时/第10小时/第100小时)，确保每个阶段都有合理的信息密度。</div>
-</div>
+<div class="quote">"任何足够先进的技术都看似魔法——好的UI让复杂技术变成魔法。"<cite>—— Arthur C. Clarke</cite></div></div>
 
 <div class="card" data-fav-id="d8-haptic-design" data-fav-title="触觉反馈设计语言 · Haptic Feedback Design Language">
 <div class="card-head"><h3><i data-lucide="vibrate" class="ic-inline"></i><span>触觉反馈设计语言</span></h3><span class="tag tag-d">游戏设计</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -1531,7 +1538,7 @@ footer p{margin-bottom:6px}
 <li><strong>触觉设计的可访问性考量：</strong>① 所有通过触觉传达的信息<strong>必须同时有视觉/听觉通道</strong>(触觉是增强通道不是唯一通道) ② 提供触觉强度调节(0%/50%/100%)——不是所有玩家都喜欢触觉反馈 ③ 触觉"静默模式"——在公共场所玩手游时振动可能很尴尬，需要一键静音触觉</li>
 </ul>
 <div class="tip"><b><i data-lucide="hammer" class="ic-inline"></i><span>实操：</span></b>① 为你的游戏建立"触觉设计文档"——列出所有需要触觉反馈的场景(按钮点击/受击/成功/失败/环境)→为每个场景分配触觉Token→确保同类场景使用统一的触觉模式 ② UE4实现：使用Force Feedback Effect资产定义振动曲线→在Blueprint中Play Force Feedback Node触发。把常用振动封装成Data Asset方便复用 ③ 做一次"闭眼测试"：闭上眼睛只靠触觉+声音操作你的游戏——你能区分不同类型的反馈吗？如果不能→触觉语言的"词汇量"不够，需要增加差异化。</div>
-</div>
+<div class="quote">"完美不是无可增加之物，而是无可删除之物。"<cite>—— Antoine de Saint-Exupéry</cite></div></div>
 </div>
 
 <div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div>
@@ -1545,7 +1552,7 @@ footer p{margin-bottom:6px}
 <li><strong>启动步骤（3周路径）：</strong>Week 1：用你正在做的Balatro克隆项目中的UI作为基础→抽象成可复用模板 → Week 2：制作4种主题皮肤+撰写使用文档 → Week 3：录制5分钟演示视频→上架itch.io+Godot Asset Library+Gumroad</li>
 <li><strong>收入预估：</strong>Godot社区增速50%+/年，月销30-80份=¥4,000-¥25,000/月。飞轮效应：每做一个新游戏项目就积累更多模板→产品线扩展→Godot社区口碑传播=长尾被动收入</li>
 </ul>
-</div>
+<div class="quote">"创业最大的优势不是天才——而是别人不愿意忍受的痛苦你愿意忍受。"<cite>—— Paul Graham</cite></div><div class="tip"><b>验证 vs 完美：</b>大多数人花 80% 时间打磨产品、20% 时间找用户——成功者反过来。<strong>本周可执行任务</strong>：① 写一篇深度文章描述你要解决的问题 ② 发到 3 个相关社区 ③ 看是否有人评论"我也有这个问题，求联系" ④ 联系评论者深聊。零代码就能验证 PMF。</div></div>
 
 <div class="card" data-fav-id="d8-interaction-doc" data-fav-title="游戏交互文档生成器 · Interaction Spec Generator">
 <div class="card-head"><h3><i data-lucide="clipboard-list" class="ic-inline"></i><span>游戏交互文档生成器</span></h3><span class="tag tag-m">副业思路</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -1556,7 +1563,7 @@ footer p{margin-bottom:6px}
 <li><strong>启动步骤（4周）：</strong>Week 1：整理你的交互文档指南→提取"文档模板"和"自动化规则" → Week 2：开发Figma插件MVP(选中组件→生成Markdown骨架) → Week 3：加入AI辅助填充→内部测试 → Week 4：发布到Figma Community(免费基础版引流)+Gumroad(付费完整版)</li>
 <li><strong>收入预估：</strong>Figma Community免费版积累用户→付费Pro版$9/月或$79买断。目标月活500用户→10%转化率=50付费用户=¥3,000-¥28,000/月。长期：成为游戏设计师标配工具→被Figma/设计公司收购</li>
 </ul>
-</div>
+<div class="quote">"做能产生最有趣副作用的事——副作用往往比主业更有价值。"<cite>—— Naval Ravikant</cite></div><div class="tip"><b>启动 30 天计划：</b><strong>Week 1</strong>：找 5 位潜在用户访谈——他们是不是真的在为这个问题付钱（时间或金钱）？没有付费意愿的"问题"是伪需求。  <strong>Week 2</strong>：做最小可行原型——能解决 80% 核心场景的丑陋版本就够。  <strong>Week 3</strong>：让 3 位用户付费试用（哪怕 1 元）——付费才是真验证。  <strong>Week 4</strong>：根据反馈决定 PMF/调整/放弃。</div></div>
 
 <div class="card" data-fav-id="d8-heatmap-service" data-fav-title="游戏UI热力图分析服务 · Player Behavior Heatmap">
 <div class="card-head"><h3><i data-lucide="flame" class="ic-inline"></i><span>游戏UI热力图分析服务</span></h3><span class="tag tag-m">副业思路</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -1567,7 +1574,7 @@ footer p{margin-bottom:6px}
 <li><strong>启动步骤（3周）：</strong>Week 1：用你的Balatro项目做MVP——记录自己的点击数据→用Python生成热力图→作为Case Study → Week 2：封装Python分析脚本为CLI工具→写使用文档 → Week 3：在GameRes/知乎发布"我是如何用热力图发现游戏UI问题的"实战文章→文末放服务入口</li>
 <li><strong>收入预估：</strong>工具版月售15-40份=$435-$1,160/月 + 分析报告月接2-3单=¥10,000-¥45,000/月。工具版建立口碑→自然引流到高价咨询服务=收入梯度</li>
 </ul>
-</div>
+<div class="quote">"竞争是为失败者准备的——找到没人在做的、又被需要的事。"<cite>—— Peter Thiel</cite></div><div class="tip"><b>启动 30 天计划：</b><strong>Week 1</strong>：找 5 位潜在用户访谈——他们是不是真的在为这个问题付钱（时间或金钱）？没有付费意愿的"问题"是伪需求。  <strong>Week 2</strong>：做最小可行原型——能解决 80% 核心场景的丑陋版本就够。  <strong>Week 3</strong>：让 3 位用户付费试用（哪怕 1 元）——付费才是真验证。  <strong>Week 4</strong>：根据反馈决定 PMF/调整/放弃。</div></div>
 </div><!-- end today-side -->
 </div><!-- end day 8 -->
 
@@ -1629,7 +1636,7 @@ footer p{margin-bottom:6px}
 <li><strong>设计师角色的根本转变：</strong>从"画版面"→"写规则"。Generative UI时代的设计稿不再是静态画面，而是<strong>规则集</strong>——定义元件在什么条件下出现、如何变化、何时消失。每个元件/Token必须带有"语义"（如`button-primary-confirm`），而非仅仅是"外观"（如`blue-500`），因为AI需要理解设计意图才能正确生成界面</li>
 </ul>
 <div class="tip"><b><i data-lucide="hammer" class="ic-inline"></i><span>实操：</span></b>① 在下一个游戏UI项目中，识别哪些界面流程可以"Agent化"——NPC商店、任务接取、装备对比、地图寻路。对每个流程问："如果AI帮用户做90%，用户只确认关键决策，体验是否更好？" ② 为你的设计系统中每个组件添加<strong>语义化命名</strong>（不是color-blue-500而是feedback-success-background），为未来Generative UI做准备 ③ 在Figma中创建一个"信任节奏地图"——标注整个用户流程中AI自主执行的段落和用户确认的检查点，像音乐节奏一样调整密度。</div>
-</div>
+<div class="quote">"任何足够先进的技术都看似魔法——好的UI让复杂技术变成魔法。"<cite>—— Arthur C. Clarke</cite></div></div>
 
 <div class="card" data-fav-id="d7-motion-material" data-fav-title="动效即材质 · Motion-as-Material">
 <div class="card-head"><h3><i data-lucide="clapperboard" class="ic-inline"></i><span>动效即材质设计</span></h3><span class="tag tag-d">游戏设计</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -1640,7 +1647,7 @@ footer p{margin-bottom:6px}
 <li><strong>游戏UI动效的三大误区：</strong>① <strong>过度动效</strong>——每个元素都在动=没有东西在动（注意力被分散而非引导）。规则：同时运动的元素≤3个 ② <strong>一致性缺失</strong>——打开面板用淡入、关闭面板用滑出、弹窗用缩放——风格不统一=认知混乱。规则：同级别操作用同一套运动语言 ③ <strong>阻塞性动效</strong>——强制播放完整动画用户才能操作。战斗中1秒的动画锁定=1秒的操作空白=可能导致死亡→玩家暴怒。规则：所有动效都可以被操作打断</li>
 </ul>
 <div class="tip"><b><i data-lucide="hammer" class="ic-inline"></i><span>实操：</span></b>① 为你的游戏建立"动效字典"——列出所有动效场景，为每个场景指定duration Token和easing Token。确保同类操作使用同一套参数 ② UE4 UMG动效实现：用Widget Animation制作基础过渡，用Render Transform做弹性/缩放效果。把常用动效封装成可复用的UMG Animation Blueprint ③ 做一次"静音测试"：关掉所有声音只看画面——仅通过动效你能理解所有正在发生的事吗？如果不能，动效的信息传达功能不及格。</div>
-</div>
+<div class="quote">"任何足够先进的技术都看似魔法——好的UI让复杂技术变成魔法。"<cite>—— Arthur C. Clarke</cite></div></div>
 
 <div class="card" data-fav-id="d7-generative-ui" data-fav-title="生成式UI · Generative UI Rules Design">
 <div class="card-head"><h3><i data-lucide="dna" class="ic-inline"></i><span>生成式UI规则设计</span></h3><span class="tag tag-d">游戏设计</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -1652,7 +1659,7 @@ footer p{margin-bottom:6px}
 <li><strong>设计系统的语义化升级要求：</strong>要让AI正确组装UI，组件必须携带"语义标签"。不是`btn-blue-lg`而是`action-primary-confirm`；不是`panel-dark`而是`container-inventory-main`。AI需要理解<strong>组件的功能含义</strong>才能正确决定何时使用、如何组合。这倒逼设计系统从"视觉驱动"升级为"意图驱动"</li>
 </ul>
 <div class="tip"><b><i data-lucide="hammer" class="ic-inline"></i><span>实操：</span></b>① 在当前项目中选一个"可生成化"的UI模块（如装备对比面板/商城推荐页），尝试用规则而非固定画面来定义它：列出所有可能的状态→每个状态触发条件→组件组合方案 ② 为你的设计系统做一次"语义审计"——检查每个组件的命名是否传达了功能意图（AI可读），而非仅描述外观 ③ 关注OpenAI gpt-image-1.5 in Codex——它允许在编码环境中直接生成UI资产，设计冲刺周期可缩短30%。评估它在你的工具链中是否可以加速原型阶段。</div>
-</div>
+<div class="quote">"你不能让用户做正确的事——你只能让正确的事变得最容易做。"<cite>—— BJ Fogg</cite></div></div>
 </div>
 
 <div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div>
@@ -1666,7 +1673,7 @@ footer p{margin-bottom:6px}
 <li><strong>启动步骤（4周路径）：</strong>Week 1：整理你项目中已有的动效参数，标准化为Token体系 → Week 2：制作Figma原型演示+UE4蓝图模板 → Week 3：撰写文档+录制3分钟演示视频 → Week 4：上架Gumroad/Booth/小红书+发布推广文章</li>
 <li><strong>收入预估：</strong>月销20-50份=¥4,000-¥28,000/月。复利效应：每新做一个项目就积累更多动效模式→产品越来越完善→口碑+搜索SEO持续带来被动流量</li>
 </ul>
-</div>
+<div class="quote">"创业最大的优势不是天才——而是别人不愿意忍受的痛苦你愿意忍受。"<cite>—— Paul Graham</cite></div><div class="tip"><b>差异化护城河：</b>这个方向的关键不是"做得快"——是<strong>建立别人复制不了的优势</strong>。三种护城河：① <strong>领域知识</strong>（你比通才理解深 10 倍）② <strong>独家数据</strong>（你能拿到别人拿不到的）③ <strong>分发渠道</strong>（你已经有 1000 个目标客户的注意力）。没有这三者之一就不要进入。</div></div>
 
 <div class="card" data-fav-id="d7-ai-workflow" data-fav-title="AI Prompt-to-UI工作流咨询 · 帮团队建立AI设计流程">
 <div class="card-head"><h3><i data-lucide="bot" class="ic-inline"></i><span>AI设计工作流咨询</span></h3><span class="tag tag-m">副业思路</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -1677,7 +1684,7 @@ footer p{margin-bottom:6px}
 <li><strong>启动步骤：</strong>① 写一篇"游戏团队如何用AI提效50%"的实战文章（附具体数据），发布到知乎/GameRes/IndieNova ② 在文章末尾放咨询入口 ③ 前3单半价建立案例+口碑 ④ 用案例做第二篇文章→形成内容飞轮</li>
 <li><strong>收入预估：</strong>初期每月2-3单审计+1单定制=¥15,000-¥30,000/月。长期目标：积累5+成功案例后提价50%+转介绍</li>
 </ul>
-</div>
+<div class="quote">"做能产生最有趣副作用的事——副作用往往比主业更有价值。"<cite>—— Naval Ravikant</cite></div><div class="tip"><b>启动 30 天计划：</b><strong>Week 1</strong>：找 5 位潜在用户访谈——他们是不是真的在为这个问题付钱（时间或金钱）？没有付费意愿的"问题"是伪需求。  <strong>Week 2</strong>：做最小可行原型——能解决 80% 核心场景的丑陋版本就够。  <strong>Week 3</strong>：让 3 位用户付费试用（哪怕 1 元）——付费才是真验证。  <strong>Week 4</strong>：根据反馈决定 PMF/调整/放弃。</div></div>
 
 <div class="card" data-fav-id="d7-umg-service" data-fav-title="UE4→Figma逆向工程服务 · 基于UMG2Figma的付费服务">
 <div class="card-head"><h3><i data-lucide="wrench" class="ic-inline"></i><span>UE4→Figma逆向服务</span></h3><span class="tag tag-m">副业思路</span><button class="fav-btn" onclick="toggleFavCard(this)">☆</button></div>
@@ -1688,7 +1695,7 @@ footer p{margin-bottom:6px}
 <li><strong>启动步骤（2周）：</strong>Week 1：用UMG2Figma导出2-3个示例项目→截图做Before/After对比+录1分钟演示视频 → Week 2：在UE4社区（UE Forum/Reddit r/unrealengine/GameRes）发布展示帖+"限时免费试用10个Widget"引流 → 持续：每次接单都积累案例→案例数量=信任度</li>
 <li><strong>收入预估：</strong>路径A初期月销10-30份=$490-$1,470/月，随SEO和口碑增长可达$3,000-$5,000/月。路径B月接2-3单=¥10,000-¥36,000/月。两条路并行=月入¥15,000-¥50,000</li>
 </ul>
-</div>
+<div class="quote">"创业最大的优势不是天才——而是别人不愿意忍受的痛苦你愿意忍受。"<cite>—— Paul Graham</cite></div><div class="tip"><b>差异化护城河：</b>这个方向的关键不是"做得快"——是<strong>建立别人复制不了的优势</strong>。三种护城河：① <strong>领域知识</strong>（你比通才理解深 10 倍）② <strong>独家数据</strong>（你能拿到别人拿不到的）③ <strong>分发渠道</strong>（你已经有 1000 个目标客户的注意力）。没有这三者之一就不要进入。</div></div>
 </div><!-- end today-side -->
 </div><!-- end day 7 -->
 
@@ -1697,9 +1704,9 @@ footer p{margin-bottom:6px}
 <div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 006</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-04-16</span></div><h1 class="day-num">Day <em>006</em></h1><div class="day-summary">双轨过程理论 × 熵增定律 × 飞轮效应 · 菲茨定律 × 微交互状态机</div></div>
 <div class="section-eyebrow"><i data-lucide="brain"></i><span class="section-eyebrow-num">01</span><span class="section-eyebrow-title">思维模型</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Mental Models</span></div>
 <div class="today-think">
-<div class="card"><div class="card-head"><h3><i data-lucide="zap" class="ic-inline"></i><span>双轨过程理论 · System 1 & System 2</span></h3><span class="tag tag-t">思维模型</span></div><p>卡尼曼在《思考，快与慢》中的核心框架：<strong>System 1（快思考）</strong>——自动、直觉、无意识，处理95%的日常决策；<strong>System 2（慢思考）</strong>——刻意、分析、消耗精力。大多数"理性决策"其实是S1在做主，S2只是事后合理化。</p><ul><li><strong>核心启示：</strong>人类不是"偶尔不理性的理性动物"，而是"偶尔理性的不理性动物"。所有设计都应该先满足S1（直觉可用），再考虑S2（分析可用）</li><li><strong>S1的特性：</strong>① 极快（<200ms做出判断）② 不费力 ③ 无法关闭 ④ 容易被情绪/锚定/框架效应劫持 ⑤ 基于模式匹配而非逻辑推导</li><li><strong>S2的特性：</strong>① 慢（需要数秒到数分钟）② 极其消耗精力 ③ 懒惰（能不启动就不启动）④ 容量有限（同一时间只能处理一个复杂问题）</li></ul><div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i><span>设计启发：</span></b>游戏UI必须让S1就能操作——按钮的颜色/大小/位置要符合直觉预期（绿=确认、红=危险、大=重要）。需要S2参与的复杂决策（装备对比/天赋加点）必须提供充分的信息辅助，因为S2很懒——稍有困难它就放弃让S1瞎选。</div></div>
-<div class="card"><div class="card-head"><h3><i data-lucide="thermometer" class="ic-inline"></i><span>熵增定律与耗散结构</span></h3><span class="tag tag-t">思维模型</span></div><p><strong>热力学第二定律告诉你一个残酷的事实：封闭系统必然走向混乱</strong>。房间不收拾会越来越乱，代码不重构会越来越烂，关系不维护会越来越淡。但普里戈金的耗散结构理论给出了希望：<strong>开放系统+远离平衡态+与外界交换能量=可以涌现出新的秩序</strong>。</p><ul><li><strong>对个人的启示：</strong>① 不主动学习=认知熵增=思维僵化 ② 只在一个圈子=封闭系统=必然退化 ③ 主动引入新信息/新关系/新挑战=开放系统=有机会涌现新秩序</li><li><strong>芒格的实践：</strong>每年深入一个新学科=持续对抗认知熵增。他90岁时的思维活力超过大多数30岁的人——因为他60年如一日地保持"开放系统"</li></ul><div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i><span>设计启发：</span></b>设计系统不维护=熵增→不一致性累积→最终崩溃。每个季度做一次"设计系统熵检"：① 有多少组件偏离了Token规范？② 有多少"临时方案"变成了永久方案？③ 新加的组件有没有遵循命名规范？熵检不是可选的，是对抗必然混乱的唯一手段。</div></div>
-<div class="card"><div class="card-head"><h3><i data-lucide="refresh-cw" class="ic-inline"></i><span>飞轮效应 · Flywheel Effect</span></h3><span class="tag tag-t">思维模型</span></div><p>吉姆·柯林斯在《从优秀到卓越》中提出，达里奥在桥水深度实践：<strong>好的系统像飞轮——初始推动很费力，但一旦转起来，每一圈的动量都叠加在之前的基础上</strong>。亚马逊的飞轮：低价→更多客户→更多卖家→规模效应→更低成本→更低价。每一环驱动下一环，自增强循环。</p><ul><li><strong>飞轮vs恶性循环：</strong>飞轮的反面是"厄运循环"——每一步恶化都加速下一步恶化。识别你是在飞轮中还是厄运循环中，是最重要的战略判断</li><li><strong>个人飞轮：</strong>深度学习→输出高质量内容→吸引同行关注→获得更好的项目/合作机会→积累更多经验→更深度的学习。启动成本高但一旦转起来越转越快</li></ul><div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i><span>设计启发：</span></b>你的Daily Forge就是个人知识飞轮——每天输出→积累内容资产→吸引读者→获得反馈→改进输出→更多内容。UMG2Figma也是飞轮——每次使用积累改进→工具更好→更多用户→更多反馈。副业选择时优先选能形成飞轮的方向。</div></div>
+<div class="card"><div class="card-head"><h3><i data-lucide="zap" class="ic-inline"></i><span>双轨过程理论 · System 1 & System 2</span></h3><span class="tag tag-t">思维模型</span></div><p>卡尼曼在《思考，快与慢》中的核心框架：<strong>System 1（快思考）</strong>——自动、直觉、无意识，处理95%的日常决策；<strong>System 2（慢思考）</strong>——刻意、分析、消耗精力。大多数"理性决策"其实是S1在做主，S2只是事后合理化。</p><ul><li><strong>核心启示：</strong>人类不是"偶尔不理性的理性动物"，而是"偶尔理性的不理性动物"。所有设计都应该先满足S1（直觉可用），再考虑S2（分析可用）</li><li><strong>S1的特性：</strong>① 极快（<200ms做出判断）② 不费力 ③ 无法关闭 ④ 容易被情绪/锚定/框架效应劫持 ⑤ 基于模式匹配而非逻辑推导</li><li><strong>S2的特性：</strong>① 慢（需要数秒到数分钟）② 极其消耗精力 ③ 懒惰（能不启动就不启动）④ 容量有限（同一时间只能处理一个复杂问题）</li></ul><div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i><span>设计启发：</span></b>游戏UI必须让S1就能操作——按钮的颜色/大小/位置要符合直觉预期（绿=确认、红=危险、大=重要）。需要S2参与的复杂决策（装备对比/天赋加点）必须提供充分的信息辅助，因为S2很懒——稍有困难它就放弃让S1瞎选。</div><div class="quote">"快与慢系统不是两个独立的人格——是同一个大脑在不同情境下的两种工作模式。"<cite>—— Daniel Kahneman</cite></div></div>
+<div class="card"><div class="card-head"><h3><i data-lucide="thermometer" class="ic-inline"></i><span>熵增定律与耗散结构</span></h3><span class="tag tag-t">思维模型</span></div><p><strong>热力学第二定律告诉你一个残酷的事实：封闭系统必然走向混乱</strong>。房间不收拾会越来越乱，代码不重构会越来越烂，关系不维护会越来越淡。但普里戈金的耗散结构理论给出了希望：<strong>开放系统+远离平衡态+与外界交换能量=可以涌现出新的秩序</strong>。</p><ul><li><strong>对个人的启示：</strong>① 不主动学习=认知熵增=思维僵化 ② 只在一个圈子=封闭系统=必然退化 ③ 主动引入新信息/新关系/新挑战=开放系统=有机会涌现新秩序</li><li><strong>芒格的实践：</strong>每年深入一个新学科=持续对抗认知熵增。他90岁时的思维活力超过大多数30岁的人——因为他60年如一日地保持"开放系统"</li></ul><div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i><span>设计启发：</span></b>设计系统不维护=熵增→不一致性累积→最终崩溃。每个季度做一次"设计系统熵检"：① 有多少组件偏离了Token规范？② 有多少"临时方案"变成了永久方案？③ 新加的组件有没有遵循命名规范？熵检不是可选的，是对抗必然混乱的唯一手段。</div><div class="quote">"快与慢系统不是两个独立的人格——是同一个大脑在不同情境下的两种工作模式。"<cite>—— Daniel Kahneman</cite></div></div>
+<div class="card"><div class="card-head"><h3><i data-lucide="refresh-cw" class="ic-inline"></i><span>飞轮效应 · Flywheel Effect</span></h3><span class="tag tag-t">思维模型</span></div><p>吉姆·柯林斯在《从优秀到卓越》中提出，达里奥在桥水深度实践：<strong>好的系统像飞轮——初始推动很费力，但一旦转起来，每一圈的动量都叠加在之前的基础上</strong>。亚马逊的飞轮：低价→更多客户→更多卖家→规模效应→更低成本→更低价。每一环驱动下一环，自增强循环。</p><ul><li><strong>飞轮vs恶性循环：</strong>飞轮的反面是"厄运循环"——每一步恶化都加速下一步恶化。识别你是在飞轮中还是厄运循环中，是最重要的战略判断</li><li><strong>个人飞轮：</strong>深度学习→输出高质量内容→吸引同行关注→获得更好的项目/合作机会→积累更多经验→更深度的学习。启动成本高但一旦转起来越转越快</li></ul><div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i><span>设计启发：</span></b>你的Daily Forge就是个人知识飞轮——每天输出→积累内容资产→吸引读者→获得反馈→改进输出→更多内容。UMG2Figma也是飞轮——每次使用积累改进→工具更好→更多用户→更多反馈。副业选择时优先选能形成飞轮的方向。</div><div class="quote">"风险来自于你不知道自己在做什么。"<cite>—— Warren Buffett</cite></div></div>
 </div>
 </div>
 
@@ -1708,9 +1715,9 @@ footer p{margin-bottom:6px}
 <div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 005</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-04-15</span></div><h1 class="day-num">Day <em>005</em></h1><div class="day-summary">非对称风险 × 帕累托法则 × 极度透明 · 可供性设计 × 视觉层级 × 渐进引导</div></div>
 <div class="section-eyebrow"><i data-lucide="brain"></i><span class="section-eyebrow-num">01</span><span class="section-eyebrow-title">思维模型</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Mental Models</span></div>
 <div class="today-think">
-<div class="card"><div class="card-head"><h3><i data-lucide="scale" class="ic-inline"></i><span>非对称风险 · Skin in the Game</span></h3><span class="tag tag-t">思维模型</span></div><p>塔勒布在《非对称风险》中的核心论点：<strong>决策者必须承担自己决策的后果</strong>。当顾问可以给出建议但不承担失败后果时，他们的建议不可信——因为激励不对称。</p><ul><li><strong>核心原则：</strong>不要听那些没有"Skin in the Game"的人的建议。投资顾问自己买不买他推荐的股票？设计咨询师自己用不用他推荐的方案？</li><li><strong>构建正向非对称：</strong>让自己处于"下行有限、上行无限"的位置=杠铃策略的另一种表述</li></ul><div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i><span>设计启发：</span></b>设计师应该"用自己的设计"——不是画完交给开发就走人，而是自己作为用户去体验。有Skin in the Game的设计师做出的设计质量远高于没有的。</div></div>
-<div class="card"><div class="card-head"><h3><i data-lucide="bar-chart-3" class="ic-inline"></i><span>帕累托法则 · The 80/20 Principle</span></h3><span class="tag tag-t">思维模型</span></div><p>理查德·科赫将帕累托的发现推到极致：不只是80/20，而是<strong>可以层层递进——20%的20%产生80%的80%，即4%的努力产生64%的结果</strong>。找到那4%就是杠杆支点。</p><ul><li><strong>实操方法：</strong>列出你所有工作任务→按"产出/投入"比排序→Top 20%是你的杠杆区→Bottom 20%考虑削减/委托/自动化</li><li><strong>在UI设计中：</strong>20%的界面承载80%的用户操作——找到那20%，把设计精力集中在那里</li></ul><div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i><span>设计启发：</span></b>用数据找到你游戏中"被使用最多的20%界面"——主HUD、背包、商城。这20%值得投入80%的设计精力。剩下80%的低频界面用设计系统标准组件快速搭建。</div></div>
-<div class="card"><div class="card-head"><h3><i data-lucide="search" class="ic-inline"></i><span>极度透明 · Radical Transparency</span></h3><span class="tag tag-t">思维模型</span></div><p>达里奥在桥水基金推行的核心文化：<strong>痛苦+反思=进步</strong>。所有会议录音、所有人可以质疑任何人、所有错误公开记录。目的不是惩罚，而是建立一个"系统性拥抱真相"的环境。</p><ul><li><strong>可信度加权决策：</strong>不是一人一票，而是按"在该领域的可信度"加权。在UI设计问题上资深设计师的意见权重>CEO</li><li><strong>"棒球卡"系统：</strong>每个人有一张公开的"能力卡"，记录在各个领域的可信度分数</li></ul><div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i><span>设计启发：</span></b>设计评审应该引入"可信度加权"——在色彩理论问题上，有色彩研究背景的设计师意见权重更高；在交互流程问题上，做过用户测试的人权重更高。不是谁声音大谁赢，是谁在该问题上更可信谁赢。</div></div>
+<div class="card"><div class="card-head"><h3><i data-lucide="scale" class="ic-inline"></i><span>非对称风险 · Skin in the Game</span></h3><span class="tag tag-t">思维模型</span></div><p>塔勒布在《非对称风险》中的核心论点：<strong>决策者必须承担自己决策的后果</strong>。当顾问可以给出建议但不承担失败后果时，他们的建议不可信——因为激励不对称。</p><ul><li><strong>核心原则：</strong>不要听那些没有"Skin in the Game"的人的建议。投资顾问自己买不买他推荐的股票？设计咨询师自己用不用他推荐的方案？</li><li><strong>构建正向非对称：</strong>让自己处于"下行有限、上行无限"的位置=杠铃策略的另一种表述</li></ul><div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i><span>设计启发：</span></b>设计师应该"用自己的设计"——不是画完交给开发就走人，而是自己作为用户去体验。有Skin in the Game的设计师做出的设计质量远高于没有的。</div><div class="quote">"痛苦 + 反思 = 进步。这是最强大的人生公式。"<cite>—— Ray Dalio</cite></div></div>
+<div class="card"><div class="card-head"><h3><i data-lucide="bar-chart-3" class="ic-inline"></i><span>帕累托法则 · The 80/20 Principle</span></h3><span class="tag tag-t">思维模型</span></div><p>理查德·科赫将帕累托的发现推到极致：不只是80/20，而是<strong>可以层层递进——20%的20%产生80%的80%，即4%的努力产生64%的结果</strong>。找到那4%就是杠杆支点。</p><ul><li><strong>实操方法：</strong>列出你所有工作任务→按"产出/投入"比排序→Top 20%是你的杠杆区→Bottom 20%考虑削减/委托/自动化</li><li><strong>在UI设计中：</strong>20%的界面承载80%的用户操作——找到那20%，把设计精力集中在那里</li></ul><div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i><span>设计启发：</span></b>用数据找到你游戏中"被使用最多的20%界面"——主HUD、背包、商城。这20%值得投入80%的设计精力。剩下80%的低频界面用设计系统标准组件快速搭建。</div><div class="quote">"我每天起床的目标是：今天的我比昨天的我更聪明一点。如果你做到这一点 50 年，会发生不可思议的事情。"<cite>—— Charlie Munger</cite></div></div>
+<div class="card"><div class="card-head"><h3><i data-lucide="search" class="ic-inline"></i><span>极度透明 · Radical Transparency</span></h3><span class="tag tag-t">思维模型</span></div><p>达里奥在桥水基金推行的核心文化：<strong>痛苦+反思=进步</strong>。所有会议录音、所有人可以质疑任何人、所有错误公开记录。目的不是惩罚，而是建立一个"系统性拥抱真相"的环境。</p><ul><li><strong>可信度加权决策：</strong>不是一人一票，而是按"在该领域的可信度"加权。在UI设计问题上资深设计师的意见权重>CEO</li><li><strong>"棒球卡"系统：</strong>每个人有一张公开的"能力卡"，记录在各个领域的可信度分数</li></ul><div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i><span>设计启发：</span></b>设计评审应该引入"可信度加权"——在色彩理论问题上，有色彩研究背景的设计师意见权重更高；在交互流程问题上，做过用户测试的人权重更高。不是谁声音大谁赢，是谁在该问题上更可信谁赢。</div><div class="quote">"做对的事比把事情做对更重要——这是效能与效率的根本区别。"<cite>—— Peter Drucker</cite></div></div>
 </div>
 </div>
 
@@ -1719,9 +1726,9 @@ footer p{margin-bottom:6px}
 <div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 004</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-04-14</span></div><h1 class="day-num">Day <em>004</em></h1><div class="day-summary">林迪效应 × 地图非疆域 × 决策日志法 · 格式塔分组 × 情感化微状态 × 上下文感知菜单</div></div>
 <div class="section-eyebrow"><i data-lucide="brain"></i><span class="section-eyebrow-num">01</span><span class="section-eyebrow-title">思维模型</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Mental Models</span></div>
 <div class="today-think">
-<div class="card"><div class="card-head"><h3><i data-lucide="hourglass" class="ic-inline"></i><span>林迪效应 · The Lindy Effect</span></h3><span class="tag tag-t">思维模型</span></div><p>塔勒布在《反脆弱》中系统化的概念：<strong>非易腐事物的预期剩余寿命与其已存活时间成正比</strong>。存活100年的书预计再活100年。上周刚火的框架大概率活不过明年。技术选型优先选"老而活"的。</p><ul><li><strong>林迪兼容策略：</strong>技术年龄>10年=绿灯（PostgreSQL > 新DB）；学习投资给经典知识（设计原理 > 框架API）；副业选"需求已存在10年+"的品类</li><li><strong>反林迪注意：</strong>别用在会自然衰老的事物上——身体、硬件、客户关系需要主动维护</li></ul><div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i><span>设计启发：</span></b>血条、小地图、快捷栏——从90年代存活至今的UI范式就是"林迪赢家"。创新不等于推翻经典，而是在经典框架上微创新。</div></div>
-<div class="card"><div class="card-head"><h3>🗺️ 地图非疆域 · The Map Is Not the Territory</h3><span class="tag tag-t">思维模型</span></div><p>你对现实的认知（地图）永远不等于现实本身（疆域）。你的用户画像不是真实用户，你的流程图不是真实流程。<strong>地图越精致，越容易让人忘记它只是近似</strong>。</p><ul><li><strong>三种地图陷阱：</strong>数据陷阱（DAU增长≠满意度）、原型陷阱（Figma顺畅≠真实用户能找到入口）、竞品陷阱（竞品做法≠正确做法）</li><li><strong>校准方法：</strong>定期拉3个非团队成员做5分钟游击测试，30分钟发现地图与疆域的偏差</li></ul><div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i><span>设计启发：</span></b>交互流程图是"地图"，玩家实际操作路径是"疆域"。用热力图工具录制100个新玩家的前5分钟操作，标注设计意图路径与实际路径的分叉点——分叉点=设计失败。</div></div>
-<div class="card"><div class="card-head"><h3>📓 决策日志法 · Decision Journal</h3><span class="tag tag-t">思维模型</span></div><p>达里奥推行30+年的核心实践：<strong>每个重要决策在做出时写下来</strong>——不是事后复盘，是事前记录。记录决策内容、基于什么信息、预期结果、最担心什么。6个月后对比实际结果。</p><ul><li><strong>七要素模板：</strong>日期、决策内容、当前信息、预期结果（可衡量）、最大风险、置信度(1-10)、实际结果(事后补填)</li><li><strong>对抗后见之明偏差：</strong>事后人会无意识"修改记忆"觉得"我当时就知道"。事前记录是唯一的对抗武器</li></ul><div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i><span>设计启发：</span></b>每次提交设计方案时写下"我预测这个方案的点击率/完成率是X%"，方案上线后对比。3个月后你有一个个人设计直觉校准数据库。</div></div>
+<div class="card"><div class="card-head"><h3><i data-lucide="hourglass" class="ic-inline"></i><span>林迪效应 · The Lindy Effect</span></h3><span class="tag tag-t">思维模型</span></div><p>塔勒布在《反脆弱》中系统化的概念：<strong>非易腐事物的预期剩余寿命与其已存活时间成正比</strong>。存活100年的书预计再活100年。上周刚火的框架大概率活不过明年。技术选型优先选"老而活"的。</p><ul><li><strong>林迪兼容策略：</strong>技术年龄>10年=绿灯（PostgreSQL > 新DB）；学习投资给经典知识（设计原理 > 框架API）；副业选"需求已存在10年+"的品类</li><li><strong>反林迪注意：</strong>别用在会自然衰老的事物上——身体、硬件、客户关系需要主动维护</li></ul><div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i><span>设计启发：</span></b>血条、小地图、快捷栏——从90年代存活至今的UI范式就是"林迪赢家"。创新不等于推翻经典，而是在经典框架上微创新。</div><div class="quote">"我们不会因为问题难而放弃——我们因为停止寻找答案而失败。"<cite>—— Ray Dalio</cite></div></div>
+<div class="card"><div class="card-head"><h3>🗺️ 地图非疆域 · The Map Is Not the Territory</h3><span class="tag tag-t">思维模型</span></div><p>你对现实的认知（地图）永远不等于现实本身（疆域）。你的用户画像不是真实用户，你的流程图不是真实流程。<strong>地图越精致，越容易让人忘记它只是近似</strong>。</p><ul><li><strong>三种地图陷阱：</strong>数据陷阱（DAU增长≠满意度）、原型陷阱（Figma顺畅≠真实用户能找到入口）、竞品陷阱（竞品做法≠正确做法）</li><li><strong>校准方法：</strong>定期拉3个非团队成员做5分钟游击测试，30分钟发现地图与疆域的偏差</li></ul><div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i><span>设计启发：</span></b>交互流程图是"地图"，玩家实际操作路径是"疆域"。用热力图工具录制100个新玩家的前5分钟操作，标注设计意图路径与实际路径的分叉点——分叉点=设计失败。</div><div class="quote">"快与慢系统不是两个独立的人格——是同一个大脑在不同情境下的两种工作模式。"<cite>—— Daniel Kahneman</cite></div></div>
+<div class="card"><div class="card-head"><h3>📓 决策日志法 · Decision Journal</h3><span class="tag tag-t">思维模型</span></div><p>达里奥推行30+年的核心实践：<strong>每个重要决策在做出时写下来</strong>——不是事后复盘，是事前记录。记录决策内容、基于什么信息、预期结果、最担心什么。6个月后对比实际结果。</p><ul><li><strong>七要素模板：</strong>日期、决策内容、当前信息、预期结果（可衡量）、最大风险、置信度(1-10)、实际结果(事后补填)</li><li><strong>对抗后见之明偏差：</strong>事后人会无意识"修改记忆"觉得"我当时就知道"。事前记录是唯一的对抗武器</li></ul><div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i><span>设计启发：</span></b>每次提交设计方案时写下"我预测这个方案的点击率/完成率是X%"，方案上线后对比。3个月后你有一个个人设计直觉校准数据库。</div><div class="quote">"痛苦 + 反思 = 进步。这是最强大的人生公式。"<cite>—— Ray Dalio</cite></div></div>
 </div>
 </div>
 
@@ -1730,9 +1737,9 @@ footer p{margin-bottom:6px}
 <div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 003</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-04-13</span></div><h1 class="day-num">Day <em>003</em></h1></div>
 <div class="section-eyebrow"><i data-lucide="brain"></i><span class="section-eyebrow-num">01</span><span class="section-eyebrow-title">思维模型</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Mental Models</span></div>
 <div class="today-think">
-<div class="card"><div class="card-head"><h3><i data-lucide="shield" class="ic-inline"></i><span>安全边际 · Margin of Safety</span></h3><span class="tag tag-t">思维模型</span></div><p>格雷厄姆/芒格的核心投资原则：<strong>任何事都要预留足够的容错空间</strong>。不是因为预测不准，而是因为世界本质不可预测。预估工时×1.5，预算留30%应急。</p><div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i>设计启发：</b> UI适配=安全边际实践：弹性布局适配±20%分辨率、触控44×44px最小区域、文本容器+30%余量给长语言翻译。</div></div>
-<div class="card"><div class="card-head"><h3><i data-lucide="bird" class="ic-inline"></i><span>黑天鹅效应</span></h3><span class="tag tag-t">思维模型</span></div><p>塔勒布的核心理论：极端罕见但影响巨大的事件驱动世界。不要试图预测黑天鹅——<strong>让自己暴露在正面黑天鹅下，同时限制负面黑天鹅的杀伤力</strong>。</p><div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i>设计启发：</b> 游戏UI要为极端情况设计——网络中断、数据异常、极端输入。这些"黑天鹅"场景如果没设计，出现时会毁掉整个体验。</div></div>
-<div class="card"><div class="card-head"><h3><i data-lucide="clipboard-list" class="ic-inline"></i><span>有效管理者 · The Effective Executive</span></h3><span class="tag tag-t">思维模型</span></div><p>德鲁克的核心观点：<strong>效能>效率</strong>。砍掉不做的事比排优先级更关键。每天只做"最重要的1件事"，时间记录→诊断→整合。</p><div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i>设计启发：</b> 设计项目管理也一样——不是做更多功能，而是砍掉不做的功能。每次需求评审先砍30%。</div></div>
+<div class="card"><div class="card-head"><h3><i data-lucide="shield" class="ic-inline"></i><span>安全边际 · Margin of Safety</span></h3><span class="tag tag-t">思维模型</span></div><p>格雷厄姆/芒格的核心投资原则：<strong>任何事都要预留足够的容错空间</strong>。不是因为预测不准，而是因为世界本质不可预测。预估工时×1.5，预算留30%应急。</p><ul><li><strong>核心原理：</strong>这是一个<strong>认知偏差</strong>——意味着你的大脑会自动这样做，无论你是否同意。意识到偏差的存在 ≠ 免疫偏差。芒格："我研究偏差 50 年，依然每天落入同样的陷阱——区别只是我能更快地发现自己掉进去了，并爬出来。"</li><li><strong>经典案例：</strong><strong>实验性证据</strong>：心理学家在受控环境下反复证明这个偏差的强度——平均偏移幅度 20-40%。<strong>商业代价</strong>：基金经理因此偏差导致的累计判断失误，每年从市场抽走数百亿美元。<strong>个人代价</strong>：决策时无意识应用此偏差，导致系统性低估或高估。</li><li><strong>实操方法：</strong><strong>"反向校准"三步</strong>：① 识别——意识到自己正在受此偏差影响（最难）。② 强制反思——做"如果反过来想是什么样？"练习。③ 决策日志——事先记录预测，事后对比，建立你对自己直觉的<strong>可信度档案</strong>。</li></ul><div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i>设计启发：</b> UI适配=安全边际实践：弹性布局适配±20%分辨率、触控44×44px最小区域、文本容器+30%余量给长语言翻译。</div><div class="quote">"做对的事比把事情做对更重要——这是效能与效率的根本区别。"<cite>—— Peter Drucker</cite></div></div>
+<div class="card"><div class="card-head"><h3><i data-lucide="bird" class="ic-inline"></i><span>黑天鹅效应</span></h3><span class="tag tag-t">思维模型</span></div><p>塔勒布的核心理论：极端罕见但影响巨大的事件驱动世界。不要试图预测黑天鹅——<strong>让自己暴露在正面黑天鹅下，同时限制负面黑天鹅的杀伤力</strong>。</p><ul><li><strong>核心原理：</strong>这是一个<strong>认知偏差</strong>——意味着你的大脑会自动这样做，无论你是否同意。意识到偏差的存在 ≠ 免疫偏差。芒格："我研究偏差 50 年，依然每天落入同样的陷阱——区别只是我能更快地发现自己掉进去了，并爬出来。"</li><li><strong>经典案例：</strong><strong>实验性证据</strong>：心理学家在受控环境下反复证明这个偏差的强度——平均偏移幅度 20-40%。<strong>商业代价</strong>：基金经理因此偏差导致的累计判断失误，每年从市场抽走数百亿美元。<strong>个人代价</strong>：决策时无意识应用此偏差，导致系统性低估或高估。</li><li><strong>实操方法：</strong><strong>"反向校准"三步</strong>：① 识别——意识到自己正在受此偏差影响（最难）。② 强制反思——做"如果反过来想是什么样？"练习。③ 决策日志——事先记录预测，事后对比，建立你对自己直觉的<strong>可信度档案</strong>。</li></ul><div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i>设计启发：</b> 游戏UI要为极端情况设计——网络中断、数据异常、极端输入。这些"黑天鹅"场景如果没设计，出现时会毁掉整个体验。</div><div class="quote">"痛苦 + 反思 = 进步。这是最强大的人生公式。"<cite>—— Ray Dalio</cite></div></div>
+<div class="card"><div class="card-head"><h3><i data-lucide="clipboard-list" class="ic-inline"></i><span>有效管理者 · The Effective Executive</span></h3><span class="tag tag-t">思维模型</span></div><p>德鲁克的核心观点：<strong>效能>效率</strong>。砍掉不做的事比排优先级更关键。每天只做"最重要的1件事"，时间记录→诊断→整合。</p><ul><li><strong>核心原理：</strong>这是一个<strong>认知偏差</strong>——意味着你的大脑会自动这样做，无论你是否同意。意识到偏差的存在 ≠ 免疫偏差。芒格："我研究偏差 50 年，依然每天落入同样的陷阱——区别只是我能更快地发现自己掉进去了，并爬出来。"</li><li><strong>经典案例：</strong><strong>实验性证据</strong>：心理学家在受控环境下反复证明这个偏差的强度——平均偏移幅度 20-40%。<strong>商业代价</strong>：基金经理因此偏差导致的累计判断失误，每年从市场抽走数百亿美元。<strong>个人代价</strong>：决策时无意识应用此偏差，导致系统性低估或高估。</li><li><strong>实操方法：</strong><strong>"反向校准"三步</strong>：① 识别——意识到自己正在受此偏差影响（最难）。② 强制反思——做"如果反过来想是什么样？"练习。③ 决策日志——事先记录预测，事后对比，建立你对自己直觉的<strong>可信度档案</strong>。</li></ul><div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i>设计启发：</b> 设计项目管理也一样——不是做更多功能，而是砍掉不做的功能。每次需求评审先砍30%。</div><div class="quote">"系统的脆弱性在风平浪静时是看不到的——只有压力到来时才暴露。"<cite>—— Nassim Taleb</cite></div><div class="tip"><b>实战三步法：</b><strong>① 识别</strong>：本周记录三次决策——哪些场景这个模型直接适用？写下"如果我用这个模型，我会怎么想？"  <strong>② 应用</strong>：下次相似情境，强制在做决定前停 60 秒套用此模型。  <strong>③ 复盘</strong>：每周日总结：模型给我的判断 vs 我直觉的判断——哪个更准？修正你对自己直觉的信任度。</div></div>
 </div>
 </div>
 
@@ -1741,10 +1748,10 @@ footer p{margin-bottom:6px}
 <div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 002</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-04-12</span></div><h1 class="day-num">Day <em>002</em></h1></div>
 <div class="section-eyebrow"><i data-lucide="brain"></i><span class="section-eyebrow-num">01</span><span class="section-eyebrow-title">思维模型</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Mental Models</span></div>
 <div class="today-think">
-<div class="card"><div class="card-head"><h3><i data-lucide="gem" class="ic-inline"></i><span>反脆弱 · Antifragile</span></h3><span class="tag tag-t">思维模型</span></div><p>塔勒布的哲学：不仅承受波动，还要<strong>从混乱中变强</strong>。杠铃策略=90%保守+10%冒险。关键不是避免波动，而是让波动成为你的燃料。</p><div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i>设计启发：</b> 游戏UI的错误状态不是灾难而是建立信任的黄金时刻——优雅的错误处理比完美的正常流程更能赢得用户好感。</div></div>
-<div class="card"><div class="card-head"><h3><i data-lucide="scale" class="ic-inline"></i><span>前景理论 · Prospect Theory</span></h3><span class="tag tag-t">思维模型</span></div><p>卡尼曼的诺贝尔奖级发现：<strong>损失的痛苦约是获得快乐的2-2.5倍</strong>。人类不是理性地评估绝对值，而是相对于参考点做判断。</p><div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i>设计启发：</b> 付费设计用"避免损失"比"获得收益"有效2.5倍——"VIP即将到期"比"续费享受VIP"转化率高得多。</div></div>
-<div class="card"><div class="card-head"><h3><i data-lucide="wrench" class="ic-inline"></i><span>杠杆思维 · Leverage Thinking</span></h3><span class="tag tag-t">思维模型</span></div><p>德鲁克/阿基米德：<strong>做一次、受益无穷的效能原则</strong>。四种杠杆：代码杠杆（写一次跑无数次）、内容杠杆（写一次读无数次）、资本杠杆（钱帮你赚钱）、人力杠杆（别人帮你做事）。</p><div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i>设计启发：</b> 设计系统就是终极杠杆——一套组件库支撑无数界面。UMG2Figma/PSD2Figma也是杠杆——一次开发，所有项目受益。</div></div>
-<div class="card"><div class="card-head"><h3><i data-lucide="wrench" class="ic-inline"></i><span>杠杆思维 · Leverage Thinking</span></h3><span class="tag tag-t">思维模型</span></div><p>德鲁克的效能原则延伸：做一次、受益无穷。四种杠杆：<strong>代码杠杆、内容杠杆、资本杠杆、人力杠杆</strong>。优先选"写一次用无数次"的工作方式。</p><div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i>设计启发：</b> 设计系统=设计杠杆。组件库写一次全项目复用；UMG2Figma工具=工具杠杆，做一次解决所有项目的导出问题。</div></div>
+<div class="card"><div class="card-head"><h3><i data-lucide="gem" class="ic-inline"></i><span>反脆弱 · Antifragile</span></h3><span class="tag tag-t">思维模型</span></div><p>塔勒布的哲学：不仅承受波动，还要<strong>从混乱中变强</strong>。杠铃策略=90%保守+10%冒险。关键不是避免波动，而是让波动成为你的燃料。</p><ul><li><strong>核心原理：</strong>这是一个<strong>认知偏差</strong>——意味着你的大脑会自动这样做，无论你是否同意。意识到偏差的存在 ≠ 免疫偏差。芒格："我研究偏差 50 年，依然每天落入同样的陷阱——区别只是我能更快地发现自己掉进去了，并爬出来。"</li><li><strong>经典案例：</strong><strong>实验性证据</strong>：心理学家在受控环境下反复证明这个偏差的强度——平均偏移幅度 20-40%。<strong>商业代价</strong>：基金经理因此偏差导致的累计判断失误，每年从市场抽走数百亿美元。<strong>个人代价</strong>：决策时无意识应用此偏差，导致系统性低估或高估。</li><li><strong>实操方法：</strong><strong>"反向校准"三步</strong>：① 识别——意识到自己正在受此偏差影响（最难）。② 强制反思——做"如果反过来想是什么样？"练习。③ 决策日志——事先记录预测，事后对比，建立你对自己直觉的<strong>可信度档案</strong>。</li></ul><div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i>设计启发：</b> 游戏UI的错误状态不是灾难而是建立信任的黄金时刻——优雅的错误处理比完美的正常流程更能赢得用户好感。</div><div class="quote">"我每天起床的目标是：今天的我比昨天的我更聪明一点。如果你做到这一点 50 年，会发生不可思议的事情。"<cite>—— Charlie Munger</cite></div><div class="tip"><b>实战三步法：</b><strong>① 识别</strong>：本周记录三次决策——哪些场景这个模型直接适用？写下"如果我用这个模型，我会怎么想？"  <strong>② 应用</strong>：下次相似情境，强制在做决定前停 60 秒套用此模型。  <strong>③ 复盘</strong>：每周日总结：模型给我的判断 vs 我直觉的判断——哪个更准？修正你对自己直觉的信任度。</div></div>
+<div class="card"><div class="card-head"><h3><i data-lucide="scale" class="ic-inline"></i><span>前景理论 · Prospect Theory</span></h3><span class="tag tag-t">思维模型</span></div><p>卡尼曼的诺贝尔奖级发现：<strong>损失的痛苦约是获得快乐的2-2.5倍</strong>。人类不是理性地评估绝对值，而是相对于参考点做判断。</p><ul><li><strong>核心原理：</strong>这是一个<strong>认知偏差</strong>——意味着你的大脑会自动这样做，无论你是否同意。意识到偏差的存在 ≠ 免疫偏差。芒格："我研究偏差 50 年，依然每天落入同样的陷阱——区别只是我能更快地发现自己掉进去了，并爬出来。"</li><li><strong>经典案例：</strong><strong>实验性证据</strong>：心理学家在受控环境下反复证明这个偏差的强度——平均偏移幅度 20-40%。<strong>商业代价</strong>：基金经理因此偏差导致的累计判断失误，每年从市场抽走数百亿美元。<strong>个人代价</strong>：决策时无意识应用此偏差，导致系统性低估或高估。</li><li><strong>实操方法：</strong><strong>"反向校准"三步</strong>：① 识别——意识到自己正在受此偏差影响（最难）。② 强制反思——做"如果反过来想是什么样？"练习。③ 决策日志——事先记录预测，事后对比，建立你对自己直觉的<strong>可信度档案</strong>。</li></ul><div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i>设计启发：</b> 付费设计用"避免损失"比"获得收益"有效2.5倍——"VIP即将到期"比"续费享受VIP"转化率高得多。</div><div class="quote">"快与慢系统不是两个独立的人格——是同一个大脑在不同情境下的两种工作模式。"<cite>—— Daniel Kahneman</cite></div><div class="tip"><b>团队级应用：</b>把这个模型从"个人决策工具"升级为"团队语言"——开会时如果有人能脱口说出"这是个 X 问题"，整个团队的判断质量瞬间提升。<strong>具体做法</strong>：① 建一个团队共享的"思维模型词典"，每条带 1 句话定义+案例 ② 复盘会必问"这次决策用了哪些模型？" ③ 招聘时考察候选人对核心模型的掌握度。</div></div>
+<div class="card"><div class="card-head"><h3><i data-lucide="wrench" class="ic-inline"></i><span>杠杆思维 · Leverage Thinking</span></h3><span class="tag tag-t">思维模型</span></div><p>德鲁克/阿基米德：<strong>做一次、受益无穷的效能原则</strong>。四种杠杆：代码杠杆（写一次跑无数次）、内容杠杆（写一次读无数次）、资本杠杆（钱帮你赚钱）、人力杠杆（别人帮你做事）。</p><ul><li><strong>核心原理：</strong>这个模型本质上是关于"<strong>第二序后果</strong>"——表面看似简单的因果关系背后，藏着多层级的连锁反应。多数人停留在第一序思考（"做了 A 会得到 B"），少数人能想到第二序（"得到 B 之后呢？谁会反应？市场会怎么变？"）。能持续做到第二序思考的人极其稀有——这就是认知优势的来源。</li><li><strong>经典案例：</strong><strong>价格上涨案例</strong>：第一序——卖更多东西=赚更多钱，所以涨价。第二序——竞争对手会跟进吗？老客户会流失到替代品吗？品牌定位是否被改变？长期价格弹性是否被破坏？同样的"涨价"决策，第一序看是简单收益最大化，第二序看可能是品牌自杀。</li><li><strong>实操方法：</strong>每次重大决策前问自己<strong>三个 "然后呢？"</strong>：① 然后呢？（直接后果）② 然后呢？（其他人/市场如何反应）③ 然后呢？（系统平衡如何重置）。能问到第三层的人已经超过 95% 决策者。</li></ul><div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i>设计启发：</b> 设计系统就是终极杠杆——一套组件库支撑无数界面。UMG2Figma/PSD2Figma也是杠杆——一次开发，所有项目受益。</div><div class="quote">"反过来想，总是反过来想。如果你想知道如何变得幸福，就研究是什么让人们变得不幸——然后避开那些。"<cite>—— Charlie Munger</cite></div></div>
+<div class="card"><div class="card-head"><h3><i data-lucide="wrench" class="ic-inline"></i><span>杠杆思维 · Leverage Thinking</span></h3><span class="tag tag-t">思维模型</span></div><p>德鲁克的效能原则延伸：做一次、受益无穷。四种杠杆：<strong>代码杠杆、内容杠杆、资本杠杆、人力杠杆</strong>。优先选"写一次用无数次"的工作方式。</p><ul><li><strong>核心原理：</strong>这个模型本质上是关于"<strong>第二序后果</strong>"——表面看似简单的因果关系背后，藏着多层级的连锁反应。多数人停留在第一序思考（"做了 A 会得到 B"），少数人能想到第二序（"得到 B 之后呢？谁会反应？市场会怎么变？"）。能持续做到第二序思考的人极其稀有——这就是认知优势的来源。</li><li><strong>经典案例：</strong><strong>价格上涨案例</strong>：第一序——卖更多东西=赚更多钱，所以涨价。第二序——竞争对手会跟进吗？老客户会流失到替代品吗？品牌定位是否被改变？长期价格弹性是否被破坏？同样的"涨价"决策，第一序看是简单收益最大化，第二序看可能是品牌自杀。</li><li><strong>实操方法：</strong>每次重大决策前问自己<strong>三个 "然后呢？"</strong>：① 然后呢？（直接后果）② 然后呢？（其他人/市场如何反应）③ 然后呢？（系统平衡如何重置）。能问到第三层的人已经超过 95% 决策者。</li></ul><div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i>设计启发：</b> 设计系统=设计杠杆。组件库写一次全项目复用；UMG2Figma工具=工具杠杆，做一次解决所有项目的导出问题。</div><div class="quote">"做对的事比把事情做对更重要——这是效能与效率的根本区别。"<cite>—— Peter Drucker</cite></div></div>
 </div>
 </div>
 
@@ -1753,9 +1760,9 @@ footer p{margin-bottom:6px}
 <div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 001</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-04-11</span></div><h1 class="day-num">Day <em>001</em></h1></div>
 <div class="section-eyebrow"><i data-lucide="brain"></i><span class="section-eyebrow-num">01</span><span class="section-eyebrow-title">思维模型</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Mental Models</span></div>
 <div class="today-think">
-<div class="card"><div class="card-head"><h3><i data-lucide="refresh-cw" class="ic-inline"></i><span>逆向思维 · Inversion</span></h3><span class="tag tag-t">思维模型</span></div><p>芒格最常用的思维武器：不问怎么成功，先问<strong>怎么确保失败</strong>，然后避开所有失败路径。失败路径有限可列举，成功路径无限不可穷举。</p><div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i>设计启发：</b> 设计新UI前先列"玩家会因什么放弃使用"——找不到入口？步骤太多？反馈不明？出错不可回退？逐条消灭。</div></div>
-<div class="card"><div class="card-head"><h3><i data-lucide="atom" class="ic-inline"></i><span>第一性原理 · First Principles</span></h3><span class="tag tag-t">思维模型</span></div><p>马斯克常用框架：拆解到基本事实，从原子级重建解决方案。<strong>不要类比照搬</strong>——"别人这么做所以我也这么做"不是思考，是偷懒。</p><div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i>设计启发：</b> 为什么游戏HUD要有血条？不是因为别的游戏有，而是因为"玩家需要实时知道生存状态"——这是第一性原理。由此可能推导出不同于血条的全新方案。</div></div>
-<div class="card"><div class="card-head"><h3><i data-lucide="circle" class="ic-inline"></i><span>能力圈 · Circle of Competence</span></h3><span class="tag tag-t">思维模型</span></div><p>巴菲特/芒格共享的核心哲学：<strong>知道边界比拥有能力更重要</strong>。精确知道自己懂什么、不懂什么，在不懂的领域保持谦卑或求助专家。</p><div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i>设计启发：</b> 接副业时严守能力圈：游戏UI审计收全价，网页UI审计打折或推荐同行。创新在能力圈边缘发生，不是圈外。</div></div>
+<div class="card"><div class="card-head"><h3><i data-lucide="refresh-cw" class="ic-inline"></i><span>逆向思维 · Inversion</span></h3><span class="tag tag-t">思维模型</span></div><p>芒格最常用的思维武器：不问怎么成功，先问<strong>怎么确保失败</strong>，然后避开所有失败路径。失败路径有限可列举，成功路径无限不可穷举。</p><ul><li><strong>核心原理：</strong>这是一个<strong>认知偏差</strong>——意味着你的大脑会自动这样做，无论你是否同意。意识到偏差的存在 ≠ 免疫偏差。芒格："我研究偏差 50 年，依然每天落入同样的陷阱——区别只是我能更快地发现自己掉进去了，并爬出来。"</li><li><strong>经典案例：</strong><strong>实验性证据</strong>：心理学家在受控环境下反复证明这个偏差的强度——平均偏移幅度 20-40%。<strong>商业代价</strong>：基金经理因此偏差导致的累计判断失误，每年从市场抽走数百亿美元。<strong>个人代价</strong>：决策时无意识应用此偏差，导致系统性低估或高估。</li><li><strong>实操方法：</strong><strong>"反向校准"三步</strong>：① 识别——意识到自己正在受此偏差影响（最难）。② 强制反思——做"如果反过来想是什么样？"练习。③ 决策日志——事先记录预测，事后对比，建立你对自己直觉的<strong>可信度档案</strong>。</li></ul><div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i>设计启发：</b> 设计新UI前先列"玩家会因什么放弃使用"——找不到入口？步骤太多？反馈不明？出错不可回退？逐条消灭。</div><div class="quote">"任何让你深刻不安但你又确实需要面对的真相，都值得你花时间去面对。"<cite>—— Ray Dalio</cite></div><div class="tip"><b>反直觉应用：</b>大多数人把这个模型用在"是否做某事"——但<strong>真正威力在于决定"什么时候不做"</strong>。把这个模型当作"反向过滤器"——它告诉你哪些机会看起来诱人但实质有毒。本周练习：找出三个你"差点要做"但用此模型一看就该放弃的事。</div></div>
+<div class="card"><div class="card-head"><h3><i data-lucide="atom" class="ic-inline"></i><span>第一性原理 · First Principles</span></h3><span class="tag tag-t">思维模型</span></div><p>马斯克常用框架：拆解到基本事实，从原子级重建解决方案。<strong>不要类比照搬</strong>——"别人这么做所以我也这么做"不是思考，是偷懒。</p><ul><li><strong>核心原理：</strong>这个模型本质上是关于"<strong>第二序后果</strong>"——表面看似简单的因果关系背后，藏着多层级的连锁反应。多数人停留在第一序思考（"做了 A 会得到 B"），少数人能想到第二序（"得到 B 之后呢？谁会反应？市场会怎么变？"）。能持续做到第二序思考的人极其稀有——这就是认知优势的来源。</li><li><strong>经典案例：</strong><strong>价格上涨案例</strong>：第一序——卖更多东西=赚更多钱，所以涨价。第二序——竞争对手会跟进吗？老客户会流失到替代品吗？品牌定位是否被改变？长期价格弹性是否被破坏？同样的"涨价"决策，第一序看是简单收益最大化，第二序看可能是品牌自杀。</li><li><strong>实操方法：</strong>每次重大决策前问自己<strong>三个 "然后呢？"</strong>：① 然后呢？（直接后果）② 然后呢？（其他人/市场如何反应）③ 然后呢？（系统平衡如何重置）。能问到第三层的人已经超过 95% 决策者。</li></ul><div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i>设计启发：</b> 为什么游戏HUD要有血条？不是因为别的游戏有，而是因为"玩家需要实时知道生存状态"——这是第一性原理。由此可能推导出不同于血条的全新方案。</div><div class="quote">"快与慢系统不是两个独立的人格——是同一个大脑在不同情境下的两种工作模式。"<cite>—— Daniel Kahneman</cite></div></div>
+<div class="card"><div class="card-head"><h3><i data-lucide="circle" class="ic-inline"></i><span>能力圈 · Circle of Competence</span></h3><span class="tag tag-t">思维模型</span></div><p>巴菲特/芒格共享的核心哲学：<strong>知道边界比拥有能力更重要</strong>。精确知道自己懂什么、不懂什么，在不懂的领域保持谦卑或求助专家。</p><ul><li><strong>核心原理：</strong>这是一个<strong>认知偏差</strong>——意味着你的大脑会自动这样做，无论你是否同意。意识到偏差的存在 ≠ 免疫偏差。芒格："我研究偏差 50 年，依然每天落入同样的陷阱——区别只是我能更快地发现自己掉进去了，并爬出来。"</li><li><strong>经典案例：</strong><strong>实验性证据</strong>：心理学家在受控环境下反复证明这个偏差的强度——平均偏移幅度 20-40%。<strong>商业代价</strong>：基金经理因此偏差导致的累计判断失误，每年从市场抽走数百亿美元。<strong>个人代价</strong>：决策时无意识应用此偏差，导致系统性低估或高估。</li><li><strong>实操方法：</strong><strong>"反向校准"三步</strong>：① 识别——意识到自己正在受此偏差影响（最难）。② 强制反思——做"如果反过来想是什么样？"练习。③ 决策日志——事先记录预测，事后对比，建立你对自己直觉的<strong>可信度档案</strong>。</li></ul><div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i>设计启发：</b> 接副业时严守能力圈：游戏UI审计收全价，网页UI审计打折或推荐同行。创新在能力圈边缘发生，不是圈外。</div><div class="quote">"任何让你深刻不安但你又确实需要面对的真相，都值得你花时间去面对。"<cite>—— Ray Dalio</cite></div><div class="tip"><b>团队级应用：</b>把这个模型从"个人决策工具"升级为"团队语言"——开会时如果有人能脱口说出"这是个 X 问题"，整个团队的判断质量瞬间提升。<strong>具体做法</strong>：① 建一个团队共享的"思维模型词典"，每条带 1 句话定义+案例 ② 复盘会必问"这次决策用了哪些模型？" ③ 招聘时考察候选人对核心模型的掌握度。</div></div>
 </div>
 </div>
 </div><!-- end s-today -->
