@@ -496,7 +496,7 @@ footer p{margin-bottom:6px}
 <span class="brand-text"><span class="brand-cn">每日锻造</span><span class="brand-en">DAILY FORGE · A Reader's Almanac</span></span>
 </a>
 <div class="top-actions">
-<span class="top-btn read-badge" title="上次阅读"><i data-lucide="bookmark"></i><span id="readBadge">Day 028</span></span>
+<span class="top-btn read-badge" title="上次阅读"><i data-lucide="bookmark"></i><span id="readBadge">Day 029</span></span>
 <button class="top-btn" id="checkinBtn" onclick="showCheckin()">
 <i data-lucide="flame"></i><span class="streak-badge" id="streakText">0</span>
 </button>
@@ -522,10 +522,10 @@ footer p{margin-bottom:6px}
 
 <!-- Stats -->
 <div class="stats">
-<div class="st"><div class="st-n">95</div><div class="st-l">思维模型</div></div>
-<div class="st"><div class="st-n">75</div><div class="st-l">设计启发</div></div>
-<div class="st"><div class="st-n">84</div><div class="st-l">AI前沿</div></div>
-<div class="st"><div class="st-n">28</div><div class="st-l">累计天数</div></div>
+<div class="st"><div class="st-n">98</div><div class="st-l">思维模型</div></div>
+<div class="st"><div class="st-n">78</div><div class="st-l">设计启发</div></div>
+<div class="st"><div class="st-n">87</div><div class="st-l">AI前沿</div></div>
+<div class="st"><div class="st-n">29</div><div class="st-l">累计天数</div></div>
 </div>
 
 <!-- Primary Nav -->
@@ -543,7 +543,8 @@ footer p{margin-bottom:6px}
 
 <!-- Day Selector -->
 <div class="day-selector"><span class="day-selector-label">DAY</span><div class="day-scroll-wrap"><div class="day-scroll" id="daySubs">
-<button class="day-pill on" onclick="switchDay(this,28)">Day 028</button>
+<button class="day-pill on" onclick="switchDay(this,29)">Day 029</button>
+<button class="day-pill" onclick="switchDay(this,28)">Day 028</button>
 <button class="day-pill" onclick="switchDay(this,27)">Day 027</button>
 <button class="day-pill" onclick="switchDay(this,26)">Day 026</button>
 <button class="day-pill" onclick="switchDay(this,25)">Day 025</button>
@@ -581,8 +582,123 @@ footer p{margin-bottom:6px}
 <button class="subtab" onclick="subgo(this,'today','side')"> AI·设计前沿</button>
 </div>
 
+<!-- ========== Day 029 ========== -->
+<div class="day-group" data-day="29">
+<div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 029</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-05-16</span></div><h1 class="day-num">Day <em>029</em></h1><div class="day-summary">心理账户 × 幸存者偏差 × OODA循环 · 货币化UI分层设计 × 反直觉数据展示 × 决策节奏系统</div></div>
+
+<div class="section-eyebrow"><i data-lucide="brain"></i><span class="section-eyebrow-num">01</span><span class="section-eyebrow-title">思维模型</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Mental Models</span></div>
+<div class="today-think">
+<div class="card" data-fav-id="d29-mental-accounting" data-fav-title="心理账户 · Mental Accounting">
+<div class="card-head"><h3><i data-lucide="wallet" class="ic-inline"></i><span>心理账户 · Mental Accounting</span></h3><span class="tag tag-t">思维模型</span></div>
+<p>Richard Thaler(2017年诺贝尔经济学奖)揭示人类大脑中一个根深蒂固的非理性机制：<strong>人们不会把所有的钱当作一个统一的资金池——而是在心里划分成不同的"账户"(日常开销/娱乐/存款/意外之财)，每个账户有独立的消费规则</strong>。同样是100元，从工资里花出去会心疼，从彩票中奖得来的花出去就轻松得多——尽管钱是完全可替代的(fungible)。芒格将此纳入"人类误判心理学"清单："人们会为了省$10在加油站排队30分钟，却不会在买$50000的车时花30分钟比价——因为$10在'加油账户'里占比大，在'买车账户'里微不足道。"卡尼曼的实验验证：人们丢了$10的电影票会不愿再买，但丢了$10现金依然会买票——两种情况损失完全相同，但心理账户把票损失归入"娱乐预算"(已超支)，现金损失归入"一般账户"(不影响娱乐预算)。</p>
+<ul>
+<li><strong>核心原理：</strong>① <strong>"账户隔离"效应</strong>——人们在心理上将资金分为不同桶(生活费/零花钱/投资金/意外收入)，跨桶转移有巨大心理阻力。一个人可以同时背负18%利率的信用卡债务，又把钱存在2%的储蓄账户里——因为"还债的钱"和"存的钱"在不同心理账户。② <strong>"沉没成本账户"</strong>——已经花出去的钱形成独立账户，人们会为了"不浪费"已付的钱而做出更差的决策(已买了难吃的自助餐→撑到吐也要"吃回本"=把损失从沉没成本账户移出的冲动)。③ <strong>"盈利账户"vs"本金账户"</strong>——赌场效应：赢来的$500和本金$500虽然完全相同，但人们对"赢来的钱"风险容忍度极高(不是"我的钱"=花起来不心疼)。投资中的"house money effect"导致牛市末期疯狂加仓</li>
+<li><strong>经典案例：</strong>① <strong>Thaler的"红酒实验"(1985)</strong>——教授10年前$10买的酒现在值$200。他既不会$200卖掉(卖=从"投资账户"兑现=心疼)，也不会$200买一瓶新的(买=从"日常账户"支出$200=太贵)。两个决策完全矛盾——理性人对$200的估值不应该取决于它从哪个账户出。② <strong>德鲁克的"时间账户"延伸</strong>——不只是钱会被心理分账，时间也会。人们愿意花3小时追剧("娱乐时间账户"充裕)，但觉得花30分钟学习"太长"("学习时间账户"容量小=心理预算紧张)。德鲁克："有效管理者把时间当作一整块资源——而非切碎到不同心理账户的碎片。" ③ <strong>达里奥的"风险预算"思维</strong>——桥水不按"心理感觉"分配风险，而是用"风险平价(Risk Parity)"——所有资产按波动率贡献均匀分配风险预算=打破心理账户对投资决策的扭曲</li>
+<li><strong>实操方法：</strong>① <strong>"账户合并"练习</strong>——每月做一次：把所有资金来源视为同一个池子→问"如果这笔钱不是'奖金/加班费/意外之财'而是普通工资，我还会这样花吗？"→如果答案不同=心理账户在扭曲你的决策。② <strong>"沉没成本免疫"</strong>——决策时把"已经花掉的"彻底清零→只问"从现在开始，这件事值不值得继续投入？"→过去的投入不应该影响未来的最优决策。③ <strong>"统一记账法"</strong>——打破账户边界：不区分"正常收入"和"额外收入"→所有钱统一进入"资源池"→按ROI排序分配(先还高息债→再投资→最后消费)→不让心理标签扭曲优先级</li>
+</ul>
+<div class="quote">"心理账户是人类非理性的核心机制之一——我们不是根据客观价值做决策，而是根据'这笔钱在我心里属于哪个账户'做决策。理解这一点，你就理解了为什么人们会做出如此多自相矛盾的财务选择。"<cite>—— Richard Thaler, "Mental Accounting Matters"(Journal of Behavioral Decision Making, 1999)</cite></div>
+<div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i><span>设计启发：</span></b>心理账户是<strong>游戏货币系统和付费UI设计的底层心理学引擎</strong>。① <strong>多货币分层=利用心理账户</strong>——游戏设计2-3种货币(金币/钻石/代币)的本质是在玩家心里创建多个"消费账户"：金币=日常消费账户(花着不心疼)→钻石=稀缺账户(花之前会犹豫)→限时代币=紧迫账户("不花就过期"=降低消费阻力)。<strong>UI要让不同货币的"心理重量"通过视觉差异传达</strong>：金币用温暖色+圆润图标=平易近人；钻石用冷光+棱角+闪烁=珍贵感。② <strong>"首充/月卡"利用"小额账户"</strong>——$1首充破冰的本质：让玩家在心里开设"这个游戏的娱乐账户"→一旦账户开设→后续充值的心理阻力骤降(从"要不要花钱"变成"在这个账户里再加一点")。<strong>UI设计：首充按钮要极度突出+数字要小($1/$6)→让开设新账户的门槛最低化</strong>。③ <strong>"沉没成本"UI——展示已投入</strong>——在付费决策点展示"你已在这个角色投入了147小时"="唤醒沉没成本账户"→让玩家觉得"不继续投入=之前的浪费了"→提升续费/购买意愿。<strong>但要克制——过度利用沉没成本会引发"被操控感"→反噬</strong></div>
+</div>
+
+<div class="card" data-fav-id="d29-survivorship-bias" data-fav-title="幸存者偏差 · Survivorship Bias">
+<div class="card-head"><h3><i data-lucide="eye-off" class="ic-inline"></i><span>幸存者偏差 · Survivorship Bias</span></h3><span class="tag tag-t">思维模型</span></div>
+<p>塔勒布在《黑天鹅》和《反脆弱》中反复强调的核心认知陷阱：<strong>我们只看到了"活下来的"(成功者/幸存者)，却系统性地忽略了"消失的"(失败者/死者)——而后者的数量往往是前者的100倍甚至1000倍</strong>。亚伯拉罕·瓦尔德(Abraham Wald)在二战中的经典案例：军方想在返航飞机弹孔密集处加装甲→瓦尔德指出：应该加在<strong>没有弹孔的地方</strong>——因为被击中那些位置的飞机<strong>根本没有回来</strong>。芒格将此概括为"看不见的坟墓"问题："你在《福布斯》上看到的每一个白手起家的亿万富翁背后，有一千个采用完全相同策略但失败了的人——他们不会出现在杂志上。"</p>
+<ul>
+<li><strong>核心原理：</strong>① <strong>"沉默证据"(Silent Evidence)</strong>——塔勒布造词：那些因为失败/死亡/破产而无法发声的证据。成功学书架上全是幸存者的故事→形成"做X就能成功"的幻觉→实际上做X的人99%都失败了，只是你看不到他们。② <strong>"回溯偏差"加速器</strong>——幸存者回忆自己的成功时会自动"整理叙事"→把随机运气重新编码为"战略远见"→读者把幸存者的事后叙事当作因果规律→复制该行为→大概率失败(因为因果关系不存在)。③ <strong>"基础概率盲"</strong>——看到5个成功案例→推断"这个方法可行"→但从不问"尝试这个方法的总人数是多少？"如果答案是50000人→成功率=0.01%→"可行"变成"几乎不可能"。芒格："我想知道我将来会死在什么地方——然后我永远不去那个地方。死在那个地方的人不会告诉你那个地方有多危险。"</li>
+<li><strong>经典案例：</strong>① <strong>瓦尔德的飞机装甲决策(1943)</strong>——统计研究小组(SRG)统计返航B-17弹孔分布→军方直觉：弹孔多的地方加甲。瓦尔德逆转：弹孔多=被击中还能回来=这些部位不致命→应该加在弹孔少的地方(引擎/驾驶舱)=被击中这些部位的飞机已经坠毁了。这个洞见拯救了数千飞行员的生命。② <strong>共同基金"十年跑赢市场"骗局</strong>——某基金公司宣传"我们的基金10年年化回报15%！"→真相：10年前他们同时发行了20只基金→表现差的被悄悄合并/关闭→只剩最好的那只"幸存下来"→被当作"实力"展示。标普500的"成分股"同理：表现差的被踢出指数→指数"永远涨"部分是因为失败者被删除了。③ <strong>创业成功学的幸存者叙事</strong>——"辍学创业→成功！"(比尔盖茨/扎克伯格/乔布斯)→忽略了每年数万辍学创业失败的人→塔勒布："不要根据幸存者的共同特征来推断成功的原因——因为死去的人可能有完全相同的特征。"</li>
+<li><strong>实操方法：</strong>① <strong>"墓地审计"</strong>——每次看到成功案例→强制自问："做了同样事情但失败的人在哪里？有多少？为什么他们失败了？"如果无法获得失败者数据=该结论不可信。② <strong>"基础概率优先"</strong>——任何领域做决策→先找"总体成功率"(base rate)→再看具体案例。比如"独立游戏"的总体盈利率(~5%)才是你的先验概率→个别成功案例只能微调这个概率。③ <strong>"前瞻性记录"</strong>——达里奥方法：在事前记录所有参与者(包括后来失败的)→事后对比幸存者和失败者的真正差异→只有前瞻性数据才能避免幸存者偏差→所有回顾性研究都天然被污染</li>
+</ul>
+<div class="quote">"历史的教训是：我们学不到历史的教训——因为死者不说话，失败者不出书，被淘汰的战略不被记录。我们看到的'历史'——已经是经过幸存者过滤后的严重偏斜样本。"<cite>—— Nassim Taleb, 《黑天鹅》(The Black Swan, 2007)</cite></div>
+<div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i><span>设计启发：</span></b>幸存者偏差对游戏设计和数据分析的核心警示：<strong>"你的用户数据只代表活跃用户——流失的用户才是最该研究的对象"</strong>。① <strong>数据分析的"沉默用户"陷阱</strong>——DAU/MAU统计只看活跃用户→"平均Session时长45分钟，很棒！"→但那些5分钟就卸载的用户不在统计里→真实体验可能远差于数据显示。<strong>设计方法：必须追踪"流失漏斗"→注册→首日→3日→7日每个节点的流失率+流失前最后一个界面</strong>。② <strong>"成功功能"偏差</strong>——"我们的背包系统使用率90%！"→因为不用背包的玩家已经流失了→幸存者(留存玩家)当然用→但这不能证明背包设计好。<strong>正确验证：对比"使用该功能"vs"未使用该功能"用户的后续留存率差异</strong>。③ <strong>"成功游戏"学习法的陷阱</strong>——"原神UI这样做→我们也这样做"→忽略了100个采用类似UI但失败的游戏→也许原神的成功和UI无关(而是IP/品质/运营)→<strong>学习竞品时必须同时研究"失败竞品"→对比找真正因果</strong></div>
+</div>
+
+<div class="card" data-fav-id="d29-ooda-loop" data-fav-title="OODA循环 · 决策速度优势">
+<div class="card-head"><h3><i data-lucide="rotate-cw" class="ic-inline"></i><span>OODA循环 · 决策速度优势</span></h3><span class="tag tag-t">思维模型</span></div>
+<p>美国空军战斗机飞行员约翰·博伊德(John Boyd)从空战中提炼的决策框架：<strong>Observe(观察)→Orient(判断)→Decide(决策)→Act(行动)</strong>——胜利不属于最强大的一方，而属于<strong>循环速度最快的一方</strong>。在40:1的空战交换比中，博伊德发现F-86击败MiG-15不是因为飞机性能更好(MiG-15实际性能指标更优)，而是因为F-86的气泡座舱+液压操纵给飞行员更快的观察和响应速度=OODA循环更快。达里奥将OODA思维融入桥水的投资决策流程："市场奖励的不是正确——而是比别人先正确。"德鲁克的管理学表述："效率是把事情做对；效能是做对的事——但在快速变化的环境中，关键是做对的事的速度。"</p>
+<ul>
+<li><strong>核心原理：</strong>① <strong>"Orient"是核心瓶颈</strong>——四步中最关键也最常被忽视的是"Orient(判断/定向)"。观察到数据后→如何解读？用什么心智模型过滤？哪些信息重要哪些是噪音？Orient的质量=决策质量的天花板。博伊德："有更好心智模型的人→Orient更准确→决策更优→即使行动速度相同也会赢。"② <strong>"循环嵌套"</strong>——OODA不是单次线性流程→是持续循环→每次Act的结果立刻成为新的Observe输入→新信息更新Orient→产生更精确的Decide→更有效的Act。<strong>循环速度>单次正确性</strong>：快速试错的人在同一时间完成10个OODA循环→慢决策者只完成2个→前者虽然每次正确率低→但学习速度5倍→最终积累的正确性远超后者。③ <strong>"打乱对手的OODA"</strong>——博伊德的攻击性应用：不只加速自己的循环→还要打乱对手的循环——发送矛盾信号(干扰Observe)→制造不确定性(干扰Orient)→让对手陷入"决策瘫痪"(Decide崩溃)。商业中的颠覆性创新本质上就是打乱在位者的OODA循环</li>
+<li><strong>经典案例：</strong>① <strong>博伊德的"40秒博伊德"传奇(1960s)</strong>——博伊德在战斗机训练中立下赌注："给我任何不利起始位置→40秒内我必定锁定你的尾部"→无人能赢。秘密不是飞行技术→是决策速度：他的OODA循环比对手快3-5倍→对手还在"Orient"阶段→他已经"Act"完进入下一个循环→对手永远在追赶一个不断变化的局势。② <strong>丰田生产方式(TPS)的OODA本质</strong>——看板系统+安灯(Andon)=加速制造业的OODA循环：问题发生(Observe)→工人拉绳停线(Orient/Decide秒级)→立刻修复(Act)→vs传统工厂：月底质检(Observe延迟30天)→管理层开会(Orient/Decide延迟数周)→效率差10倍。达里奥："在投资中，同样的洞见——速度是alpha的来源。"③ <strong>Spotify的双周Sprint(2012-至今)</strong>——两周一个完整的Build-Measure-Learn循环=在产品开发中实现高频OODA。vs传统瀑布式开发6-12个月一个循环→Spotify在同一时间完成12-24个学习循环→产品演化速度碾压传统企业。Squad自治=每个小组独立OODA→不需要等整个组织同步</li>
+<li><strong>实操方法：</strong>① <strong>"决策延迟审计"</strong>——每周记录：从"发现问题"到"采取行动"花了多长时间？瓶颈在哪一步？是Observe慢(信息获取渠道不够)还是Orient慢(分析框架不清)还是Decide慢(审批层级太多)？找到最慢的环节→集中优化。② <strong>"预制Orient"策略</strong>——达里奥的"原则"本质上是预制的Orient模板：遇到X类型情况→我的判断框架是Y→直接跳过现场Orient→进入Decide。芒格的"检查清单"同理=预制Orient→减少每次决策的时间。③ <strong>"最小可行决策"(MVD)</strong>——不追求一次性做出完美决策→做出"足够好"的小决策→快速Act→用结果更新Orient→再做下一个更精确的小决策。3个70%正确的快决策→优于1个90%正确的慢决策(因为3次循环积累的学习>1次)</li>
+</ul>
+<div class="quote">"战争中决定胜负的不是最强的军队，而是能最快适应变化局势的军队。OODA循环更快的一方，能让对手永远在应对一个已经不存在的现实——这就是为什么灵活性击败了力量。"<cite>—— John Boyd, "Destruction and Creation"(1976); "Patterns of Conflict"(1986)</cite></div>
+<div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i><span>设计启发：</span></b>OODA循环对游戏UI/UX设计的核心启示：<strong>"玩家的决策速度=游戏流畅感=UI的终极指标"</strong>。① <strong>加速玩家OODA的UI设计</strong>——Observe：关键信息一眼可见(HP/资源/冷却→用颜色/大小/位置编码→不需要阅读文字)；Orient：战局判断辅助(敌人弱点高亮/最优行动提示/局势总结)；Decide：减少选项(3个而非12个可选行动)；Act：一键执行(不需要确认弹窗打断节奏)。<strong>每多一次点击=OODA循环多一个延迟=流畅感下降</strong>。② <strong>"打乱对手OODA"的PvP设计</strong>——格斗游戏的"mix-up"=让对手Orient失效(不确定你的下一招是什么)→对手Decide瘫痪→你趁机连击。<strong>UI配合：自己的技能CD/Buff一目了然→对手信息部分隐藏→信息不对称=OODA不对称=优势</strong>。③ <strong>"设计迭代的OODA"</strong>——把设计流程本身当作OODA循环：快速出原型(Act)→用户测试数据(Observe)→分析热力图/漏斗(Orient)→调整方案(Decide)→<strong>2天一个设计OODA循环→比2周一个循环的团队学习快7倍</strong></div>
+</div>
+</div>
+
+<div class="section-eyebrow"><i data-lucide="gamepad-2"></i><span class="section-eyebrow-num">02</span><span class="section-eyebrow-title">设计启发</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Design Insights</span></div>
+<div class="today-design">
+<div class="card" data-fav-id="d29-design-1" data-fav-title="货币化UI分层设计">
+<div class="card-head"><h3><i data-lucide="layers" class="ic-inline"></i><span>货币化UI分层设计</span></h3><span class="tag tag-d">设计启发</span></div>
+<p>基于心理账户理论，游戏商城UI的核心不是"展示商品"——而是<strong>管理玩家心里的多个消费账户</strong>。</p>
+<ul>
+<li><strong>三层货币视觉分级：</strong>免费货币(金币)→暖色调+圆润+大量出现=心理"日常账户"=花着不心疼 → 付费货币(钻石)→冷色调+晶体+稀缺动效=心理"珍贵账户"=三思后花 → 限时代币→倒计时+脉冲动画+紧迫色=心理"即将过期账户"=赶紧花</li>
+<li><strong>数字锚定布局：</strong>商品价格旁边永远显示"你当前拥有"的数量→如果足够=绿色"可购买"CTA→如果差一点=显示差额+"只差X个"=引导充值。不要让玩家自己去算</li>
+<li><strong>沉没成本唤醒区：</strong>付费入口旁展示"你已投入XX小时/已收集XX/XX件"→激活沉没成本账户→但只在合适场景使用(月卡到期提醒/VIP续费)→不要在每个页面都用=过度操控=反噬</li>
+</ul>
+</div>
+
+<div class="card" data-fav-id="d29-design-2" data-fav-title="反直觉数据展示设计">
+<div class="card-head"><h3><i data-lucide="bar-chart-2" class="ic-inline"></i><span>反直觉数据展示设计</span></h3><span class="tag tag-d">设计启发</span></div>
+<p>基于幸存者偏差原理，数据仪表盘和排行榜UI必须<strong>同时展示"存在的"和"缺失的"</strong>。</p>
+<ul>
+<li><strong>"幽灵数据"设计模式：</strong>排行榜不只显示前10名→在底部用虚影/透明度展示"你的位置"和"中位数位置"→让玩家看到完整分布而非只看到顶部幸存者</li>
+<li><strong>流失可视化：</strong>在关卡选择界面用灰色/半透明节点标记"XX%的玩家在此放弃"→① 让设计师看到"沉默的流失者"→② 让坚持的玩家获得成就感("你比80%的人走得更远")</li>
+<li><strong>A/B结果完整展示：</strong>内部数据看板展示实验结果时→不只展示"赢的方案"→同时保留"输的方案列表"+"为什么输"→避免团队只记住成功实验→形成"失败数据库"=组织级反幸存者偏差</li>
+</ul>
+</div>
+
+<div class="card" data-fav-id="d29-design-3" data-fav-title="决策节奏系统设计">
+<div class="card-head"><h3><i data-lucide="timer" class="ic-inline"></i><span>决策节奏系统设计</span></h3><span class="tag tag-d">设计启发</span></div>
+<p>基于OODA循环理论，游戏战斗/策略UI的核心职责是<strong>最小化玩家的"Orient→Decide"耗时</strong>。</p>
+<ul>
+<li><strong>"Observe零延迟"原则：</strong>关键战斗信息(HP/状态/冷却)→必须编码为颜色+形状+动画三通道冗余→任何单一通道故障(色盲/小屏/动画关闭)时其他两个通道仍然可用→确保Observe阶段零认知负荷</li>
+<li><strong>"Orient辅助"模式：</strong>新手前10小时→在决策点弹出"战局分析"浮层(3个推荐行动+理由)→帮助建立Orient心智模型→10小时后逐渐淡化→玩家自己的Orient速度已经训练出来了</li>
+<li><strong>"Act确认"分级：</strong>低风险操作(使用药水)→直接执行→高风险操作(出售紫装)→1次确认→不可逆操作(删除角色)→二次确认+冷却期。风险越低→确认层越少→OODA越快→游戏越流畅</li>
+</ul>
+</div>
+</div>
+
+<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div>
+<div class="today-side">
+<div class="card" data-fav-id="d29-side-1" data-fav-title="游戏心理账户诊断工具">
+<div class="card-head"><h3><i data-lucide="brain-circuit" class="ic-inline"></i><span>游戏心理账户诊断工具</span></h3><span class="tag tag-a">副业思路</span></div>
+<p>为游戏策划和UI设计师提供<strong>"货币系统心理账户健康度诊断"</strong>——上传游戏经济系统配置表→AI分析多货币之间的心理账户边界是否清晰、转化率是否合理、是否存在"账户泄漏"(玩家绕过付费账户用免费资源达到同等效果)。</p>
+<ul>
+<li><strong>启动步骤：</strong>① 用Python写解析器(读取游戏经济Excel/JSON)→② 建立"心理账户模型"(每种货币的获取难度/消耗场景/心理权重评分)→③ 输出诊断报告(哪些货币感知混淆/哪些转化点流失严重/建议UI优化方案)</li>
+<li><strong>技术栈：</strong>Python数据分析(Pandas) + Figma插件(可视化经济流图) + 报告PDF生成</li>
+<li><strong>收入预估：</strong>面向中小游戏公司策划团队→单次诊断报告800-2000元→月度订阅(持续监控)3000-5000元/月→目标10家客户=3-5万/月</li>
+<li><strong>差异化：</strong>市面上有经济系统平衡工具→但没有从"行为经济学/心理账户"角度切入的→这是蓝海</li>
+</ul>
+</div>
+
+<div class="card" data-fav-id="d29-side-2" data-fav-title="游戏UI墓地审计服务">
+<div class="card-head"><h3><i data-lucide="search" class="ic-inline"></i><span>游戏UI"墓地审计"服务</span></h3><span class="tag tag-a">副业思路</span></div>
+<p>基于幸存者偏差原理，为游戏团队提供<strong>"失败UI/失败功能"数据库+对比分析服务</strong>——大多数团队只研究成功案例(原神/王者荣耀的UI)→但真正有价值的是"为什么XX游戏的同类UI失败了"。</p>
+<ul>
+<li><strong>启动步骤：</strong>① 系统性收集已停服/失败游戏的UI截图+用户评价(TapTap差评/Steam负面评价中的UI吐槽)→② 按功能分类建立"失败案例库"(背包系统失败案例30个/商城设计失败案例25个/新手引导失败案例40个)→③ 对每个失败案例标注"违反了什么原则"+"正确做法应该是"</li>
+<li><strong>技术栈：</strong>Python爬虫(TapTap/Steam评论) + UE4/Unity截图工具 + Figma标注 + 报告生成</li>
+<li><strong>收入预估：</strong>"失败案例库"订阅299元/月(个人)/999元/月(团队)→定制审计报告5000-15000元/份→游戏公司内训8000-20000元/次</li>
+<li><strong>壁垒：</strong>失败数据的收集成本高(游戏停服后数据消失)→先发优势明显→越早开始积累越有壁垒</li>
+</ul>
+</div>
+
+<div class="card" data-fav-id="d29-side-3" data-fav-title="设计OODA加速器">
+<div class="card-head"><h3><i data-lucide="zap" class="ic-inline"></i><span>设计OODA加速器 · Figma→数据→迭代闭环</span></h3><span class="tag tag-a">副业思路</span></div>
+<p>将OODA循环理念产品化：<strong>一个Figma插件+数据看板工具</strong>，帮助设计团队把"设计→上线→数据→改进"的循环从2周缩短到2天。</p>
+<ul>
+<li><strong>启动步骤：</strong>① Figma插件端——标注每个设计方案的"假设"(我预测点击率提升X%)和"验证指标" →② 数据端——对接Firebase/Mixpanel自动回填实际数据 →③ 看板端——展示"假设vs现实"的对比+自动生成下一步建议(哪些假设被验证/哪些被推翻/推荐下一个实验方向)</li>
+<li><strong>技术栈：</strong>Figma插件(TypeScript) + Python后端(FastAPI) + 数据分析引擎 + 可视化看板(React)</li>
+<li><strong>收入预估：</strong>设计团队SaaS工具→199元/人/月(5人起)→目标50个设计团队=5万+/月→企业版(含定制数据源)2000元/月/团队</li>
+<li><strong>核心价值：</strong>让设计师从"凭感觉做方案→等2周看数据→发现不对→再改"变成"每天看到前天决策的数据反馈→即时调整"→OODA加速5-7倍</li>
+</ul>
+</div>
+</div>
+
+</div>
+
+
 <!-- ========== Day 028 ========== -->
-<div class="day-group" data-day="28">
+<div class="day-group" data-day="28" style="display:none">
 <div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 028</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-05-15</span></div><h1 class="day-num">Day <em>028</em></h1><div class="day-summary">遍历性问题 × 激励超级力量 × 涌现 · 风险感知仪表盘 × 激励可视化系统 × 涌现式关卡设计</div></div>
 
 <div class="section-eyebrow"><i data-lucide="brain"></i><span class="section-eyebrow-num">01</span><span class="section-eyebrow-title">思维模型</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Mental Models</span></div>
