@@ -496,7 +496,7 @@ footer p{margin-bottom:6px}
 <span class="brand-text"><span class="brand-cn">每日锻造</span><span class="brand-en">DAILY FORGE · A Reader's Almanac</span></span>
 </a>
 <div class="top-actions">
-<span class="top-btn read-badge" title="上次阅读"><i data-lucide="bookmark"></i><span id="readBadge">Day 029</span></span>
+<span class="top-btn read-badge" title="上次阅读"><i data-lucide="bookmark"></i><span id="readBadge">Day 030</span></span>
 <button class="top-btn" id="checkinBtn" onclick="showCheckin()">
 <i data-lucide="flame"></i><span class="streak-badge" id="streakText">0</span>
 </button>
@@ -522,10 +522,10 @@ footer p{margin-bottom:6px}
 
 <!-- Stats -->
 <div class="stats">
-<div class="st"><div class="st-n">98</div><div class="st-l">思维模型</div></div>
-<div class="st"><div class="st-n">78</div><div class="st-l">设计启发</div></div>
-<div class="st"><div class="st-n">87</div><div class="st-l">AI前沿</div></div>
-<div class="st"><div class="st-n">29</div><div class="st-l">累计天数</div></div>
+<div class="st"><div class="st-n">101</div><div class="st-l">思维模型</div></div>
+<div class="st"><div class="st-n">81</div><div class="st-l">设计启发</div></div>
+<div class="st"><div class="st-n">90</div><div class="st-l">AI前沿</div></div>
+<div class="st"><div class="st-n">30</div><div class="st-l">累计天数</div></div>
 </div>
 
 <!-- Primary Nav -->
@@ -543,7 +543,8 @@ footer p{margin-bottom:6px}
 
 <!-- Day Selector -->
 <div class="day-selector"><span class="day-selector-label">DAY</span><div class="day-scroll-wrap"><div class="day-scroll" id="daySubs">
-<button class="day-pill on" onclick="switchDay(this,29)">Day 029</button>
+<button class="day-pill on" onclick="switchDay(this,30)">Day 030</button>
+<button class="day-pill" onclick="switchDay(this,29)">Day 029</button>
 <button class="day-pill" onclick="switchDay(this,28)">Day 028</button>
 <button class="day-pill" onclick="switchDay(this,27)">Day 027</button>
 <button class="day-pill" onclick="switchDay(this,26)">Day 026</button>
@@ -582,8 +583,129 @@ footer p{margin-bottom:6px}
 <button class="subtab" onclick="subgo(this,'today','side')"> AI·设计前沿</button>
 </div>
 
+<!-- ========== Day 030 ========== -->
+<div class="day-group" data-day="30">
+<div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 030</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-05-17</span></div><h1 class="day-num">Day <em>030</em></h1><div class="day-summary">确认偏误 × 路径依赖 × 委托代理问题 · 用户路径锁定设计 × 信息对称UI × 反确认测试系统</div></div>
+
+<div class="section-eyebrow"><i data-lucide="brain"></i><span class="section-eyebrow-num">01</span><span class="section-eyebrow-title">思维模型</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Mental Models</span></div>
+<div class="today-think">
+<div class="card" data-fav-id="d30-confirmation-bias" data-fav-title="确认偏误 · Confirmation Bias">
+<div class="card-head"><h3><i data-lucide="eye-off" class="ic-inline"></i><span>确认偏误 · Confirmation Bias</span></h3><span class="tag tag-t">思维模型</span></div>
+<p>Francis Bacon在400年前就指出：<strong>"人类理解力一旦接受某种观点，就会将其他一切拉来支持它——忽视或贬低反面证据"</strong>。卡尼曼用实验证明这是人类最顽固的认知缺陷之一：大脑不是"客观处理器"而是"确认机器"——它的默认模式是寻找支持现有信念的证据，而非测试现有信念是否正确。芒格将其列为"人类误判心理学"25种倾向之首："人们不是先看到证据再形成观点——而是先有观点再找证据——然后认为自己是客观的。这是最危险的自欺。"达里奥把对抗确认偏误制度化为桥水的核心流程："我们必须系统性地寻找与自己观点相反的证据——并且给予它们比支持性证据更大的权重——因为确认性证据是廉价的，而反驳性证据是珍贵的。"</p>
+<ul>
+<li><strong>核心原理：</strong>① <strong>"只看支持"默认模式</strong>——Wason选择任务(1960)证明：给出"如果卡片一面是元音字母，则另一面是偶数"这条规则→只有15%的人会翻开"可能证伪"的卡片(85%的人只翻"可能确认"的卡片)。人类大脑天生寻找确认而非证伪。② <strong>"回音室"效应</strong>——社交媒体算法拉取"你可能喜欢"的内容=大规模确认偏误制造机。你看到10篇支持"X方案更好"的文章→以为"全世界都支持X"→但只是算法拉了确认性信息→异见被过滤掉了。③ <strong>"沉没确认"叠加</strong>——确认偏误+沉没成本=灭顶之灾：已投入大量资源的项目→只寻找"还有救"的证据→忽视所有"应该放弃"的信号→继续投入→更大的沉没=更强的确认偏误→死亡螺旋</li>
+<li><strong>经典案例：</strong>① <strong>卡尼曼的"强制证伪"实验(2009)</strong>——要求受试者写下"这个观点可能错误的原因"——结果：仅仅"写下3个反对理由"这个动作，就大幅降低了人们对原观点的信心度。这意味着确认偏误是"可破解的"——但需要制度强制。② <strong>芒格的"终身反对习惯"</strong>——"我一辈子在实践一件事：当我发现自己特别喜欢某个想法时——我就加倍地寻找它为什么可能是错的。因为越喜欢=越可能是确认偏误在作祟。"实操：对任何自己"确信"的观点→花同等时间寻找反驳证据→如果找不到强反驳→观点可信度提升。如果轻易找到→必须认真重新评估 ③ <strong>达里奥的"错误日记"制度</strong>——桥水每个分析师必须在研究报告中专设"我可能错在哪里"一节→列出3-5个"如果我的观点是错的，最可能的原因是..."→强制制度化地对抗确认偏误。这不是"多写一段"而是"强制启动证伪思维"</li>
+<li><strong>实操方法：</strong>① <strong>"红队/蓝队"决策法</strong>——重大决策前指定一人或一组专门"反驳"——他们的任务不是"判断对错"而是"拼命找漏洞"→如果红队的最强攻击你都能防住→方案可信度极高。② <strong>"前验尸"(Pre-mortem)技术</strong>——假设项目已经失败→回溯"它是怎么死的"→列出5-10个"死因"→检查当前方案有没有预防每个死因。这比"列举风险"有效得多——因为"假设已失败"绕过了确认偏误("我们会成功的")。③ <strong>"反确认日记"</strong>——每周写一次："这周我最确信的一个观点是___。它可能错误的原因是___。我需要看到什么证据才会改变主意___。"—3个月后回看→你会发现自己有多少"确信"被推翻→校准信心度</li>
+</ul>
+<div class="quote">"人类理解力最危险的地方在于：它一旦接受了某个命题——无论是因为它是公认的、令人愉悦的还是仅仅因为先入为主——就会将一切拉来支持它、与之和谐，同时贬低、忽视所有矛盾的事例。"<cite>—— Francis Bacon, Novum Organum(1620)；芒格经常引用此句作为"人类误判心理学"的核心源头</cite></div>
+<div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i><span>设计启发：</span></b>确认偏误对游戏设计的核心警示：<strong>"你觉得自己的设计方案很好——这正是它最可能错的时候"</strong>。① <strong>用户测试的"确认陷阱"</strong>——当你问玩家"这个界面好用吗？"=在请求确认。正确做法："请完成X任务"→观察行为→他卡在哪=真实反馈。<strong>观察行为，不要索要观点</strong>。② <strong>数据看板的"确认过滤"</strong>——你先有了"新版更好"的预期→看数据时只看支持的指标→忽略下降的指标。<strong>解法：让"不希望新版成功的人"分析同一批数据——寻找"反确认"角度</strong>。③ <strong>"设计评审红队"制度</strong>——每次设计评审指定1人专门充当"红队"：他的KPI是找到方案的最大弱点，不是"同意"→制度化地对抗团队确认偏误</div>
+
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d30-confirmation-bias"><div class="card-deep-inner-wrap"></div></div>
+</div>
+
+<div class="card" data-fav-id="d30-path-dependence" data-fav-title="路径依赖 · Path Dependence">
+<div class="card-head"><h3><i data-lucide="git-branch" class="ic-inline"></i><span>路径依赖 · Path Dependence</span></h3><span class="tag tag-t">思维模型</span></div>
+<p>Brian Arthur在圣塔菲研究所(1989)揭示了经济学中的革命性洞见：<strong>"正反馈系统中，历史事件和早期小决策会被放大并锁定在特定路径上——即使这条路径并非最优"</strong>。塔勒布用"打破的花瓶"比喻说明：打破的花瓶无法通过"反过来放"归位——系统一旦走上某条路径，转换成本呈指数级增长。芒格深刻理解这一点："我们在早期投入资金时特别小心——因为早期的每一个决策都会在复利的作用下被无限放大。"达里奥："原则和系统的早期设计决定了组织的永久DNA——当你想改变时，会发现整个生态系统都在抵抗。"</p>
+<ul>
+<li><strong>核心原理：</strong>① <strong>"锁定"(Lock-in)机制</strong>——一旦走上某条路径→转换成本递增→即使更优方案出现→系统也无法切换。QWERTY键盘布局比Dvorak慢~40%→但140年后仍然无法替换(10亿+人的肌肉记忆=转换成本)。② <strong>"收益递增"(Increasing Returns)</strong>——与传统经济学"收益递减"相反：网络效应/学习曲线/生态系统/标准化"越用越有价值"→先行者优势自强化→后来者被挤出。③ <strong>"关键时刻"(Critical Junctures)</strong>——路径分叉只出现在特定时刻→错过转向窗口=被锁在次优路径上几年甚至几十年。技术选型/架构设计/团队文化建设——这些重大决策点就是"关键时刻"，值得花10倍的时间思考</li>
+<li><strong>经典案例：</strong>① <strong>VHS vs Betamax(1975-1988)</strong>——Betamax画质更好→但VHS先下投放店→更多片源→更多用户买VHS→更多片源→Betamax死亡。"更好"不等于"赢"——早期优势+正反馈=锁定胜利。② <strong>JavaScript的锁定</strong>——Brendan Eich用10天写出的原型语言→已成为全球最广泛使用的编程语言(30亿+设备)→即使有明显更好的语言设计→生态系统锁定=无法替代。③ <strong>芒格对伯克希尔早期买入的解读</strong>——"1964年我们买入伯克希尔时→它只是一家统一了保险金投资的纺织公司。但早期建立的浮存金利用机制+投资纪律+管理哲学→在复利的作用下→数十年后涨到30000倍。早期'路径'的质量决定了终点"</li>
+<li><strong>实操方法：</strong>① <strong>"可逆性评估"</strong>——每个重大决策前问："这个决定是可逆的还是不可逆的？"→不可逆的=高路径依赖风险=花10倍时间思考+强制寻找替代方案。Bezos的"单向门"vs"双向门"理论就是这个原理的应用。② <strong>"最小承诺原则"</strong>——在"关键时刻"前尽量保持灵活性→推迟不可逆决策到"最后责任时刻"→用最小成本实验探索多条路径→再"全力压"在验证后的路径上。③ <strong>"路径审计"练习</strong>——每季度回顾："我们当前被锁定在哪些路径上？"→"这些锁定哪些是有意选择的，哪些是无意滑入的？"→"仍然可以调整的决策点在哪里？"→把精力集中在还可以调整的分叉点上</li>
+</ul>
+<div class="quote">"在收益递增的世界里，历史很重要。小事件和偶然因素可以被放大并产生巨大而持久的影响。经济不是在平衡点运行的机器——而是一个不断演化的复杂系统，它的未来被过去的路径所塑造。"<cite>—— W. Brian Arthur, "Increasing Returns and Path Dependence in the Economy"(University of Michigan Press, 1994)</cite></div>
+<div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i><span>设计启发：</span></b>路径依赖对游戏UI设计的核心启示：<strong>"新手引导的前30分钟决定玩家的永久行为模式"</strong>。① <strong>"首次操作锁定"</strong>——玩家第一次学会的操作方式=其永久默认行为。如果新手引导教的是"点击"→滴到游戏后期→玩家都不会用"拖拽"(even if 拖拽更高效)→因为操作习惯已被锁定。<strong>启示：新手引导中教的操作=强制玩家"最优路径"</strong>。② <strong>"设计系统的早期决策"</strong>——选择了"底部Tab栏导航"还是"侧边抽屉"→一旦上线+玩家习惯形成→切换成本=数百万用户的重新学习=强大的路径锁定。<strong>所以交互架构设计值得花10倍时间思考</strong>。③ <strong>"功能膨胀的路径依赖"</strong>——每加一个功能=加一个菜单项=玩家的导航模型固化→删减="我的功能去哪了？"→路径依赖让→减法比加法难10倍。<strong>所以"不加"比"加了再删"成本低100倍</strong></div>
+
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d30-path-dependence"><div class="card-deep-inner-wrap"></div></div>
+</div>
+
+<div class="card" data-fav-id="d30-principal-agent" data-fav-title="委托代理问题 · Principal-Agent Problem">
+<div class="card-head"><h3><i data-lucide="users" class="ic-inline"></i><span>委托代理问题 · Principal-Agent Problem</span></h3><span class="tag tag-t">思维模型</span></div>
+<p>Jensen与Meckling(1976)揭示了人类组织中最普遍的结构性问题：<strong>当"做事的人"(代理人)和"承担后果的人"(委托人)不是同一人时——利益必然不对齐</strong>。芒格将其称为"人类文明中最古老的问题"："谁来看守守夜人？"(古罗马诗人 Juvenal)。德鲁克从管理学角度总结："管理的本质就是解决委托代理问题——如何让人们做不在现场监督时仍然会做的正确的事。"达里奥设计的桥水"极度透明+可信度加权"就是对委托代理问题的系统性解法。</p>
+<ul>
+<li><strong>核心原理：</strong>① <strong>"信息不对称"是根源</strong>——代理人比委托人更了解实际情况(努力程度/真实难度/替代方案)→委托人无法完美监督→代理人可以利用信息优势最大化自身利益。芒格："当你将钱交给别人管理时→对方的'结果'和你的'结果'就不再是同一个'结果'了。" ② <strong>"道德风险"(Moral Hazard)</strong>——代理人知道后果由他人承担→行为更激进/更懒惰。银行家用别人的钱下赌注(bonus归自己→亏损归客户)=史上最大规模的委托代理失败(2008金融危机) ③ <strong>"逆向选择"(Adverse Selection)</strong>——信息不对称导致"坏货驱逐好货"：最激进的基金经理提供最高承诺回报→吸引最多资金→稳健的经理被挤出→市场平均质量下降</li>
+<li><strong>经典案例：</strong>① <strong>芒格论基金经理(1990s多次演讲)</strong>——"共同基金行业是委托代理问题的博物馆：①管理费无论业绩如何都收→没有'失败的成本'。②基金规模越大=收入越高→激励是'做大规模'不是'做好业绩'。③业绩好时归功于'我的技术'→业绩差时归咎于'市场环境'。" ② <strong>德鲁克的"知识工作者管理"难题</strong>——程序员/设计师/研究员的输出难以监控(你无法判断一个程序员是在"深度思考"还是在"摸鱼")→管理者只能看结果不能看过程→德鲁克的解法：用"目标管理"(MBO)替代"过程监控"=将委托代理问题转化为"结果对齐" ③ <strong>达里奥的"极度透明"解法</strong>——所有会议录音公开→代理人无法"当面一套背后一套"→透明性消除信息不对称→委托代理问题大幅缓解</li>
+<li><strong>实操方法：</strong>① <strong>"利益对齐"检查表</strong>——每次委托他人做事前问3个问题：a)"他做得好/坏对他自己有什么后果？" b)"我能看到他做事的真实过程吗？" c)"有什么机制让他的利益和我的利益绑定？"→任何一个答案是"没有"=红线。② <strong>"皮肤在游戏中"原则</strong>(塔勒布)——只信任"对自己的建议下注"的人。基金经理自己投了多少？设计师自己用不用这个产品？顾问如果建议失败会承担什么后果？③ <strong>"代理成本最小化"设计</strong>——设计系统/流程时→假设所有参与者都会最大化自身利益→然后设计机制让"自利=利他"→这比依赖人的道德/教育/努力可靠得多</li>
+</ul>
+<div class="quote">"给我看激励机制，我就能给你看结果。人类文明中最古老的问题是委托代理问题——'谁来看守守夜人？'答案永远不是'信任'，而是'设计一个让守夜人的利益=你的利益的机制'。"<cite>—— Charlie Munger, 2003年在圣诺塞大学法学院演讲"学院经济学的九大缺陷"</cite></div>
+<div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i><span>设计启发：</span></b>委托代理问题是<strong>游戏多人协作设计和外包管理的核心挑战</strong>。① <strong>"玩家=委托人，游戏=代理人"</strong>——玩家付钱/付时间→游戏承诺"体验"→但游戏的"真实激励"可能是"拉长在线时长"而非"让玩家开心"→<strong>UI透明度设计：让玩家能看到"游戏是否在浪费我的时间"</strong>(Session时长提示/收益效率展示)。② <strong>"外包设计的代理问题"</strong>——当你外包UI给外包团队→他们的激励是"尽快交付"而非"做出最好的体验"→<strong>解法：按"用户指标"付款而非"交付物"付款</strong>(CTR/留存率达标再付尾款)。③ <strong>"玩家公会/工会"机制</strong>——多人游戏中公会会长=代理人，会员=委托人。<strong>UI必须提供"公会财务透明度"工具</strong>→公会资金流向可视化/操作日志可查询→降低代理问题→提升信任→积极性↑</div>
+
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d30-principal-agent"><div class="card-deep-inner-wrap"></div></div>
+</div>
+</div>
+
+<div class="section-eyebrow"><i data-lucide="gamepad-2"></i><span class="section-eyebrow-num">02</span><span class="section-eyebrow-title">设计启发</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Design Insights</span></div>
+<div class="today-design">
+<div class="card" data-fav-id="d30-design-1" data-fav-title="用户路径锁定设计">
+<div class="card-head"><h3><i data-lucide="lock" class="ic-inline"></i><span>用户路径锁定设计 · Path Lock-in UX</span></h3><span class="tag tag-d">设计启发</span></div>
+<p>基于路径依赖理论，游戏UI/UX的核心设计原则：<strong>"新手引导不是教学——是路径铺设"</strong>。你教玩家的第一个操作=他永远的默认行为。</p>
+<ul>
+<li><strong>"黄金30分钟"路径铺设：</strong>新手引导前30分钟的每个教学步骤=在铺设一条"永久行为路径"。如果你教"点击确认"→玩家永远点击确认→即使后期有更高效的"快捷键确认"。<strong>所以新手引导必须教"最优操作"而非"最简单操作"</strong>——因为修改已形成的路径成本极高</li>
+<li><strong>"正向锁定"设计模式：</strong>① 进度系统=路径锁定工具(已投入100小时→离开成本巨大) ② 社交关系网=路径锁定(朋友都在这个游戏) ③ 个性化数据=路径锁定(我的角色/装备/成就)。<strong>这些不是"邪恶设计"——而是让玩家的投入有意义</strong>。关键：锁定的路径必须是"玩家享受的路径"</li>
+<li><strong>"路径迁移"缓冲设计：</strong>当你必须改变UI架构时(大版本改版)→不能直接切换→必须提供"渐进式迁移"：旧操作暂时保留+新操作并行引入+教学提示+奖励引导→让用户从旧路径"平滑滑入"新路径</li>
+</ul>
+</div>
+
+<div class="card" data-fav-id="d30-design-2" data-fav-title="信息对称UI设计">
+<div class="card-head"><h3><i data-lucide="shield" class="ic-inline"></i><span>信息对称UI设计 · Transparency UX</span></h3><span class="tag tag-d">设计启发</span></div>
+<p>基于委托代理理论，游戏UI的高阶设计原则：<strong>"让玩家看到系统对他们做了什么"——消除信息不对称=建立信任=长期留存</strong>。</p>
+<ul>
+<li><strong>"时间诚实"UI：</strong>在Session结束时展示"本次游戏时长XX分钟→获得XX经验/XX金币→效率=XX/小时"→让玩家评估"这段时间花得值不值"。<strong>听起来反直觉(怕玩家算账)→实际效果：诚实=信任→信任=长期留存</strong>(Supercell的《部落冲突》就是这么做的→十年长青)</li>
+<li><strong>"概率透明"UI：</strong>抽卡/掉落率明确展示(不是藏在N级子菜单里)→天井进度条可视化→让玩家能"计划"而非"赌博"。<strong>中国版号要求概率公示=制度强制的"信息对称"——好的UI将此转化为"玩家信任资产"而非"合规负担"</strong></li>
+<li><strong>"付费影响"可视化：</strong>付费决策点展示"购买后你会获得/改变什么"的精确预览(不是模糊描述)→让玩家在"信息充分"的情况下做付费决策→事后不后悔=不退款=不差评=正口碑循环</li>
+</ul>
+</div>
+
+<div class="card" data-fav-id="d30-design-3" data-fav-title="反确认测试系统">
+<div class="card-head"><h3><i data-lucide="flask-conical" class="ic-inline"></i><span>反确认测试系统 · Anti-Confirmation Testing</span></h3><span class="tag tag-d">设计启发</span></div>
+<p>基于确认偏误理论，建立系统化的<strong>"设计方案证伪流程"</strong>——不是问"这个设计好不好"而是问"这个设计会怎么失败"。</p>
+<ul>
+<li><strong>"证伪优先"用研方法：</strong>① 不问"你觉得这个好用吗？"(索要确认) → 问"请完成X任务"(观察行为)。② 不找"目标用户"做测试(他们有动机说好话) → 找"非目标用户/极端用户"(他们会暴露真实问题)。③ 记录"第一次犯错的位置"而非"最终成功率"——错误点=设计盲区</li>
+<li><strong>"红队评审"制度化：</strong>每次设计评审→指定1人当"红队"(KPI=找到最大弱点)→红队有权问"如果这个方案失败了，最可能的原因是什么？"→团队必须回答→写入评审记录→事后验证→红队准确率纳入绩效</li>
+<li><strong>"反指标"看板：</strong>除了追踪"我们希望看到的指标"(DAU↑/转化率↑)→同时追踪"我们不希望看到的指标"(客服投诉率/卸载率/1日流失率)→<strong>反指标上升=比正指标下降更早的预警信号</strong>——因为确认偏误让我们对正指标更敏感、对反指标更迟钝</li>
+</ul>
+</div>
+</div>
+
+<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div>
+<div class="today-side">
+<div class="card" data-fav-id="d30-side-1" data-fav-title="游戏UI路径依赖诊断器">
+<div class="card-head"><h3><i data-lucide="git-merge" class="ic-inline"></i><span>游戏UI路径依赖诊断器</span></h3><span class="tag tag-a">副业思路</span></div>
+<p>为游戏团队提供<strong>"UI路径锁定健康度诊断"</strong>——分析游戏的新手引导流程+功能架构+操作热力图，识别"正向锁定"(留存驱动)和"负向锁定"(流失陷阱)的位置。</p>
+<ul>
+<li><strong>启动步骤：</strong>① Python脚本解析游戏的新手引导步骤序列(JSON/XML配置文件)→② 建立"路径依赖模型"(每个教学步骤的锁定强度评分：操作频率×重复天数×替代方案切换成本)→③ 对比"实际教学路径"vs"理论最优路径"→输出差异报告+具体修改建议</li>
+<li><strong>技术栈：</strong>Python分析引擎(解析游戏配置) + 热力图可视化(Matplotlib/Plotly) + Figma插件(在设计稿上标注路径锁定点) + PDF报告生成</li>
+<li><strong>收入预估：</strong>新手引导优化咨询→单次诊断报告1500-3000元→新手引导改版全案(诊断+方案+验证)8000-20000元/项目→月度路径监控订阅3000元/月→目标8-12家客户=3-6万/月</li>
+<li><strong>差异化：</strong>市面上有"新手引导设计指南"→但没有基于路径依赖理论的量化诊断工具→你的UE4+Figma经验=直接能出可落地方案而非纯理论报告</li>
+</ul>
+</div>
+
+<div class="card" data-fav-id="d30-side-2" data-fav-title="游戏UI"红队"审计SaaS">
+<div class="card-head"><h3><i data-lucide="shield-alert" class="ic-inline"></i><span>游戏UI"红队"审计SaaS</span></h3><span class="tag tag-a">副业思路</span></div>
+<p>基于确认偏误理论，提供<strong>"第三方红队视角的游戏UI可用性审计"</strong>——游戏团队内部很难发现自己设计的问题(确认偏误)→需要外部"新鲜眼睛"+系统化证伪方法论。</p>
+<ul>
+<li><strong>启动步骤：</strong>① 建立"游戏UI证伪清单"(200+条常见失败模式→按功能分类：商城/背包/社交/战斗HUD)→② 客户提交游戏APK/截图/录屏→③ 用清单逐条"尝试证伪"(红队思维)→④ 输出"UI脆弱点报告"(具体位置+失败概率+修复建议优先级)</li>
+<li><strong>技术栈：</strong>Python自动化截图比对工具 + Figma标注插件(在截图上标注问题点) + 报告模板生成器 + 评分系统(0-100分UI健康度)</li>
+<li><strong>收入预估：</strong>"快速红队审计"(3天交付)→2000-5000元/份→"深度红队审计"(含用户测试)→8000-15000元/份→"持续红队"订阅(每版本审计)→5000元/月→目标10家客户=5-15万/月</li>
+<li><strong>壁垒：</strong>需要大量游戏UI实战经验才能写出有效的"证伪清单"→你的游戏UI设计+UE4经验=核心壁垒→随着案例积累，清单越来越精准</li>
+</ul>
+</div>
+
+<div class="card" data-fav-id="d30-side-3" data-fav-title="游戏代理成本计算器">
+<div class="card-head"><h3><i data-lucide="calculator" class="ic-inline"></i><span>游戏代理成本计算器 · Agency Cost Analyzer</span></h3><span class="tag tag-a">副业思路</span></div>
+<p>将委托代理问题量化为<strong>"代理成本"指标</strong>——帮助游戏公司评估外包设计/第三方服务的真实成本(不只是账面费用→还包括信息不对称导致的质量损失+监督成本+利益不对齐造成的返工)。</p>
+<ul>
+<li><strong>启动步骤：</strong>① 建立"代理成本模型"(总成本=合同金额+监督时间×时薪+返工次数×返工成本+质量差距×机会成本)→② Python工具：输入外包项目参数(合同额/沟通频率/返工率/质量评分)→自动计算"真实代理成本"→③ 对比"自建vs外包"的全成本→输出决策建议</li>
+<li><strong>技术栈：</strong>Python数据分析 + Excel模板(客户可自行填写) + 可视化仪表盘(对比自建/外包/混合模式的总成本曲线)</li>
+<li><strong>收入预估：</strong>"外包决策咨询"→单次评估2000-5000元→"年度代理成本审计"(含优化建议)→15000-30000元/年→工具订阅版(SaaS)→299元/月/团队→目标30个订阅=约1万/月被动收入</li>
+<li><strong>核心价值：</strong>大多数游戏公司只看"外包合同价"→忽略了隐性代理成本(平均是合同价的60-150%)→帮他们算清真实账=巨大的"啊哈时刻"→转化率高</li>
+</ul>
+</div>
+</div>
+
+</div>
+
+
 <!-- ========== Day 029 ========== -->
-<div class="day-group" data-day="29">
+<div class="day-group" data-day="29" style="display:none">
 <div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 029</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-05-16</span></div><h1 class="day-num">Day <em>029</em></h1><div class="day-summary">心理账户 × 幸存者偏差 × OODA循环 · 货币化UI分层设计 × 反直觉数据展示 × 决策节奏系统</div></div>
 
 <div class="section-eyebrow"><i data-lucide="brain"></i><span class="section-eyebrow-num">01</span><span class="section-eyebrow-title">思维模型</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Mental Models</span></div>
