@@ -496,7 +496,7 @@ footer p{margin-bottom:6px}
 <span class="brand-text"><span class="brand-cn">每日锻造</span><span class="brand-en">DAILY FORGE · A Reader's Almanac</span></span>
 </a>
 <div class="top-actions">
-<span class="top-btn read-badge" title="上次阅读"><i data-lucide="bookmark"></i><span id="readBadge">Day 030</span></span>
+<span class="top-btn read-badge" title="上次阅读"><i data-lucide="bookmark"></i><span id="readBadge">Day 031</span></span>
 <button class="top-btn" id="checkinBtn" onclick="showCheckin()">
 <i data-lucide="flame"></i><span class="streak-badge" id="streakText">0</span>
 </button>
@@ -522,10 +522,10 @@ footer p{margin-bottom:6px}
 
 <!-- Stats -->
 <div class="stats">
-<div class="st"><div class="st-n">101</div><div class="st-l">思维模型</div></div>
-<div class="st"><div class="st-n">81</div><div class="st-l">设计启发</div></div>
-<div class="st"><div class="st-n">90</div><div class="st-l">AI前沿</div></div>
-<div class="st"><div class="st-n">30</div><div class="st-l">累计天数</div></div>
+<div class="st"><div class="st-n">104</div><div class="st-l">思维模型</div></div>
+<div class="st"><div class="st-n">84</div><div class="st-l">设计启发</div></div>
+<div class="st"><div class="st-n">93</div><div class="st-l">AI前沿</div></div>
+<div class="st"><div class="st-n">31</div><div class="st-l">累计天数</div></div>
 </div>
 
 <!-- Primary Nav -->
@@ -543,7 +543,8 @@ footer p{margin-bottom:6px}
 
 <!-- Day Selector -->
 <div class="day-selector"><span class="day-selector-label">DAY</span><div class="day-scroll-wrap"><div class="day-scroll" id="daySubs">
-<button class="day-pill on" onclick="switchDay(this,30)">Day 030</button>
+<button class="day-pill on" onclick="switchDay(this,31)">Day 031</button>
+<button class="day-pill" onclick="switchDay(this,30)">Day 030</button>
 <button class="day-pill" onclick="switchDay(this,29)">Day 029</button>
 <button class="day-pill" onclick="switchDay(this,28)">Day 028</button>
 <button class="day-pill" onclick="switchDay(this,27)">Day 027</button>
@@ -583,8 +584,129 @@ footer p{margin-bottom:6px}
 <button class="subtab" onclick="subgo(this,'today','side')"> AI·设计前沿</button>
 </div>
 
+<!-- ========== Day 031 ========== -->
+<div class="day-group" data-day="31">
+<div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 031</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-05-18</span></div><h1 class="day-num">Day <em>031</em></h1><div class="day-summary">回归均值 × Via Negativa(减法智慧) × 多元思维格栅 · 渐进式难度曲线设计 × 减法UI设计 × 跨系统一致性设计</div></div>
+
+<div class="section-eyebrow"><i data-lucide="brain"></i><span class="section-eyebrow-num">01</span><span class="section-eyebrow-title">思维模型</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Mental Models</span></div>
+<div class="today-think">
+<div class="card" data-fav-id="d31-regression-mean" data-fav-title="回归均值 · Regression to the Mean">
+<div class="card-head"><h3><i data-lucide="trending-down" class="ic-inline"></i><span>回归均值 · Regression to the Mean</span></h3><span class="tag tag-t">思维模型</span></div>
+<p>Francis Galton在1886年研究豌豆大小的遗传时发现：<strong>"极端的表现往往会向平均值回归——不是因为某种神秘力量，而是统计必然性"</strong>。卡尼曼在《思考，快与慢》中称其为"人类最难理解的统计现象"："我们看到一个学生某次考试特别好，就预测他下次也会这么好——但统计告诉我们，下次很可能会差一些。这不是'退步'，是数学。"芒格将此应用于投资："去年业绩最好的基金经理，今年极有可能表现平平——因为'最好'往往包含大量运气成分，而运气不会持续。"达里奥在桥水的决策系统中强制纳入回归均值检查："任何连续3个季度的极端表现，我们都假定下一个季度会向均值回归——然后从这个假定出发做决策。"</p>
+<ul>
+<li><strong>核心原理：</strong>① <strong>"极端值包含运气"定律</strong>——任何单次极端表现(特别好/特别差)都由"实力+运气"组成。下一次实力不变但运气重新洗牌→结果往均值靠拢。② <strong>"奖惩幻觉"</strong>——卡尼曼最经典的发现：以色列空军教官发现"表扬后学员下次变差，批评后学员下次变好"→得出"批评比表扬有效"的错误结论。真相：两者都是回归均值，跟奖惩无关。③ <strong>"归因错误"叠加</strong>——人类大脑极度渴望"因果解释"→看到回归均值时会编造原因("他骄傲了/他懈怠了/市场变了")→实际上只是统计必然性。芒格："人类对回归均值的无知——是所有认知偏差中最昂贵的一个"</li>
+<li><strong>经典案例：</strong>① <strong>卡尼曼的"体育画报诅咒"</strong>——登上体育画报封面的运动员下一赛季平均表现下降→不是"诅咒"，是回归均值(能上封面=前一季极端表现=包含运气)。② <strong>芒格论基金经理"热手"</strong>——"投资者追逐过去3年业绩最好的基金，然后发现接下来年平均回报→平平。这不是'基金经理变差'，是数学。" ③ <strong>达里奥的"历史基率第一"原则</strong>——桥水在评估任何资产时，第一步不是看"它最近表现如何"，而是看"这类资产的历史均值是多少"→然后评估"当前表现偏离均值多远"→偏离越远=回归概率越大</li>
+<li><strong>实操方法：</strong>① <strong>"基率先行"检查表</strong>——任何判断前先问："这类事情的历史均值/基率是多少？"→从基率出发调整，而不是从"最近表现"出发外推。② <strong>"连续极端信号"规则</strong>——连续3次极端表现(无论好坏)→自动触发"回归均值检查"："我是在看实力还是运气？"→如果无法证明"运气成分<30%"→假定会回归。③ <strong>"反叙事"思维</strong>——不要为回归均值编造故事("他变懒了/市场转向了")→先用统计解释(运气重分布)→剩余的部分才需要因果解释</li>
+</ul>
+<div class="quote">"我在以色列空军训练基地发现了人类认知中最顽固的幻觉：教官们真诚地相信批评比表扬有效——因为他们观察到'批评后表现提升'。但这只是回归均值。它让数百万教师和管理者相信惩罚比奖励更有效——这是统计无知造成的最大人类悲剧之一。"<cite>—— Daniel Kahneman, Thinking, Fast and Slow (2011), Chapter 17</cite></div>
+<div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i><span>设计启发：</span></b>回归均值对游戏设计的核心警示：<strong>"不要把运气当能力设计进难度曲线"</strong>。① <strong>"连胜后难度飙升"的错误设计</strong>——玩家连胜5局→系统判定"他很强"→难度飙升→但连胜可能只是运气(回归均值表明下一局会"正常")→难度飙升+运气消失=挡墙体验=流失。<strong>解法：难度调整应基于"多局均值"而非"单局极值"</strong>。② <strong>A/B测试的"回归均值陷阱"</strong>——新版上线第一周DAU飙升→归因为"新版更好"→但实际可能只是"新鲜感"(将回归)。<strong>A/B测试必须跑足够久(2-4周)让回归均值完成后再下结论</strong>。③ <strong>"能力曲线"而非"成绩曲线"设计难度</strong>——基于玩家的"多局移动平均成绩"(滤合运气)调难度，而不是基于"上一局"结果。<strong>等同于用"稳定信号"而非"噪音"来判断玩家水平</strong></div>
+
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d31-regression-mean"><div class="card-deep-inner-wrap"></div></div>
+</div>
+
+<div class="card" data-fav-id="d31-via-negativa" data-fav-title="Via Negativa · 减法智慧">
+<div class="card-head"><h3><i data-lucide="minus-circle" class="ic-inline"></i><span>Via Negativa · 减法智慧</span></h3><span class="tag tag-t">思维模型</span></div>
+<p>塔勒布在《反脆弱》中提出了这个来自神学的概念：<strong>"通过'不是什么'来定义'是什么'——通过'不做什么'来决定'做什么'"</strong>。芒格用更直白的语言说明："我和巴菲特的成功秘密不是我们做了什么聪明事，而是我们系统性地避免了愚蠢。愚蠢的数量远超过聪明，所以避免愚蠢的空间比追求聪明大得多。"德鲁克在《卓有成效的管理者》中强调："效率的秘密不是'多做'，而是'精简'——砍掉不必要的会议、不必要的流程、不必要的江湖义务——然后少数'必做的事'自然能做得极好。"达里奥的"原则"体系中的核心原则："归零"——"经常问自己：'如果把这个去掉，会怎样？'——如果答案是'没什么'，就去掉它。"</p>
+<ul>
+<li><strong>核心原理：</strong>① <strong>"加法偏见"是人类默认</strong>——最新研究(Adams et al., Nature 2021)证明：当要求人们"改进"某物时→92%的人选择"添加某样东西"而非"去掉某样东西"——即使"去掉"是更优解。我们的大脑有"加法默认"，系统性地忽略减法方案。② <strong>"隐性成本"累积</strong>——每个"加上去"的东西(功能/流程/开会/产品线)都有维护成本/认知成本/调度成本→加多了→每个都变差→"什么都做，什么都做不好"。③ <strong>"去掉最差的>>加上最好的"</strong>——塔勒布："不抽烟(减法)对健康的改善>任何营养品(加法)"。芒格："避免一个坏决策的价值>做十个好决策"。德鲁克："砍掉一个无用的会议的价值>添加一个新工具"</li>
+<li><strong>经典案例：</strong>① <strong>塔勒布的"医学Via Negativa"</strong>——历史上医学最大的进步不是"发明新药"而是"停止做有害的事"：停止放血疗法、停止不洗手手术、停止乱用抗生素。<strong>"不伤害"(First, do no harm)比"稍有帮助"重要得多</strong>。② <strong>芒格论"不做清单"</strong>——芒格和巴菲特的投资清单不是"要做什么"，而是"绝对不做什么"：不投高技术(不懂)、不投高杠杆(能一夜归零)、不投坏人(志向不端)、不买"便宜货"(便宜往往最贵)。<strong>40年复合年化19.8%的秘密=系统性避免愚蠢</strong>。③ <strong>德鲁克的"精简革命"</strong>——"我访问过的最有效的CEO每天只开1个会、只做1个重大决策。其余时间他在'不做'：不查邮件、不发布备忘录、不参加所有人都可以参加的会。"</li>
+<li><strong>实操方法：</strong>① <strong>"砍掉清单"练习</strong>——每周问自己："本周我可以砍掉哪1个会议/流程/产品功能/习惯？"→砍掉后观察1周→如果没人注意到=正确的减法。如果有人投诉=恢复。② <strong>"零基预算"思维</strong>——不是"去年有什么→今年加什么"，而是"如果从零开始，我会保留哪些？"→不在"必保留"清单里的=候选砍掉对象。③ <strong>"增加=证明责任"原则</strong>——团队中任何人想"加"东西(功能/会议/流程)→必须证明"加上去的价值>维护成本"→证明责任在"想加的人"而不是"应该默认加"</li>
+</ul>
+<div class="quote">"我们知道什么是错的——比知道什么是对的——容易得多。所有的宗教都用'不要做什么'(十诫)来定义善，而不是用'应该做什么'。这不是巧合。"<cite>—— Nassim Nicholas Taleb, Antifragile (2012), Chapter 21 "Medicine, Convexity, and Opacity"</cite></div>
+<div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i><span>设计启发：</span></b>Via Negativa对游戏UI设计的核心启示：<strong>"好的UI不是加到无可加，而是减到无可减"</strong>。① <strong>"HUD元素审计"</strong>——当前游戏HUD有多少元素？每个元素都问："如果去掉它，玩家会死/丢的？"——如果答案是"不会"=候选移除/隐藏。<strong>Riot的《英雄联盟》每季都在"砍"HUD元素，不是加</strong>。② <strong>"功能砍掉测试"</strong>——下一版不要问"加什么功能"，问"去掉哪个功能玩家最不会注意到"→去掉它→释放的开发/设计/测试资源→投入到核心功能。③ <strong>"菜单层级"越少越好</strong>——每增加1层子菜单=玩家认知负荷×2。最好的游戏UI全部在"1层"内解决(看看《哈迪斯》/《博德之门》的极简HUD)→<strong>创造功能很容易，砍掉功能才是设计师的真正价值</strong></div>
+
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d31-via-negativa"><div class="card-deep-inner-wrap"></div></div>
+</div>
+
+<div class="card" data-fav-id="d31-latticework" data-fav-title="多元思维格栅 · Latticework of Mental Models">
+<div class="card-head"><h3><i data-lucide="grid-3x3" class="ic-inline"></i><span>多元思维格栅 · Latticework of Mental Models</span></h3><span class="tag tag-t">思维模型</span></div>
+<p>芒格在USC法学院1994年演讲中提出了他最核心的方法论：<strong>"你必须把各种学科的思维模型网络性地存放在头脑中——形成一个'格栅'结构——然后用所有相关模型交叉验证同一个问题"</strong>。达里奥的桥水将此制度化为"可信度加权决策"：不同专业背景的人用各自领域的模型分析同一问题→加权平均→得到最佳决策。卡尼曼的研究证实："只用一个模型思考的人，决策质量比用多个模型交叉验证的人差40-60%。"塔勒布的"多学科思维"同样强调："只用一把锤子的人，看什么都像钉子——这是智力上的自残。"</p>
+<ul>
+<li><strong>核心原理：</strong>① <strong>"单模型致命"定律</strong>——芒格："对于只有一把锤子的人，世界看起来像一颗钉子。"——经济学家只看到激励，心理学家只看到偏差，工程师只看到系统——但现实问题同时涉及三者。② <strong>"Lollapalooza效应"(多模型同向叠加)</strong>——当多个模型同时指向同一个结论时→该结论的可信度指数级提升。反过来，如果不同模型给出矛盾结论→强信号：这个问题比你想的复杂，需要更多信息。③ <strong>"80/20模型库"原则</strong>——芒格估计："80-90个模型能解决你一生中遇到90%的问题。"核心学科包括：数学(7个)、生物学(5个)、物理学(4个)、心理学(15个)、经济学(8个)、工程学(6个)、历史学(5个)。不需要"精通"每个学科，只需要"挂住"其核心大概念</li>
+<li><strong>经典案例：</strong>① <strong>芒格分析可口可乐(1990s多次演讲)</strong>——"为什么可口可乐能统治世界？"→化学(咖啡因+糖=上瘾)+心理学(品牌联想=快乐)+经济学(规模效应+分销网络)+工程学(供应链优化)+社会学(社交证明)→≥ 5个模型同向叠加=Lollapalooza→几乎不可能被击败。② <strong>达里奥的桥水"可信度加权"决策系统</strong>——同一个投资决策→经济学家用经济模型打分、心理学家用行为模型打分、工程师用系统模型打分→加权平均→结果比任何单一专家准确得多。③ <strong>塔勒布论"有效学习"</strong>——"我读书不是为了'知道'——而是为了往我的'格栅'上加一个节点。每个新模型不是孤岛，而是往网络里插一根连接线——连接越多，网络越有价值。"</li>
+<li><strong>实操方法：</strong>① <strong>"3模型交叉"决策法</strong>——任何重大决策前→强制用≥3个不同学科的模型分析同一问题→如果3个都指向同一方向=高可信度。如果矛盾=暂停决策，收集更多信息。② <strong>"周模型日志"</strong>——每周记录："本周我用了哪些模型？哪些用对了？哪些用错了？"→3个月后→你能清晰看到自己的"模型盲区"(从来不用某些模型)和"模型滥用"(总用同一个)。③ <strong>"专家网络"建设</strong>——建立与3-5个不同专业背景的可信人的关系网→重大决策前分别咨询→他们会自然地用自己领域的模型分析你的问题→你获得"免费的多元思维格栅"</li>
+</ul>
+<div class="quote">"你必须知道所有重要学科的重要模型，并且以联系的方式使用它们——这就是学习的核心训诫。你不能只有一两个模型——你必须有很多模型。它们必须像一张网上的节点一样互联。如果它们只是孤立地存在你的脑子里，你就永远不会真正理解任何事情。"<cite>—— Charlie Munger, USC Law Commencement "A Lesson on Elementary, Worldly Wisdom" (1994)</cite></div>
+<div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i><span>设计启发：</span></b>多元思维格栅对游戏设计的核心启示：<strong>"游戏设计师必须同时使用心理学+经济学+美学+工程学的模型来评估同一个设计方案"</strong>。① <strong>"游戏设计格栅"检查表</strong>——每个设计决策用4个角度验证：心理学(玩家情绪/动机/认知负荷)、经济学(激励/成本/收益平衡)、工程学(实现复杂度/维护成本/性能影响)、美学(视觉和谐/动效节奏/情感传达)。<strong>≥3个维度打分>8/10=可以做</strong>。2个以下=重新设计。② <strong>"跨职能红队"</strong>——设计评审时要求程序员/策划/美术/QA各用自己领域的模型"攻击"方案→能找到"单一视角看不到"的弱点。③ <strong>"每周学习1个模型"习惯</strong>——游戏设计师每周从非游戏领域学习1个模型(可以是军事/建筑/烹饪/音乐)→思考"如何应用到游戏设计中"→写一段200字笔记→52周后=52个跨学科连接=创意的"复利"爆发</div>
+
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d31-latticework"><div class="card-deep-inner-wrap"></div></div>
+</div>
+</div>
+
+<div class="section-eyebrow"><i data-lucide="gamepad-2"></i><span class="section-eyebrow-num">02</span><span class="section-eyebrow-title">设计启发</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Design Insights</span></div>
+<div class="today-design">
+<div class="card" data-fav-id="d31-design-1" data-fav-title="渐进式难度曲线设计">
+<div class="card-head"><h3><i data-lucide="activity" class="ic-inline"></i><span>渐进式难度曲线设计 · Progressive Difficulty UX</span></h3><span class="tag tag-d">设计启发</span></div>
+<p>基于回归均值理论，游戏UI/UX的难度设计核心原则：<strong>"难度调整应基于玩家的稳定水平，而非单次表现"</strong>。</p>
+<ul>
+<li><strong>"移动平均"难度算法：</strong>不要用"上一局结果"调难度→用"近N局的加权平均"→这滤合了运气成分，只保留实力信号。具体：取最近10局的加权平均(recent权重更高)→用这个"稳定能力值"而非"单局极值"调整匹配难度</li>
+<li><strong>"连胜预警"机制：</strong>玩家连胜5+局时→UI显示"统计提示：连胜后的下一局胜率通常会回归均值"→帮助玩家管理预期→避免"连胜后突然输→感觉被针对"的负面情绪。这种"统计透明"=建立信任</li>
+<li><strong>"能力分离"UI展示：</strong>在玩家的个人面板中，将"实力评分"(多局稳定均值)和"运气波动"(单局偏离幅度)分开展示→让玩家理解"好运不等于变强"→降低对系统的怀疑(比如"连输是系统害我"的阴谋论)</li>
+</ul>
+</div>
+
+<div class="card" data-fav-id="d31-design-2" data-fav-title="减法UI设计">
+<div class="card-head"><h3><i data-lucide="scissors" class="ic-inline"></i><span>减法UI设计 · Subtractive UX Design</span></h3><span class="tag tag-d">设计启发</span></div>
+<p>基于Via Negativa理论，游戏UI的高阶设计原则：<strong>"每次迭代的第一个问题不是'加什么'，而是'砍什么'"</strong>。</p>
+<ul>
+<li><strong>"功能墓地"定期审查：</strong>每季度统计所有功能的使用率→使用率<5%的功能=候选"墓地"→优先砍掉最低使用率+最高维护成本的功能。<strong>Netflix每年砍掉30%的功能实验</strong>——"不做"比"做错"的价值高10倍</li>
+<li><strong>"信息密度递减"原则：</strong>HUD上的每个元素都有"注意力税"→每多1个元素=整体注意力预算减少→达到阈值后→玩家开始忽略所有信息(信息过载→全部变成噪音)。<strong>黄金法则：战斗中HUD元素≤7个(Miller's Number)</strong>，超过即需减法</li>
+<li><strong>"减法式版本规划"：</strong>版本规划不只是"加新功能路线图"，同时制定"砍旧功能路线图"——每加1个新功能=必须砍掉(或合并)1个旧功能。<strong>保持"功能总量"恒定=防止产品臃肿=维持用户体验质量</strong></li>
+</ul>
+</div>
+
+<div class="card" data-fav-id="d31-design-3" data-fav-title="跨系统一致性设计">
+<div class="card-head"><h3><i data-lucide="layers" class="ic-inline"></i><span>跨系统一致性设计 · Cross-System Consistency</span></h3><span class="tag tag-d">设计启发</span></div>
+<p>基于多元思维格栅理论，游戏UI的一致性设计原则：<strong>"所有子系统的交互语言必须形成'格栅'——互相强化而非互相矛盾"</strong>。</p>
+<ul>
+<li><strong>"交互语法表"统一工具：</strong>建立全游戏统一的"交互动词表"(点击=确认/长按=取消/滑动=切换/双击=快速操作)→所有子系统(商城/背包/社交/战斗)必须遵守同一套"语法"→玩家在任何系统中学到的操作=在所有系统中通用=认知负荷最小化</li>
+<li><strong>"视觉一致性审计"工具：</strong>每月用Figma插件自动扫描：①同一层级的按钮是否使用同一尺寸②同类信息是否使用同一色彩编码③同一操作在不同界面是否使用同一手势。<strong>不一致数>5处=强制修复Sprint</strong></li>
+<li><strong>"跨系统红线"机制：</strong>新功能设计时→强制检查"它的交互模式是否与现有3+个系统一致？"→如果需要"发明新操作"→必须证明"新操作的价值>全游戏学习成本"→95%的情况下答案是"用现有操作解决"</li>
+</ul>
+</div>
+</div>
+
+<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div>
+<div class="today-side">
+<div class="card" data-fav-id="d31-side-1" data-fav-title="游戏难度曲线AI校准器">
+<div class="card-head"><h3><i data-lucide="bar-chart-2" class="ic-inline"></i><span>游戏难度曲线AI校准器</span></h3><span class="tag tag-a">副业思路</span></div>
+<p>为游戏团队提供<strong>"基于回归均值理论的难度系统诊断+优化工具"</strong>——分析玩家胜率/流失数据，识别"因难度系统误判运气为实力"导致的流失点。</p>
+<ul>
+<li><strong>启动步骤：</strong>① Python分析引擎接入游戏的对战/关卡数据API→② 计算每个玩家的"稳定能力值"(EMA移动平均)与"运气波动指数"(单局偏离度)→③ 识别"难度系统基于单局极值做了错误调整"的位置→④ 输出"难度曲线修正报告"(具体参数建议：EMA窗口期/权重/回归速度)</li>
+<li><strong>技术栈：</strong>Python数据分析(pandas/numpy) + 统计建模(回归分析) + 可视化仪表盘(Plotly/Streamlit) + Figma报告模板 + 游戏数据API对接</li>
+<li><strong>收入预估：</strong>单次难度系统诊断→3000-8000元/份→"动态难度优化方案"(诊断+参数调优+A/B测试设计)→15000-30000元/项目→持续数据监控订阅→5000元/月→目标6-10家客户=3-8万/月</li>
+<li><strong>差异化：</strong>市面上有"DDA(动态难度调整)"方案→但没有基于回归均值统计理论的诊断工具→你的数据分析+游戏设计经验=能直接出可落地的参数建议而非纯学术报告</li>
+</ul>
+</div>
+
+<div class="card" data-fav-id="d31-side-2" data-fav-title="游戏UI减法诊断工具">
+<div class="card-head"><h3><i data-lucide="minimize-2" class="ic-inline"></i><span>游戏UI减法诊断工具 · UI Subtraction Audit</span></h3><span class="tag tag-a">副业思路</span></div>
+<p>基于Via Negativa理论，提供<strong>"游戏UI功能/元素使用率审计+减法优化建议"</strong>——帮助游戏团队识别"没人用但占着资源"的功能/UI元素。</p>
+<ul>
+<li><strong>启动步骤：</strong>① 建立"UI元素分类清单"(每个屏幕的所有可交互元素)→② 接入游戏埋点数据→统计每个元素的点击率/使用频率/停留时间→③ 按"使用率/维护成本"矩阵分类→④ 输出"砍掉清单"(安全砍/测试砍/保留)+"减法路线图"(按优先级排序的简化方案)</li>
+<li><strong>技术栈：</strong>Python数据分析(接埋点API) + Figma插件(在设计稿上用热力图标注使用率) + 自动化报告生成(Jinja2模板) + Excel/PDF输出</li>
+<li><strong>收入预估：</strong>"UI减法快速审计"(1周交付)→5000-10000元→"UI精简全案"(审计+方案+跟踪验证)→20000-40000元/项目→"季度UI健康度订阅"(持续监控+建议)→8000元/月→目标5-8家客户=4-8万/月</li>
+<li><strong>壁垒：</strong>需要游戏UI实战经验(知道什么"安全可砍")+数据分析能力(量化使用率)→你的UE4+Figma+Python三栈组合=独特竞争力→能出"有数据支撑的设计决策"</li>
+</ul>
+</div>
+
+<div class="card" data-fav-id="d31-side-3" data-fav-title="游戏设计格栅评审服务">
+<div class="card-head"><h3><i data-lucide="layout-grid" class="ic-inline"></i><span>游戏设计格栅评审服务 · Latticework Design Review</span></h3><span class="tag tag-a">副业思路</span></div>
+<p>将芒格的多元思维格栅制度化为<strong>"游戏设计多维度评审服务"</strong>——用心理学+经济学+工程学+美学4个维度同时评估设计方案，找到"单一视角看不到的盲点"。</p>
+<ul>
+<li><strong>启动步骤：</strong>① 建立"游戏设计格栅评分卡"(4维度×5指标=20项评分标准)→② 客户提交设计方案(原型/文档/录屏)→③ 用4个维度逐一评分+找出"维度冲突"(如经济学要求付费但心理学表明会引发反感)→④ 输出"格栅评审报告"(评分+冲突分析+优化建议)</li>
+<li><strong>技术栈：</strong>结构化评审模板(Notion/Figma) + 评分系统(加权算法) + 可视化雷达图(展示4维度强弱) + 历史案例数据库(支撑建议的"基率")</li>
+<li><strong>收入预估：</strong>"单方案格栅评审"(3天交付)→3000-6000元→"全系统格栅审计"(5+个子系统)→15000-30000元→"持续格栅顾问"(每版本评审)→8000-12000元/月→目标5家客户=4-6万/月</li>
+<li><strong>核心价值：</strong>大多数游戏团队的设计评审="大家看了都说好"=确认偏误。格栅评审=制度化的多维度证伪→能在上线前发现"单一视角盲区"→避免上线后高成本返工</li>
+</ul>
+</div>
+</div>
+
+</div>
+
+
 <!-- ========== Day 030 ========== -->
-<div class="day-group" data-day="30">
+<div class="day-group" data-day="30" style="display:none">
 <div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 030</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-05-17</span></div><h1 class="day-num">Day <em>030</em></h1><div class="day-summary">确认偏误 × 路径依赖 × 委托代理问题 · 用户路径锁定设计 × 信息对称UI × 反确认测试系统</div></div>
 
 <div class="section-eyebrow"><i data-lucide="brain"></i><span class="section-eyebrow-num">01</span><span class="section-eyebrow-title">思维模型</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Mental Models</span></div>
@@ -3027,6 +3149,27 @@ footer p{margin-bottom:6px}
 <p class="page-subtitle">所有历史内容按日期编年索引。点击任意一天进入完整阅读视图。</p>
 </div>
 <div class="archive-grid">
+<div class="arc-card" style="cursor:pointer" onclick="goToDay(30)">
+<div class="arc-card-head"><span class="arc-card-day">Day 030</span><span class="arc-card-date">2026-05-17</span></div>
+<div class="arc-sections">
+<div class="arc-sec arc-sec-t"><h5> 思维模型</h5><ul>
+<li>确认偏误（卡尼曼/芒格/达里奥/Bacon）</li>
+<li>路径依赖（Brian Arthur/芒格/达里奥/塔勒布）</li>
+<li>委托代理问题（Jensen&Meckling/芒格/德鲁克/达里奥）</li>
+</ul></div>
+<div class="arc-sec arc-sec-d"><h5> 设计启发</h5><ul>
+<li>用户路径锁定设计</li>
+<li>信息对称UI设计</li>
+<li>反确认测试系统</li>
+</ul></div>
+<div class="arc-sec arc-sec-a"><h5> 副业思路</h5><ul>
+<li>游戏UI路径依赖诊断器</li>
+<li>游戏UI"红队"审计SaaS</li>
+<li>游戏代理成本计算器</li>
+</ul></div>
+</div>
+</div>
+
 <div class="arc-card" style="cursor:pointer" onclick="goToDay(28)">
 <div class="arc-card-head"><span class="arc-card-day">Day 028</span><span class="arc-card-date">2026-05-15</span></div>
 <div class="arc-sections">
