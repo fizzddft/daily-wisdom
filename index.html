@@ -191,6 +191,44 @@ svg.lucide{width:1em;height:1em;flex-shrink:0;display:inline-block;vertical-alig
 .locked-toast.show{opacity:1;visibility:visible;transform:translate(-50%,-50%) scale(1)}
 .locked-toast i[data-lucide],.locked-toast svg{width:18px;height:18px;color:var(--accent);stroke-width:1.8;flex-shrink:0}
 
+/* ── 跨页签的"未解锁"内容降级显示 ── */
+.is-day-locked{position:relative;opacity:.42;filter:saturate(.7) brightness(.8);pointer-events:none;cursor:not-allowed;transition:opacity .25s ease,filter .25s ease}
+.is-day-locked::after{content:'未解锁';position:absolute;top:14px;right:14px;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.18em;color:var(--ink-3);background:rgba(20,18,16,.85);border:1px solid var(--line-2);padding:3px 8px;border-radius:var(--r-pill);text-transform:uppercase;backdrop-filter:blur(6px);z-index:5;pointer-events:none}
+
+/* ── 管理员徽章 ── */
+.admin-badge{position:fixed;top:14px;right:18px;z-index:9999;display:inline-flex;align-items:center;gap:7px;padding:7px 14px;background:linear-gradient(135deg,rgba(232,161,75,.18),rgba(232,161,75,.06));border:1px solid var(--accent);color:var(--accent);font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;border-radius:var(--r-pill);cursor:pointer;backdrop-filter:blur(12px);box-shadow:0 4px 16px rgba(232,161,75,.18);transition:transform .25s ease,box-shadow .25s ease}
+.admin-badge:hover{transform:translateY(-1px);box-shadow:0 6px 22px rgba(232,161,75,.32)}
+.admin-badge i[data-lucide],.admin-badge svg{width:13px;height:13px;stroke-width:2}
+
+/* ── 公告弹窗 ── */
+.notice-overlay{position:fixed;inset:0;background:rgba(8,7,6,.78);backdrop-filter:blur(8px);z-index:10001;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s}
+.notice-overlay.show{opacity:1;visibility:visible}
+.notice-modal{background:var(--surface);border:1px solid var(--line-2);border-radius:var(--r-lg);width:min(540px,calc(100vw - 36px));max-height:min(80vh,720px);overflow:hidden;display:flex;flex-direction:column;box-shadow:0 32px 80px rgba(0,0,0,.55),0 0 0 1px rgba(232,161,75,.15);transform:scale(.96) translateY(8px);transition:transform .35s cubic-bezier(.34,1.56,.64,1)}
+.notice-overlay.show .notice-modal{transform:scale(1) translateY(0)}
+.notice-head{padding:24px 28px 18px;border-bottom:1px solid var(--line);position:relative}
+.notice-head .notice-eyebrow{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.notice-head .notice-eyebrow i[data-lucide],.notice-head .notice-eyebrow svg{width:14px;height:14px;stroke-width:2}
+.notice-head h3{font-family:var(--serif);font-size:22px;font-weight:600;color:var(--ink);margin:0;letter-spacing:-.02em;line-height:1.3}
+.notice-head .notice-version{position:absolute;top:24px;right:28px;font-family:var(--mono);font-size:10.5px;color:var(--ink-4);letter-spacing:.05em}
+.notice-body{padding:22px 28px;overflow-y:auto;color:var(--ink-2);font-size:14px;line-height:1.75;flex:1}
+.notice-body p{margin:0 0 12px}
+.notice-body ul{list-style:none;padding:0;margin:8px 0 14px}
+.notice-body li{padding:9px 0 9px 22px;position:relative;border-bottom:1px solid var(--line-soft);color:var(--ink-2)}
+.notice-body li:last-child{border-bottom:none}
+.notice-body li::before{content:'';position:absolute;left:0;top:18px;width:12px;height:1px;background:var(--accent);opacity:.6}
+.notice-body li strong{color:var(--ink);font-weight:600}
+.notice-body .notice-section-title{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin:18px 0 6px;display:flex;align-items:center;gap:8px}
+.notice-body .notice-section-title:first-child{margin-top:0}
+.notice-foot{padding:18px 28px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.notice-dismiss-row{display:inline-flex;align-items:center;gap:8px;color:var(--ink-3);font-size:13px;cursor:pointer;user-select:none}
+.notice-dismiss-row input[type=checkbox]{width:14px;height:14px;accent-color:var(--accent);cursor:pointer}
+.notice-actions{display:flex;gap:10px;margin-left:auto}
+.notice-btn{padding:9px 18px;border-radius:var(--r-pill);font-size:13px;font-weight:500;font-family:var(--sans);cursor:pointer;transition:all .25s ease;border:1px solid var(--line-2);background:transparent;color:var(--ink-2);letter-spacing:-.005em}
+.notice-btn:hover{border-color:var(--ink-3);color:var(--ink)}
+.notice-btn.primary{background:var(--accent);border-color:var(--accent);color:#1a0f04;font-weight:600}
+.notice-btn.primary:hover{background:var(--accent-2);border-color:var(--accent-2);color:#1a0f04;transform:translateY(-1px)}
+@media(max-width:540px){.notice-head,.notice-body,.notice-foot{padding-left:20px;padding-right:20px}.notice-foot{flex-direction:column;align-items:stretch}.notice-actions{margin-left:0;justify-content:flex-end}}
+
 .subtabs{display:flex;gap:4px;padding:14px 0 18px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none}
 .subtabs::-webkit-scrollbar{display:none}
 .subtab{padding:7px 14px;border-radius:var(--r-pill);font-size:12.5px;font-weight:500;color:var(--ink-3);cursor:pointer;transition:.2s;background:transparent;border:1px solid transparent;font-family:var(--sans);display:inline-flex;align-items:center;gap:6px;letter-spacing:-.005em;white-space:nowrap}
@@ -4003,6 +4041,26 @@ return day;
 //   1) 默认按"自然天数+1"解锁
 //   2) localStorage['df-unlock-all']==='1' 或 URL ?unlockAll=1 时全部解锁（用户主动选择）
 //   3) 控制台 __unlockAll() / __lockAll() 切换
+//   4) 管理员模式：URL ?admin=daily-forge-admin-2026 / localStorage['df-admin']='1'
+//      → 视为已登录，自动开启全解锁 + 顶栏显示 ADMIN 徽章
+function getAdminFlag(){
+try{
+const sp=new URLSearchParams(location.search);
+const ADMIN_KEY='daily-forge-admin-2026';
+if(sp.get('admin')===ADMIN_KEY){
+localStorage.setItem('df-admin','1');
+// 清除 URL 中的明文 key（防截屏泄漏），但保留 admin 状态
+try{history.replaceState(null,'',location.pathname+location.hash)}catch(_){}
+return true;
+}
+if(sp.get('admin')==='logout'){
+localStorage.removeItem('df-admin');
+try{history.replaceState(null,'',location.pathname+location.hash)}catch(_){}
+return false;
+}
+return localStorage.getItem('df-admin')==='1';
+}catch(e){return false}
+}
 function getUnlockAllFlag(){
 try{
 if(new URLSearchParams(location.search).get('unlockAll')==='1'){
@@ -4013,15 +4071,37 @@ return localStorage.getItem('df-unlock-all')==='1';
 }catch(e){return false}
 }
 const computedDay=computeCurrentDay();
-const unlockAll=getUnlockAllFlag();
+const isAdmin=getAdminFlag();
+const unlockAll=isAdmin||getUnlockAllFlag();
 const currentDay=unlockAll?TOTAL_DAYS:computedDay;
 window.__userCurrentDay=currentDay;
 window.__userTotalDays=TOTAL_DAYS;
+window.__isAdmin=isAdmin;
 window.__unlockAll=function(){localStorage.setItem('df-unlock-all','1');location.reload()};
 window.__lockAll=function(){localStorage.removeItem('df-unlock-all');location.reload()};
+window.__adminLogin=function(){localStorage.setItem('df-admin','1');location.reload()};
+window.__adminLogout=function(){localStorage.removeItem('df-admin');location.reload()};
+
+// 顶栏 ADMIN 徽章（管理员模式可见）
+function renderAdminBadge(){
+if(!isAdmin)return;
+let b=document.getElementById('adminBadge');
+if(b)return;
+const host=document.querySelector('.topbar .top-actions, .topbar .nav, .topbar')||document.body;
+b=document.createElement('div');
+b.id='adminBadge';
+b.className='admin-badge';
+b.innerHTML='<i data-lucide="shield-check"></i> ADMIN';
+b.title='管理员模式 · 全部解锁。点击退出';
+b.onclick=()=>{if(confirm('退出管理员模式？')){localStorage.removeItem('df-admin');location.reload()}};
+document.body.appendChild(b);
+if(window.lucide)setTimeout(()=>window.lucide.createIcons(),0);
+}
 
 // Update day-pills: lock未解锁的, mark today
+// 同时跨页签隐藏 day > currentDay 的内容（archive 卡片等）
 function applyLockState(){
+// 1. day pills
 document.querySelectorAll('#daySubs .day-pill').forEach(pill=>{
 const oc=pill.getAttribute('onclick')||'';
 const m=oc.match(/switchDay\(this,(\d+)\)/);
@@ -4037,7 +4117,31 @@ pill.removeAttribute('data-locked-msg');
 pill.removeAttribute('aria-disabled');
 }
 });
+
+// 2. archive .arc-card / 任何带 onclick="goToDay(N)" 的元素
+document.querySelectorAll('[onclick*="goToDay("]').forEach(el=>{
+const oc=el.getAttribute('onclick')||'';
+const m=oc.match(/goToDay\((\d+)\)/);
+if(!m)return;
+const d=parseInt(m[1]);
+const locked=d>currentDay;
+el.classList.toggle('is-day-locked',locked);
+// 不直接 display:none, 用 class 让它变得"锁定" + 提示
+}); 
+
+// 3. 任何 .day-group / 含 data-day 属性的 子内容（思维库/设计/AI 中的 Day N 引用）
+//    思维库/设计/AI 区段内的 .tl-item / .day-group 子项含 data-day
+document.querySelectorAll('[data-day]').forEach(el=>{
+const d=parseInt(el.getAttribute('data-day')||'0');
+if(!d)return;
+// .day-group 本身不能 display:none——switchDay 会切换它
+if(el.classList.contains('day-group'))return;
+const locked=d>currentDay;
+el.classList.toggle('is-day-locked',locked);
+});
 }
+
+// CSS hook 让锁定项被遮住（在 head <style> 已定义 .is-day-locked）
 
 // ====== 天数 tab 拖拽滑动（带惯性）+ 边缘蒙层动态 ======
 function setupDayScroll(){
@@ -4172,6 +4276,8 @@ applyLockState();
 markToday();
 switchToCurrentDay();
 updateProgressBadge();
+renderAdminBadge();
+showNoticeIfNeeded();
 
 // Re-apply when daySubs is changed (e.g. read-mark add/remove)
 const origMarkRead=window.markDayAsRead;
@@ -4181,6 +4287,149 @@ if(d>currentDay)return;// 不允许标记未来日已读
 return origMarkRead.call(this,d);
 };
 }
+
+// ========== 公告弹窗 ==========
+// 规则：
+//   - 每条公告有唯一 id（如 'v2026-05-19'）
+//   - localStorage['df-notice-seen'] 存储已读公告 id 数组（JSON）
+//   - 用户关闭"我知道了" → 当前 id 进入已读
+//   - 勾选"不再提示后续公告" → localStorage['df-notice-mute'] = '1'
+//     此后所有未来 id 都不弹（哪怕 id 不同）
+//   - 已读判定：seen 包含该 id 或 mute=1 → 不弹
+//   - 同 id 永远不二次弹（点过"我知道了"或勾过"不再提示"都算关闭过）
+const NOTICE = {
+id: 'v2026-05-19',
+version: 'v2026.05.19',
+title: '本周修复与更新',
+sections: [
+{
+heading: '严重修复',
+items: [
+'<strong>解锁逻辑：</strong>修复 Day 29-32 永远锁住的硬编码 bug；TOTAL_DAYS 改为从 DOM 自动读取，新增天数自动支持',
+'<strong>HTML 结构：</strong>修复 38 张卡片历史性嵌套问题——之前每对卡片间漏写 &lt;/div&gt; 导致后一张被吞为子节点',
+'<strong>JS 致命错：</strong>修复 toggleCardExpand 函数名重复导致整个 &lt;script&gt; 报错全部功能失效'
+]
+},
+{
+heading: '新功能',
+items: [
+'<strong>每张卡片支持"深入阅读"</strong>：底部 chevron 按钮一键展开 225 条芒格专栏式深度内容（原话引用 + 真实案例 + 4 元对照 + 行动清单）',
+'<strong>侧边滑动条</strong>：从"高度伸缩进度"重做为可拖拽 thumb（点 track 跳转 / drag thumb scrub）',
+'<strong>天数 tab</strong>：拖拽滑动 + 惯性 + 边缘渐隐蒙层；轻点正常选中，拖动不误触',
+'<strong>管理员模式</strong>：?admin=&lt;key&gt; 登录后全解锁所有内容，顶栏显示 ADMIN 徽章'
+]
+},
+{
+heading: '体验优化',
+items: [
+'收藏按钮改为线框 ghost icon，选中态填充暖橙 + 弹簧动画',
+'卡片标题图标与文字垂直对齐，tag 角标与正文右缘对齐',
+'深入阅读字色调为 ink-3 防刺眼',
+'频繁刷新 bug 修复（DEMO 模式下 setInterval 错对比 currentDay 引发死循环）'
+]
+}
+],
+};
+
+function readNoticeState(){
+let seen=[];
+try{const raw=localStorage.getItem('df-notice-seen');if(raw)seen=JSON.parse(raw)||[]}catch(_){seen=[]}
+const mute=localStorage.getItem('df-notice-mute')==='1';
+return {seen,mute};
+}
+function persistNoticeSeen(id){
+try{
+const state=readNoticeState();
+if(!state.seen.includes(id))state.seen.push(id);
+localStorage.setItem('df-notice-seen',JSON.stringify(state.seen));
+}catch(_){}
+}
+function persistNoticeMute(){
+try{localStorage.setItem('df-notice-mute','1')}catch(_){}
+}
+
+function buildNoticeHTML(notice){
+const sections=notice.sections.map(s=>{
+const lis=s.items.map(it=>'<li>'+it+'</li>').join('');
+return '<div class="notice-section-title"><i data-lucide="circle-dot"></i>'+s.heading+'</div><ul>'+lis+'</ul>';
+}).join('');
+return ''+
+'<div class="notice-overlay" id="noticeOverlay" role="dialog" aria-modal="true" aria-labelledby="noticeTitle">'+
+'<div class="notice-modal" role="document">'+
+'<div class="notice-head">'+
+'<div class="notice-eyebrow"><i data-lucide="bell"></i><span>更新公告</span></div>'+
+'<h3 id="noticeTitle">'+notice.title+'</h3>'+
+'<span class="notice-version">'+notice.version+'</span>'+
+'</div>'+
+'<div class="notice-body">'+sections+'</div>'+
+'<div class="notice-foot">'+
+'<label class="notice-dismiss-row" for="noticeMute"><input type="checkbox" id="noticeMute"><span>不再提示后续公告</span></label>'+
+'<div class="notice-actions">'+
+'<button class="notice-btn primary" id="noticeOk">我知道了</button>'+
+'</div>'+
+'</div>'+
+'</div>'+
+'</div>';
+}
+
+function shouldShowNotice(notice){
+if(!notice||!notice.id)return false;
+const state=readNoticeState();
+if(state.mute)return false;
+if(state.seen.includes(notice.id))return false;
+return true;
+}
+
+function showNoticeIfNeeded(){
+if(!shouldShowNotice(NOTICE))return;
+// 注入弹窗
+const wrap=document.createElement('div');
+wrap.innerHTML=buildNoticeHTML(NOTICE);
+const overlay=wrap.firstElementChild;
+document.body.appendChild(overlay);
+if(window.lucide)setTimeout(()=>window.lucide.createIcons(),0);
+// 锁滚动
+const prevOverflow=document.body.style.overflow;
+document.body.style.overflow='hidden';
+// 绑定关闭
+function close(){
+overlay.classList.remove('show');
+setTimeout(()=>{
+overlay.remove();
+document.body.style.overflow=prevOverflow;
+},320);
+}
+overlay.querySelector('#noticeOk').addEventListener('click',()=>{
+const mute=overlay.querySelector('#noticeMute').checked;
+persistNoticeSeen(NOTICE.id);
+if(mute)persistNoticeMute();
+close();
+});
+// 点遮罩关闭（与 OK 同效）
+overlay.addEventListener('click',e=>{
+if(e.target===overlay){
+const mute=overlay.querySelector('#noticeMute').checked;
+persistNoticeSeen(NOTICE.id);
+if(mute)persistNoticeMute();
+close();
+}
+});
+// ESC 关闭
+function onKey(e){if(e.key==='Escape'){
+const mute=overlay.querySelector('#noticeMute').checked;
+persistNoticeSeen(NOTICE.id);
+if(mute)persistNoticeMute();
+close();
+window.removeEventListener('keydown',onKey);
+}}
+window.addEventListener('keydown',onKey);
+// 显示动画
+requestAnimationFrame(()=>overlay.classList.add('show'));
+}
+
+// 调试 helper
+window.__resetNotice=function(){localStorage.removeItem('df-notice-seen');localStorage.removeItem('df-notice-mute');location.reload()};
+window.__showNotice=function(){showNoticeIfNeeded();if(!shouldShowNotice(NOTICE))console.log('已读或被屏蔽，使用 __resetNotice() 重置')};
 
 // Update at midnight if user keeps page open（仅当真实日变化时 reload，且页面持续可见）
 setInterval(()=>{
@@ -4197,7 +4446,7 @@ window.__resetUserProgress=function(){
 localStorage.removeItem(STORAGE_KEY);
 location.reload();
 };
-console.info('%c[Daily Forge]','color:#e8a14b;font-weight:bold','你的进度: Day '+currentDay+' / '+TOTAL_DAYS+(unlockAll?' (全解锁模式)':'')+'。\n  __unlockAll() 全部解锁  |  __lockAll() 恢复每天解锁  |  __resetUserProgress() 重置进度');
+console.info('%c[Daily Forge]','color:#e8a14b;font-weight:bold','你的进度: Day '+currentDay+' / '+TOTAL_DAYS+(isAdmin?' (ADMIN)':(unlockAll?' (全解锁)':''))+'。\n  __unlockAll() / __lockAll() / __resetUserProgress()\n  __adminLogin() / __adminLogout()\n  __showNotice() / __resetNotice()');
 })();
 </script>
 </body>
