@@ -496,7 +496,7 @@ footer p{margin-bottom:6px}
 <span class="brand-text"><span class="brand-cn">每日锻造</span><span class="brand-en">DAILY FORGE · A Reader's Almanac</span></span>
 </a>
 <div class="top-actions">
-<span class="top-btn read-badge" title="上次阅读"><i data-lucide="bookmark"></i><span id="readBadge">Day 031</span></span>
+<span class="top-btn read-badge" title="上次阅读"><i data-lucide="bookmark"></i><span id="readBadge">Day 032</span></span>
 <button class="top-btn" id="checkinBtn" onclick="showCheckin()">
 <i data-lucide="flame"></i><span class="streak-badge" id="streakText">0</span>
 </button>
@@ -522,10 +522,10 @@ footer p{margin-bottom:6px}
 
 <!-- Stats -->
 <div class="stats">
-<div class="st"><div class="st-n">104</div><div class="st-l">思维模型</div></div>
-<div class="st"><div class="st-n">84</div><div class="st-l">设计启发</div></div>
-<div class="st"><div class="st-n">93</div><div class="st-l">AI前沿</div></div>
-<div class="st"><div class="st-n">31</div><div class="st-l">累计天数</div></div>
+<div class="st"><div class="st-n">107</div><div class="st-l">思维模型</div></div>
+<div class="st"><div class="st-n">87</div><div class="st-l">设计启发</div></div>
+<div class="st"><div class="st-n">96</div><div class="st-l">AI前沿</div></div>
+<div class="st"><div class="st-n">32</div><div class="st-l">累计天数</div></div>
 </div>
 
 <!-- Primary Nav -->
@@ -543,7 +543,8 @@ footer p{margin-bottom:6px}
 
 <!-- Day Selector -->
 <div class="day-selector"><span class="day-selector-label">DAY</span><div class="day-scroll-wrap"><div class="day-scroll" id="daySubs">
-<button class="day-pill on" onclick="switchDay(this,31)">Day 031</button>
+<button class="day-pill on" onclick="switchDay(this,32)">Day 032</button>
+<button class="day-pill" onclick="switchDay(this,31)">Day 031</button>
 <button class="day-pill" onclick="switchDay(this,30)">Day 030</button>
 <button class="day-pill" onclick="switchDay(this,29)">Day 029</button>
 <button class="day-pill" onclick="switchDay(this,28)">Day 028</button>
@@ -584,8 +585,129 @@ footer p{margin-bottom:6px}
 <button class="subtab" onclick="subgo(this,'today','side')"> AI·设计前沿</button>
 </div>
 
+<!-- ========== Day 032 ========== -->
+<div class="day-group" data-day="32">
+<div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 032</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-05-19</span></div><h1 class="day-num">Day <em>032</em></h1><div class="day-summary">知识的诅咒 × 马太效应(累积优势) × 选择悖论 · 新手引导去知识诅咒设计 × 累积优势进度系统 × 减选择焦虑的菜单架构</div></div>
+
+<div class="section-eyebrow"><i data-lucide="brain"></i><span class="section-eyebrow-num">01</span><span class="section-eyebrow-title">思维模型</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Mental Models</span></div>
+<div class="today-think">
+<div class="card" data-fav-id="d32-curse-knowledge" data-fav-title="知识的诅咒 · Curse of Knowledge">
+<div class="card-head"><h3><i data-lucide="eye-off" class="ic-inline"></i><span>知识的诅咒 · Curse of Knowledge</span></h3><span class="tag tag-t">思维模型</span></div>
+<p>卡尼曼在《思考，快与慢》中描述了这个认知陷阱：<strong>"一旦你知道了某件事，你就无法想象不知道是什么感觉——这让你永远无法真正站在新手的角度思考"</strong>。Chip & Dan Heath在《让创意更有粘性》中用经典的"敲击者实验"证明：当你心里哼着一首歌用手指敲击时，你预测听众能猜对的50%——实际只有2.5%。芒格将此应用于商业沟通："很多CEO的战略沟通失败不是因为战略错误，而是因为他们已经无法想象'不理解这个战略'是什么感觉——所以他们的解释充满了专业术语和隐含假设。"德鲁克在《卓有成效的管理者》中警告："专家最大的误区是认为别人也懂他懂的东西——这是所有沟通失败的根源。"</p>
+<ul>
+<li><strong>核心原理：</strong>① <strong>"不可逆"特性</strong>——知识一旦获得就无法"卸载"，你永远不能回到"不知道"的状态来体验新手的困惑。这不是"忘记"能解决的——是神经网络结构性地改变了。② <strong>"透明度幻觉"(Illusion of Transparency)</strong>——你觉得自己表达得很清楚，但听众完全不懂。Elizabeth Newton的博士论文(Stanford, 1990)证明：敲击者预估听众能猜对的50%，实际只有2.5%——20倍的过度自信。③ <strong>"专家盲区"累积</strong>——你在某领域越专业→你对新手的共情能力越弱→你的教学/沟通越无效。芒格："这就是为什么最好的老师往往不是最顶尖的专家——专家已经'忘'了不懂是什么感觉"</li>
+<li><strong>经典案例：</strong>① <strong>Elizabeth Newton的敲击实验(Stanford 1990)</strong>——被试者分为"敲击者"和"听众"。敲击者用手指在桌上敲出一首歌的节奏，听众猜歌名。敲击者预测听众能猜对的50%→实际只有2.5%。因为敲击者脑里"听到"的是完整的音乐，但传递出去的只是几个敲击声——他们无法想象"只听到敲击声"是什么体验。② <strong>芒格论"招股书"失败</strong>——"99%的企业招股书充满了行业术语和内部简称——写的人觉得清晰无比，读的人一头雾水。这不是懒，是知识的诅咒——你真的不知道别人不懂什么。"③ <strong>德鲁克论"技术人员与管理层的沟通鸿沟"</strong>——"技术人员抱怨'管理层不懂技术'，管理层抱怨'技术人员不懂业务'——两者都是知识诅咒的受害者：每方都无法想象对方'不懂'的状态。"</li>
+<li><strong>实操方法：</strong>① <strong>"5岁小孩测试"</strong>——写完任何文档/UI文案/新手引导后→问自己："一个完全不了解背景的人能看懂吗？"→如果任何一句需要"前置知识"才能理解→重写。② <strong>"新手日记"方法</strong>——让新人(或完全不懂的朋友)用你的产品/阅读你的文档→记录他们每一次"停顿/困惑/回看"的时刻→这些"停顿点"=你的知识诅咒体现点。③ <strong>"概念梯子"技术</strong>——每个专业概念都必须有"下一层解释"："EMA"→"指数移动平均"→"给近期数据更大权重的平均数"→"最近几天的数字比很久以前的更重要"。用户在哪一层"理解"=从那一层开始说起</li>
+</ul>
+<div class="quote">"一旦我们知道了某个东西，我们就很难想象不知道它是什么感觉。我们的知识"诅咒"了我们——它让我们难以与他人分享我们的知识，因为我们无法轻易地重建听众的心理状态。"<cite>—— Chip Heath & Dan Heath, Made to Stick (2007), Chapter 1 "Simple"</cite></div>
+<div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i><span>设计启发：</span></b>知识的诅咒对游戏设计的核心警示：<strong>"你玩了数百小时自己的游戏，你已经不可能理解新手的困惑"</strong>。① <strong>"新手引导必须由'新人'测试"铁律</strong>——游戏设计师自己写的新手引导几乎永远太"简陋"——因为他觉得"这么明显的事不用解释"。必须让完全不懂游戏的人测试，并记录每个"停顿点"。② <strong>UI文案的"术语审计"</strong>——所有游戏内术语("DPS""AOE""CD")都必须在第一次出现时有"解释"——不是注释，是"在上下文中自然地展示含义"。<strong>《哈迪斯》的"Boon"不用解释——因为你第一次触发它时就能看到效果，体验即解释</strong>。③ <strong>"渐进解锁"而非"一次性爆炸"</strong>——不要在新手引导中一次性展示所有功能(你觉得"很少啊只有5个"——但对新手而言'一次理解5个新概念'已经是认知超载)</div>
+
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d32-curse-knowledge"><div class="card-deep-inner-wrap"></div></div>
+</div>
+
+<div class="card" data-fav-id="d32-matthew-effect" data-fav-title="马太效应 · Matthew Effect">
+<div class="card-head"><h3><i data-lucide="trending-up" class="ic-inline"></i><span>马太效应 · Matthew Effect (Cumulative Advantage)</span></h3><span class="tag tag-t">思维模型</span></div>
+<p>社会学家Robert K. Merton在1968年提出"马太效应"，名字来自《圣经·马太福音》：<strong>"凡有的，还要加给他，叫他有余；凡没有的，连他所有的，也要夺过来"</strong>。塔勒布在《黑天鹅》中称之为"优势累积"："成功带来更多机会→更多机会带来更多成功→这个循环抬高了少数人，同时压低了多数人——且起点的微小差异会被时间放大为巨大鸿沟。"达里奥在桥水的原则中强调："复利是世界第八大奇迹——但它对你有利还是有害，取决于你站在曲线的哪一边。早期微小的优势→复利累积→最终变成不可逾越的护城河。"芒格用投资角度阐述："查找具有'滚雪球'特性的企业——它们的优势会随时间自动强化而非弱化。"</p>
+<ul>
+<li><strong>核心原理：</strong>① <strong>"初始微小差异放大"定律</strong>——两个起始条件几乎相同的系统，因微小的初始差异(1%的优势)→经过N次累积→变成巨大的结果差异(Winner-take-all)。这是复利的数学本质。② <strong>"双向正反馈"机制</strong>——成功→更多资源/注意力/信任→更容易再次成功→又获得更多资源。反之：失败→更少资源→更难成功→更少资源。③ <strong>"窗口期"至关重要</strong>——因为优势会累积，所以"何时开始"比"做得多好"更重要。早两年进入市场的优势>>晚两年进入但做得更好。达里奥："早期行动的复利效应——是所有战略优势中最被低估的一个。"</li>
+<li><strong>经典案例：</strong>① <strong>Merton的"学术引用"研究(1968)</strong>——已经有名的科学家发表的论文获得更多引用→更多引用=更有名→下一篇论文又获得更多引用。同样质量的论文，有名作者的引用数是无名作者的600%。② <strong>塔勒布论"财富不平等"</strong>——"世界前1%的人拥有财富的45%——这不是因为他们45倍努力，而是因为财富产生财富(money begets money)——累积优势的数学必然性。"③ <strong>芒格论"护城河"(Moat)</strong>——"伟大的企业有'护城河'——它们的优势会随时间自动加宽。可口可乐的'消费者心智份额'每年都在强化——因为'更多人喝'='更多社交证明'='更多人喝'——这就是马太效应的商业版。"</li>
+<li><strong>实操方法：</strong>① <strong>"强化优势"战略</strong>——识别你已有的微小优势(哪怕只有1%)→投入不成比例的资源强化它→让复利为你工作。不要"平均分配"资源给所有方向——要"极端集中"给已有优势的方向。② <strong>"早期加速"原则</strong>——因为复利曲线前期平缓后期陡峭→前期的"加速"(哪怕人为的/亏钱的)能让你更快到达"复利拐点"。③ <strong>"护城河审计"</strong>——每季度问自己："我的优势是在自动强化还是在弱化？"→如果强化=继续。如果弱化=报警，需要主动干预重建护城河</li>
+</ul>
+<div class="quote">"在学术界——正如在经济生活中——我们观察到一个复杂的反馈环，其中早期的微小优势被累积放大，产生了巨大的不平等。我称之为'马太效应'——因为《圣经》中的马太福音最好地捕捉了这一现象：凡有的，还要加给他。"<cite>—— Robert K. Merton, "The Matthew Effect in Science", Science Vol. 159 (1968)</cite></div>
+<div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i><span>设计启发：</span></b>马太效应对游戏设计的核心启示：<strong>"游戏内的优势累积必须被有意识地设计和控制——否则强者恒强将杀死新手"</strong>。① <strong>"追赶机制"必须内置</strong>——如果老玩家的优势无限累积，新玩家永远追不上→流失。解法："赛季重置""等级压缩""新手加速包"——用"人为反马太效应"保持生态健康。② <strong>"正反馈循环"是核心留存引擎</strong>——让玩家感受到"我的努力在累积，我的优势在增长"=上瘾感。进度条/等级/收藏/成就=将马太效应"感受化"的UI工具。③ <strong>"优势可见化"设计原则</strong>——玩家的累积优势必须在UI中清晰可见："你比上周强了15%""你的收藏已累积233件"——<strong>知道自己在进步=持续玩下去的核心动力</strong></div>
+
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d32-matthew-effect"><div class="card-deep-inner-wrap"></div></div>
+</div>
+
+<div class="card" data-fav-id="d32-paradox-choice" data-fav-title="选择悖论 · Paradox of Choice">
+<div class="card-head"><h3><i data-lucide="list-x" class="ic-inline"></i><span>选择悖论 · Paradox of Choice</span></h3><span class="tag tag-t">思维模型</span></div>
+<p>Barry Schwartz在2004年的同名著作中系统性地揭示：<strong>"更多的选择不会让人更幸福——超过某个阈值后，选择变成焦虑和痛苦的源泉"</strong>。卡尼曼的研究证实：当选项超过7±2个时，人类的决策质量显著下降，同时满意度也下降。芒格用投资角度说："我和巴菲特的秘诀是——我们的'待选清单'极其短。我们每年只看几十个机会，且只行动几次。'选择越少，每个选择的质量越高'——这不是懒惰，是纪律。"德鲁克强调："有效的执行力的秘密是'集中'——少做几件事，每件做到极致。而'集中'的前提是'拒绝'——拒绝大多数选项。"达里奥的决策架构："我先把选项从100个筛到≤3个，然后才开始认真比较。'筛选'和'决策'是两个完全不同的过程，不要同时做。"</p>
+<ul>
+<li><strong>核心原理：</strong>① <strong>"决策疲劳"(Decision Fatigue)</strong>——每个决策消耗意志力→选择越多→意志力耗尽越快→最终要么"选择经发的第一个"要么"干脆不选"。卡尼曼证实：判决组在连续做了10个决策后，第11个决策质量下降40%。② <strong>"机会成本放大"</strong>——选项越多→每个选择的"机会成本"(=放弃的其他选项的价值)越高→"后悔感"指数级增长。Schwartz："在有3个选项的世界里，你只放弃了2个。在有300个选项的世界里，你放弃了299个——你怎么可能不后悔？"③ <strong>"最大化者vs满足者"</strong>——Schwartz区分两类人："最大化者"(必须找到"最优解")和"满足者"(找到"足够好"就停)。研究证明：最大化者的客观结果略好(+2%)，但主观满意度显著更低(-30%)。成为"满足者"=更幸福</li>
+<li><strong>经典案例：</strong>① <strong>Sheena Iyengar的"果酱实验"(Columbia 2000)</strong>——超市设置两个果酱试吃摊：一个有6种选择，另一个有24种。结果：24种的摊位吸引了更多人停留(60% vs 40%)，但购买率只有3%，而6种的购买率达30%——10倍差距。<strong>"更多选择=更多围观，更少行动"</strong>。② <strong>芒格的"投资筛选漏斗"</strong>——"我的信箱里每天有50个投资机会。拒98%的——不是因为它们差，而是因为它们不在我的能力圈内或不够'压倒性明显'。我们的成功不来自'更多选择'，而来自'更少但更好的选择'。"③ <strong>达里奥的"两阶段决策"</strong>——桥水的所有重大决策分两步：第一步"筛选"(快速淘汰到≤3个候选)→第二步"深度分析"(只对3个选项做深入比较)。"把100个选项同时比较=保证每个都浅。把3个选项深度比较=保证决策质量。"</li>
+<li><strong>实操方法：</strong>① <strong>"三选一"规则</strong>——任何决策场景，先快速筛到≤3个选项，然后才开始认真比较。"筛选"的标准很简单："不在能力圈内"=立即淘汰。"不能用2分钟说清楚为什么好"=淘汰。② <strong>"默认选项"设计</strong>——为自己和用户设计"好的默认值"→减少需要做的决策数量。王者荣耀的"推荐装备"=游戏帮你做了决策→消除了选择焦虑→更多人行动。③ <strong>"满足者心态"训练</strong>——刷新认知：不是"最优解"而是"足够好的解"=终点。设定"接受阈值"("能满足X和Y条件=就选它，不继续找")→"足够好"的求"满意"高于"最好"的求"满意"(Schwartz的研究结论)</li>
+</ul>
+<div class="quote">"当我们发现延长'选择的乐趣'而推迟行动时，我们已经被选择的重量压倒了。自由的精髓不是'无限的可能性'，而是'有意义的约束'——是在筛选过的少数选项中做出充分知情的决定。"<cite>—— Barry Schwartz, The Paradox of Choice (2004), Chapter 5 "When Only the Best Will Do"</cite></div>
+<div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i><span>设计启发：</span></b>选择悖论对游戏设计的核心启示：<strong>"菜单中的选项越多——玩家行动越少、满意越低"</strong>。① <strong>"果酱法则"应用于游戏UI</strong>——商城页面展示≤12个商品/页=转化率最优(Iyengar的研究表明6-12是"甜蜜点"，超过12转化率断崖式下降)。当商品多于12时→分类/筛选/推荐来"人为减少可见选项"。② <strong>"推荐策略"设计</strong>——每个"选择场景"必须有一个"推荐选项"(视觉突出+"最受欢迎"标签)→降低决策压力，消除"不知道选哪个"的焦虑。<strong>王者荣耀/原神的"推荐"标签=消除选择悖论的核心UI工具</strong>。③ <strong>"渐进择"而非"一次全择"</strong>——技能树/天赋/装备的"选择点"应该分散在整个游戏过程中(每次只选"三选一")，而不是在一个屏幕上展示所有分支给玩家"一次性规划"——<strong>Roguelike的"三选一"是解决选择悖论的天然解</strong></div>
+
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d32-paradox-choice"><div class="card-deep-inner-wrap"></div></div>
+</div>
+</div>
+
+<div class="section-eyebrow"><i data-lucide="gamepad-2"></i><span class="section-eyebrow-num">02</span><span class="section-eyebrow-title">设计启发</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Design Insights</span></div>
+<div class="today-design">
+<div class="card" data-fav-id="d32-design-1" data-fav-title="新手引导去知识诅咒设计">
+<div class="card-head"><h3><i data-lucide="compass" class="ic-inline"></i><span>新手引导去知识诅咒设计 · Curse-Proof Onboarding</span></h3><span class="tag tag-d">设计启发</span></div>
+<p>基于知识的诅咒理论，游戏新手引导的核心设计原则：<strong>"设计师必须假设自己对游戏的所有'显而易见'的理解——新手一个都不具备"</strong>。</p>
+<ul>
+<li><strong>"停顿点"热力图系统：</strong>在新手引导流程中埋点追踪玩家的"停顿/退出/重复点击"行为→生成"困惑热力图"→每个停顿点=一个"知识诅咒盲点"=需要增加解释。具体指标：单步停留>8秒=困惑信号，退出重入=严重困惑信号</li>
+<li><strong>"概念分层"解锁架构：</strong>将所有游戏概念按"依赖关系"排成DAG(有向无环图)→严格按拓扑排序解锁→每个新概念出现前确保其所有"前置概念"已被玩家体验过。<strong>禁止在玩家未体验"攻击"前就展示"暴击率"——因为暴击率的含义依赖于对攻击的理解</strong></li>
+<li><strong>"体验即教学"设计原则：</strong>不用文字解释概念，让玩家通过操作自己发现含义。《塞尔达：旷野之息》的天才：不告诉你"火可以烧草"，而是把你放在草地和火把旁边——你自然会尝试→发现→理解。<strong>最好的教程是"没有教程"——环境本身就是教学</strong></li>
+</ul>
+</div>
+
+<div class="card" data-fav-id="d32-design-2" data-fav-title="累积优势进度系统设计">
+<div class="card-head"><h3><i data-lucide="bar-chart" class="ic-inline"></i><span>累积优势进度系统设计 · Cumulative Progress UX</span></h3><span class="tag tag-d">设计启发</span></div>
+<p>基于马太效应理论，游戏进度系统的核心设计原则：<strong>"让玩家每一分钟的游玩都能在UI中看到'可见的累积进步'——这是留存的核心引擎"</strong>。</p>
+<ul>
+<li><strong>"复利可视化"进度条设计：</strong>普通进度条是线性的(0%→100%)。更好的设计是"复利式"进度展示：早期增长慢+后期加速→让玩家感受到"我的积累在加速产生回报"。具体实现：前50%的进度需要70%的时间，后50%只需30%→创造"越玩越快"的心理感受</li>
+<li><strong>"里程碑回顾"UI组件：</strong>每达成重要节点时→弹出"你的旅程回顾"(展示从起点到现在的成长轨迹)→强化"累积"的感知。不只是"恭喜达到Lv.50"，而是"你从Lv.1到现在已完成327个挑战，收集了89件装备，击败了45个Boss"——<strong>量化累积=强化"我不能停"的动力</strong></li>
+<li><strong>"追赶机制"与"天花板压缩"：</strong>纯马太效应会杀死新手→必须内置反向机制：① 等级越高经验需求越大(对数增长而非线性)→天花板压缩②新手前10小时获得加速buff→快速追赶③赛季重置→所有人回到接近起点→重新公平竞争</li>
+</ul>
+</div>
+
+<div class="card" data-fav-id="d32-design-3" data-fav-title="减选择焦虑的菜单架构">
+<div class="card-head"><h3><i data-lucide="layout-list" class="ic-inline"></i><span>减选择焦虑的菜单架构 · Choice-Anxiety-Free Menu</span></h3><span class="tag tag-d">设计启发</span></div>
+<p>基于选择悖论理论，游戏菜单系统的核心设计原则：<strong>"每个屏幕的可选项≤7个——超过则必须分层/筛选/推荐"</strong>。</p>
+<ul>
+<li><strong>"7±2"严格法则执行：</strong>Miller's Number不只是理论——在游戏UI中是硬性约束。主菜单选项≤7个、商城单页商品≤12个、技能树每层分支≤3个。超过就触发设计审计：这些选项能否合并？能否分层？能否隐藏低频项？</li>
+<li><strong>"智能默认+推荐"系统：</strong>每个"必须选择"的场景→系统提供1个"推荐选项"(视觉高亮+理由说明)→80%的用户直接选推荐=消除焦虑。推荐算法可基于：同水平玩家最常选+当前关卡最适配+用户历史偏好。<strong>关键：推荐必须带"理由"("78%同水平玩家选择了这个")——有理由的推荐信任度高3倍</strong></li>
+<li><strong>"渐进复杂度"菜单进化：</strong>新手阶段→只展示3个核心选项(隐藏高级功能)→随等级/游玩时间→逐步解锁更多选项。不是"删除"功能，是"延迟展示"——<strong>在玩家准备好之前不展示选项=不会产生选择焦虑+不会产生认知过载</strong></li>
+</ul>
+</div>
+</div>
+
+<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div>
+<div class="today-side">
+<div class="card" data-fav-id="d32-side-1" data-fav-title="游戏新手引导可用性审计服务">
+<div class="card-head"><h3><i data-lucide="scan" class="ic-inline"></i><span>游戏新手引导可用性审计服务</span></h3><span class="tag tag-a">副业思路</span></div>
+<p>为游戏团队提供<strong>"基于知识诅咒理论的新手引导UX审计+优化方案"</strong>——用"非玩家视角"系统性地找出引导流程中的每个"知识诅咒盲点"并给出修复方案。</p>
+<ul>
+<li><strong>启动步骤：</strong>① 招募3-5个"纯新手"(从未接触过该游戏类型的人)进行有声思维测试(Think-Aloud Protocol)→② 录屏+标注每个"停顿/困惑/误操作"时刻→③ 对照"专家版"和"新手版"的理解差异→④ 输出"知识诅咒热力图"+"修复优先级清单"(按影响面积排序)+"具体文案/流程重写建议"</li>
+<li><strong>技术栈：</strong>录屏分析工具(OBS+标注) + Python行为数据分析(停顿时间/点击热力图) + Figma原型(对比方案) + 结构化报告模板 + UE4/Unity新手引导最佳实践库</li>
+<li><strong>收入预估：</strong>"快速审计"(3天出报告，覆盖前30分钟体验)→5000-8000元/份→"完整审计+重设计"(含原型方案+A/B测试设计)→20000-35000元/项目→"持续优化订阅"(每版本审计+跟踪数据)→8000-12000元/月→目标5-8家客户=4-8万/月</li>
+<li><strong>差异化：</strong>市面的UX审计多为"通用可用性测试"→你的核心差异=专注"知识诅咒"这个具体认知偏差+游戏行业专门经验+能直接输出Figma/UE4可落地的修改方案(不是纯学术报告)</li>
+</ul>
+</div>
+
+<div class="card" data-fav-id="d32-side-2" data-fav-title="游戏进度系统复利设计工具包">
+<div class="card-head"><h3><i data-lucide="layers" class="ic-inline"></i><span>游戏进度系统复利设计工具包 · Progress Compound Kit</span></h3><span class="tag tag-a">副业思路</span></div>
+<p>基于马太效应理论，提供<strong>"游戏进度/成长/收集系统的'复利曲线'设计套件"</strong>——帮助游戏策划设计出让玩家"越玩越上瘾"的累积进度系统。</p>
+<ul>
+<li><strong>启动步骤：</strong>① 开发Python工具——输入"等级数/里程碑数/赛季长度"→自动计算最优经验曲线(复利式非线性)+追赶机制参数+天花板压缩比→② 配套Figma组件库(进度条/里程碑卡片/成长回顾UI模板)→③ 输出"进度系统设计文档"(数值表+UI规范+心理学原理说明)</li>
+<li><strong>技术栈：</strong>Python数值计算(numpy曲线拟合) + 可视化仪表盘(展示曲线对比) + Figma进度UI组件库(10+种进度可视化模板) + Excel模板(让策划自己调参数)</li>
+<li><strong>收入预估：</strong>"进度系统设计工具包"(Python工具+Figma模板+文档)→一次性售卖199-499元→目标用户：独立游戏开发者/小团队策划→上架Gumroad/小报童→月销50-100份=1-5万/月 || "定制进度系统设计"(针对具体游戏)→15000-25000元/项目</li>
+<li><strong>壁垒：</strong>需要同时理解数值设计(数学/曲线)+UI设计(Figma组件)+玩家心理学→你的三栈组合=独特定位→能出"策划能直接用的数值表+设计师能直接用的Figma模板"</li>
+</ul>
+</div>
+
+<div class="card" data-fav-id="d32-side-3" data-fav-title="游戏商城选择架构优化器">
+<div class="card-head"><h3><i data-lucide="shopping-cart" class="ic-inline"></i><span>游戏商城选择架构优化器 · Choice Architecture Optimizer</span></h3><span class="tag tag-a">副业思路</span></div>
+<p>基于选择悖论理论，提供<strong>"游戏商城/抽卡/技能树的'选择架构'诊断+优化工具"</strong>——帮助游戏团队通过"减少选择焦虑"来提升商城转化率。</p>
+<ul>
+<li><strong>启动步骤：</strong>① 开发Figma插件——自动扫描商城/菜单设计稿→统计"单屏可选项数量""推荐标记覆盖率""分类层级深度"→② 对照选择悖论研究数据给出诊断："该页面有28个选项=超出最优阈值12的133%→预测转化率下降40%"→③ 自动生成"优化方案"(分组建议+推荐策略+渐进展示方案)</li>
+<li><strong>技术栈：</strong>Figma Plugin API(TypeScript) + 选择悖论研究数据库(Iyengar/Schwartz的阈值参数) + A/B测试设计模板 + Python数据分析(接游戏商城转化数据验证效果)</li>
+<li><strong>收入预估：</strong>"Figma选择架构插件"→订阅制19-49元/月→目标1000个游戏设计师用户=2-5万/月 || "商城选择架构优化咨询"(含诊断+方案+A/B测试设计)→15000-30000元/项目→"转化率提升分成"(效果付费)→商城月流水提升部分的5-10%</li>
+<li><strong>独特卖点：</strong>不是泛泛的"UX优化"——而是基于Schwartz/Iyengar/Kahneman的具体研究数据的"选择架构"专项优化→能量化预测"减少N个选项→转化率提升X%"→客户能看到ROI</li>
+</ul>
+</div>
+</div>
+
+</div>
+
+
 <!-- ========== Day 031 ========== -->
-<div class="day-group" data-day="31">
+<div class="day-group" data-day="31" style="display:none">
 <div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 031</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-05-18</span></div><h1 class="day-num">Day <em>031</em></h1><div class="day-summary">回归均值 × Via Negativa(减法智慧) × 多元思维格栅 · 渐进式难度曲线设计 × 减法UI设计 × 跨系统一致性设计</div></div>
 
 <div class="section-eyebrow"><i data-lucide="brain"></i><span class="section-eyebrow-num">01</span><span class="section-eyebrow-title">思维模型</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Mental Models</span></div>
@@ -3149,6 +3271,27 @@ footer p{margin-bottom:6px}
 <p class="page-subtitle">所有历史内容按日期编年索引。点击任意一天进入完整阅读视图。</p>
 </div>
 <div class="archive-grid">
+<div class="arc-card" style="cursor:pointer" onclick="goToDay(31)">
+<div class="arc-card-head"><span class="arc-card-day">Day 031</span><span class="arc-card-date">2026-05-18</span></div>
+<div class="arc-sections">
+<div class="arc-sec arc-sec-t"><h5> 思维模型</h5><ul>
+<li>回归均值（卡尼曼/Galton/芒格/达里奥）</li>
+<li>Via Negativa减法智慧（塔勒布/芒格/德鲁克/达里奥）</li>
+<li>多元思维格栅（芒格/达里奥/卡尼曼/塔勒布）</li>
+</ul></div>
+<div class="arc-sec arc-sec-d"><h5> 设计启发</h5><ul>
+<li>渐进式难度曲线设计</li>
+<li>减法UI设计</li>
+<li>跨系统一致性设计</li>
+</ul></div>
+<div class="arc-sec arc-sec-a"><h5> 副业思路</h5><ul>
+<li>游戏难度曲线AI校准器</li>
+<li>游戏UI减法诊断工具</li>
+<li>游戏设计格栅评审服务</li>
+</ul></div>
+</div>
+</div>
+
 <div class="arc-card" style="cursor:pointer" onclick="goToDay(30)">
 <div class="arc-card-head"><span class="arc-card-day">Day 030</span><span class="arc-card-date">2026-05-17</span></div>
 <div class="arc-sections">
