@@ -4307,7 +4307,8 @@ heading: '严重修复',
 items: [
 '<strong>解锁逻辑：</strong>修复 Day 29-32 永远锁住的硬编码 bug；TOTAL_DAYS 改为从 DOM 自动读取，新增天数自动支持',
 '<strong>HTML 结构：</strong>修复 38 张卡片历史性嵌套问题——之前每对卡片间漏写 &lt;/div&gt; 导致后一张被吞为子节点',
-'<strong>JS 致命错：</strong>修复 toggleCardExpand 函数名重复导致整个 &lt;script&gt; 报错全部功能失效'
+'<strong>JS 致命错：</strong>修复 toggleCardExpand 函数名重复导致整个 &lt;script&gt; 报错全部功能失效',
+'<strong>公告弹窗失效：</strong>10:30 版本只用 id 判断已读，导致内容更新后老用户看不到新内容；现已改为「内容指纹」机制 — 文案变了 signature 也变，自动重弹一次'
 ]
 },
 {
@@ -4316,7 +4317,8 @@ items: [
 '<strong>每张卡片支持"深入阅读"</strong>：底部 chevron 按钮一键展开 225 条芒格专栏式深度内容（原话引用 + 真实案例 + 4 元对照 + 行动清单）',
 '<strong>侧边滑动条</strong>：从"高度伸缩进度"重做为可拖拽 thumb（点 track 跳转 / drag thumb scrub）',
 '<strong>天数 tab</strong>：拖拽滑动 + 惯性 + 边缘渐隐蒙层；轻点正常选中，拖动不误触',
-'<strong>管理员模式</strong>：?admin=&lt;key&gt; 登录后全解锁所有内容，顶栏显示 ADMIN 徽章'
+'<strong>管理员模式</strong>：?admin=&lt;key&gt; 登录后全解锁所有内容，顶栏显示 ADMIN 徽章',
+'<strong>跨页签内容锁</strong>：归档/思维库等其他页签里超过当前解锁天的内容会变灰 + 标"未解锁"，防止越权阅读'
 ]
 },
 {
@@ -4337,10 +4339,23 @@ try{const raw=localStorage.getItem('df-notice-seen');if(raw)seen=JSON.parse(raw)
 const mute=localStorage.getItem('df-notice-mute')==='1';
 return {seen,mute};
 }
-function persistNoticeSeen(id){
+// 内容指纹：不只看 id，还把 sections 内容做哈希
+//   id 不变 + 内容修改  → signature 改变 → 已读视为失效，再次弹窗
+function noticeSignature(notice){
+try{
+const payload=JSON.stringify({id:notice.id,sections:notice.sections,title:notice.title});
+let h=0;
+for(let i=0;i<payload.length;i++){h=((h<<5)-h)+payload.charCodeAt(i);h|=0}
+const sig=(h>>>0).toString(36);
+return notice.id+'@'+sig;
+}catch(_){return notice.id+'@0'}
+}
+function persistNoticeSeen(sig){
 try{
 const state=readNoticeState();
-if(!state.seen.includes(id))state.seen.push(id);
+if(!state.seen.includes(sig))state.seen.push(sig);
+// 限制最多保留最近 50 条 signature，防止无限增长
+if(state.seen.length>50)state.seen=state.seen.slice(-50);
 localStorage.setItem('df-notice-seen',JSON.stringify(state.seen));
 }catch(_){}
 }
@@ -4349,6 +4364,8 @@ try{localStorage.setItem('df-notice-mute','1')}catch(_){}
 }
 
 function buildNoticeHTML(notice){
+const sig=noticeSignature(notice);
+const sigShort=sig.split('@').pop().slice(-5);
 const sections=notice.sections.map(s=>{
 const lis=s.items.map(it=>'<li>'+it+'</li>').join('');
 return '<div class="notice-section-title"><i data-lucide="circle-dot"></i>'+s.heading+'</div><ul>'+lis+'</ul>';
@@ -4359,7 +4376,7 @@ return ''+
 '<div class="notice-head">'+
 '<div class="notice-eyebrow"><i data-lucide="bell"></i><span>更新公告</span></div>'+
 '<h3 id="noticeTitle">'+notice.title+'</h3>'+
-'<span class="notice-version">'+notice.version+'</span>'+
+'<span class="notice-version">'+notice.version+' · '+sigShort+'</span>'+
 '</div>'+
 '<div class="notice-body">'+sections+'</div>'+
 '<div class="notice-foot">'+
@@ -4376,12 +4393,17 @@ function shouldShowNotice(notice){
 if(!notice||!notice.id)return false;
 const state=readNoticeState();
 if(state.mute)return false;
-if(state.seen.includes(notice.id))return false;
+const sig=noticeSignature(notice);
+if(state.seen.includes(sig))return false;
+// 旧版本只存 id（无 @sig 的旧记录），如果 mute 没开但内容更新过，应该重弹
+// 这里 sig 不匹配就视为未读 → 再次显示
 return true;
 }
 
 function showNoticeIfNeeded(){
 if(!shouldShowNotice(NOTICE))return;
+// 计算当前内容签名（关闭时存它，下次内容变了 sig 也变了，自动重弹）
+const sig=noticeSignature(NOTICE);
 // 注入弹窗
 const wrap=document.createElement('div');
 wrap.innerHTML=buildNoticeHTML(NOTICE);
@@ -4401,7 +4423,7 @@ document.body.style.overflow=prevOverflow;
 }
 overlay.querySelector('#noticeOk').addEventListener('click',()=>{
 const mute=overlay.querySelector('#noticeMute').checked;
-persistNoticeSeen(NOTICE.id);
+persistNoticeSeen(sig);
 if(mute)persistNoticeMute();
 close();
 });
@@ -4409,7 +4431,7 @@ close();
 overlay.addEventListener('click',e=>{
 if(e.target===overlay){
 const mute=overlay.querySelector('#noticeMute').checked;
-persistNoticeSeen(NOTICE.id);
+persistNoticeSeen(sig);
 if(mute)persistNoticeMute();
 close();
 }
@@ -4417,7 +4439,7 @@ close();
 // ESC 关闭
 function onKey(e){if(e.key==='Escape'){
 const mute=overlay.querySelector('#noticeMute').checked;
-persistNoticeSeen(NOTICE.id);
+persistNoticeSeen(sig);
 if(mute)persistNoticeMute();
 close();
 window.removeEventListener('keydown',onKey);
