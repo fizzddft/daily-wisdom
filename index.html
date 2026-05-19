@@ -3942,7 +3942,24 @@ item.addEventListener('click',()=>goToDay(day));
 
 // ===== Personal Day Progression (per-browser, IP-equivalent via localStorage) =====
 (function(){
-const TOTAL_DAYS=28;
+// TOTAL_DAYS 改为动态读取——基于 DOM 中真实存在的 day-pill 上限，避免硬编码漏掉新增天数
+function detectTotalDays(){
+let max=0;
+document.querySelectorAll('#daySubs .day-pill').forEach(p=>{
+const oc=p.getAttribute('onclick')||'';
+const m=oc.match(/switchDay\(this,(\d+)\)/);
+if(m){const d=parseInt(m[1]);if(d>max)max=d;}
+});
+// 兜底：扫 day-group
+if(!max){
+document.querySelectorAll('.day-group[data-day]').forEach(g=>{
+const d=parseInt(g.getAttribute('data-day')||'0');
+if(d>max)max=d;
+});
+}
+return max||28;
+}
+const TOTAL_DAYS=detectTotalDays();
 const STORAGE_KEY='df-user-progress';
 const DAY_MS=86400000;
 
@@ -3982,11 +3999,26 @@ saveProgress(p);
 return day;
 }
 
-// 全部解锁模式：DEMO_UNLOCK_ALL=true 时所有天都视为已解锁（可用于展示/调试）
-const DEMO_UNLOCK_ALL=true;
+// 解锁策略：
+//   1) 默认按"自然天数+1"解锁
+//   2) localStorage['df-unlock-all']==='1' 或 URL ?unlockAll=1 时全部解锁（用户主动选择）
+//   3) 控制台 __unlockAll() / __lockAll() 切换
+function getUnlockAllFlag(){
+try{
+if(new URLSearchParams(location.search).get('unlockAll')==='1'){
+localStorage.setItem('df-unlock-all','1');
+return true;
+}
+return localStorage.getItem('df-unlock-all')==='1';
+}catch(e){return false}
+}
 const computedDay=computeCurrentDay();
-const currentDay=DEMO_UNLOCK_ALL?TOTAL_DAYS:computedDay;
+const unlockAll=getUnlockAllFlag();
+const currentDay=unlockAll?TOTAL_DAYS:computedDay;
 window.__userCurrentDay=currentDay;
+window.__userTotalDays=TOTAL_DAYS;
+window.__unlockAll=function(){localStorage.setItem('df-unlock-all','1');location.reload()};
+window.__lockAll=function(){localStorage.removeItem('df-unlock-all');location.reload()};
 
 // Update day-pills: lock未解锁的, mark today
 function applyLockState(){
@@ -4165,7 +4197,7 @@ window.__resetUserProgress=function(){
 localStorage.removeItem(STORAGE_KEY);
 location.reload();
 };
-console.info('%c[Daily Forge]','color:#e8a14b;font-weight:bold','你的进度: Day '+currentDay+' / '+TOTAL_DAYS+'。重置请在控制台执行 __resetUserProgress()');
+console.info('%c[Daily Forge]','color:#e8a14b;font-weight:bold','你的进度: Day '+currentDay+' / '+TOTAL_DAYS+(unlockAll?' (全解锁模式)':'')+'。\n  __unlockAll() 全部解锁  |  __lockAll() 恢复每天解锁  |  __resetUserProgress() 重置进度');
 })();
 </script>
 </body>
