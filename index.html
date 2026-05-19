@@ -4401,7 +4401,12 @@ return true;
 }
 
 function showNoticeIfNeeded(){
-if(!shouldShowNotice(NOTICE))return;
+const reason=diagNotice();
+if(!shouldShowNotice(NOTICE)){
+console.warn('[Notice] 不显示。原因:',reason,'\n  需要强制显示请运行: __forceNotice()');
+return;
+}
+console.info('[Notice] 显示弹窗 sig=',noticeSignature(NOTICE));
 // 计算当前内容签名（关闭时存它，下次内容变了 sig 也变了，自动重弹）
 const sig=noticeSignature(NOTICE);
 // 注入弹窗
@@ -4450,8 +4455,38 @@ requestAnimationFrame(()=>overlay.classList.add('show'));
 }
 
 // 调试 helper
-window.__resetNotice=function(){localStorage.removeItem('df-notice-seen');localStorage.removeItem('df-notice-mute');location.reload()};
-window.__showNotice=function(){showNoticeIfNeeded();if(!shouldShowNotice(NOTICE))console.log('已读或被屏蔽，使用 __resetNotice() 重置')};
+// 诊断：详细返回为什么不弹（或会弹）
+function diagNotice(){
+const state=readNoticeState();
+const sig=noticeSignature(NOTICE);
+const seenContains=state.seen.includes(sig);
+return {
+notice_id:NOTICE.id,
+current_sig:sig,
+mute_flag:state.mute,
+seen_contains_current_sig:seenContains,
+seen_total:state.seen.length,
+seen_list:state.seen,
+will_show:!state.mute&&!seenContains,
+};
+}
+window.__diagNotice=diagNotice;
+window.__resetNotice=function(){localStorage.removeItem('df-notice-seen');localStorage.removeItem('df-notice-mute');console.log('[Notice] 已清空 seen + mute，刷新中...');location.reload()};
+window.__showNotice=function(){const d=diagNotice();console.log('[Notice] 诊断:',d);showNoticeIfNeeded()};
+window.__forceNotice=function(){
+// 强制忽略已读/屏蔽，直接显示一次：临时清掉 mute & 当前 sig 已读，showNoticeIfNeeded()，关闭后自动恢复
+const sig=noticeSignature(NOTICE);
+const state=readNoticeState();
+const wasMute=state.mute;
+const wasSeen=state.seen.includes(sig);
+if(wasMute)localStorage.removeItem('df-notice-mute');
+if(wasSeen){
+const newSeen=state.seen.filter(x=>x!==sig);
+localStorage.setItem('df-notice-seen',JSON.stringify(newSeen));
+}
+showNoticeIfNeeded();
+// 不主动恢复——用户关闭弹窗时会重新写入 seen 记录
+};
 
 // Update at midnight if user keeps page open（仅当真实日变化时 reload，且页面持续可见）
 setInterval(()=>{
