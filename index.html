@@ -162,9 +162,17 @@ svg.lucide{width:1em;height:1em;flex-shrink:0;display:inline-block;vertical-alig
 .day-selector.has-scroll-start .day-scroll-wrap::before{opacity:1}
 .day-selector.has-scroll-end .day-scroll-wrap::after{opacity:1}
 .day-selector-label{font-size:10.5px;color:var(--ink-4);font-family:var(--mono);font-weight:600;letter-spacing:.2em;text-transform:uppercase;white-space:nowrap;flex-shrink:0}
-.day-scroll{display:flex;gap:6px;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none;width:100%;scroll-snap-type:x proximity;padding:2px 4px;cursor:grab;scroll-behavior:smooth;touch-action:pan-x;user-select:none;-webkit-user-select:none}
-.day-scroll.is-grabbing{cursor:grabbing;scroll-behavior:auto;scroll-snap-type:none}
+.day-scroll{display:flex;gap:6px;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none;width:100%;padding:2px 4px;cursor:grab;touch-action:pan-x;user-select:none;-webkit-user-select:none;overscroll-behavior-x:contain}
+.day-scroll.is-grabbing{cursor:grabbing}
 .day-scroll::-webkit-scrollbar{display:none}
+@media(hover:none) and (pointer:coarse){
+.day-scroll{cursor:auto;scroll-snap-type:none}
+.day-pill{scroll-snap-align:none}
+}
+@media(hover:hover) and (pointer:fine){
+.day-scroll{scroll-snap-type:x proximity;scroll-behavior:smooth}
+.day-scroll.is-grabbing{scroll-behavior:auto;scroll-snap-type:none}
+}
 .day-pill{padding:7px 14px;border-radius:var(--r-pill);font-size:12px;font-weight:500;color:var(--ink-3);cursor:pointer;transition:all .2s ease;background:transparent;border:1px solid var(--line);font-family:var(--mono);white-space:nowrap;flex-shrink:0;letter-spacing:.04em;scroll-snap-align:center;display:inline-flex;align-items:center;gap:6px}
 .day-pill:hover{color:var(--ink);border-color:var(--line-2);background:var(--surface)}
 .day-pill.on{color:var(--bg);background:var(--ink);border-color:var(--ink)}
@@ -206,10 +214,11 @@ svg.lucide{width:1em;height:1em;flex-shrink:0;display:inline-block;vertical-alig
 .notice-modal{background:var(--surface);border:1px solid var(--line-2);border-radius:var(--r-lg);width:min(540px,calc(100vw - 36px));max-height:min(80vh,720px);overflow:hidden;display:flex;flex-direction:column;box-shadow:0 32px 80px rgba(0,0,0,.55),0 0 0 1px rgba(232,161,75,.15);transform:scale(.96) translateY(8px);transition:transform .35s cubic-bezier(.34,1.56,.64,1)}
 .notice-overlay.show .notice-modal{transform:scale(1) translateY(0)}
 .notice-head{padding:24px 28px 18px;border-bottom:1px solid var(--line);position:relative}
-.notice-head .notice-eyebrow{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.notice-overlay,.notice-overlay *{font-family:var(--sans) !important}
+.notice-head .notice-eyebrow{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;display:flex;align-items:center;gap:8px}
 .notice-head .notice-eyebrow i[data-lucide],.notice-head .notice-eyebrow svg{width:14px;height:14px;stroke-width:2}
-.notice-head h3{font-family:var(--serif);font-size:22px;font-weight:600;color:var(--ink);margin:0;letter-spacing:-.02em;line-height:1.3}
-.notice-head .notice-version{position:absolute;top:24px;right:28px;font-family:var(--mono);font-size:10.5px;color:var(--ink-4);letter-spacing:.05em}
+.notice-head h3{font-size:18px;font-weight:600;color:var(--ink);margin:0;letter-spacing:-.01em;line-height:1.3}
+.notice-head .notice-version{position:absolute;top:24px;right:28px;font-size:10.5px;color:var(--ink-4);letter-spacing:.05em;font-variant-numeric:tabular-nums}
 .notice-body{padding:22px 28px;overflow-y:auto;color:var(--ink-2);font-size:14px;line-height:1.75;flex:1}
 .notice-body p{margin:0 0 12px}
 .notice-body ul{list-style:none;padding:0;margin:8px 0 14px}
@@ -217,7 +226,7 @@ svg.lucide{width:1em;height:1em;flex-shrink:0;display:inline-block;vertical-alig
 .notice-body li:last-child{border-bottom:none}
 .notice-body li::before{content:'';position:absolute;left:0;top:18px;width:12px;height:1px;background:var(--accent);opacity:.6}
 .notice-body li strong{color:var(--ink);font-weight:600}
-.notice-body .notice-section-title{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin:18px 0 6px;display:flex;align-items:center;gap:8px}
+.notice-body .notice-section-title{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:18px 0 6px;display:flex;align-items:center;gap:8px}
 .notice-body .notice-section-title:first-child{margin-top:0}
 .notice-foot{padding:18px 28px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
 .notice-dismiss-row{display:inline-flex;align-items:center;gap:8px;color:var(--ink-3);font-size:13px;cursor:pointer;user-select:none}
@@ -4158,7 +4167,7 @@ scroll.addEventListener('scroll',updateEdges,{passive:true});
 window.addEventListener('resize',updateEdges);
 setTimeout(updateEdges,50);
 
-// drag-to-scroll（在 pill 上也生效，区分 click vs drag 用阈值）
+// drag-to-scroll：**只对鼠标生效**，触摸交给浏览器原生 momentum scroll（手机更跟手）
 let isDown=false,startX=0,startLeft=0,moved=false,lastX=0,lastT=0,velocity=0,inertiaRAF=0;
 const DRAG_THRESHOLD=5;
 function endDrag(){
@@ -4177,15 +4186,17 @@ inertiaRAF=requestAnimationFrame(tick);
 }
 }
 scroll.addEventListener('pointerdown',e=>{
-if(e.pointerType==='mouse'&&e.button!==0)return;
+// 触摸/手指：不接管，让原生 -webkit-overflow-scrolling 处理（更顺滑 + 系统级惯性）
+if(e.pointerType!=='mouse')return;
+if(e.button!==0)return;
 isDown=true;moved=false;
 startX=e.clientX;startLeft=scroll.scrollLeft;
 lastX=e.clientX;lastT=performance.now();velocity=0;
 cancelAnimationFrame(inertiaRAF);
-// 不立刻加 grab，等 move 超阈值再加（保证轻点不变 grab）
 });
 window.addEventListener('pointermove',e=>{
 if(!isDown)return;
+if(e.pointerType!=='mouse')return;
 const dx=e.clientX-startX;
 if(!moved&&Math.abs(dx)>DRAG_THRESHOLD){
 moved=true;
@@ -4200,12 +4211,17 @@ lastX=e.clientX;lastT=now;
 e.preventDefault();
 }
 },{passive:false});
-window.addEventListener('pointerup',endDrag);
-window.addEventListener('pointercancel',endDrag);
+window.addEventListener('pointerup',e=>{if(e.pointerType==='mouse')endDrag()});
+window.addEventListener('pointercancel',e=>{if(e.pointerType==='mouse')endDrag()});
 // 抑制拖动后的 click（避免拖完误触 pill）
 scroll.addEventListener('click',e=>{
 if(moved){e.preventDefault();e.stopPropagation();moved=false}
 },true);
+// 触摸开始时取消正在进行的 mouse 惯性，避免双重滚动
+scroll.addEventListener('touchstart',()=>{
+cancelAnimationFrame(inertiaRAF);
+velocity=0;
+},{passive:true});
 // 鼠标滚轮横向滚动（垂直滚轮转 horizontal）
 scroll.addEventListener('wheel',e=>{
 if(Math.abs(e.deltaY)>Math.abs(e.deltaX)){
