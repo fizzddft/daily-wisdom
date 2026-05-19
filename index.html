@@ -4277,7 +4277,11 @@ markToday();
 switchToCurrentDay();
 updateProgressBadge();
 renderAdminBadge();
-showNoticeIfNeeded();
+// 公告弹窗用 try/catch 包裹 + setTimeout 兜底，避免被同步 init 顺序问题打断
+setTimeout(()=>{
+try{showNoticeIfNeeded()}
+catch(err){console.error('[Notice] showNoticeIfNeeded error:',err)}
+},120);
 
 // Re-apply when daySubs is changed (e.g. read-mark add/remove)
 const origMarkRead=window.markDayAsRead;
