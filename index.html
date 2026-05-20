@@ -507,7 +507,7 @@ footer p{margin-bottom:6px}
 <div class="topbar"><div class="wrap topbar-inner">
 <a href="#" class="brand" onclick="event.preventDefault();window.scrollTo({top:0,behavior:'smooth'})">
 <span class="brand-mark" aria-hidden="true">
-<img src="assets/logo-arknights.png" alt="Daily Forge" width="48" height="48" loading="eager" decoding="async">
+<img src="assets/logo-daily-forge-final.png" alt="Daily Forge" width="48" height="48" loading="eager" decoding="async">
 </span>
 <span class="brand-text"><span class="brand-cn">每日锻造</span><span class="brand-en">DAILY FORGE · A Reader's Almanac</span></span>
 </a>
@@ -4619,60 +4619,172 @@ console.info('%c[Daily Forge]','color:#e8a14b;font-weight:bold','你的进度: D
 </script>
 
 <script>
-/* === Card cover image injector (additive, runtime-only) ===
+/* === Card cover image injector v2 (semantic-keyword matching) ===
    - 不修改任何卡片 HTML 结构
-   - 按 .tag 类别 + data-fav-id 哈希稳定选图
-   - 仅 IntersectionObserver 懒加载
-============================================================= */
+   - 按标题关键词精准匹配主题图（思维理论尤其精准）
+   - 关键词无匹配时回退到分类默认池
+   - IntersectionObserver 懒加载
+================================================================ */
 (function(){
 'use strict';
 
-// 高质量 Unsplash 图片库（已逐张验证 200 OK，1280×640 format=crop）
-// 主题：知识/思维/书籍/系统/抽象/秩序/规模/复利/认知
-var POOL_T = [ // 思维模型 (tag-t)
-  '1532153975070-2e9ab71f1b14','1481627834876-b7833e8f5570','1455390582262-044cdead277a',
-  '1456513080510-7bf3a84b82f8','1581291518633-83b4ebd1d83e','1545239351-1141bd82e8a6',
-  '1542751371-adc38448a05e','1518770660439-4636190af475','1535378917042-10a22c95931a',
-  '1554224155-6726b3ff858f','1559526324-4b87b5e36e44','1611974789855-9c2a0a7236a3',
-  '1556761175-5973dc0f32e7','1450101499163-c8848c66ca85','1486312338219-ce68d2c6f44d',
-  '1559523182-a284c3fb7cff','1551434678-e076c223a692','1500917293891-ef795e70e1f6',
-  '1524758631624-e2822e304c36','1488590528505-98d2b5aba04b','1515378791036-0648a3ef77b2',
-  '1517142089942-ba376ce32a2e','1499951360447-b19be8fe80f5','1591696205602-2f950c417cb9',
-  '1531403009284-440f080d1e12','1593642632559-0c6d3fc62b89','1611532736597-de2d4265fba3',
-  '1542435503-956c469947f6','1484417894907-623942c8ee29','1488229297570-58520851e868',
-  '1551288049-bebda4e38f71'
+// === 主题图池（已逐张验证 200 OK）===
+var THEMES = {
+  // 决策/选择/思维
+  scales:        ['1589829545856-d10d557cf95f','1590283603385-17ffb3a7f29f','1589994965851-a8f479c573a9'],
+  chess:         ['1528819622765-d6bcf132f793','1560174038-da43ac74f01b'],
+  compass:       ['1503551723145-6c040742065b','1494500764479-0c8f2919a3d8'],
+  target:        ['1517245386807-bb43f82c33c4','1543622748-5ee7237e8565'],
+  maze:          ['1589994965851-a8f479c573a9','1607344645866-009c320c5ab8'],
+  puzzle:        ['1611532736597-de2d4265fba3','1542435503-956c469947f6'],
+  mirror:        ['1532413992378-f169ac26fff0'],
+
+  // 时间/复利/累积
+  hourglass:     ['1501139083538-0139583c060f','1508962914676-134849a727f0','1495364141860-b0d03eccd065'],
+  ladder:        ['1525130413817-d45c1d127c42','1550985616-10810253b84d'],
+  bricks:        ['1487958449943-2429e8be8625','1503602642458-232111445657','1486718448742-163732cd1544'],
+  growth:        ['1416879595882-3373a0480b5b','1466692476868-aef1dfb1e735','1502134249126-9f3755a50d78'],
+  spiral:        ['1614935151651-0bea6508db6b'],
+
+  // 系统/网络/连接
+  network:       ['1451187580459-43490279c0fa','1518186285589-2f7649de83e0','1518770660439-4636190af475'],
+  bridges:       ['1485470733090-0aae1788d5af','1500382017468-9049fed747ef','1503551723145-6c040742065b'],
+  tree:          ['1448375240586-882707db888b','1500382017468-9049fed747ef'],
+  gears:         ['1488229297570-58520851e868','1518770660439-4636190af475','1581090700227-1e37b190418e'],
+  machine:       ['1581090700227-1e37b190418e','1581091226825-a6a2a5aee158'],
+
+  // 大脑/认知/学习
+  brain:         ['1559757148-5c350d0d3c56','1551845041-63e8e76836ea','1573164574572-cb89e39749b4'],
+  books:         ['1481627834876-b7833e8f5570','1532153975070-2e9ab71f1b14','1521587760476-6c12a4b040da','1507842217343-583bb7270b66'],
+  microscope:    ['1518288774672-b94e808873ff','1542838132-92c53300491e','1554475901-4538ddfbccc2'],
+
+  // 风险/反脆弱/概率
+  fire:          ['1502139214982-d0ad755818d8','1518709268805-4e9042af9f23'],
+  candle:        ['1502139214982-d0ad755818d8','1518709268805-4e9042af9f23'],
+  umbrella:      ['1517673400267-0251440c45dc','1533713692156-f70938dc0d54'],
+  lighthouse:    ['1502082553048-f009c37129b9','1518709268805-4e9042af9f23'],
+  barbell:       ['1571019613454-1cb2f99b2d8b','1534438327276-14e5300c3a48','1583454110551-21f2fa2afe61'],
+
+  // 群体/社会/合作
+  birds:         ['1473773508845-188df298d2d1'],
+  hands:         ['1521791136064-7986c2920216','1556761175-5973dc0f32e7','1550745165-9bc0b252726f'],
+  ant_colony:    ['1495379572396-5f27a279ee91'],
+  traffic:       ['1485827404703-89b55fcc595e','1502082553048-f009c37129b9'],
+
+  // 流动/反馈/波
+  wave:          ['1505142468610-359e7d316be0','1507525428034-b723cf961d3e'],
+  river:         ['1469125155630-7ed37e065743','1502691876148-a84978e59af8'],
+  domino:        ['1591125566263-4e4e0f15f9b6'],
+  circle_ring:   ['1535378917042-10a22c95931a','1502691876148-a84978e59af8','1556761175-5973dc0f32e7'],
+
+  // 数据/图表/财富
+  chart:         ['1460925895917-afdab827c52f','1551288049-bebda4e38f71','1518186285589-2f7649de83e0','1543286386-2e659306cd6c'],
+  coin:          ['1554672723-d42a16e533db','1444653614773-995cb1ef9efa'],
+
+  // 高度/规模
+  mountain:      ['1464822759023-fed622ff2c3b','1506905925346-21bda4d32df4'],
+
+  // 进化/DNA/复杂
+  dna:           ['1530210124550-912dc1381cb8','1576086213369-97a306d36557','1576086476234-1103be98f096'],
+
+  // 设计/UI/创作
+  design_ui:     ['1586717791821-3f44a563fa4c','1545235617-9465d2a55698','1542744173-8e7e53415bb0','1626785774573-4b799315345d','1581276879432-15e50529f34b','1465056836041-7f43ac27dcb5','1505373877841-8d25f7d46678','1517694712202-14dd9538aa97','1585399000684-d2f72660f092','1497032628192-86f99bcd76bc'],
+
+  // AI/算法/未来
+  ai_neural:     ['1677442136019-21780ecad995','1655720828018-edd2daec9349','1620712943543-bcc4688e7485','1635070041078-e363dbe005cb','1605379399642-870262d3d051','1591453089816-0fbb971b454c','1581090464777-f3220bbe1b8b'],
+
+  // 商业/服务
+  business:      ['1556761175-5973dc0f32e7','1454165804606-c3d57bc86b40','1521737711867-e3b97375f902','1559136555-9303baea8ebd','1542744094-3a31f272c490','1517245386807-bb43f82c33c4','1455894127589-22f75500213a']
+};
+
+// === 标题关键词 → 主题映射（按优先级匹配，第一条命中即停止）===
+// 优先级从高到低：长词/具体词 > 短词/抽象词
+var KEYWORD_RULES = [
+  // 决策/选择/平衡
+  [/选择|paradox of choice|choice|决策疲劳/i, 'scales'],
+  [/博弈|game theory|纳什|nash|囚徒|prisoner|策略|strategy/i, 'chess'],
+  [/能力圈|circle of competence|边界|界限/i, 'compass'],
+  [/目标|target|focus|聚焦|关键|核心驱动|leverage point|杠杆点/i, 'target'],
+  [/路径依赖|path|迷宫|maze|岔路/i, 'maze'],
+  [/拼图|puzzle|多元|latticework|思维格栅|系统思维|systems thinking|涌现|emergence|复杂适应|complex adaptive/i, 'puzzle'],
+  [/反身性|reflexivity|镜|mirror|确认偏误|confirmation bias|认知失调|cognitive dissonance|自我合理化|rationalization/i, 'mirror'],
+
+  // 时间/累积/复利
+  [/时间贴现|hyperbolic|双曲|即时满足|instant gratification|时间|time/i, 'hourglass'],
+  [/复利|compound|阶梯|ladder|递进|渐进|gradient/i, 'ladder'],
+  [/累积|cumulative|马太|matthew|分块|chunking|building|construct/i, 'bricks'],
+  [/成长|growth|增长|seedling|新手|novice|学习|learning|失败学习|learning from failure/i, 'growth'],
+  [/螺旋|spiral|耗散|entropy|熵增|分形|fractal/i, 'spiral'],
+
+  // 系统/网络
+  [/网络效应|network effect|临界质量|临界点|tipping|相变|phase transition|propagation|传播/i, 'network'],
+  [/桥|bridge|连接|connection|交易成本|transaction cost|specialization|分工|比较优势|comparative advantage/i, 'bridges'],
+  [/树|tree|分支|branch|博|hierarchy|层级|框架/i, 'tree'],
+  [/机制|mechanism|齿轮|gear|系统|system|结构|structure|工作记忆|working memory|认知负荷|cognitive load/i, 'gears'],
+  [/工厂|factory|工业|industry|生产|production/i, 'machine'],
+
+  // 大脑/认知/学习
+  [/大脑|brain|神经|neural|认知|cognitive|心理|psychology|意识|consciousness|心智|mind|思考|双轨|dual.process|system 1|system 2|多巴胺|dopamine|习惯|habit|奖赏|reward|prediction error/i, 'brain'],
+  [/书|书籍|book|library|知识|knowledge|经典|classic|阅读|read|教育|education|curse of knowledge|知识的诅咒/i, 'books'],
+  [/观察|observation|审视|审计|audit|检验|verify|microscope|证据|evidence|贝叶斯|bayes|检查清单|checklist/i, 'microscope'],
+
+  // 风险/反脆弱
+  [/反脆弱|antifragile|火|fire|压力|stress|危机|crisis|test/i, 'fire'],
+  [/灯塔|lighthouse|信号|signal|signaling|signaling theory|信息不对称|asymmetry|柠檬市场|lemons/i, 'lighthouse'],
+  [/伞|umbrella|安全边际|margin of safety|保护|protect|防御|defense|安全/i, 'umbrella'],
+  [/杠铃|barbell|非对称|asymmetric|skin in the game|风险|risk|黑天鹅|black swan/i, 'barbell'],
+
+  // 群体/社会
+  [/鸟|bird|群体|swarm|herd|羊群|从众|conformity|网络效应|attention economy/i, 'birds'],
+  [/合作|cooperation|协作|collab|握手|handshake|hand|关系|relation|委托代理|principal.agent|信任|trust/i, 'hands'],
+  [/蚁|ant|蜂|bee|集体智慧|collective|colony|自组织|self.organization|涌现/i, 'ant_colony'],
+  [/红绿灯|traffic|信号|警告|warning|提醒/i, 'traffic'],
+
+  // 流动/反馈
+  [/反馈|feedback|波|wave|振荡|oscillation|流|flow/i, 'wave'],
+  [/河流|river|路径|trajectory|趋势|trend|连续|continuous|delay|延迟/i, 'river'],
+  [/多米诺|domino|链|chain|连锁|cascade|二阶|second.order|second order/i, 'domino'],
+  [/循环|loop|cycle|圈|ring|飞轮|flywheel|周期|periodic|OODA/i, 'circle_ring'],
+
+  // 数据/财富
+  [/图表|chart|graph|数据|data|分析|analyze|统计|statistic|概率|probability|前景理论|prospect theory|心理账户|mental accounting|禀赋|endowment|框架效应|framing|锚定|anchoring|沉没成本|sunk cost|幸存者|survivorship|均值回归|regression to|邓宁|dunning|kruger|帕累托|pareto|80\/20|幂律|power law|规模效应|scale effect|allometric/i, 'chart'],
+  [/钱|money|财|wealth|稀缺|scarcity|经济|economy|robust|gain|loss|机会成本|opportunity cost/i, 'coin'],
+
+  // 高度/规模
+  [/山|mountain|peak|高度|height|顶|summit|超级力量|superpower|incentive|激励/i, 'mountain'],
+
+  // 进化/DNA
+  [/进化|evolution|adaptation|red queen|红皇后|进化稳定|evolutionary|landscape|适应性/i, 'dna'],
+
+  // 副业/服务/商业
+  [/服务|service|工具包|toolkit|审计|audit|优化器|optimizer|校准器|calibrator|工具|tool|平台|platform|系统/i, 'business'],
+
+  // 兜底关键词（更宽松）
+  [/inversion|逆向/i, 'mirror'],
+  [/lindy|林迪/i, 'books'],
+  [/first principle|第一性原理/i, 'microscope'],
+  [/effective|有效|管理|drucker/i, 'target'],
+  [/transparency|透明/i, 'lighthouse'],
+  [/ergodicity|遍历/i, 'dna'],
+
+  // 补漏（逐条覆盖之前未命中的标题）
+  [/via negativa|减法|negativa|奥卡姆|occam|剃刀|razor|简化|minimalism/i, 'umbrella'],
+  [/黑匣子|black box|失败/i, 'microscope'],
+  [/边际|marginal|increment/i, 'ladder'],
+  [/索罗斯|soros|反身/i, 'mirror'],
+  [/叙事|narrative|story|讲述/i, 'books'],
+  [/承诺|commitment|consistency|一致性/i, 'hands'],
+  [/确认偏差|confirmation/i, 'mirror'],
+  [/第二序|second order|second.order|序思维|order thinking/i, 'domino'],
+  [/杠杆|leverage/i, 'ladder']
 ];
-// 设计启发 (tag-d) — 设计/UI/界面/工作室/草图
-var POOL_D = [
-  '1586717791821-3f44a563fa4c','1586717799252-bd134ad00e26','1559028012-481c04fa702d',
-  '1545235617-9465d2a55698','1542744173-8e7e53415bb0','1626785774573-4b799315345d',
-  '1581276879432-15e50529f34b','1607863680198-23d4b2565df0','1551434678-e076c223a692',
-  '1561070791-2526d30994b8','1494438639946-1ebd1d20bf85','1559028006-448665bd7c7b',
-  '1581291518633-83b4ebd1d83e','1559028012-481c04fa702d','1542744094-3a31f272c490',
-  '1487014679447-9f8336841d58','1465056836041-7f43ac27dcb5','1505373877841-8d25f7d46678',
-  '1520975922325-24baf7e8f8be','1526374870839-e155464bb9b2','1518709268805-4e9042af9f23',
-  '1572177812156-58036aae439c','1517694712202-14dd9538aa97','1550745165-9bc0b252726f',
-  '1585399000684-d2f72660f092','1503602642458-232111445657','1497032628192-86f99bcd76bc',
-  '1542751371-adc38448a05e'
-];
-// AI 前沿 (tag-m) — 神经网络/电路/数据/未来/抽象
-var POOL_M = [
-  '1677442136019-21780ecad995','1655720828018-edd2daec9349','1620712943543-bcc4688e7485',
-  '1526374965328-7f61d4dc18c5','1558494949-ef010cbdcc31','1620712943543-bcc4688e7485',
-  '1551703599-6b3e8379aa8d','1535303311164-664fc9ec6532','1635070041078-e363dbe005cb',
-  '1605379399642-870262d3d051','1591453089816-0fbb971b454c','1591696205602-2f950c417cb9',
-  '1581090700227-1e37b190418e','1581090464777-f3220bbe1b8b','1581090700227-1e37b190418e',
-  '1551033406-611cf9a28f67','1518709268805-4e9042af9f23','1526374965328-7f61d4dc18c5',
-  '1550751827-4bd374c3f58b','1573164574572-cb89e39749b4','1518770660439-4636190af475',
-  '1542831371-29b0f74f9713','1605379399642-870262d3d051','1633412802994-5c058f151b66'
-];
-// 副业/服务 (tag-a) — 工作/工具/商业
-var POOL_A = [
-  '1556761175-5973dc0f32e7','1454165804606-c3d57bc86b40','1573164574001-518958d9baa2',
-  '1521737711867-e3b97375f902','1559136555-9303baea8ebd','1568992687947-868a62a9f521',
-  '1551836022-d5d88e9218df','1542744094-3a31f272c490','1517245386807-bb43f82c33c4',
-  '1455894127589-22f75500213a','1542744173-8e7e53415bb0','1559028012-481c04fa702d'
-];
+
+// 设计/AI/副业的默认池
+var POOL_D = THEMES.design_ui;
+var POOL_M = THEMES.ai_neural;
+var POOL_A = THEMES.business;
+// T 的兜底（如果没关键词命中）：用最贴近"思维"的几个池混合
+var POOL_T_FALLBACK = [].concat(THEMES.brain, THEMES.books, THEMES.chart, THEMES.gears, THEMES.scales);
 
 var TAG_LABEL = {
   T: 'Mental Model',
@@ -4689,14 +4801,96 @@ function djb2(str){
   return Math.abs(h);
 }
 
-function pickPool(card){
-  var tag = card.querySelector('.card-head > .tag, .card-head .tag');
-  if(!tag) return {pool: POOL_T, key: 'T'};
+function getTagKey(card){
+  var tag = card.querySelector('.card-head .tag');
+  if(!tag) return 'T';
   var cls = tag.className || '';
-  if(cls.indexOf('tag-d') >= 0) return {pool: POOL_D, key: 'D'};
-  if(cls.indexOf('tag-m') >= 0) return {pool: POOL_M, key: 'M'};
-  if(cls.indexOf('tag-a') >= 0) return {pool: POOL_A, key: 'A'};
-  return {pool: POOL_T, key: 'T'};
+  if(cls.indexOf('tag-d') >= 0) return 'D';
+  if(cls.indexOf('tag-m') >= 0) return 'M';
+  if(cls.indexOf('tag-a') >= 0) return 'A';
+  return 'T';
+}
+
+function getTitle(card){
+  var s = card.querySelector('.card-head h3 span');
+  return s ? (s.textContent || '') : (card.getAttribute('data-fav-title') || '');
+}
+
+function pickThemeByTitle(title){
+  for(var i = 0; i < KEYWORD_RULES.length; i++){
+    var rule = KEYWORD_RULES[i];
+    if(rule[0].test(title)){
+      return rule[1];
+    }
+  }
+  return null;
+}
+
+// 全局已用 photoId 集合（去重用）
+var _usedPhotos = {};
+
+// 所有 pool 合并的全量备用池（最终兜底用）
+var ALL_PHOTOS = (function(){
+  var all = [];
+  for(var k in THEMES){ if(THEMES.hasOwnProperty(k)){ all = all.concat(THEMES[k]); } }
+  // 去重
+  var seen = {};
+  return all.filter(function(id){ if(seen[id]) return false; seen[id]=1; return true; });
+})();
+
+function pickPhoto(card){
+  var tagKey = getTagKey(card);
+  var title = getTitle(card);
+  var favId = card.getAttribute('data-fav-id') || title || 'x';
+  var pool;
+  var matchedTheme = null;
+
+  if(tagKey === 'T'){
+    matchedTheme = pickThemeByTitle(title);
+    pool = matchedTheme ? THEMES[matchedTheme] : POOL_T_FALLBACK;
+  } else if(tagKey === 'D'){
+    matchedTheme = pickThemeByTitle(title);
+    if(matchedTheme && THEMES[matchedTheme] && matchedTheme !== 'business'){
+      pool = THEMES[matchedTheme];
+    } else {
+      pool = POOL_D;
+    }
+  } else if(tagKey === 'M'){
+    pool = POOL_M;
+  } else {
+    pool = POOL_A;
+  }
+  if(!pool || !pool.length) pool = POOL_T_FALLBACK;
+
+  // 去重选图：优先 hash 位置，碰撞则线性探测，全用完则用全量备用池
+  var idx = djb2(favId) % pool.length;
+  var photoId = null;
+  for(var attempt = 0; attempt < pool.length; attempt++){
+    var candidate = pool[(idx + attempt) % pool.length];
+    if(!_usedPhotos[candidate]){
+      photoId = candidate;
+      break;
+    }
+  }
+  // 如果主题池全用光，从全量池找未用过的
+  if(!photoId){
+    for(var j = 0; j < ALL_PHOTOS.length; j++){
+      var c2 = ALL_PHOTOS[(djb2(favId) + j) % ALL_PHOTOS.length];
+      if(!_usedPhotos[c2]){
+        photoId = c2;
+        break;
+      }
+    }
+  }
+  // 最终兜底（所有图都用过了，允许重复但从 hash 开始）
+  if(!photoId) photoId = pool[idx];
+
+  _usedPhotos[photoId] = true;
+  return {
+    photoId: photoId,
+    tagKey: tagKey,
+    theme: matchedTheme
+  };
 }
 
 function buildUrl(photoId, w){
@@ -4708,34 +4902,29 @@ function buildUrl(photoId, w){
 function injectCover(card){
   if(card.classList.contains('has-cover')) return;
   if(card.querySelector(':scope > .card-cover')) return;
-  // 跳过没有 card-head 的（极少数特殊卡片）
   var head = card.querySelector(':scope > .card-head');
   if(!head) return;
-  // 选图：fav-id → hash → pool index
-  var favId = card.getAttribute('data-fav-id') || (card.querySelector('h3 span') ? card.querySelector('h3 span').textContent : 'x');
-  var picked = pickPool(card);
-  var idx = djb2(favId) % picked.pool.length;
-  var photoId = picked.pool[idx];
+
+  var picked = pickPhoto(card);
   var w = Math.min(window.innerWidth || 800, 900);
   if(w < 520) w = 520;
-  var url = buildUrl(photoId, w);
+  var url = buildUrl(picked.photoId, w);
 
   var cover = document.createElement('div');
   cover.className = 'card-cover';
-  cover.setAttribute('data-photo-id', photoId);
+  cover.setAttribute('data-photo-id', picked.photoId);
+  if(picked.theme) cover.setAttribute('data-theme', picked.theme);
   cover.setAttribute('role', 'img');
-  cover.setAttribute('aria-label', TAG_LABEL[picked.key] + ' cover');
+  cover.setAttribute('aria-label', TAG_LABEL[picked.tagKey] + ' cover');
 
   var label = document.createElement('span');
   label.className = 'card-cover-tag';
-  label.textContent = TAG_LABEL[picked.key];
+  label.textContent = TAG_LABEL[picked.tagKey];
   cover.appendChild(label);
 
-  // 立刻插入 DOM（最前），但延后加载图片（lazy）
   card.insertBefore(cover, card.firstChild);
   card.classList.add('has-cover');
 
-  // lazy load via IntersectionObserver
   if('IntersectionObserver' in window){
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(e){
@@ -4753,6 +4942,7 @@ function injectCover(card){
 
 function injectAll(){
   try {
+    _usedPhotos = {}; // 重置去重集合
     var cards = document.querySelectorAll('.card[data-fav-id]');
     cards.forEach(injectCover);
   } catch(e){
@@ -4760,18 +4950,32 @@ function injectAll(){
   }
 }
 
-// 首次注入 + 监听后续（如收藏面板复刻等）
 if(document.readyState === 'loading'){
   document.addEventListener('DOMContentLoaded', injectAll);
 } else {
   injectAll();
 }
 
-// 暴露调试
+// 调试钩子
 window.__reinjectCovers = injectAll;
 window.__removeCovers = function(){
   document.querySelectorAll('.card-cover').forEach(function(n){ n.remove(); });
   document.querySelectorAll('.card.has-cover').forEach(function(n){ n.classList.remove('has-cover'); });
+};
+window.__diagCovers = function(){
+  var report = {matched:0, fallback:0, byTheme:{}};
+  document.querySelectorAll('.card[data-fav-id]').forEach(function(card){
+    var p = pickPhoto(card);
+    if(p.theme){
+      report.matched++;
+      report.byTheme[p.theme] = (report.byTheme[p.theme] || 0) + 1;
+    } else {
+      report.fallback++;
+    }
+  });
+  console.table(report.byTheme);
+  console.log('matched:', report.matched, 'fallback:', report.fallback);
+  return report;
 };
 
 })();
