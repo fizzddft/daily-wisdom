@@ -481,6 +481,21 @@ footer p{margin-bottom:6px}
 .checkin-toast{right:16px;left:16px;max-width:none}
 .fav-panel{width:100%}
 }
+
+/* === Card cover image (additive, only applied to .has-cover cards) === */
+.card.has-cover{padding-top:0}
+.card.has-cover .card-cover{position:relative;display:block;width:calc(100% + 80px);height:200px;margin:0 -40px 28px;border-radius:calc(var(--r-lg) - 1px) calc(var(--r-lg) - 1px) 0 0;background-size:cover;background-position:center;background-repeat:no-repeat;background-color:#1a1d24;overflow:hidden;isolation:isolate}
+.card.has-cover .card-cover::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,17,21,0) 30%,rgba(15,17,21,.55) 75%,rgba(15,17,21,.78) 100%);pointer-events:none;z-index:1}
+.card.has-cover .card-cover::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.18) 100%);pointer-events:none;z-index:1}
+.card.has-cover .card-cover-tag{position:absolute;left:18px;bottom:14px;z-index:2;font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.92);background:rgba(0,0,0,.42);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);padding:5px 11px;border-radius:var(--r-pill);border:1px solid rgba(255,255,255,.14);font-weight:600}
+.card.has-cover:hover .card-cover{filter:brightness(1.04)}
+@media(max-width:768px){
+  .card.has-cover .card-cover{height:160px;width:calc(100% + 48px);margin:0 -24px 22px}
+}
+@media(max-width:480px){
+  .card.has-cover .card-cover{height:140px;width:calc(100% + 36px);margin:0 -18px 20px}
+  .card.has-cover .card-cover-tag{left:14px;bottom:11px;font-size:9px;padding:4px 9px}
+}
 </style>
 </head>
 <body>
@@ -497,7 +512,7 @@ footer p{margin-bottom:6px}
 <span class="brand-text"><span class="brand-cn">每日锻造</span><span class="brand-en">DAILY FORGE · A Reader's Almanac</span></span>
 </a>
 <div class="top-actions">
-<span class="top-btn read-badge" title="上次阅读"><i data-lucide="bookmark"></i><span id="readBadge">Day 032</span></span>
+<span class="top-btn read-badge" title="上次阅读"><i data-lucide="bookmark"></i><span id="readBadge">Day 033</span></span>
 <button class="top-btn" id="checkinBtn" onclick="showCheckin()">
 <i data-lucide="flame"></i><span class="streak-badge" id="streakText">0</span>
 </button>
@@ -523,10 +538,10 @@ footer p{margin-bottom:6px}
 
 <!-- Stats -->
 <div class="stats">
-<div class="st"><div class="st-n">107</div><div class="st-l">思维模型</div></div>
-<div class="st"><div class="st-n">87</div><div class="st-l">设计启发</div></div>
-<div class="st"><div class="st-n">96</div><div class="st-l">AI前沿</div></div>
-<div class="st"><div class="st-n">32</div><div class="st-l">累计天数</div></div>
+<div class="st"><div class="st-n">110</div><div class="st-l">思维模型</div></div>
+<div class="st"><div class="st-n">90</div><div class="st-l">设计启发</div></div>
+<div class="st"><div class="st-n">99</div><div class="st-l">AI前沿</div></div>
+<div class="st"><div class="st-n">33</div><div class="st-l">累计天数</div></div>
 </div>
 
 <!-- Primary Nav -->
@@ -544,7 +559,8 @@ footer p{margin-bottom:6px}
 
 <!-- Day Selector -->
 <div class="day-selector"><span class="day-selector-label">DAY</span><div class="day-scroll-wrap"><div class="day-scroll" id="daySubs">
-<button class="day-pill on" onclick="switchDay(this,32)">Day 032</button>
+<button class="day-pill on" onclick="switchDay(this,33)">Day 033</button>
+<button class="day-pill" onclick="switchDay(this,32)">Day 032</button>
 <button class="day-pill" onclick="switchDay(this,31)">Day 031</button>
 <button class="day-pill" onclick="switchDay(this,30)">Day 030</button>
 <button class="day-pill" onclick="switchDay(this,29)">Day 029</button>
@@ -586,8 +602,129 @@ footer p{margin-bottom:6px}
 <button class="subtab" onclick="subgo(this,'today','side')"> AI·设计前沿</button>
 </div>
 
+<!-- ========== Day 033 ========== -->
+<div class="day-group" data-day="33">
+<div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 033</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-05-20</span></div><h1 class="day-num">Day <em>033</em></h1><div class="day-summary">沉没成本谬误 × 信息不对称 × 邓宁-克鲁格效应 · 放弃成本可视化设计 × 信息透明度分层UI × 自适应难度反馈系统</div></div>
+
+<div class="section-eyebrow"><i data-lucide="brain"></i><span class="section-eyebrow-num">01</span><span class="section-eyebrow-title">思维模型</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Mental Models</span></div>
+<div class="today-think">
+<div class="card" data-fav-id="d33-sunk-cost" data-fav-title="沉没成本谬误 · Sunk Cost Fallacy">
+<div class="card-head"><h3><i data-lucide="anchor" class="ic-inline"></i><span>沉没成本谬误 · Sunk Cost Fallacy</span></h3><span class="tag tag-t">思维模型</span></div>
+<p>卡尼曼与特沃斯基在前景理论(1979)中揭示了人类对损失的非理性执着：<strong>"人们继续投资失败的项目，不是因为未来有希望，而是因为无法接受'过去的投入白费了'——这让理性的止损变得心理上不可能"</strong>。芒格将此视为投资中最致命的认知陷阱之一："我见过太多聪明人因为'已经投了这么多钱'而继续把钱扔进一个明显失败的项目——他们把'过去花的钱'当成了'未来要继续花钱'的理由，这在逻辑上完全荒谬。"塔勒布在《反脆弱》中从进化论角度解释："大自然从不犯沉没成本的错误——如果一条路不通，动物立刻转向，不会因为'已经走了很远'而继续走。只有人类这种有'叙事大脑'的物种才会编造'坚持就是胜利'的故事来合理化自己的固执。"达里奥的桥水原则明确规定："评估任何投资/项目/决策，只看'从今天起的未来预期回报'——已经花出去的任何成本=不存在。如果你的决策受到'已投入成本'的影响=你犯了沉没成本谬误。"</p>
+<ul>
+<li><strong>核心原理：</strong>① <strong>"心理账户锁定"</strong>——人类大脑自动为每笔投入(时间/金钱/情感)建立"心理账户"→当这个账户"亏损"时，关闭它=承认失败=强烈的心理痛苦→为避免这种痛苦，继续投入以期"翻本"(Thaler, 1985)。② <strong>"承诺升级"(Escalation of Commitment)</strong>——Staw(1976)的经典实验：已投入越多→越难放弃→越继续投入→形成恶性循环。战争中的"再投入一个师就能赢"、赌博中的"再押一把就回本"——同一心理机制。③ <strong>"损失厌恶×2倍"</strong>——卡尼曼证明：同等量级的损失带来的痛苦=同等收益带来的快乐×2.25倍。放弃已有投入=确认损失=2.25倍痛苦→这就是为什么"止损"在心理上极其困难</li>
+<li><strong>经典案例：</strong>① <strong>协和飞机项目(1962-2003)</strong>——英法政府在1970年代就已经知道这个项目永远不会盈利。但因为"已经投了数十亿英镑"→两国政府继续投入了30年→最终亏损超过4000亿(按今日汇率)。经济学家直接将其命名为"协和谬误"(Concorde Fallacy)。② <strong>芒格的"挖坑法则"</strong>——"当你发现自己在一个坑里时，最重要的事情是停止挖掘。但大多数人的反应是'如果我继续挖，也许能挖到另一边'——这就是为什么小问题变成大灾难。"③ <strong>越战的"再投入一个师"逻辑</strong>——五角大楼内部备忘录揭示：每次增兵决策的核心论据都是"我们已经牺牲了X万士兵——如果现在撤退，他们就白死了"——用过去的沉没成本(牺牲)来论证未来的行动(增兵)=教科书级的沉没成本谬误</li>
+<li><strong>实操方法：</strong>① <strong>"零基预算"决策法</strong>——达里奥的核心原则：每次决策时假设"你是今天才接手这个项目的新人"→只看"从今天起，继续vs放弃的预期收益"→完全忽略过去的投入。问自己："如果我还没开始这个项目，以今天的信息我会启动它吗？如果答案是'不会'——立刻停止。"② <strong>"预设止损线"</strong>——在项目/投资启动前就设定"放弃条件"(时间阈值/金额上限/关键指标)→条件触发时自动止损=不给沉没成本心理留空间。③ <strong>"替代成本"对比法</strong>——不问"已经花了多少"→而问"如果把将要继续投入的资源放到最好的替代选项上，哪个回报更高？"→如果替代选项更好=证明继续是沉没成本驱动的非理性行为</li>
+</ul>
+<div class="quote">"在做决策时，唯一重要的成本是未来的成本。过去的成本——无论多么巨大——与最优决策完全无关。但人类的心理不是这样工作的：我们无法不考虑过去的投入，因为放弃它们等于承认自己犯了错——而承认错误的心理痛苦远大于继续浪费的经济成本。"<cite>—— Daniel Kahneman, Thinking, Fast and Slow (2011), Chapter 32 "Keeping Score"</cite></div>
+<div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i><span>设计启发：</span></b>沉没成本谬误对游戏设计的核心启示：<strong>"玩家在你的游戏中投入越多时间/金钱——他们越难离开，即使已经不享受了"</strong>。① <strong>"沉没成本=留存武器"的伦理边界</strong>——游戏天然利用沉没成本留存玩家(你的500小时存档=你不会轻易流失)。但过度利用=PUA用户(让不快乐的人因"舍不得"而留下=不道德设计)。正确的做法：让"沉没投入"产生"真实愉悦"(成长回顾/成就展示)→不是用"恐惧失去"而是用"享受拥有"来留存。② <strong>"可逆设计"降低沉没成本焦虑</strong>——任何"选择"都应该有一定的"可逆性"(重新分配技能点/退货/重置)→降低"选错=浪费"的焦虑→鼓励玩家大胆尝试。<strong>《哈迪斯》允许在冥府镜中随时重新分配所有升级=消除沉没成本焦虑</strong>。③ <strong>"优雅退出"设计</strong>——当玩家显示"疲惫信号"(登录但不操作/反复退出菜单)→主动提供"暂停保存"而非"你确定要放弃？"——尊重玩家的止损权利，而不是PUA他们留下</div>
+
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d33-sunk-cost"><div class="card-deep-inner-wrap"></div></div>
+</div>
+
+<div class="card" data-fav-id="d33-info-asymmetry" data-fav-title="信息不对称 · Information Asymmetry">
+<div class="card-head"><h3><i data-lucide="eye" class="ic-inline"></i><span>信息不对称 · Information Asymmetry</span></h3><span class="tag tag-t">思维模型</span></div>
+<p>George Akerlof在1970年的开创性论文《柠檬市场》中揭示了信息不对称的毁灭性后果：<strong>"当交易一方比另一方知道更多信息时——市场会系统性地失败：好产品被坏产品驱逐，诚实者被欺骗者淘汰"</strong>。这个发现让他获得了2001年诺贝尔经济学奖。芒格将信息不对称视为"商业世界的第一原罪"："每一笔交易中，知道更多的人总是占优势。这就是为什么'透明度'是最重要的制度设计原则——信息对称的市场=健康的市场。"德鲁克从管理角度强调："组织中的信息不对称=权力不对称。CEO知道公司真实状况而员工不知道→CEO有绝对权力。打破信息壁垒=打破不合理权力结构。"塔勒布用更尖锐的方式表述："凡是有信息不对称的地方——就有人在利用它获利。这不是阴谋论，这是纯粹的数学必然性。解法不是'信任人性'，而是'设计机制使信息不对称无法被利用'。"</p>
+<ul>
+<li><strong>核心原理：</strong>① <strong>"逆向选择"(Adverse Selection)</strong>——当买方无法区分好产品和坏产品时→只愿意付"平均价"→好产品卖不到应有的价格→退出市场→只剩坏产品→市场崩溃。Akerlof的二手车市场：买家不知道哪辆是"柠檬"(坏车)→所有二手车只能卖到低价→好车主不愿卖→市场上只剩柠檬。② <strong>"道德风险"(Moral Hazard)</strong>——当一方的行为不被另一方观察到时→有动机偷懒/冒险。保险后的驾驶员更容易超速(因为损失由保险公司承担)→这就是为什么保险有免赔额。③ <strong>"信号传递"(Signaling)</strong>——拥有信息优势的一方主动"发信号"证明自己的质量。学历=能力信号(Spence, 1973)、产品保修=质量信号、开源代码=技术实力信号。</li>
+<li><strong>经典案例：</strong>① <strong>Akerlof的"柠檬市场"模型(1970)</strong>——假设二手车有两种：好车(值20000)和柠檬(值5000)。买家无法区分→愿意付中间价12500→好车主(车值20000)不愿以12500卖→退出市场→买家知道剩下的都是柠檬→只愿付5000→好车完全被逆向选择驱逐。② <strong>芒格论"年报透明度"</strong>——"我和巴菲特只投资我们能理解的公司。如果一家公司的年报你读不懂——这通常不是因为业务复杂，而是因为管理层在利用信息不对称来隐藏问题。'看不懂'本身就是一个坏信号。"③ <strong>医疗行业的信息不对称</strong>——医生知道你的病情和治疗方案的全部信息，你几乎什么都不知道→医生有动机过度治疗(更多检查=更多收入)。这就是为什么"第二意见"(Second Opinion)机制如此重要——引入第三方来打破信息垄断。</li>
+<li><strong>实操方法：</strong>① <strong>"信号设计"策略</strong>——如果你是信息优势方(卖方/专家/服务商)→主动设计高成本信号来证明你的质量：提供免费试用(坏产品不敢)、公开代码/方法论(没实力的不敢)、提供效果保证/退款(无信心的不敢)。② <strong>"信息对称化"设计</strong>——如果你是信息劣势方(买方/用户)→寻找/创造"信息对称化"机制：看评价(其他买方的经验)、要求透明(开放数据)、设置"验证环节"(试用期/检查期)。③ <strong>"机制设计"思维</strong>——不要依赖"人的诚实"→而是设计"即使人不诚实也能工作"的机制：激励相容(使诚实=最优策略)、信息公开(使隐藏=不可能)、重复博弈(使欺骗=长期惩罚)</li>
+</ul>
+<div class="quote">"在一个信息不对称的市场中，'好的'产品可能会被'坏的'产品完全驱逐——这不是因为买方愚蠢，恰恰是因为买方理性：当你无法区分好坏时，拒绝为'好'付更多钱=理性行为。市场失败不是因为参与者非理性，而是因为信息结构有缺陷。"<cite>—— George Akerlof, "The Market for 'Lemons'", Quarterly Journal of Economics (1970)</cite></div>
+<div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i><span>设计启发：</span></b>信息不对称对游戏设计的核心启示：<strong>"玩家和游戏系统之间天然存在巨大的信息不对称——你如何管理这个不对称=决定了信任和留存"</strong>。① <strong>"概率透明"设计原则</strong>——抽卡/开箱/随机奖励的概率必须公开+可验证→信息不对称(系统知道概率但玩家不知道)是所有"抽卡不信任"的根源。中国版号要求公示概率=打破信息不对称=增加信任。② <strong>"数值可读性"UI设计</strong>——游戏中的伤害公式/属性权重/收益计算如果对玩家"不透明"=信息不对称→玩家无法做出理性决策→挫败感。正确做法：在UI中提供"预期收益计算器"或"装备对比面板"→让玩家的信息水平接近系统。③ <strong>"逆向选择"防护设计</strong>——在PvP匹配中，如果系统不透明(玩家不知道匹配算法)→"柠檬玩家"(作弊/代练)混入→好玩家离开→死亡螺旋。解法：公开匹配规则+举报反馈系统+段位可信度分</div>
+
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d33-info-asymmetry"><div class="card-deep-inner-wrap"></div></div>
+</div>
+
+<div class="card" data-fav-id="d33-dunning-kruger" data-fav-title="邓宁-克鲁格效应 · Dunning-Kruger Effect">
+<div class="card-head"><h3><i data-lucide="mountain" class="ic-inline"></i><span>邓宁-克鲁格效应 · Dunning-Kruger Effect</span></h3><span class="tag tag-t">思维模型</span></div>
+<p>David Dunning与Justin Kruger在1999年的开创性论文中证明：<strong>"能力最低的人对自己的评价最高——因为他们缺乏'知道自己不知道什么'的能力。而真正的专家反而低估自己——因为他们知道领域有多广、自己有多渺小"</strong>。芒格一针见血："不知道自己无知——这是所有灾难的起点。一个人如果知道自己不懂什么，至少不会在那个领域做蠢事。最危险的人是'不知道自己不知道'的人——他们充满自信地冲进灾难。"达里奥在《原则》中将此写入桥水文化："我们要求每个人标注自己在每个议题上的'可信度权重'(Believability Weight)——0到100分。承认自己在某些方面'低可信度'=智慧的标志。那些在所有议题上都给自己高分的人=通常是邓宁-克鲁格效应的受害者。"德鲁克晚年总结："在50年的管理咨询中，我观察到最一致的规律是：表现最差的经理人同时也是最自信的——他们看不到自己的盲区，因为看到盲区本身就需要能力。"</p>
+<ul>
+<li><strong>核心原理：</strong>① <strong>"元认知缺陷"(Metacognitive Deficit)</strong>——要知道自己在某件事上做得不好→首先需要在那件事上有足够的能力来评价自己的表现。新手缺乏"判断自己是否做对"的能力→所以他们认为自己做对了→自信心很高。这不是"傲慢"——是认知结构性的盲区。② <strong>"愚昧之巅→绝望之谷→开悟之坡"</strong>——完整曲线：入门时极度自信(愚昧之巅，因为不知道自己不知道什么)→学了更多后信心崩溃(绝望之谷，因为终于看到了领域的广度)→继续深入后信心缓慢恢复(开悟之坡，基于真实的能力增长)。③ <strong>"双重诅咒"</strong>——Dunning&Kruger证明：能力差的人不仅高估自己→他们同时还无法识别他人的真正能力。这意味着他们不仅做错了→还无法从他人的正确做法中学习(因为他们分不清谁真的厉害)</li>
+<li><strong>经典案例：</strong>① <strong>Dunning-Kruger原始实验(Cornell 1999)</strong>——让学生做逻辑、语法、幽默测试后自评排名。结果：得分在后25%的学生平均自评排名在前62%——他们认为自己"中上水平"。得分在前25%的学生平均自评排名在前74%——他们低估了自己(实际应在前90+%)。② <strong>芒格论"能力圈"的本质</strong>——"知道自己能力圈的边界=最重要的投资能力。但确定这个边界需要两件事：第一，你必须足够聪明以理解自己的无知。第二，你必须足够诚实以承认它。大多数人两者都缺。"③ <strong>McArthur Wheeler银行劫案(1995)</strong>——Wheeler在脸上涂柠檬汁(因为柠檬汁可以做隐形墨水→他逻辑推断'涂在脸上就对摄像头隐形')→光天化日抢劫两家银行→被摄像头清晰拍到→震惊地说"我涂了柠檬汁啊！"→Dunning读到新闻后设计了后来的著名实验。这是"不知道自己不知道"的极端案例</li>
+<li><strong>实操方法：</strong>① <strong>"校准练习"</strong>——定期做"预测→验证"循环：对自己的工作/技能做具体可测量的预测("这个功能我3天能做完""这个设计方案用户满意度应该>80%")→事后对比实际结果→长期统计自己的"校准误差"→误差越来越小=元认知在改善。② <strong>"可信度权重"系统</strong>——达里奥的方法：为自己在每个领域标注0-100的可信度分。规则："在这个领域你做过多少次→成功率多少→才能标高分"。标出低分的领域=找到盲区=知道在哪里需要请教别人。③ <strong>"红队/预验尸"机制</strong>——在做重大决策前→指定一个人专门"攻击"你的方案(红队)→或假设"项目已经失败了"来回推原因(预验尸)→这些机制的本质=弥补你自己无法看到的盲区</li>
+</ul>
+<div class="quote">"我们的研究揭示了一个残酷的悖论：那些在测试中表现最差的参与者——同时也是对自己能力最为高估的人。他们缺乏的不仅是正确回答问题的能力——更关键的是，他们缺乏'认识到自己回答错误'的元认知能力。无知不仅导致错误——它还导致对错误的无知。"<cite>—— David Dunning & Justin Kruger, "Unskilled and Unaware of It", Journal of Personality and Social Psychology (1999)</cite></div>
+<div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i><span>设计启发：</span></b>邓宁-克鲁格效应对游戏设计的核心启示：<strong>"新手觉得自己很厉害(愚昧之巅)→中级玩家觉得自己很烂(绝望之谷)→专家知道自己的真实水平(开悟之坡)——三种人需要完全不同的UI反馈"</strong>。① <strong>"能力校准"反馈系统</strong>——不能只给"你很棒"的正反馈→必须给精确的"你在X方面强、Y方面弱"的差异化反馈→帮助玩家建立准确的自我认知。<strong>《Valorant》的赛后数据面板就是"能力校准工具"——让你看到自己在各维度的真实排名</strong>。② <strong>"绝望之谷"缓冲设计</strong>——当玩家从"新手蜜月期"进入"中级停滞期"时→他们的信心会断崖式下降(因为开始意识到游戏有多深)→这是最危险的流失节点。解法：在这个阶段提供"你已经超越了70%的玩家"的相对比较+"学习路径"指引→缓冲信心崩塌。③ <strong>"分层匹配"系统设计</strong>——愚昧之巅的新手(过度自信)如果匹配到真正的高手→会被碾压→但他们归因为"对面作弊"而非"我技术差"(因为邓宁-克鲁格)→产生愤怒而非学习。正确的匹配=让每个阶段的玩家只略微被挑战→逐步校准自我认知</div>
+
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d33-dunning-kruger"><div class="card-deep-inner-wrap"></div></div>
+</div>
+</div>
+
+<div class="section-eyebrow"><i data-lucide="gamepad-2"></i><span class="section-eyebrow-num">02</span><span class="section-eyebrow-title">设计启发</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Design Insights</span></div>
+<div class="today-design">
+<div class="card" data-fav-id="d33-design-1" data-fav-title="放弃成本可视化设计">
+<div class="card-head"><h3><i data-lucide="undo-2" class="ic-inline"></i><span>放弃成本可视化设计 · Sunk Cost Visibility UX</span></h3><span class="tag tag-d">设计启发</span></div>
+<p>基于沉没成本谬误理论，游戏中"投入可视化"的设计原则：<strong>"让玩家清晰看到自己投入了什么——但同时提供'优雅退出'选项，而非利用沉没成本PUA留存"</strong>。</p>
+<ul>
+<li><strong>"投入回顾"vs"流失恐吓"的伦理边界：</strong>正确做法——展示"你已积累的成就/回忆/成长"(正面强化=享受拥有感)。错误做法——弹出"确定要放弃你的500小时存档吗？"(负面恐吓=利用损失厌恶PUA)。区别在于：前者让玩家因为"喜欢"而留下；后者让玩家因为"怕失去"而留下</li>
+<li><strong>"可逆性"系统设计：</strong>每个不可逆决策(消耗道具/技能选择/角色删除)都应有"缓冲期"或"回退机制"。Warframe的mod系统允许随时拆装=零沉没成本焦虑。暗黑4的技能点可随时重置=鼓励实验。<strong>核心原则：降低每个决策的"不可逆感"=减少沉没成本焦虑=玩家更愿意尝试</strong></li>
+<li><strong>"沉没成本检测器"UI组件：</strong>当玩家在某个系统(如某个副本/某个装备升级路线)连续投入超过阈值(时间/金钱)且收益递减时→UI主动提示"你可能想尝试其他路线"或"当前投入回报率低于平均——建议考虑替代方案"→帮助玩家理性止损，而非任由沉没成本驱动他们继续投入</li>
+</ul>
+</div>
+
+<div class="card" data-fav-id="d33-design-2" data-fav-title="信息透明度分层UI">
+<div class="card-head"><h3><i data-lucide="layers" class="ic-inline"></i><span>信息透明度分层UI · Layered Transparency Design</span></h3><span class="tag tag-d">设计启发</span></div>
+<p>基于信息不对称理论，游戏信息展示的分层设计原则：<strong>"不是'全部公开'或'全部隐藏'——而是按玩家的认知阶段渐进式地提供信息"</strong>。</p>
+<ul>
+<li><strong>"信息分层"架构：</strong>Layer 0(必须透明)——概率/规则/匹配机制(法律要求+信任基础)。Layer 1(可选透明)——详细数值/公式/权重(给核心玩家，折叠在"高级"面板里)。Layer 2(刻意模糊)——隐藏彩蛋/未解锁内容/竞技对手信息(保持探索乐趣)。<strong>关键：每一层都有明确的"为什么透明/为什么隐藏"的设计理由——不是随机决定</strong></li>
+<li><strong>"信号设计"在游戏经济中的应用：</strong>在交易系统中→卖方(玩家)知道物品的真实价值而买方不知道=逆向选择风险。解法：① 物品品质评分(系统背书=降低信息不对称)② 交易历史公开(市场价格透明)③ 检测/鉴定机制(让买方付小成本获得信息)。<strong>CS:GO的枪皮肤磨损值公示=打破信息不对称的经典设计</strong></li>
+<li><strong>"道德风险"防护UI：</strong>在合作游戏中→队友的"真实行为"不完全可观测=道德风险(有人划水摸鱼)。UI解法：① 贡献可视化面板(实时展示每人的伤害/治疗/资源贡献)② MVP系统(事后评价=减少搭便车)③ 重复博弈信誉系统(长期行为历史=降低单次欺骗动机)</li>
+</ul>
+</div>
+
+<div class="card" data-fav-id="d33-design-3" data-fav-title="自适应难度反馈系统">
+<div class="card-head"><h3><i data-lucide="sliders" class="ic-inline"></i><span>自适应难度反馈系统 · Adaptive Calibration UX</span></h3><span class="tag tag-d">设计启发</span></div>
+<p>基于邓宁-克鲁格效应理论，游戏难度与反馈的自适应设计原则：<strong>"针对'愚昧之巅''绝望之谷''开悟之坡'三个阶段的玩家——提供完全不同的反馈策略"</strong>。</p>
+<ul>
+<li><strong>"愚昧之巅"阶段(新手)——温和校准：</strong>新手过度自信→如果直接告诉他"你其实很差"=挫败退出。正确做法：通过"隐性校准"让他们逐渐认识到自己的不足：难度缓慢上升→失败几次→但每次失败都给"具体的改进方向"(不是泛泛的"再试一次")→让玩家自己发现"原来我还有进步空间"——<strong>《只狼》的每个Boss失败都让你看到明确的攻击模式=隐性校准</strong></li>
+<li><strong>"绝望之谷"阶段(中级)——信心重建：</strong>这是流失风险最高的阶段——玩家已经过了新手蜜月期，开始看到自己和高手的差距→信心崩塌。UI需要：① 相对进步展示("你比上周强了15%")② 分维度能力雷达图(不是全面差→而是"某些方面已经很强")③ 里程碑回顾("你比1个月前已经进步了多少")④ 学习路径推荐("下一步提升X技能最有效")</li>
+<li><strong>"开悟之坡"阶段(专家)——精确反馈：</strong>专家不需要鼓励=他们要的是精确数据。提供：① 极详细的数据面板(帧级别的操作分析)② 与顶尖玩家的对比(差距精确到小数点)③ 自定义目标设定(让他们自己设定"本周要提升X%")。<strong>《星际争霸II》的赛后复盘系统=专家级反馈设计的教科书</strong></li>
+</ul>
+</div>
+</div>
+
+<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿 / 副业思路</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div>
+<div class="today-side">
+<div class="card" data-fav-id="d33-side-1" data-fav-title="游戏沉没成本伦理审计工具">
+<div class="card-head"><h3><i data-lucide="shield-check" class="ic-inline"></i><span>游戏沉没成本伦理审计工具 · Sunk Cost Ethics Auditor</span></h3><span class="tag tag-a">副业思路</span></div>
+<p>为游戏团队提供<strong>"基于沉没成本谬误理论的留存机制伦理审计+合规优化方案"</strong>——帮助游戏通过法规审查的同时不损失留存率，平衡商业目标与玩家福祉。</p>
+<ul>
+<li><strong>启动步骤：</strong>① 建立"沉没成本利用程度"评分框架(0-100分)——从"退出恐吓弹窗""不可逆消耗""FOMO计时器""流失挽回话术"四个维度评估→② 开发Python自动化扫描工具——输入游戏UI截图/文案数据→自动标记所有"沉没成本PUA"设计模式(如"你确定要放弃已充值的328元吗？"这类文案)→③ 输出"伦理评分报告+替代方案"(将每个PUA设计替换为"正面激励"设计，同时预估留存影响)</li>
+<li><strong>技术栈：</strong>Python NLP(文案分析/PUA模式识别) + Figma(替代方案原型设计) + 行为经济学研究数据库(定量支撑"这样改留存不会降") + 法规数据库(中国未成年人保护条例/苹果App Store指南4.0条款)</li>
+<li><strong>收入预估：</strong>"快速伦理审计"(扫描全部留存机制+出报告)→8000-15000元/项目(约5-7天)→"合规优化改造"(审计+替代方案设计+原型)→25000-45000元/项目→"版号前合规包"(确保留存机制通过版号审查)→15000-25000元/项目→目标客户：准备提交版号的中小游戏团队</li>
+<li><strong>壁垒与时机：</strong>中国游戏版号审查日趋严格(2024年新规对"诱导消费"有明确限制)+苹果/谷歌对"Dark Pattern"的审查力度加大→合规需求是刚性的。你的独特定位："行为经济学理论+游戏UI设计经验+政策法规理解"三栈结合=市场上极少有人能做</li>
+</ul>
+</div>
+
+<div class="card" data-fav-id="d33-side-2" data-fav-title="游戏信息透明度设计系统">
+<div class="card-head"><h3><i data-lucide="database" class="ic-inline"></i><span>游戏信息透明度设计系统 · Transparency Design System</span></h3><span class="tag tag-a">副业思路</span></div>
+<p>基于信息不对称理论，提供<strong>"游戏概率/数值/匹配规则的'信息透明度'设计系统+Figma组件库"</strong>——帮助游戏团队在合规要求(概率公示)下做出"既透明又不破坏游戏乐趣"的UI设计。</p>
+<ul>
+<li><strong>启动步骤：</strong>① 研究中国版号对概率公示的具体要求(哪些必须公示/格式要求/显示位置)→② 开发Figma组件库——"概率公示"UI模板(10+种风格：浮动面板/底部抽屉/详情页内嵌/loading页角落)，每种都符合合规要求但对用户体验的干扰不同→③ 配套Python工具——输入游戏的概率数据表→自动生成符合规范的UI文案+数据格式→④ 输出"信息透明度设计指南"(何时透明/何时模糊/如何分层)</li>
+<li><strong>技术栈：</strong>Figma Plugin(TypeScript)——自动生成概率公示组件 + Python数据格式化工具(概率表→合规文案) + 法规研究(版号政策/苹果4.0/谷歌Play政策) + A/B测试设计模板(验证"透明度"对留存/付费的影响)</li>
+<li><strong>收入预估：</strong>"概率公示Figma组件库"(含10种风格+合规检查清单)→一次性售卖299-599元→上架Gumroad/即刻/小报童→目标月销80-150份=2.4-9万/月 || "信息透明度定制设计"(针对具体游戏的概率/数值公示UI设计)→12000-20000元/项目 || "概率公示合规工具"(SaaS订阅，自动生成合规UI+数据)→99-199元/月/团队</li>
+<li><strong>市场验证信号：</strong>每次版号政策更新后→大量中小团队紧急需要"合规UI设计"→这是周期性的刚性需求。App Store的"App审核被拒Top 10原因"中"概率公示不合规"长期在列=持续需求</li>
+</ul>
+</div>
+
+<div class="card" data-fav-id="d33-side-3" data-fav-title="游戏玩家能力校准仪表盘">
+<div class="card-head"><h3><i data-lucide="gauge" class="ic-inline"></i><span>游戏玩家能力校准仪表盘 · Player Calibration Dashboard</span></h3><span class="tag tag-a">副业思路</span></div>
+<p>基于邓宁-克鲁格效应理论，提供<strong>"玩家自我认知校准系统"</strong>——帮助游戏团队设计出能让玩家准确认知自己水平的反馈UI，减少因"过度自信"或"过度自卑"导致的流失。</p>
+<ul>
+<li><strong>启动步骤：</strong>① 开发UE4/Unity插件——埋点追踪"玩家自评vs实际表现"的差距→② 生成"邓宁-克鲁格曲线定位图"(这个玩家当前在"愚昧之巅"还是"绝望之谷"还是"开悟之坡"？)→③ 根据定位自动切换反馈策略(新手→温和校准，中级→信心重建，专家→精确数据)→④ 输出"校准仪表盘"UI组件(Figma模板+代码组件+数据接入规范)</li>
+<li><strong>技术栈：</strong>UE4 C++/Blueprint插件(数据采集+行为分析) + Python ML模型(玩家阶段分类器：愚昧之巅/绝望之谷/开悟之坡) + Figma反馈UI组件库(3种阶段×3种风格=9种模板) + 数据可视化Dashboard(D3.js/ECharts)</li>
+<li><strong>收入预估：</strong>"UE4/Unity玩家校准插件"(含SDK+Figma模板+集成文档)→年订阅制2999-4999元/团队→目标100个中大型游戏团队=30-50万/年 || "校准系统定制开发"(完整集成到游戏中)→50000-80000元/项目 || "玩家心理学工作坊"(教游戏设计团队理解邓宁-克鲁格效应)→5000-8000元/场(半天)</li>
+<li><strong>长期愿景：</strong>收集足够多游戏的"玩家邓宁-克鲁格数据"后→可以训练通用的"玩家阶段识别模型"→作为行业标准SDK分发→类似Unity Analytics/GameAnalytics的定位→但专注于"自我认知校准"这个细分</li>
+</ul>
+</div>
+</div>
+
+</div>
+
+
 <!-- ========== Day 032 ========== -->
-<div class="day-group" data-day="32">
+<div class="day-group" data-day="32" style="display:none">
 <div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 032</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-05-19</span></div><h1 class="day-num">Day <em>032</em></h1><div class="day-summary">知识的诅咒 × 马太效应(累积优势) × 选择悖论 · 新手引导去知识诅咒设计 × 累积优势进度系统 × 减选择焦虑的菜单架构</div></div>
 
 <div class="section-eyebrow"><i data-lucide="brain"></i><span class="section-eyebrow-num">01</span><span class="section-eyebrow-title">思维模型</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Mental Models</span></div>
@@ -4478,6 +4615,165 @@ localStorage.removeItem(STORAGE_KEY);
 location.reload();
 };
 console.info('%c[Daily Forge]','color:#e8a14b;font-weight:bold','你的进度: Day '+currentDay+' / '+TOTAL_DAYS+(isAdmin?' (ADMIN)':(unlockAll?' (全解锁)':''))+'。\n  __unlockAll() / __lockAll() / __resetUserProgress()\n  __adminLogin() / __adminLogout()\n  __showNotice() / __resetNotice()');
+})();
+</script>
+
+<script>
+/* === Card cover image injector (additive, runtime-only) ===
+   - 不修改任何卡片 HTML 结构
+   - 按 .tag 类别 + data-fav-id 哈希稳定选图
+   - 仅 IntersectionObserver 懒加载
+============================================================= */
+(function(){
+'use strict';
+
+// 高质量 Unsplash 图片库（已逐张验证 200 OK，1280×640 format=crop）
+// 主题：知识/思维/书籍/系统/抽象/秩序/规模/复利/认知
+var POOL_T = [ // 思维模型 (tag-t)
+  '1532153975070-2e9ab71f1b14','1481627834876-b7833e8f5570','1455390582262-044cdead277a',
+  '1456513080510-7bf3a84b82f8','1581291518633-83b4ebd1d83e','1545239351-1141bd82e8a6',
+  '1542751371-adc38448a05e','1518770660439-4636190af475','1535378917042-10a22c95931a',
+  '1554224155-6726b3ff858f','1559526324-4b87b5e36e44','1611974789855-9c2a0a7236a3',
+  '1556761175-5973dc0f32e7','1450101499163-c8848c66ca85','1486312338219-ce68d2c6f44d',
+  '1559523182-a284c3fb7cff','1551434678-e076c223a692','1500917293891-ef795e70e1f6',
+  '1524758631624-e2822e304c36','1488590528505-98d2b5aba04b','1515378791036-0648a3ef77b2',
+  '1517142089942-ba376ce32a2e','1499951360447-b19be8fe80f5','1591696205602-2f950c417cb9',
+  '1531403009284-440f080d1e12','1593642632559-0c6d3fc62b89','1611532736597-de2d4265fba3',
+  '1542435503-956c469947f6','1484417894907-623942c8ee29','1488229297570-58520851e868',
+  '1551288049-bebda4e38f71'
+];
+// 设计启发 (tag-d) — 设计/UI/界面/工作室/草图
+var POOL_D = [
+  '1586717791821-3f44a563fa4c','1586717799252-bd134ad00e26','1559028012-481c04fa702d',
+  '1545235617-9465d2a55698','1542744173-8e7e53415bb0','1626785774573-4b799315345d',
+  '1581276879432-15e50529f34b','1607863680198-23d4b2565df0','1551434678-e076c223a692',
+  '1561070791-2526d30994b8','1494438639946-1ebd1d20bf85','1559028006-448665bd7c7b',
+  '1581291518633-83b4ebd1d83e','1559028012-481c04fa702d','1542744094-3a31f272c490',
+  '1487014679447-9f8336841d58','1465056836041-7f43ac27dcb5','1505373877841-8d25f7d46678',
+  '1520975922325-24baf7e8f8be','1526374870839-e155464bb9b2','1518709268805-4e9042af9f23',
+  '1572177812156-58036aae439c','1517694712202-14dd9538aa97','1550745165-9bc0b252726f',
+  '1585399000684-d2f72660f092','1503602642458-232111445657','1497032628192-86f99bcd76bc',
+  '1542751371-adc38448a05e'
+];
+// AI 前沿 (tag-m) — 神经网络/电路/数据/未来/抽象
+var POOL_M = [
+  '1677442136019-21780ecad995','1655720828018-edd2daec9349','1620712943543-bcc4688e7485',
+  '1526374965328-7f61d4dc18c5','1558494949-ef010cbdcc31','1620712943543-bcc4688e7485',
+  '1551703599-6b3e8379aa8d','1535303311164-664fc9ec6532','1635070041078-e363dbe005cb',
+  '1605379399642-870262d3d051','1591453089816-0fbb971b454c','1591696205602-2f950c417cb9',
+  '1581090700227-1e37b190418e','1581090464777-f3220bbe1b8b','1581090700227-1e37b190418e',
+  '1551033406-611cf9a28f67','1518709268805-4e9042af9f23','1526374965328-7f61d4dc18c5',
+  '1550751827-4bd374c3f58b','1573164574572-cb89e39749b4','1518770660439-4636190af475',
+  '1542831371-29b0f74f9713','1605379399642-870262d3d051','1633412802994-5c058f151b66'
+];
+// 副业/服务 (tag-a) — 工作/工具/商业
+var POOL_A = [
+  '1556761175-5973dc0f32e7','1454165804606-c3d57bc86b40','1573164574001-518958d9baa2',
+  '1521737711867-e3b97375f902','1559136555-9303baea8ebd','1568992687947-868a62a9f521',
+  '1551836022-d5d88e9218df','1542744094-3a31f272c490','1517245386807-bb43f82c33c4',
+  '1455894127589-22f75500213a','1542744173-8e7e53415bb0','1559028012-481c04fa702d'
+];
+
+var TAG_LABEL = {
+  T: 'Mental Model',
+  D: 'Design Inspiration',
+  M: 'AI Frontier',
+  A: 'Side Project'
+};
+
+function djb2(str){
+  var h = 5381, i;
+  for(i = 0; i < str.length; i++){
+    h = ((h << 5) + h + str.charCodeAt(i)) | 0;
+  }
+  return Math.abs(h);
+}
+
+function pickPool(card){
+  var tag = card.querySelector('.card-head > .tag, .card-head .tag');
+  if(!tag) return {pool: POOL_T, key: 'T'};
+  var cls = tag.className || '';
+  if(cls.indexOf('tag-d') >= 0) return {pool: POOL_D, key: 'D'};
+  if(cls.indexOf('tag-m') >= 0) return {pool: POOL_M, key: 'M'};
+  if(cls.indexOf('tag-a') >= 0) return {pool: POOL_A, key: 'A'};
+  return {pool: POOL_T, key: 'T'};
+}
+
+function buildUrl(photoId, w){
+  return 'https://images.unsplash.com/photo-' + photoId
+    + '?w=' + w + '&h=' + Math.round(w * 0.42)
+    + '&fit=crop&crop=entropy&auto=format&q=72';
+}
+
+function injectCover(card){
+  if(card.classList.contains('has-cover')) return;
+  if(card.querySelector(':scope > .card-cover')) return;
+  // 跳过没有 card-head 的（极少数特殊卡片）
+  var head = card.querySelector(':scope > .card-head');
+  if(!head) return;
+  // 选图：fav-id → hash → pool index
+  var favId = card.getAttribute('data-fav-id') || (card.querySelector('h3 span') ? card.querySelector('h3 span').textContent : 'x');
+  var picked = pickPool(card);
+  var idx = djb2(favId) % picked.pool.length;
+  var photoId = picked.pool[idx];
+  var w = Math.min(window.innerWidth || 800, 900);
+  if(w < 520) w = 520;
+  var url = buildUrl(photoId, w);
+
+  var cover = document.createElement('div');
+  cover.className = 'card-cover';
+  cover.setAttribute('data-photo-id', photoId);
+  cover.setAttribute('role', 'img');
+  cover.setAttribute('aria-label', TAG_LABEL[picked.key] + ' cover');
+
+  var label = document.createElement('span');
+  label.className = 'card-cover-tag';
+  label.textContent = TAG_LABEL[picked.key];
+  cover.appendChild(label);
+
+  // 立刻插入 DOM（最前），但延后加载图片（lazy）
+  card.insertBefore(cover, card.firstChild);
+  card.classList.add('has-cover');
+
+  // lazy load via IntersectionObserver
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          cover.style.backgroundImage = 'url("' + url + '")';
+          io.unobserve(cover);
+        }
+      });
+    }, {rootMargin: '300px'});
+    io.observe(cover);
+  } else {
+    cover.style.backgroundImage = 'url("' + url + '")';
+  }
+}
+
+function injectAll(){
+  try {
+    var cards = document.querySelectorAll('.card[data-fav-id]');
+    cards.forEach(injectCover);
+  } catch(e){
+    console.warn('[card-cover] inject failed:', e);
+  }
+}
+
+// 首次注入 + 监听后续（如收藏面板复刻等）
+if(document.readyState === 'loading'){
+  document.addEventListener('DOMContentLoaded', injectAll);
+} else {
+  injectAll();
+}
+
+// 暴露调试
+window.__reinjectCovers = injectAll;
+window.__removeCovers = function(){
+  document.querySelectorAll('.card-cover').forEach(function(n){ n.remove(); });
+  document.querySelectorAll('.card.has-cover').forEach(function(n){ n.classList.remove('has-cover'); });
+};
+
 })();
 </script>
 </body>
