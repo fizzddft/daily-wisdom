@@ -538,10 +538,10 @@ footer p{margin-bottom:6px}
 
 <!-- Stats -->
 <div class="stats">
-<div class="st"><div class="st-n">113</div><div class="st-l">思维模型</div></div>
-<div class="st"><div class="st-n">93</div><div class="st-l">设计启发</div></div>
-<div class="st"><div class="st-n">102</div><div class="st-l">AI前沿</div></div>
-<div class="st"><div class="st-n">34</div><div class="st-l">累计天数</div></div>
+<div class="st"><div class="st-n">116</div><div class="st-l">思维模型</div></div>
+<div class="st"><div class="st-n">96</div><div class="st-l">设计启发</div></div>
+<div class="st"><div class="st-n">105</div><div class="st-l">AI前沿</div></div>
+<div class="st"><div class="st-n">35</div><div class="st-l">累计天数</div></div>
 </div>
 
 <!-- Primary Nav -->
@@ -559,7 +559,9 @@ footer p{margin-bottom:6px}
 
 <!-- Day Selector -->
 <div class="day-selector"><span class="day-selector-label">DAY</span><div class="day-scroll-wrap"><div class="day-scroll" id="daySubs">
-<button class="day-pill on" onclick="switchDay(this,33)">Day 033</button>
+<button class="day-pill on" onclick="switchDay(this,35)">Day 035</button>
+<button class="day-pill" onclick="switchDay(this,34)">Day 034</button>
+<button class="day-pill" onclick="switchDay(this,33)">Day 033</button>
 <button class="day-pill" onclick="switchDay(this,32)">Day 032</button>
 <button class="day-pill" onclick="switchDay(this,31)">Day 031</button>
 <button class="day-pill" onclick="switchDay(this,30)">Day 030</button>
@@ -602,8 +604,117 @@ footer p{margin-bottom:6px}
 <button class="subtab" onclick="subgo(this,'today','side')"> AI·设计前沿</button>
 </div>
 
+<!-- ========== Day 035 ========== -->
+<div class="day-group" data-day="35">
+<div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 035</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-05-23</span></div><h1 class="day-num">Day <em>035</em></h1><div class="day-summary">光环效应 × 双曲贴现 × 纳什均衡 · 第一印象锚定UI × 即时奖励系统设计 × 多人博弈平衡架构</div></div>
+
+<div class="section-eyebrow"><i data-lucide="brain"></i><span class="section-eyebrow-num">01</span><span class="section-eyebrow-title">思维模型</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Mental Models</span></div>
+<div class="today-think">
+<div class="card" data-fav-id="d35-halo-effect" data-fav-title="光环效应 · Halo Effect">
+<div class="card-head"><h3><i data-lucide="sun" class="ic-inline"></i><span>光环效应 · Halo Effect</span></h3><span class="tag tag-t">思维模型</span></div>
+<p>Edward Thorndike 在 1920 年的军官评估研究中首次发现：<strong>“当一个人在某个维度上给人好印象时——观察者会自动认为他在所有维度上都很好。这不是理性评估，而是情感扩散”</strong>。卡尼曼在《思考，快与慢》中将光环效应定义为 System 1 的核心机制：“你对一个人/产品/品牌的总体印象决定了你对其每个属性的判断——而不是反过来。你不是先评估各属性再得出总体印象；你是先有了总体印象，然后让这个印象'照亮'每个属性。”芒格在人类误判心理学中强调：“光环效应是广告和品牌的根本原理——苹果的产品不需要每个维度都最好，它只需要在一个维度(设计美学)上创造强烈的'光环'，这个光环就会自动延伸到性能、耐用性、服务等所有维度。消费者不会独立评估——他们让整体感觉替代分析。”达里奥：“我在桥水面试中发现光环效应是最大的招聘陷阱——一个人如果面试时表达流畅、仪表堂堂，面试官会自动认为他的技术能力、团队协作、抗压能力也很好。必须用结构化评估打断这种扩散。”</p>
+<ul>
+<li><strong>核心原理：</strong>① <strong>“属性替代”(Attribute Substitution)</strong>——当评估一个复杂目标（人/产品/公司）的某个具体属性时（如“这个人的分析能力如何”），如果你已经对这个人有了正面总体印象——你不会独立评估分析能力——而是用总体印象“替代”具体属性的判断。反之亦然：负面光环让每个属性都显得更差（“魔鬼效应”/Devil Effect）。② <strong>“首因效应”(Primacy Effect)叠加</strong>——光环效应与首因效应形成1+1>2的组合：第一印象如果是正面的→光环建立→之后的所有信息都被“正面解读”→确认偏误锁定光环。Asch(1946)经典实验：“聪明—勤奋—冲动—批判—固执—嫉妒”的描述中，先出现的“聪明勤奋”建立正面光环→“固执”被解读为“有原则”。但倒序呈现时→“固执”被解读为“顽固”。同样的词，顺序决定含义。③ <strong>“光环传递链”</strong>——品牌光环→产品光环→功能光环。苹果的品牌光环让消费者认为 Apple Music 比 Spotify 更好用（尽管功能几乎相同）。设计师被知名studio的光环覆盖→其作品被自动高估。这种传递是无意识的——人们真诚地相信自己在“客观评估”</li>
+<li><strong>经典案例：</strong>① <strong>Thorndike 军官评估实验(1920)</strong>——要求军官给士兵的体能、智力、领导力、性格分别打分。结果：各维度的相关系数高达0.6-0.8——理论上完全独立的维度被系统性地捆绑评价。一个“体格健壮”的士兵→智力评分也更高→领导力评分也更高。“身体好”的光环照亮了“头脑好”和“领导力强”。② <strong>芒格论品牌投资</strong>——“可口可乐瓶子的曲线、红色品牌色、圣诞老人广告——这些创造了强大的光环效应。消费者不会理性地比较可口可乐和百事的‘口感pH值差异0.02’——他们感受到的是品牌光环给味觉体验‘镀’上了额外的愉悦。盲测时两者几乎无区别——带品牌测试时可口可乐碾压——差距100%来自光环效应。投资品牌=投资光环的持久力。”③ <strong>iPod→iPhone 光环传递</strong>——苹果通过 iPod 建立“极致设计”光环→当 iPhone 发布时，消费者自动假设它在通话质量、信号、续航等维度也很优秀（实际第一代 iPhone 信号很差）。光环比产品先到达消费者的大脑</li>
+<li><strong>实操方法：</strong>① <strong>“光环审计”</strong>——在做重要评估（招人/选方案/投资）前→列出所有需要独立评估的维度→先独立打分每个维度→再看总体感觉→如果独立打分和总体感觉差异大→你被光环效应影响了。关键：独立打分必须“先做”——如果先形成总体印象再试图“独立评估”已经太晚。② <strong>“去光环化”决策流程</strong>——在桥水，评估投资时要求：① 匿名呈现数据（不标注品牌/推荐人）② 分维度独立评分（不允许“总体感觉”）③ 先评估弱项再评估强项（打断正面光环扩散）。你可以在设计评审中使用同样方法：先评审最弱的界面→再看整体→防止“有几个好界面”的光环覆盖问题。③ <strong>“主动创造光环”（用于产品）</strong>——如果光环效应不可避免→主动利用：在产品/作品中集中资源打造“一个”极强维度（如动效极致流畅）→这个维度的光环会自动“照亮”其他维度。比追求每个维度都“还行”效果好 10 倍。用户记住的是“那个动效超流畅的应用”→然后自动认为它的性能、稳定性也很好</li>
+</ul>
+<div class="quote">“如果你喜欢总统的政治立场，你就可能也喜欢他的声音和外表。System 1 的核心功能就是维护和更新你个人世界的模型——这个模型将你对事物的‘整体感觉’投射到每一个具体属性上。这种投射——而非独立评估——才是人类判断的常态。”<cite>—— Daniel Kahneman, Thinking, Fast and Slow (2011), Chapter 7: A Machine for Jumping to Conclusions</cite></div>
+<div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i><span>设计启发：</span></b>光环效应对游戏设计的核心启示：<strong>“游戏的第一个画面决定玩家对整个游戏的评价——不是因为画面代表品质，而是因为画面创造了光环”</strong>。① <strong>“开场 30 秒”投资策略</strong>——游戏的开场动画/第一个界面/第一个操作→如果在这里创造了“惊艳”的正面光环→玩家会自动认为后续的关卡设计、平衡性、剧情也很好→容忍度大幅提升。<strong>《塞尔达:旷野之息》的开场——从洞穴走出看到整个地图的那一刻——创造的光环让玩家在之后 200 小时里对所有小瑕疵都更宽容</strong>。② <strong>“品质支柱”设计策略</strong>——不要平均分配资源让每个维度都“85 分”→而是集中资源让 1-2 个维度达到“99 分”→这些维度的光环覆盖其他维度。<strong>《风之旅人》美术极致→音乐极致→玩家自动认为玩法也“极致”（实际只是行走+飘）</strong>。③ <strong>UI/UX 中的“光环锚点”</strong>——在每个界面中设置一个“视觉锚点”（超精致的图标/极流畅的动效/惊艳的粒子特效）→这个锚点的品质感“辐射”到整个界面的感知品质→即使其他元素是标准水平，整体感知也被拉高</div>
+
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d35-halo-effect"><div class="card-deep-inner-wrap"></div></div>
+</div>
+
+<div class="card" data-fav-id="d35-hyperbolic-discounting" data-fav-title="双曲贴现 · Hyperbolic Discounting">
+<div class="card-head"><h3><i data-lucide="timer" class="ic-inline"></i><span>双曲贴现 · Hyperbolic Discounting</span></h3><span class="tag tag-t">思维模型</span></div>
+<p>Richard Thaler 和 David Laibson 的研究揭示了人类时间偏好的核心非理性：<strong>“人类不是按指数曲线贴现未来收益——而是按双曲线。这意味着：‘现在’相对于‘任何未来’都有不成比例的权重。人们愿意为了今天的 100 元放弃明天的 110 元——但不愿为了第 30 天的 100 元放弃第 31 天的 110 元。同样的‘等一天多 10%’——只有当‘今天’卷入时才会被拒绝”</strong>。卡尼曼将此解释为 System 1 的“当下偏差”：“情感系统对‘现在’的反应强度远超过对‘未来’的想象。‘现在的 100 元’是你能感受的真实愉悦；‘明天的 110 元’是一个抽象的数字。人类不是在计算贴现率——他们在比较‘感受强度’。”芒格：“双曲贴现解释了为什么绝大多数人无法积累财富——每一次‘今天买还是存起来’的决策中，‘今天’的权重都被荒谬地放大。复利需要你在数千次这样的决策中选择‘未来’——而你的大脑在每一次都偏向‘现在’。”塔勒布：“双曲贴现让人类无法为真正的长尾风险做准备——地震险/保险/应急储蓄——这些都是‘为遥远的未来买不确定的保障’——双曲贴现让这些投入感觉‘不值得’——直到灾难真的到来。”</p>
+<ul>
+<li><strong>核心原理：</strong>① <strong>“当下偏差”(Present Bias)</strong>——Laibson(1997)的β-δ 模型：人的贴现函数不是标准的 δ^t（指数贴现），而是 βδ^t，其中 β<1 代表对“当下”的额外权重。实证 β ≈ 0.7——即未来收益从“明天”开始就自动打 7 折。这解释了为什么人们制定计划时很理性（评估“未来vs更远的未来”时 β 不激活），但执行时总是拖延（“现在vs未来”时 β 激活→“今天先不做了”）。② <strong>“时间不一致性”(Time Inconsistency)</strong>——今天的你和明天的你有不同的偏好——今天的你说“明天开始减肥”——但明天变成了“今天”→“还是下周一开始吧”。这不是“意志力不足”——而是“今天的你”和“明天的你”在数学上是不同的决策主体（不同的贴现参数）。Thaler 称之为“计划者 vs 执行者”的永恒冲突。③ <strong>“即时满足偏好”的神经基础</strong>——fMRI 研究(McClure et al., 2004)发现：涉及“即时奖励”的决策激活边缘系统（情感中枢）；涉及“延迟奖励”的决策激活前额叶皮层（理性中枢）。两个系统在“抢夺”决策权——双曲贴现是边缘系统赢的结果</li>
+<li><strong>经典案例：</strong>① <strong>Thaler 的“棉花糖实验 2.0”</strong>——经典实验问成人：“今天 $100 还是一年后 $150？”→多数选今天$100（双曲贴现：$150 的主观感受在一年后只有 $105）。但问“10 年后 $100 还是 11 年后 $150？”→多数选 $150（因为两个选项都在“遥远未来”→β 不激活→标准理性贴现）。同样的时间间隔（1年）、同样的收益率（50%）——仅仅因为“现在”是否参与→偏好完全反转。② <strong>Netflix vs 图书馆</strong>——调研发现：人们的 Netflix 观看队列全是严肃纪录片（“未来的我”的选择）→但实际观看的全是喜剧和真人秀（“现在的我”的选择）。图书馆借书清单 vs 实际阅读同样——“计划者自我”选文学经典，“执行者自我”看网络小说。这不是虚伪——而是两个时间点的“你”真的有不同偏好。③ <strong>芒格论投资中的双曲贴现</strong>——“价值投资最困难的部分不是找到好公司——而是拿住它。双曲贴现让‘今天 20% 收益落袋为安’的诱惑远大于‘等 5 年获得 300% 收益’——即使后者的期望值远高于前者。所有短线交易的本质都是双曲贴现——‘现在’的确定性被不成比例地高估。”</li>
+<li><strong>实操方法：</strong>① <strong>“预承诺装置”(Commitment Device)</strong>——Ulysses 合约：在“理性的自己”（计划者）掌权时→绑定“未来的自己”（执行者）的行为。具体：① 自动扣款投资（不经过“今天要不要投”的决策点）② 健身房年卡（沉没成本推动执行）③ 对外公开承诺+设置违约惩罚。关键：承诺必须在“冷静时”设置——在“热”状态（饥饿/冲动/疲劳）下设置的承诺无效。② <strong>“将未来可视化”</strong>——研究发现：看过自己“衰老模拟照片”的人储蓄率提高 2 倍——因为“65 岁的我”从抽象数字变成了“可感知的真实人”。将未来“具象化/情绪化”=对抗双曲贴现的最有力武器。为你的目标创造“可感知的未来形象”：收入数字→生活方式画面；退休储蓄→具体的退休场景。③ <strong>“碎片化延迟满足”</strong>——不要设“一年后的大目标”（双曲贴现让一年后“太远了”）→把大目标拆成“每周小里程碑+即时奖励”→每周完成=即时满足（β 不激活）→同时累积为年度大目标。利用双曲贴现而非对抗它：让“正确的行为”产生“即时的快感”</li>
+</ul>
+<div class="quote">“人类行为最深刻的矛盾之一：我们可以同时‘知道’未来的收益更大，却‘选择’当下的小收益。这不是无知——而是时间偏好的非理性结构。经济学假设人是‘指数贴现者’（时间一致的理性人）——但真正的人是‘双曲贴现者’：在涉及‘现在’时系统性地不一致。理解这一点=理解了拖延、成瘾、储蓄不足和大部分人类困境的数学结构。”<cite>—— David Laibson, “Golden Eggs and Hyperbolic Discounting”, Quarterly Journal of Economics (1997)</cite></div>
+<div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i><span>设计启发：</span></b>双曲贴现对游戏设计的核心启示：<strong>“玩家只为‘现在’买单——如果奖励不是‘马上看到’，它在玩家心中就几乎不存在”</strong>。① <strong>“即时反馈”铁律</strong>——任何玩家行为→必须在 0.3 秒内有视觉/听觉反馈。点击按钮→按钮动画+音效（即使后台还在加载）。杀死敌人→经验数字弹出+音效+屏幕震动→“即时满足”激活边缘系统→“再来一次”的冲动。<strong>《暗黑破坏神》的“掉落彩虹”（击杀后满屏金币+装备爆出）= 即时满足的工业级范例——每次击杀=一次微型多巴胺释放</strong>。② <strong>“奖励分层”对抗贴现</strong>——不要把所有奖励放在“通关后”（太远了→双曲贴现让它价值趋近于零）→将大奖励拆成：即时奖励（每次操作）+ 短期奖励（每 5 分钟）+ 中期奖励（每次Session）+ 长期奖励（每周/赛季）。<strong>每一层奖励都必须有“即时可感知”的反馈组件——哪怕只是进度条前进一格</strong>。③ <strong>“预览未来奖励” UI</strong>——双曲贴现的解法之一=“让未来变得可感知”。在 UI 中展示“你再打 3 局就能解锁这个皮肤”+皮肤的预览图/3D 展示→将抽象的“未来奖励”转化为“当下可感知的欲望”。<strong>《堡垒之夜》战令系统的“奖励路径”可视化=对抗双曲贴现的经典 UI——你能看到并旋转未来的皮肤</strong></div>
+
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d35-hyperbolic-discounting"><div class="card-deep-inner-wrap"></div></div>
+</div>
+
+<div class="card" data-fav-id="d35-nash-equilibrium" data-fav-title="纳什均衡 · Nash Equilibrium">
+<div class="card-head"><h3><i data-lucide="swords" class="ic-inline"></i><span>纳什均衡 · Nash Equilibrium</span></h3><span class="tag tag-t">思维模型</span></div>
+<p>John Nash 在 1950 年的博弈论论文中证明了：<strong>“在任何有限博弈中，至少存在一个均衡点——在这个点上，每个参与者的策略都是对其他人策略的最优回应。没有任何单方面的改变能让自己获益更多”</strong>。芒格将博弈论视为多元思维格栅的核心模块：“理解纳什均衡就是理解‘为什么聪明人做出集体愚蠢的事情’——军备竞赛、价格战、内卷——每个人都在做对自己‘局部最优’的事——但集体结果对所有人都很差。这就是囚徒困境的纳什均衡：双方都背叛=双方都受损。”达里奥在桥水的原则中强调：“当你进入一个竞争环境——先画出博弈矩阵——找到均衡点——如果均衡点对所有人都不好——唯一的解法是改变博弈规则本身（激励结构/信息结构/参与者结构）——在规则内试图单方面‘打破’均衡=徒劳。”塔勒布从反脆弱角度：“纳什均衡是‘脆弱’系统的标志——所有人都被锁定在一个谁也不想待但谁也走不开的状态。反脆弱的策略是不参加这种博弈——或者创造让‘合作’成为均衡点的新博弈结构。”</p>
+<ul>
+<li><strong>核心原理：</strong>① <strong>“最优回应”(Best Response)</strong>——纳什均衡的定义：给定其他所有人的策略，没有任何一方能通过单方面改变策略来改善自己的处境。注意：这不意味着均衡点是“最好的结果”——它可能是“所有人都次优但谁也不敢动”的状态。囚徒困境的均衡（双方都背叛）就是双方都受损但谁也不敢率先合作。② <strong>“混合策略均衡”(Mixed Strategy)</strong>——在石头剪刀布中→纯策略没有均衡（你选什么对手都能针对）→混合策略均衡=各 1/3 概率随机选择→对手无论怎么选期望收益都一样。游戏设计中：如果某个策略太强→所有人都用→不是均衡（因为对手可以专门针对）→“健康的 meta”=多个策略构成混合均衡。③ <strong>“协调博弈”(Coordination Game)</strong>——不是所有博弈都是对抗性的。协调博弈中——所有人选同一选项=最优（如开车靠哪边）。但有多个均衡点→“哪个均衡？”变成关键问题。解法：Focal Point（谢林点）——一个“显然的”协调点。游戏设计中：多人协作的“显然策略”必须通过 UI 暗示让所有玩家趋向同一均衡</li>
+<li><strong>经典案例：</strong>① <strong>“囚徒困境”→“公地悲剧”→“军备竞赛”</strong>——所有“所有人都理性行动但集体受损”的现象都是纳什均衡的体现：渔民过度捕捞（每个人的最优策略=多捕，但集体结果=鱼群灭绝）；手游氪金竞赛（每个人的最优策略=比对手多花，但集体结果=所有人都花太多）；加班文化（每个人“不加班就落后”，集体结果=所有人都加班但产出没增加）。③ <strong>芒格论“改变博弈规则”</strong>——“Costco 的商业模式是天才——它改变了零售业的博弈规则。传统零售=价格竞争的囚徒困境（谁都想提价但谁都不敢=均衡在低利润）。Costco 用会员制改变了博弈结构=利润不来自商品差价而来自会员费=跳出了价格战的囚徒困境。”③ <strong>OPEC 与卡特尔的不稳定性</strong>——OPEC 协议减产（合作策略）→但每个国家的最优个体策略=偷偷增产=囚徒困境=协议总是被破坏→这就是为什么卡特尔极难维持——合作不是纳什均衡，背叛才是</li>
+<li><strong>实操方法：</strong>① <strong>“画博弈矩阵”</strong>——遇到竞争/合作场景→列出参与者→列出每个人的可选策略→填入每种策略组合的收益→找到均衡点→问：这个均衡是我想要的吗？如果不是→我需要改变什么规则来移动均衡点？改变规则比在规则内博弈有效 100 倍。② <strong>“改变激励结构”</strong>——如果当前均衡是“所有人都做X但X对集体不好”→不要呼吁人们“不要做X”（无效=X仍然是个体最优）→改变激励让“不做X”成为个体最优→新的均衡自然形成。碳排放交易=通过改变激励让“减排”成为企业的均衡策略。③ <strong>“重复博弈+声誉”创造合作</strong>——一次性博弈中背叛=均衡。但如果博弈无限重复→“以牙还牙”(Tit-for-Tat)策略可以让合作成为均衡——因为背叛的短期收益<被报复的长期损失。实操：在长期关系中建立“如果你背叛我我一定报复”的信用→让合作变成均衡→双赢</li>
+</ul>
+<div class="quote">“非合作博弈中的均衡点是一组策略——使得每个参与者的策略都是对其他人策略的最优回应。这个概念的力量不在于预测‘好结果’——而在于预测‘稳定结果’：一旦到达这个点，没有人有单方面偏离的动机。遗憾的是，稳定和最优经常是矛盾的。”<cite>—— John Nash, “Non-Cooperative Games”, Annals of Mathematics (1951)</cite></div>
+<div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i><span>设计启发：</span></b>纳什均衡对游戏设计的核心启示：<strong>“你设计的不是游戏——你设计的是一个博弈结构。玩家会找到均衡策略——如果那个策略很无聊，那是你的错”</strong>。① <strong>“Meta 健康度”= 多个混合均衡</strong>——如果所有玩家都用同一个“最强”角色/武器/策略→Meta 不健康（退化为纯策略均衡）→玩家体验单调+低技能者被碾压。健康 Meta = 多个策略互相克制 = 混合策略均衡 = 玩家必须猜测对手用什么→多样性+策略深度。<strong>《英雄联盟》每个版本的平衡性更新→本质是将 Meta 从纯策略均衡推向混合策略均衡</strong>。② <strong>“社交困境”设计</strong>——多人游戏中最引人入胜的时刻→往往是“合作 vs 背叛”的囚徒困境时刻。《Among Us》的整个玩法=社交博弈的纳什均衡分析。<strong>在你的多人系统中有意设计“合作有好处但背叛诱惑存在”的情境→创造紧张感+故事性</strong>。③ <strong>“反外挂”的博弈论视角</strong>——外挂是“改变收益矩阵”：作弊者收益变高→新均衡=所有人都作弊（因为不作弊=被碾压）。解法不是“呼吁不要作弊”（均衡不变）→而是改变收益矩阵：检测+惩罚让“作弊的期望收益”<“正常玩的期望收益”→新均衡=不作弊</div>
+
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d35-nash-equilibrium"><div class="card-deep-inner-wrap"></div></div>
+</div>
+</div>
+
+<div class="section-eyebrow"><i data-lucide="gamepad-2"></i><span class="section-eyebrow-num">02</span><span class="section-eyebrow-title">设计启发</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Design Insights</span></div>
+<div class="today-design">
+<div class="card" data-fav-id="d35-design-1" data-fav-title="第一印象锚定UI设计">
+<div class="card-head"><h3><i data-lucide="sparkles" class="ic-inline"></i><span>第一印象锚定UI设计 · First Impression Anchoring</span></h3><span class="tag tag-d">设计启发</span></div>
+<p>基于光环效应理论，游戏开场体验与品牌感知的设计策略：<strong>“玩家打开游戏的前 10 秒决定了他们心中这款游戏的‘品质等级’——之后的 100 小时都在这个光环下被感知”</strong>。</p>
+<ul>
+<li><strong>“品质支柱”资源分配法：</strong>有限预算下不要平均分配→选择 1-2 个“品质支柱”集中投入至顶级水平（如：动效品质 / 音效设计 / 美术风格）→这些支柱创造的光环会覆盖其他方面。<strong>实操：做预算分配时问“哪个维度做到极致能让用户认为整个产品都极致？”——那就是你的品质支柱</strong>。以《风之旅人》为例：美术和音乐投入 60% 资源→创造了“艺术品”光环→玩法的简单被解读为“极简美学”而非“内容匮乏”</li>
+<li><strong>“Loading 之死”解法——开场零等待：</strong>传统：启动→Logo→Loading→主菜单→进入游戏（30-60秒无互动=负面光环建立）。现代最佳实践：启动→0.5 秒内出现有品质感的视觉+声音→Loading 期间有微互动（可触摸的粒子/可旋转的模型/提示文案轮播）→让“等待”变成“体验”。<strong>《暗黑破坏神4》Loading 时可旋转 3D 角色模型→等待变成“欣赏”=正面光环建立</strong></li>
+<li><strong>“光环延续”设计——保持光效不衰减：</strong>光环效应会随时间衰减（适应效应）→需要周期性“刷新”。每隔 2-3 小时游戏时间→安排一个“惊艳时刻”（意想不到的视觉奇观/情绪高潮/Boss 战开场 CG）→重新建立品质光环→防止玩家进入“适应后的平庸感知”。季节性更新/活动/新角色 = 品质光环的周期性刷新机制</li>
+</ul>
+</div>
+
+<div class="card" data-fav-id="d35-design-2" data-fav-title="即时奖励系统设计">
+<div class="card-head"><h3><i data-lucide="zap" class="ic-inline"></i><span>即时奖励系统设计 · Instant Reward Architecture</span></h3><span class="tag tag-d">设计启发</span></div>
+<p>基于双曲贴现理论，将“延迟满足”转化为“即时可感知的进展”的奖励系统架构：<strong>“‘感觉到进步’比‘实际获得奖励’更重要——因为感觉是即时的，而奖励是未来的”</strong>。</p>
+<ul>
+<li><strong>“微进展”(Micro-Progress)系统：</strong>将任何长期目标拆分为可在 30 秒内完成一步的微任务→每完成一步=即时反馈（数字+1 / 进度条移动 / 音效叮）。人类大脑对“向目标移动”的感知=多巴胺释放→即使移动极微小。<strong>关键指标：任何时刻玩家“下一个奖励”的距离不应超过 3 分钟</strong>。RPG 的经验条、Battle Pass 的星星、每日任务的勾选——全部是微进展系统的变体</li>
+<li><strong>“奖励可见性”设计原则：</strong>未来奖励必须在当下“可看可摸”：① Battle Pass 路径上未解锁的皮肤→可预览/试穿/旋转（将“抽象未来”变为“当下欲望”）② “再打 2 局”的倒计时提示（将“遥远目标”变为“可数的步骤”）③ 奖励到达时的仪式感动画（将“获得”转化为“事件”而非“数字”）。<strong>双曲贴现的核心对策=“让未来的奖励在当下就能被感知”</strong></li>
+<li><strong>“双轨奖励”架构：</strong>设计两条并行的奖励轨道：① 即时轨道（每次操作=声效+数字+微动画→满足边缘系统）② 积累轨道（进度/收集/排名/赛季→满足前额叶的“计划”需求）。两条轨道同步运行=双曲贴现的两个自我都被满足=“执行者自我”享受即时快感的同时，“计划者自我”看到长期积累在发生。<strong>《哈迪斯》每次攻击的打击感(即时)与每局run的永久升级(积累)=双轨道完美典范</strong></li>
+</ul>
+</div>
+
+<div class="card" data-fav-id="d35-design-3" data-fav-title="多人博弈平衡架构">
+<div class="card-head"><h3><i data-lucide="scale" class="ic-inline"></i><span>多人博弈平衡架构 · Multiplayer Game Theory Balance</span></h3><span class="tag tag-d">设计启发</span></div>
+<p>基于纳什均衡理论，设计健康的多人游戏生态系统：<strong>“平衡性不是让所有选项等强——而是让所有选项在均衡中都有存在价值——即‘石头剪刀布’式的循环克制”</strong>。</p>
+<ul>
+<li><strong>“Meta 健康度”评估框架：</strong>① 多样性指数（前10名流行策略的使用率方差→方差越小=Meta越健康）② 克制闭环完整度（A克B, B克C, C克A 的循环是否存在？→不存在=有“绝对强策略”=退化为纯策略均衡=不健康）③ 新策略出现率（每个 patch 后有多少新策略进入 Top10？→越多=Meta 活力越高）。<strong>《炉石传说》设计师 Ben Brode 的“梯队论”：健康 Meta = T1 有 3-4 个 deck，T2 有 6-8 个 deck→不是平衡而是“动态循环”</strong></li>
+<li><strong>“改变规则”而非“呼吁玄家”：</strong>当某策略过强（使用率>30%）→不要只 nerf 那个策略（治标）→分析为什么它是均衡（根因）：是它的收益太高？还是其他策略的“反制收益”太低？Buff 反制策略通常比 Nerf 强策略更能推动 Meta 健康→因为 Buff = 增加选项 = 丰富均衡结构；Nerf = 减少选项 = 可能创造新的退化均衡</li>
+<li><strong>“社交困境”作为玩法核心：</strong>最引人入胜的多人时刻=“合作还是背叛”的博弈时刻。有意在多人游戏中设计：① 公共资源竞争（多人同抢一个 Boss 的掉落→合作击杀 vs 等别人打残再抢）② 临时联盟（3+ 玩家 FFA 中的“先打最强的那个”临时合作→何时背叛？）③ 交易系统的信任问题（先给钱还是先给货？）。<strong>《逃离塔科夫》的玩家间“友善还是开枪？”= 每次遭遇都是博弈论的活教材</strong></li>
+</ul>
+</div>
+</div>
+
+<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI / 设计资讯</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div>
+<div class="today-side">
+<div class="card" data-fav-id="d35-side-1" data-fav-title="Figma AI “First Draft”">
+<div class="card-head"><h3><i data-lucide="figma" class="ic-inline"></i><span>Figma AI “First Draft”——光环效应与设计工具的关系</span></h3><span class="tag tag-m">AI前沿</span></div>
+<p>Figma 2024 年发布 AI “First Draft” 功能：输入自然语言→自动生成 UI 设计稿。<strong>光环效应在这里的启示</strong>：第一版生成稿的品质感=影响设计师对整个 AI 工具的评价。</p>
+<ul><li><strong>行业影响：</strong>Figma AI 对设计师工作流的重新定义——“从零开始”→“从 AI 初稿开始”</li><li><strong>设计原则：</strong>AI 生成的第一帧必须足够精致以建立“这个工具很专业”的光环</li><li><strong>最新动态：</strong>2024 Q4 Figma 开放 AI 插件 API，第三方可训练组件级生成模型</li></ul>
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d35-side-1"><div class="card-deep-inner-wrap"></div></div>
+</div>
+
+<div class="card" data-fav-id="d35-side-2" data-fav-title="Cursor + V0 即时反馈设计">
+<div class="card-head"><h3><i data-lucide="code" class="ic-inline"></i><span>Cursor / V0——双曲贴现在 AI 编码工具中的应用</span></h3><span class="tag tag-m">AI前沿</span></div>
+<p>Cursor 和 V0 的核心设计理念：<strong>“即时可见结果”</strong>——用户输入代码/prompt→立即看到渲染结果。这正是双曲贴现的解法：让“编码的收益”从“未来”拉到“现在”。</p>
+<ul><li><strong>产品案例：</strong>V0 by Vercel “输入描述→0.5秒内看到 UI”→“编码=即时满足”而非“先写后看”</li><li><strong>行业趋势：</strong>Replit Agent / Bolt.new / Lovable 都在走“即时可见”路线→’Hot Reload on Steroids’</li><li><strong>设计启示：</strong>任何创作工具的核心竞争力=“从输入到可见结果的时间”→越短→用户越上瘾</li></ul>
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d35-side-2"><div class="card-deep-inner-wrap"></div></div>
+</div>
+
+<div class="card" data-fav-id="d35-side-3" data-fav-title="AI博弈设计平衡">
+<div class="card-head"><h3><i data-lucide="brain-circuit" class="ic-inline"></i><span>AI 博弈设计平衡——纳什均衡在游戏 AI 中的应用</span></h3><span class="tag tag-m">AI前沿</span></div>
+<p>DeepMind 的 AlphaStar 和 OpenAI Five 证明：<strong>AI 可以找到人类未发现的纳什均衡策略</strong>。游戏设计师现在用 AI 自对弈来发现“尚未被玩家发现的 OP 策略”并提前修复。</p>
+<ul><li><strong>行业案例：</strong>Riot Games 用强化学习 AI 测试《英雄联盟》新英雄平衡性→上线前就发现 broken combo</li><li><strong>技术进展：</strong>2024年 Unity ML-Agents + Nash DQN 开源→独立开发者也能用 AI 测平衡性</li><li><strong>实操意义：</strong>传统平衡性测试靠 QA 人工玩→AI 自对弈 1000 局/小时→快 100 倍+覆盖更全</li></ul>
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d35-side-3"><div class="card-deep-inner-wrap"></div></div>
+</div>
+</div>
+
+</div>
+
+
 <!-- ========== Day 034 ========== -->
-<div class="day-group" data-day="34">
+<div class="day-group" data-day="34" style="display:none">
 <div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 034</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-05-22</span></div><h1 class="day-num">Day <em>034</em></h1><div class="day-summary">现状偏差 × 认知失调 × 代表性启发 · 默认选项架构设计 × 一致性驱动体验设计 × 概率直觉校准UI</div></div>
 
 <div class="section-eyebrow"><i data-lucide="brain"></i><span class="section-eyebrow-num">01</span><span class="section-eyebrow-title">思维模型</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Mental Models</span></div>
