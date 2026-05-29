@@ -538,10 +538,10 @@ footer p{margin-bottom:6px}
 
 <!-- Stats -->
 <div class="stats">
-<div class="st"><div class="st-n">119</div><div class="st-l">思维模型</div></div>
-<div class="st"><div class="st-n">99</div><div class="st-l">设计启发</div></div>
-<div class="st"><div class="st-n">108</div><div class="st-l">AI前沿</div></div>
-<div class="st"><div class="st-n">36</div><div class="st-l">累计天数</div></div>
+<div class="st"><div class="st-n">122</div><div class="st-l">思维模型</div></div>
+<div class="st"><div class="st-n">102</div><div class="st-l">设计启发</div></div>
+<div class="st"><div class="st-n">111</div><div class="st-l">AI前沿</div></div>
+<div class="st"><div class="st-n">37</div><div class="st-l">累计天数</div></div>
 </div>
 
 <!-- Primary Nav -->
@@ -559,7 +559,8 @@ footer p{margin-bottom:6px}
 
 <!-- Day Selector -->
 <div class="day-selector"><span class="day-selector-label">DAY</span><div class="day-scroll-wrap"><div class="day-scroll" id="daySubs">
-<button class="day-pill on" onclick="switchDay(this,36)">Day 036</button>
+<button class="day-pill on" onclick="switchDay(this,37)">Day 037</button>
+<button class="day-pill" onclick="switchDay(this,36)">Day 036</button>
 <button class="day-pill" onclick="switchDay(this,35)">Day 035</button>
 <button class="day-pill" onclick="switchDay(this,34)">Day 034</button>
 <button class="day-pill" onclick="switchDay(this,33)">Day 033</button>
@@ -605,8 +606,114 @@ footer p{margin-bottom:6px}
 <button class="subtab" onclick="subgo(this,'today','side')"> AI·设计前沿</button>
 </div>
 
+<!-- ========== Day 037 ========== -->
+<div class="day-group" data-day="37">
+<div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 037</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-05-29</span></div><h1 class="day-num">Day <em>037</em></h1><div class="day-summary">注意力残留 × 系统杠杆点 × 边际效用递减 · 深度沉浸UI架构 × 系统干预点设计 × 奖励衰减曲线设计</div></div>
+
+<div class="section-eyebrow"><i data-lucide="brain"></i><span class="section-eyebrow-num">01</span><span class="section-eyebrow-title">思维模型</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Mental Models</span></div>
+<div class="today-think">
+<div class="card" data-fav-id="d37-attention-residue" data-fav-title="注意力残留 · Attention Residue">
+<div class="card-head"><h3><i data-lucide="eye-off" class="ic-inline"></i><span>注意力残留 · Attention Residue</span></h3><span class="tag tag-t">思维模型</span></div>
+<p>Sophie Leroy 在 2009 年研究中揭示了一个被广泛低估的认知现象：<strong>"当人们从任务 A 切换到任务 B 时，注意力不会完全转移——部分认知资源仍然'粘'在任务 A 上。这种残留显著降低了任务 B 的表现质量"</strong>。德鲁克在《有效的管理者》中早已预见："真正有效的管理者不是同时做很多事的人，而是一次只做一件事的人。集中精力是这个时代最稀缺的能力。"芒格在人类误判心理学中警告："多任务的假象让人们觉得自己很勤奋——但实际上，在任务之间跳来跳去的人，每件事都做得比专注做一件事的人差 40%。"达里奥："在桥水，我禁止在深度研究会议中查看手机或处理邮件。因为认知切换的代价不是 10 秒——是 23 分钟——这是来自 Gloria Mark 研究的确切数字：人类平均需要 23 分 15 秒才能回到被中断前的深度专注状态。"</p>
+<ul>
+<li><strong>核心原理：</strong>① <strong>"认知粘性"(Cognitive Stickiness)</strong>——当你在处理复杂任务时，大脑会建立丰富的"工作记忆快照"——变量、约束、中间状态。切换任务时，这些快照不会立即消失，而是持续占用工作记忆容量，导致新任务可用的认知资源减少。Leroy 的实验证明：任务 A 越复杂/越未完成，残留越强。 ② <strong>"完成驱动"降残留</strong>——如果任务 A 已经达到一个"自然结束点"(写完一段/达成一个 milestone)，切换时的残留显著减少。但如果任务 A 在"半开放"状态被打断——残留最强，性能下降最严重。 ③ <strong>"强制单线程"优势</strong>——游戏开发中，"先完成一个完整功能再开始下一个"远优于"同时推进三个功能"。Cal Newport 的"深度工作"理论正是基于此：每次切换=损失 15-25 分钟的"预热时间"，一天切换 10 次=干损失 3 小时有效工作时间。</li>
+<li><strong>经典案例：</strong>① <strong>Sophie Leroy 的任务切换实验(2009)</strong>——被试先处理一个"没做完"的字谜任务，然后转向简历筛选任务。结果："字谜未完成"组在简历筛选中的决策质量显著低于"字谜已完成"组——未完成的任务持续"消耗"认知资源。② <strong>Gloria Mark(UCI)的工作场观察研究</strong>——跟踪知识工作者发现：平均每 3 分钟被中断一次，回到深度状态平均需 23 分 15 秒。一天 8 小时工作中，真正的"深度工作"可能不到 2 小时。③ <strong>芒格论投资</strong>——"我和巴菲特的工作方式是：一天只做一个重要决策。不是因为我们懒——而是因为我们知道每个重大决策都需要全部的认知资源。如果你在思考'是否买入可口可乐'的同时还在惦记'另一笔交易怎么处理'——你的决策质量会下降 40%。这不是主观感受——这是神经科学。"</li>
+<li><strong>实操方法：</strong>① <strong>"时间块"(Time Blocking)</strong>——将每天分成 90 分钟的"深度块"，每块只做一件事。块与块之间插入 15 分钟"清洗缓冲"(散步/冥想)——让上一个任务的残留自然消散。 ② <strong>"小结仪式"(Closure Ritual)</strong>——任务切换前，花 2 分钟写下"当前任务的状态"+"下次回来的第一步"——将"未完成感"卸载到纸上→大脑不再需要"保持记忆"→残留减少。 ③ <strong>"中断罩护"(Interrupt Shield)</strong>——在深度工作块中：关闭所有通知、关闭邮件、手机翻面、挂"免打扰"标识。每次"看一眼"邮件=重启 23 分钟的计时器。达里奥的做法："我每天只查 2 次邮件——10:30 和 16:00。其他时间，邮箱不存在。"</li>
+</ul>
+<div class="quote">"注意力残留的存在意味着：人类不是'多任务处理器'——而是'单任务处理器加上非常昂贵的上下文切换成本'。每次你'快速看一眼'邮件或消息，你不是在'多任务'——你是在放弃之前 15 分钟的认知投资。"<cite>—— Sophie Leroy, "Why Is It So Hard to Do My Work?", Organization Science, 2009</cite></div>
+<div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i><span>设计启发：</span></b>注意力残留对游戏设计的核心启示：<strong>"游戏 UI 的每一个弹窗/通知/系统消息都在制造注意力残留——破坏玩家的心流状态。每个中断的成本不是 3 秒而是 3 分钟"</strong>。① <strong>"无中断流"战斗设计</strong>——在核心战斗/解谜/竞技过程中，绝对不弹出任何非紧急通知。"体力恢复完成""好友上线""商城折扣"——这些全部应该在玩家"自然停顿"时才展示。<strong>《塑料大爆炸》的核心玩法中零弹窗=零中断=玩家可以连续 45 分钟保持心流</strong>。 ② <strong>"上下文保存/加载"界面设计</strong>——当玩家必须离开当前任务(去商城/检查背包)时，用"分屏/侧栏/浮层"而非"全页面跳转"——保留玩家的"视觉上下文"(背景可见/半透明)=减少认知切换成本。 ③ <strong>"渐进式通知"而非"中断式通知"</strong>——不紧急信息用"边缘指示器"(角标小红点/边框微光)代替弹窗——玩家"余光"能感知到新信息，但不被强制中断当前任务</div>
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d37-attention-residue"><div class="card-deep-inner-wrap"></div></div>
+</div>
+
+<div class="card" data-fav-id="d37-leverage-points" data-fav-title="系统杠杆点 · Leverage Points">
+<div class="card-head"><h3><i data-lucide="target" class="ic-inline"></i><span>系统杠杆点 · Leverage Points</span></h3><span class="tag tag-t">思维模型</span></div>
+<p>Donella Meadows 在 1999 年的经典论文中揭示：<strong>"复杂系统中存在少数'杠杆点'——在这些点上施加微小干预，可以引发系统性巨变。但大多数人在错误的点上用力——或者在正确的点上施加错误方向的力"</strong>。达里奥将这一思想应用于组织管理："在桥水，我们花 80% 的时间寻找系统中的 2-3 个杠杆点，只花 20% 的时间执行。大多数组织恰恰相反——在所有地方平均用力，结果什么都没改变。"芒格："我毕生的投资哲学可以浓缩为一句话：找到优秀公司中的杠杆点——那些小变化能带来巨大复利回报的地方。可口可乐的杠杆点是品牌+分销网络，而不是产品配方。"塔勒布："'反脆弱'不是在所有地方加固——而是在系统的关键失效点延展弹性。找到'如果这里崩溃，整个系统都崩溃'的点，然后在那里建立冗余。"</p>
+<ul>
+<li><strong>核心原理：</strong>① <strong>Meadows 的 12 层杠杆点层级</strong>——从低效到高效：参数调整(最低效) < 缓冲大小 < 延迟 < 反馈强度 < 信息流 < 系统规则 < 目标 < 范式/心智模型(最高效)。大多数人在"参数调整"层级努力(改数字/调KPI)，而真正的变革者在"范式"层级运作(改变人们思考问题的方式)。 ② <strong>"反直觉方向"警告</strong>——Meadows 发现：即使人们找到了杠杆点，它们也经常在错误方向上用力。例如：提高生产效率的杠杆点不是"加快生产线"而是"减少生产线上的产品种类"(丰田模式)。 ③ <strong>"系统地图"先行</strong>——不画出完整的系统反馈回路图，就无法识别杠杆点。"头痛医头，脚痛医脚"=没有系统地图的典型表现。</li>
+<li><strong>经典案例：</strong>① <strong>Meadows 论"网络效应"平台</strong>——抖音/微信/Uber 的杠杆点不是"内容质量"或"应用功能"(参数层)，而是"网络效应的反馈循环"(规则层)——"用户越多→内容越多→吸引更多用户"。所以押注"早期用户增长"而非"内容审核精度"是正确的杠杆点选择。② <strong>丰田的"5 Why"方法</strong>——工厂的机器停止了。为什么？(保险丝断了)为什么？(过载了)为什么？(轴承没润滑)为什么？(润滑泵失灵)为什么？(没有预防性维护计划)→杠杆点="预防性维护系统"，不是"更换保险丝"。③ <strong>芒格/巴菲特论护城河</strong>——"我寻找的杠杆点是'护城河'——一个竞争对手无法复制的结构性优势。可口可乐的护城河=品牌+分销。在'护城河'这个杠杆点上投资(加强品牌)的回报，是在'改善生产线'上投资的 100 倍。"</li>
+<li><strong>实操方法：</strong>① <strong>"因果回路图"(Causal Loop Diagram)</strong>——画出系统中所有变量的因果关系，标注正反馈(+)和负反馈(-)。杠杆点通常位于多条回路交汇处，或负反馈循环的"延迟节点"。 ② <strong>"效果放大率"测试</strong>——对每个候选干预点问："在这里投入 1 单位努力，能产生多少单位的系统性输出？"放大率最高的点=杠杆点。 ③ <strong>"先规则后参数"原则</strong>——任何优化，先问"规则/结构能改吗？"再问"参数能调吗？"。改KPI指标(规则)>改KPI目标值(参数)。网页加载慢？先问"架构对吗"再问"参数调了吗"。</li>
+</ul>
+<div class="quote">"人们通常知道系统中的杠杆点在哪里。但更常见的情况是：他们在正确的杠杆点上施加了错误方向的力——让系统向更糟糕的方向演进。"<cite>—— Donella Meadows, "Leverage Points: Places to Intervene in a System", 1999</cite></div>
+<div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i><span>设计启发：</span></b>系统杠杆点对游戏设计的核心启示：<strong>"游戏平衡性不是调数值——而是找到系统中的杠杆点并改变反馈结构。调伤害数字是参数层，调克制关系是规则层"</strong>。① <strong>"平衡性分层干预"框架</strong>——当某个角色/策略过强时，不要第一时间"削数值"(参数层)——而是问"这个角色强是因为什么反馈循环在加强它？"——然后在反馈层级干预。<strong>《英雄联盟》的平衡团队最精妙的干预不是改数值——而是改"装备系统结构""地图机制"等规则层杠杆点</strong>。 ② <strong>"UI信息流"作为杠杆点</strong>——Meadows层级中"信息流"是第6层杠杆点：谁能看到什么信息。在游戏中=UI展示什么数据给玩家。"显示死亡统计"比"增加复活等待时间"更能改变玩家行为——因为信息是更高层杠杆点。 ③ <strong>"新手引导"的杠杆点思维</strong>——新手引导的杠杆点不是"教学内容"(参数)而是"玩家的心智模型"(范式层)——如果玩家建立了正确的思考方式，就能自己探索所有功能。《文明 6》的新手引导不是教操作——而是建立"4X战略"的思考范式</div>
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d37-leverage-points"><div class="card-deep-inner-wrap"></div></div>
+</div>
+
+<div class="card" data-fav-id="d37-diminishing-returns" data-fav-title="边际效用递减 · Diminishing Marginal Returns">
+<div class="card-head"><h3><i data-lucide="trending-down" class="ic-inline"></i><span>边际效用递减 · Diminishing Marginal Returns</span></h3><span class="tag tag-t">思维模型</span></div>
+<p>Hermann Heinrich Gossen 在 1854 年提出"戈森第一定律"：<strong>"同一种满足的量如果不断重复，其带来的享受将持续递减，直至达到饱和点后变为不快"</strong>。芒格将这一规律提升为资源配置的核心原则："理性的人在一个资源上投入到边际回报=其他资源的边际回报时停下。但人类不是理性的——我们会在已经回报递减的地方继续加大投入，因为'沿着老路走'比'探索新路'容易得多。"卡尼曼："人类对'变化'的感知是对数的而非线性的。第一个100万和第二个100万带来的快乐差异巨大。这就是'前景理论'中价值函数的凹性。"达里奥："在桥水，我们有一条铁律：任何单一策略的质量会随规模扩大而下降。所以我们主动限制每个策略的规模——在边际回报开始下降时就停止加仓。"</p>
+<ul>
+<li><strong>核心原理：</strong>① <strong>"效用函数的凹性"</strong>——任何资源(金钱/时间/努力/功能)的效用函数都是凹的(上凸的)：前期每单位投入回报巨大，后期回报趋近于零。关键拐点="边际回报=机会成本"，超过此点=资源浪费。 ② <strong>"多维度分配"优于"单维度极致"</strong>——把同样的资源分配到 3 个维度各达 80% 的效果，远优于押注 1 个维度达 99% 的效果。因为 80%→99% 的边际投入可能=3个维度从 0%→80% 的总投入。 ③ <strong>"拐点识别"能力</strong>——最稀缺的能力不是"做到极致"而是"知道什么时候停下"。工程师的常见错误：将 95% 完成度的产品优化到 99%，而忽略了另一个 0% 完成度的关键功能。</li>
+<li><strong>经典案例：</strong>① <strong>"80/20 法则"的数学本质</strong>——帕累托法则的核心=边际递减。前 20% 的投入产生 80% 的产出——因为前 20% 的投入处于效用函数的"陡峭区"，后 80% 的投入处于"平台尾巴"。 ② <strong>Amazon 的"双披萨团队"规则</strong>——Bezos 发现：团队规模扩大后，每增加一个人的边际产出递减(沟通成本指数增长)。解法：每个团队不超过"两个披萨能喂饱"的规模(6-8人)——在边际递减的拐点主动停止扩张。 ③ <strong>芒格论学习</strong>——"一个人一年真正能深入学习的领域不超过 2-3 个。在已经掌握 80% 的领域继续投入→边际递减。正确做法：达到 80% 后转向新领域，建立'多元思维格栅'——交叉领域产生的洞察远超过单一领域的极致深度。"</li>
+<li><strong>实操方法：</strong>① <strong>"拐点审计"</strong>——对当前所有项目/习惯问："再投入 1 小时，能带来多少新价值？"如果答案是"微乎其微"——这 1 小时应该转移到边际回报更高的地方。 ② <strong>"70% 规则"(Good Enough)</strong>——对非核心功能，做到 70% 就停，将省下的资源投入核心功能。"完美"是边际递减的极端形式——从 95%→99% 的投入可能等于从 0%→70% 的投入。 ③ <strong>"组合优化"而非"单项优化"</strong>——将时间/金钱/精力视为"投资组合"，目标是组合的总回报最大化，而不是任何单项的最大化。每周审查一次"资源配置"——是否有任何一项已经超过拐点但仍在加大投入？</li>
+</ul>
+<div class="quote">"同一种满足的量，如果不间断地重复，那么由这种满足产生的享受，将从第一次开始持续地下降，直至最终变成干燥的不满。人类不是为单一追求而生，而是为组合优化而生。"<cite>—— H.H. Gossen, Die Entwickelung der Gesetze des menschlichen Verkehrs, 1854</cite></div>
+<div class="tip"><b><i data-lucide="gamepad-2" class="ic-inline"></i><span>设计启发：</span></b>边际效用递减对游戏设计的核心启示：<strong>"游戏内容的客观价值不重要——玩家感知的'边际新鲜感'才重要。第 50 把武器不论多强，带来的兴奋感也远不如第 1 把"</strong>。① <strong>"奖励类型轮换"对抗递减</strong>——不要连续 10 次给同类型奖励(金币×10)→而是轮换类型(金币→皮肤→贴料→经验→新角色)→每类型的"第一次"都重启效用函数的陡峭尾。<strong>《原神》的抽卡设计——每个卡池是不同角色=不同类型=重置边际效用</strong>。 ② <strong>"内容深度 vs 广度"的平衡</strong>——一个系统做到 80% 的深度后→继续加深的边际回报递减→此时应该开一个新系统。"10 个系统各有 50 层"的游戏可玩性 < "3 个系统各有 200 层"，但"3 个系统各 200 层"的后 100 层边际递减→最优解可能是"5 个系统各 120 层"。 ③ <strong>"赛季重置"=强制重启效用函数</strong>——为什么赛季制游戏能持续吸引玩家？因为每次"重置"=将所有奖励的效用函数重启到陡峭区。"重新从零开始"的痛苦 < "所有奖励都不再兴奋"的无聊</div>
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d37-diminishing-returns"><div class="card-deep-inner-wrap"></div></div>
+</div>
+</div>
+
+<div class="section-eyebrow"><i data-lucide="gamepad-2"></i><span class="section-eyebrow-num">02</span><span class="section-eyebrow-title">设计启发</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Design Insights</span></div>
+<div class="today-design">
+<div class="card" data-fav-id="d37-design-1" data-fav-title="深度沉浸UI架构">
+<div class="card-head"><h3><i data-lucide="monitor" class="ic-inline"></i><span>深度沉浸UI架构 · Deep Immersion UI Architecture</span></h3><span class="tag tag-d">设计启发</span></div>
+<p>基于注意力残留理论，设计"零中断"的游戏UI系统，保护玩家的心流状态不被系统消息打断：<strong>"最好的UI是玩家忘记它存在的UI——因为它从不在错误的时间出现"</strong>。</p>
+<ul>
+<li><strong>"通知优先级矩阵"(Notification Priority Matrix)：</strong>将所有系统消息分为4级：① P0-紧急(队友求救/Boss出现)→立即显示+音效 ② P1-重要(任务完成/升级)→等待当前动作完成后的"自然间隙"展示 ③ P2-信息(好友上线/邮件)→仅边缘指示器(角标/微光)→玩家主动查看 ④ P3-推广(商城折扣/活动)→仅在主界面/安全区展示→绝不在战斗/任务中出现。<strong>关键设计原则：任何P2/P3通知在P0/P1场景中都降级为"完全静默"</strong></li>
+<li><strong>"浮层覆盖"替代"全页跳转"：</strong>当玩家需要查看背包/地图/商城时→用半透明浮层覆盖当前画面→保留背景的"视觉上下文"→玩家关闭浮层后能瞬间回到之前的心理状态。<strong>《艾尔登法环》的地图/物品栏=半透明覆盖层→玩家始终知道"我在哪里""我在干什么"→认知切换成本≈0</strong></li>
+<li><strong>"心流检测+保护"系统：</strong>通过玩家行为模式(连续操作频率/无暂停时长/combo连击)检测玩家是否处于"心流状态"→心流中自动抑制所有非紧急通知→心流结束(自然暂停/死亡/过关)后批量展示积累的通知。实现玩家"沉浸式游玩 30 分钟→一次性处理 5 条消息"而非"每 3 分钟被打断一次"</li>
+</ul>
+</div>
+
+<div class="card" data-fav-id="d37-design-2" data-fav-title="系统干预点设计">
+<div class="card-head"><h3><i data-lucide="sliders" class="ic-inline"></i><span>系统干预点设计 · System Intervention Point Design</span></h3><span class="tag tag-d">设计启发</span></div>
+<p>基于系统杠杆点理论，识别游戏系统中真正影响玩家体验的"高杠杆"设计点，避免在低效层级浪费资源：<strong>"改一个反馈循环的效果=改100个数值参数"</strong>。</p>
+<ul>
+<li><strong>"反馈可见性"设计(信息流杠杆点)：</strong>游戏中最强大的杠杆点之一是"让玩家看到自己行为的后果"。例：MOBA中显示"你的助攻帮助队友获得了300金"→玩家辅助行为增加40%(比"增加辅助奖励金币"效果更好)。<strong>信息可见性改变行为的效果 > 奖惩系统改变行为的效果——因为信息是更高层杠杆点</strong></li>
+<li><strong>"规则层"平衡设计：</strong>当遇到平衡性问题时，按Meadows层级从高到低尝试：首先改"克制关系"(规则)→然后改"成长曲线"(反馈)→最后才改"数值"(参数)。例：某角色过强→不要削伤害→而是引入一个能克制它的新机制/装备/角色→通过"克制关系"(规则层)实现平衡比数值调整更健康更持久</li>
+<li><strong>"心智模型"优先的新手引导：</strong>新手引导的最高杠杆点="改变玩家思考游戏的方式"(Meadows最高层:范式)。不要教"按A攻击按B防御"(参数)→教"这个游戏的核心循环是什么？胜利条件是什么？"(范式)。<strong>《塞尔达:旷野之息》的初始台地=教会玩家"物理规则是一致的，所有东西都可以互动"这一范式→之后100小时的探索都基于这个心智模型</strong></li>
+</ul>
+</div>
+
+<div class="card" data-fav-id="d37-design-3" data-fav-title="奖励衰减曲线设计">
+<div class="card-head"><h3><i data-lucide="activity" class="ic-inline"></i><span>奖励衰减曲线设计 · Reward Decay Curve Design</span></h3><span class="tag tag-d">设计启发</span></div>
+<p>基于边际效用递减理论，系统化设计游戏奖励的"新鲜感曲线"，在玩家效用开始递减前主动切换奖励类型：<strong>"不是给更多奖励——而是给不同的奖励"</strong>。</p>
+<ul>
+<li><strong>"效用函数监控"系统设计：</strong>为每类奖励设计"效用衰减模型"：① 货币类(金币/钻石)→最快递减(3-5次后显著下降) ② 功能解锁(新角色/新地图)→中速递减(新鲜期约1-2周) ③ 社交展示(称号/皮肤/边框)→慢递减(社交价值持续)。<strong>设计原则：当监控指标显示某类奖励的"点击率/领取热情"开始下降→自动切换到另一类奖励</strong></li>
+<li><strong>"奖励组合拳"节奏设计：</strong>将奖励序列设计为"类型交替"模式：金币→皮肤碎片→新角色试用→独家剧情→稀有道具→称号→金币(重启)。每次类型切换=效用函数重置到"陡峭区"。<strong>《原神》的每日委托+周本+深渊+活动=多维度奖励交替→总效用曲线不会快速递减</strong></li>
+<li><strong>"赛季重启"的数学逻辑：</strong>当所有奖励类型都到达"平台期"(边际效用≈0)时→大版本更新/赛季重置="将整个效用函数重新初始化"。关键：重置不能太频繁(玩家积累感被破坏)也不能太慢(长期无新鲜感)。<strong>最优重置周期=所有奖励类型都到达"效用拐点"的时间(通常8-12周)——这就是为什么大多数游戏赛季是3个月</strong></li>
+</ul>
+</div>
+</div>
+
+<div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI / 设计资讯</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div>
+<div class="today-side">
+<div class="card" data-fav-id="d37-ai-1" data-fav-title="Claude 4 系统化推理能力">
+<div class="card-head"><h3><i data-lucide="cpu" class="ic-inline"></i><span>Claude 4 系统化推理——AI编程从"补全代码"到"理解系统"</span></h3><span class="tag tag-m">AI前沿</span></div>
+<p>Anthropic 2025年发布的 Claude 4 系列在系统级代码理解方面实现了质的飞跃：不再只是逐行补全代码，而是理解整个代码库的"系统结构"——反馈循环、模块依赖、架构瓶颈。<strong>正如系统杠杆点理论所言：Claude 4 学会了找"高杠杆"代码改动点</strong>。</p>
+<ul><li><strong>技术突破：</strong>Claude 4 的 Opus 模型支持 100万 token 上下文窗口→可以一次性理解整个中型代码库的架构→找出"改一行代码影响全局"的杠杆点位置</li><li><strong>实际应用：</strong>游戏开发者可以将整个游戏系统代码输入→让 Claude 4 分析"哪些模块是系统瓶颈"→获得"高杠杆点"优化建议→相当于拥有一个能看清全局的高级架构师</li><li><strong>设计工作流整合：</strong>结合 Cursor IDE 使用 Claude 4→在编码时实时获得"系统级建议"→不只是"这行代码对不对"而是"这个改动对系统整体的影响是什么"</li></ul>
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d37-ai-1"><div class="card-deep-inner-wrap"></div></div>
+</div>
+
+<div class="card" data-fav-id="d37-ai-2" data-fav-title="Figma AI Auto Layout 3.0">
+<div class="card-head"><h3><i data-lucide="layout" class="ic-inline"></i><span>Figma AI Auto Layout 3.0——从手动排版到"意图驱动"布局</span></h3><span class="tag tag-m">AI前沿</span></div>
+<p>Figma 2025年推出 AI-powered Auto Layout 3.0：设计师只需描述布局意图("这组卡片等间距排列，小屏幕时折叠为列")→AI自动生成完整的响应式布局约束。<strong>这正是注意力残留理论的设计工具实践：减少设计师在"排版细节"上的认知负担→释放注意力给"创意决策"</strong>。</p>
+<ul><li><strong>行业影响：</strong>Auto Layout 配置从平均 15 个参数简化为 1 句自然语言描述→设计师的认知切换成本降低 70%→可以保持在"设计思考"的心流中而不被"参数配置"打断</li><li><strong>游戏UI设计适用：</strong>游戏UI的复杂自适应布局(横竖屏/不同分辨率/不同内容量)可以用自然语言描述约束→Figma AI自动生成→设计师不再需要为每种情况手动配置响应规则</li><li><strong>协作价值：</strong>开发者能直接看到AI生成的布局"意图描述"(而非密密麻麻的约束参数)→设计-开发沟通效率大幅提升→减少"为什么这里是auto、那里是fixed"的来回确认</li></ul>
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d37-ai-2"><div class="card-deep-inner-wrap"></div></div>
+</div>
+
+<div class="card" data-fav-id="d37-ai-3" data-fav-title="Unity Muse AI游戏原型生成">
+<div class="card-head"><h3><i data-lucide="gamepad-2" class="ic-inline"></i><span>Unity Muse AI——自然语言生成游戏原型的"边际革命"</span></h3><span class="tag tag-m">AI前沿</span></div>
+<p>Unity 2025年将 Muse AI 从实验阶段推向正式版：开发者用自然语言描述游戏机制→AI自动生成可运行的原型代码+场景+基础资产。<strong>这是边际效用递减在工具设计中的实践：将"从0到原型"的巨大边际回报阶段自动化→让开发者专注于"从原型到精品"的高价值工作</strong>。</p>
+<ul><li><strong>技术细节：</strong>Muse AI 集成了 LLM(代码生成) + 图像生成(资产) + 物理模拟(玩法验证)→一句"一个有重力翻转机制的平台跳跃关卡"→30秒内生成可玩原型</li><li><strong>设计价值：</strong>游戏设计师可以在1天内验证20个创意原型(之前需要2周做1个)→大幅降低"创意验证"的成本→将资源集中在"经过验证的创意"的深度开发上</li><li><strong>边际效用启示：</strong>原型阶段(0→50%)的边际回报最高→Muse AI 自动化了这个高ROI阶段→让人类专注于精细化阶段(50%→95%)→这是资源配置的最优解</li></ul>
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d37-ai-3"><div class="card-deep-inner-wrap"></div></div>
+</div>
+</div>
+
+</div>
+
+
 <!-- ========== Day 036 ========== -->
-<div class="day-group" data-day="36">
+<div class="day-group" data-day="36" style="display:none">
 <div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 036</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-05-28</span></div><h1 class="day-num">Day <em>036</em></h1><div class="day-summary">叙事谬误 × 对比效应 × 稀缺性原理 · 玩家叙事建构UI × 价值感知参照架构 × 限时稀缺驱动系统</div></div>
 
 <div class="section-eyebrow"><i data-lucide="brain"></i><span class="section-eyebrow-num">01</span><span class="section-eyebrow-title">思维模型</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Mental Models</span></div>
