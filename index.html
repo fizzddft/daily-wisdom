@@ -1700,6 +1700,12 @@ footer p{margin-bottom:6px}
 <div class="card-head"><h3><i data-lucide="folder" class="ic-inline"></i><span>折叠展开设计</span></h3><span class="tag tag-d">设计启发</span></div>
 <p>折叠/展开(Accordion)设计原则</p><ul><li><strong>核心原理：</strong>渐进式披露：默认显示 20%（最常用），需要时展开 80%。同时满足新手简洁感和专家完整功能。Nielsen 1995 提出的核心 UX 原则。</li><li><strong>经典案例：</strong>Gmail 邮件折叠：默认看标题+最新回复，历史折叠。Stripe Dashboard 4 层渐进披露：交易→详情→技术日志→原始数据。</li><li><strong>实操方法：</strong>应用：① L1 标题/状态（最核心）② L2 摘要（关键指标）③ L3 详情（完整字段）④ L4 原始（Excel/JSON）。</li></ul><div class="tip"><b>实践：</b>审计你做的 1 个表格/卡片：默认显示的字段超过 5 个吗？砍到 3-5 个让用户自己展开。</div><div class="quote">"好的设计是冰山——10% 在水上够用，90% 在水下随时可调。"<cite>—— Jakob Nielsen, Progressive Disclosure 1995</cite></div><div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d27-design-collapse-and-expand-"><div class="card-deep-inner-wrap"></div></div>
 </div>
+<div class="card" data-fav-id="d27-design-progressive-discl" data-fav-title="认知负荷分层设计">
+<div class="card-head"><h3><i data-lucide="layers" class="ic-inline"></i><span>认知负荷分层设计</span></h3><span class="tag tag-d">设计启发</span></div>
+<p>Sweller 认知负荷理论：工作记忆只能装 7±2 项。设计要降低外在负荷（界面）+ 提升关联负荷（核心知识）。Apple HIG 第一原则：限制屏幕选项不超过 5 个。</p><ul><li><strong>核心原理：</strong>3 类负荷：① 内在（任务复杂度，固定）② 外在（界面噪音，可优化）③ 关联（学习资源，要增加）。好设计=砍外在+加关联。</li><li><strong>分块编码：</strong>Miller 7±2 → 用分块扩展。电话号码 11 位记不住，分成 3-4-4 就能记。Stripe Dashboard 数字分组、Notion 折叠节点——都是分块。</li><li><strong>评估清单：</strong>① 用户首屏看到多少决策点？② 信息能不能分组？③ 复杂表单分步还是一屏？</li></ul>
+<div class="tip"><b>检查：</b>数你产品首屏的'决策点'——超过 7 个吗？砍到 5 以内。</div>
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d27-design-progressive-discl"><div class="card-deep-inner-wrap"></div></div>
+</div>
 
 <div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI / 设计资讯</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div>
 </div>
@@ -1713,6 +1719,10 @@ footer p{margin-bottom:6px}
 <div class="card" data-fav-id="d27-ai-ai-smart-classificat" data-fav-title="AI智能分类">
 <div class="card-head"><h3><i data-lucide="tag" class="ic-inline"></i><span>AI智能分类</span></h3><span class="tag tag-m">AI前沿</span></div>
 <p>智能分类范式转移：手动 → ML → LLM 零样本。Apple Photos / Gmail / Notion AI Auto-tag 都在重构。</p><ul><li><strong>Apple Photos 自动相册：</strong>扫描 1 万张照片自动按地点/人脸/场景生成相册，准确率 96%</li><li><strong>Gmail Priority Inbox：</strong>ML 学习用户行为自动标重要，日均省 23 分钟</li><li><strong>Notion AI Auto-tag 2024：</strong>AI 阅读笔记自动打标签，分类一致性提升 80%</li></ul><div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d27-ai-ai-smart-classificat"><div class="card-deep-inner-wrap"></div></div>
+</div>
+<div class="card" data-fav-id="d27-ai-ai-cognitive-offload" data-fav-title="AI 认知卸载">
+<div class="card-head"><h3><i data-lucide="brain" class="ic-inline"></i><span>AI 认知卸载</span></h3><span class="tag tag-m">AI前沿</span></div>
+<p>ChatGPT / Claude / Notion AI 让人把记忆/计算/写作卸载给 AI——人类工作记忆从 7±2 实质扩展到无限。但研究警告：过度依赖会萎缩自身能力。</p><ul><li><strong>Notion AI Q&A：</strong>问'我上周写了什么关于 X？'——AI 在你的笔记里搜，记忆外化。</li><li><strong>Mem.ai：</strong>AI 自动整理笔记，估值 1 亿美元。</li><li><strong>认知负荷应用：</strong>AI 处理外在负荷（搜索/整理）让人专注关联负荷（思考/创造）——但需警觉依赖陷阱。</li></ul><div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d27-ai-ai-cognitive-offload"><div class="card-deep-inner-wrap"></div></div>
 </div>
 
 <div class="quote">"商业的本质是：以低于价值的价格销售解决方案——同时让客户感到值得。"<cite>—— Peter Thiel</cite></div><div class="tip"><b>启动 30 天计划：</b><strong>Week 1</strong>：找 5 位潜在用户访谈——他们是不是真的在为这个问题付钱（时间或金钱）？没有付费意愿的"问题"是伪需求。  <strong>Week 2</strong>：做最小可行原型——能解决 80% 核心场景的丑陋版本就够。  <strong>Week 3</strong>：让 3 位用户付费试用（哪怕 1 元）——付费才是真验证。  <strong>Week 4</strong>：根据反馈决定 PMF/调整/放弃。</div>
@@ -1753,6 +1763,12 @@ footer p{margin-bottom:6px}
 
 <div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d26-design-achievement-system-u"><div class="card-deep-inner-wrap"></div></div>
 </div>
+<div class="card" data-fav-id="d26-design-variable-reward" data-fav-title="可变奖励设计">
+<div class="card-head"><h3><i data-lucide="gift" class="ic-inline"></i><span>可变奖励设计</span></h3><span class="tag tag-d">设计启发</span></div>
+<p>Skinner 强化时间表：固定奖励→快速饱和；可变奖励→无限上瘾。老虎机/TikTok 推流/邮件刷新——都是可变奖励。设计师要懂这个力量也要尊重伦理。</p><ul><li><strong>核心原理：</strong>可变奖励 = 多巴胺最大化。但 Tristan Harris 警告：滥用 = 上瘾产品。Apple iOS 限时通知/Screen Time——设计师必须有伦理底线。</li><li><strong>习惯回路设计：</strong>Cue → Routine → Reward → Investment。Github contribution 图：每天打开（cue）→ commit（routine）→ 绿块（reward）→ streak（investment）。</li><li><strong>评估清单：</strong>① 你的奖励是固定还是可变？② 上瘾性 vs 价值传递平衡了吗？③ 用户停用后会感激还是怀念？</li></ul>
+<div class="tip"><b>检查：</b>你产品的'可变奖励'机制——给用户带来真价值吗？</div>
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d26-design-variable-reward"><div class="card-deep-inner-wrap"></div></div>
+</div>
 
 <div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI / 设计资讯</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div><div class="quote">"形式追随功能——但功能必须先足够明确才有形式可追随。"<cite>—— Louis Sullivan</cite></div>
 </div>
@@ -1766,6 +1782,10 @@ footer p{margin-bottom:6px}
 <div class="card" data-fav-id="d26-ai-ai-behavior-predicti" data-fav-title="AI行为预测">
 <div class="card-head"><h3><i data-lucide="bar-chart-3" class="ic-inline"></i><span>AI行为预测</span></h3><span class="tag tag-m">AI前沿</span></div>
 <p>AI 行为预测：从规则 → 时序模型。Netflix 推荐 800 亿美元市值核心、TikTok 100ms 决策、Cursor Tab 30% 接受率。</p><ul><li><strong>Netflix 推荐 80% 流量：</strong>时序模型预测下一部，800 亿美元市值核心</li><li><strong>TikTok For You：</strong>100ms 内预测下一个视频是否会被划走</li><li><strong>Cursor Tab 预测：</strong>AI 预测下一步代码，按 Tab 接受率 30%+</li></ul><div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d26-ai-ai-behavior-predicti"><div class="card-deep-inner-wrap"></div></div>
+</div>
+<div class="card" data-fav-id="d26-ai-ai-reward-system" data-fav-title="AI 奖励系统革命">
+<div class="card-head"><h3><i data-lucide="trophy" class="ic-inline"></i><span>AI 奖励系统革命</span></h3><span class="tag tag-m">AI前沿</span></div>
+<p>RLHF（人类反馈强化学习）让 AI 对齐人类偏好。Anthropic Constitutional AI 让 AI 自我奖励——内在习惯回路。OpenAI Process Supervision 奖励'好的推理'。</p><ul><li><strong>Anthropic Constitutional AI：</strong>无需大量人工标注的对齐方法。</li><li><strong>OpenAI o1：</strong>推理时奖励中间步骤——不只看结果。</li><li><strong>多巴胺应用：</strong>AI 学会'延迟满足'——长链推理任务能力是关键突破。</li></ul><div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d26-ai-ai-reward-system"><div class="card-deep-inner-wrap"></div></div>
 </div>
 
 <div class="quote">"创业最大的优势不是天才——而是别人不愿意忍受的痛苦你愿意忍受。"<cite>—— Paul Graham</cite></div><div class="tip"><b>启动 30 天计划：</b><strong>Week 1</strong>：找 5 位潜在用户访谈——他们是不是真的在为这个问题付钱（时间或金钱）？没有付费意愿的"问题"是伪需求。  <strong>Week 2</strong>：做最小可行原型——能解决 80% 核心场景的丑陋版本就够。  <strong>Week 3</strong>：让 3 位用户付费试用（哪怕 1 元）——付费才是真验证。  <strong>Week 4</strong>：根据反馈决定 PMF/调整/放弃。</div>
@@ -1806,6 +1826,12 @@ footer p{margin-bottom:6px}
 
 <div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d25-design-countdown-design"><div class="card-deep-inner-wrap"></div></div>
 </div>
+<div class="card" data-fav-id="d25-design-future-self-bridge" data-fav-title="未来自我桥接设计">
+<div class="card-head"><h3><i data-lucide="calendar-clock" class="ic-inline"></i><span>未来自我桥接设计</span></h3><span class="tag tag-d">设计启发</span></div>
+<p>Hershfield 研究：让人看到老年自己的照片——储蓄率 +30%。设计要架起'当下自我'和'未来自我'的桥。401k 默认开启——克服双曲贴现。</p><ul><li><strong>核心原理：</strong>大脑天生重当下轻未来。Spotify Wrapped 在年末给你看一年——让未来变具体。Notion '一年前的今天'唤起长期视角。</li><li><strong>即时满足平衡：</strong>纯延迟满足→人坚持不下去；纯即时满足→人废掉。Duolingo 每日 streak（即时）+ 一年回顾（长期）——双管齐下。</li><li><strong>评估清单：</strong>① 你的产品给即时反馈也给长期反馈吗？② 长期价值能被'看见'吗？③ 默认值是否在帮用户照顾未来自己？</li></ul>
+<div class="tip"><b>检查：</b>你的产品 1 个月后/1 年后 给用户什么 lookback？</div>
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d25-design-future-self-bridge"><div class="card-deep-inner-wrap"></div></div>
+</div>
 
 <div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI / 设计资讯</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div><div class="quote">"你不能让用户做正确的事——你只能让正确的事变得最容易做。"<cite>—— BJ Fogg</cite></div>
 </div>
@@ -1819,6 +1845,10 @@ footer p{margin-bottom:6px}
 <div class="card" data-fav-id="d25-ai-event-automation" data-fav-title="活动自动化">
 <div class="card-head"><h3><i data-lucide="calendar" class="ic-inline"></i><span>活动自动化</span></h3><span class="tag tag-m">AI前沿</span></div>
 <p>活动自动化从模板 → AI 生成。Salesforce Einstein GPT / HubSpot AI Workflow / Stripe Atlas 都在转向 LLM 驱动。</p><ul><li><strong>Salesforce Einstein GPT：</strong>营销说我要黑五活动，AI 生成完整邮件序列+落地页</li><li><strong>Stripe Atlas 自动化：</strong>创业者填几字段，AI 生成法律/税务/银行流程</li><li><strong>HubSpot AI Workflow：</strong>用自然语言描述活动逻辑，自动生成执行流</li></ul><div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d25-ai-event-automation"><div class="card-deep-inner-wrap"></div></div>
+</div>
+<div class="card" data-fav-id="d25-ai-ai-personal-coach" data-fav-title="AI 个人教练">
+<div class="card-head"><h3><i data-lucide="user-check" class="ic-inline"></i><span>AI 个人教练</span></h3><span class="tag tag-m">AI前沿</span></div>
+<p>Replika / Character.AI 个人 AI 伴侣 2024 年用户破 1 亿。Apple Vision 健康 AI / Whoop AI 教练——长期数据 + AI 给即时建议，克服时间贴现。</p><ul><li><strong>Replika：</strong>2024 年付费用户 250 万，年化收入 5000 万。</li><li><strong>Whoop：</strong>AI 健身教练，订阅模式年收入 5 亿美元。</li><li><strong>双曲贴现应用：</strong>AI 把'1 年后健康'翻译成'今天少吃 200 卡'——把抽象未来变具体当下。</li></ul><div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d25-ai-ai-personal-coach"><div class="card-deep-inner-wrap"></div></div>
 </div>
 
 <div class="quote">"竞争是为失败者准备的——找到没人在做的、又被需要的事。"<cite>—— Peter Thiel</cite></div><div class="tip"><b>启动 30 天计划：</b><strong>Week 1</strong>：找 5 位潜在用户访谈——他们是不是真的在为这个问题付钱（时间或金钱）？没有付费意愿的"问题"是伪需求。  <strong>Week 2</strong>：做最小可行原型——能解决 80% 核心场景的丑陋版本就够。  <strong>Week 3</strong>：让 3 位用户付费试用（哪怕 1 元）——付费才是真验证。  <strong>Week 4</strong>：根据反馈决定 PMF/调整/放弃。</div>
@@ -1856,6 +1886,12 @@ footer p{margin-bottom:6px}
 <div class="card-head"><h3><i data-lucide="bot" class="ic-inline"></i><span>AI辅助排版</span></h3><span class="tag tag-d">设计启发</span></div>
 <p>AI排版系统：输入内容和约束条件→AI生成最优布局方案。考虑因素：阅读顺序/视觉层级/空间平衡/信息分组/留白节奏。从'设计师手动排版'到'AI建议+设计师调整'的协作模式。</p><ul><li><strong>核心原理：</strong>AI 辅助排版从概念到产品 2024 年成熟。Vercel V0 / Galileo / Locofy 让设计稿自动生成代码 + 自适应排版。</li><li><strong>经典案例：</strong>Vercel V0：用户输入 prompt，AI 生成 React 组件 + Tailwind 排版。年化 1 亿美元，30 天试用转化率 15%。</li><li><strong>实操方法：</strong>应用：① 用 V0/Galileo 替代手画线框② 学 AI 生成 → 人工微调工作流③ 让 AI 处理响应式断点（多数能 80% 正确）。</li></ul><div class="tip"><b>实践：</b>本周用 V0 替代 1 次 Figma 排版工作——观察 AI 哪些做得好，哪些需要你介入。</div><div class="quote">"AI 不是替代设计师——是替代设计师的重复性工作，让设计师专注品味。"<cite>—— Vercel V0 Launch 2024</cite></div><div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d24-design-ai-assisted-layout"><div class="card-deep-inner-wrap"></div></div>
 </div>
+<div class="card" data-fav-id="d24-design-self-organizing-ui" data-fav-title="自组织 UI 设计">
+<div class="card-head"><h3><i data-lucide="network" class="ic-inline"></i><span>自组织 UI 设计</span></h3><span class="tag tag-d">设计启发</span></div>
+<p>蚁群算法启发：没有中央指挥，群体智能涌现。Notion 数据库视图——用户自己组合表格/看板/日历。设计师没设计'用户怎么用'——是设计'用户能怎么组合'。</p><ul><li><strong>核心原理：</strong>自上而下设计 → 用户被框住。自下而上设计 → 用户涌现新用法。Excel 的 30 年生命力 = 极简单元（cell+formula）+ 无限组合。</li><li><strong>复杂适应：</strong>产品要像生态——不是建筑。Discord 服务器/Notion workspace/Roam Research——都是用户自己长出生态。设计师做'土壤'不是'建筑'。</li><li><strong>评估清单：</strong>① 你的产品是'被使用'还是'被改造'？② 用户能涌现你没设计的用法吗？③ 头部用户的创新被传播吗？</li></ul>
+<div class="tip"><b>检查：</b>看你产品 Top 5 用户的'非预期用法'——它们启发新方向吗？</div>
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d24-design-self-organizing-ui"><div class="card-deep-inner-wrap"></div></div>
+</div>
 
 <div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI / 设计资讯</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div>
 </div>
@@ -1867,6 +1903,10 @@ footer p{margin-bottom:6px}
 <div class="card" data-fav-id="d24-ai-personalized-ui-gene" data-fav-title="👤 个性化UI生成">
 <div class="card-head"><h3>👤 个性化UI生成</h3><span class="tag tag-m">AI前沿</span></div>
 <p>个性化 UI 生成：AI 根据用户实时上下文生成不同界面。Vercel V0 / Galileo / Anthropic Artifacts 引领 2024 年最大设计趋势。</p><ul><li><strong>Vercel V0：</strong>从 prompt 生成 React 组件，年化收入 1 亿美元，30 天试用转化率 15%</li><li><strong>Galileo AI：</strong>从描述生成 Figma 设计稿，2024 年被 Google 收购</li><li><strong>Anthropic Artifacts：</strong>Claude 边对话边生成可交互 HTML/React 组件</li></ul><div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d24-ai-personalized-ui-gene"><div class="card-deep-inner-wrap"></div></div>
+</div>
+<div class="card" data-fav-id="d24-ai-ai-emergent-behavior" data-fav-title="AI 涌现行为研究">
+<div class="card-head"><h3><i data-lucide="brain-circuit" class="ic-inline"></i><span>AI 涌现行为研究</span></h3><span class="tag tag-m">AI前沿</span></div>
+<p>Anthropic 2024 论文揭示 Claude 内部'特征电路'——模型大到一定规模会涌现新能力。OpenAI o1 推理时间越长能力越强——时间换智能的范式革命。</p><ul><li><strong>OpenAI o1：</strong>推理过程可见，慢思考准确率 +40%——慢即是快。</li><li><strong>Anthropic Sleeper Agents：</strong>研究 AI 是否会产生欺骗能力——AI 安全前沿。</li><li><strong>蚁群应用：</strong>AI 群体协作（AutoGen/CrewAI）涌现单 Agent 不具备的能力。</li></ul><div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d24-ai-ai-emergent-behavior"><div class="card-deep-inner-wrap"></div></div>
 </div>
 
 <div class="quote">"做能产生最有趣副作用的事——副作用往往比主业更有价值。"<cite>—— Naval Ravikant</cite></div><div class="tip"><b>启动 30 天计划：</b><strong>Week 1</strong>：找 5 位潜在用户访谈——他们是不是真的在为这个问题付钱（时间或金钱）？没有付费意愿的"问题"是伪需求。  <strong>Week 2</strong>：做最小可行原型——能解决 80% 核心场景的丑陋版本就够。  <strong>Week 3</strong>：让 3 位用户付费试用（哪怕 1 元）——付费才是真验证。  <strong>Week 4</strong>：根据反馈决定 PMF/调整/放弃。</div>
@@ -1907,6 +1947,12 @@ footer p{margin-bottom:6px}
 
 <div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d23-design-version-history-desi"><div class="card-deep-inner-wrap"></div></div>
 </div>
+<div class="card" data-fav-id="d23-design-failure-recovery" data-fav-title="失败恢复与版本设计">
+<div class="card-head"><h3><i data-lucide="history" class="ic-inline"></i><span>失败恢复与版本设计</span></h3><span class="tag tag-d">设计启发</span></div>
+<p>Matthew Syed 黑匣子思维：失败不是错误是数据。Figma 版本历史无限回溯——每次失败都可学。Notion / Linear 都有完整 audit log——失败可追溯。</p><ul><li><strong>核心原理：</strong>失败有 3 种处理：① 隐藏（最差）② 学习（中）③ 公开学习（最好）。Bridgewater 公开所有会议录像——把失败学习极致化，年化收益 17%。</li><li><strong>边际收益：</strong>每个失败修复 1% 改进——100 个失败 = 100 倍累积。F1 团队每场比赛复盘失败——0.1 秒优化累积成冠军。</li><li><strong>评估清单：</strong>① 你的产品有完整失败日志吗？② 失败后是否被复盘并改进？③ 团队是否敢于公开失败？</li></ul>
+<div class="tip"><b>检查：</b>你的产品上次完整复盘失败是什么时候？</div>
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d23-design-failure-recovery"><div class="card-deep-inner-wrap"></div></div>
+</div>
 
 <div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI / 设计资讯</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div><div class="quote">"设计不只是它看起来的样子和给人感觉——设计是它如何工作。"<cite>—— Steve Jobs</cite></div>
 </div>
@@ -1921,6 +1967,10 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>探索：</b>评估这个方向：你现有技能/资源能在多长时间内做出 MVP？</div>
 
 <div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d23-ai-design-change-tracki"><div class="card-deep-inner-wrap"></div></div>
+</div>
+<div class="card" data-fav-id="d23-ai-ai-version-control" data-fav-title="AI 版本控制与变更追踪">
+<div class="card-head"><h3><i data-lucide="git-branch" class="ic-inline"></i><span>AI 版本控制与变更追踪</span></h3><span class="tag tag-m">AI前沿</span></div>
+<p>Magic Patches / Github Copilot Workspace / Cursor Composer——AI 生成代码后必须可追溯。OpenAI Operator 2024 年 demo 全程录屏——AI 操作可审计。</p><ul><li><strong>Cursor Composer：</strong>AI 改多文件 + 完整 diff review，2024 年估值 26 亿。</li><li><strong>Github Copilot Workspace：</strong>从 Issue 到 PR 全程 AI 透明记录。</li><li><strong>黑匣子应用：</strong>AI 决策日志成新基础设施——出错时可定位是哪步推理出问题。</li></ul><div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d23-ai-ai-version-control"><div class="card-deep-inner-wrap"></div></div>
 </div>
 
 <div class="quote">"用户不读说明——他们扫视、点击、犯错。设计要为这种行为而做。"<cite>—— Steve Krug</cite></div><div class="tip"><b>验证 vs 完美：</b>大多数人花 80% 时间打磨产品、20% 时间找用户——成功者反过来。<strong>本周可执行任务</strong>：① 写一篇深度文章描述你要解决的问题 ② 发到 3 个相关社区 ③ 看是否有人评论"我也有这个问题，求联系" ④ 联系评论者深聊。零代码就能验证 PMF。</div>
@@ -1961,6 +2011,12 @@ footer p{margin-bottom:6px}
 
 <div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d22-design-focus-management"><div class="card-deep-inner-wrap"></div></div>
 </div>
+<div class="card" data-fav-id="d22-design-attention-funnel" data-fav-title="注意力漏斗设计">
+<div class="card-head"><h3><i data-lucide="filter" class="ic-inline"></i><span>注意力漏斗设计</span></h3><span class="tag tag-d">设计启发</span></div>
+<p>注意力是 21 世纪稀缺资源。Apple Vision Pro 设计师说：'设计不是吸引注意，是尊重注意'。3 屏 Onboarding 不超过 30 秒——超过 50% 用户流失。</p><ul><li><strong>核心原理：</strong>注意力金字塔：① 1 秒决定看不看（标题/缩略图）② 5 秒决定继续不继续（前 3 句/前 1 屏）③ 30 秒决定信不信任（首次完整体验）。每层都失败=用户流失。</li><li><strong>反过度使用：</strong>iOS Screen Time / Android Digital Wellbeing 显示用户每天用了多久——设计要敢于说'你今天用得够了'。短期 DAU 减少，长期信任增加。</li><li><strong>评估清单：</strong>① 你的产品在'抢'注意力还是'尊重'注意力？② 用户离开后会感激还是后悔？③ 长期使用对用户有益吗？</li></ul>
+<div class="tip"><b>检查：</b>列出你产品 3 个'强制注意力'设计——它们对用户长期有益吗？</div>
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d22-design-attention-funnel"><div class="card-deep-inner-wrap"></div></div>
+</div>
 
 <div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI / 设计资讯</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div><div class="quote">"做一件让你自己骄傲的事——比做 100 件让别人满意的事重要。"<cite>—— Paul Graham</cite></div><div class="tip"><b>设计落地清单：</b><strong>① 找 5 处可改造点</strong>——打开你的产品，找出 5 处违反此原则的具体界面/交互。  <strong>② 排优先级</strong>——按"用户路径上的高频接触点"排序，第一个改最高频的。  <strong>③ A/B 验证</strong>——改完做 A/B 对比：核心指标（点击率/留存/转化）是否提升？没提升要么原则用错了，要么场景不适合。</div>
 </div>
@@ -1975,6 +2031,10 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>探索：</b>评估这个方向：你现有技能/资源能在多长时间内做出 MVP？</div>
 
 <div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d22-ai-gaze-tracking-design"><div class="card-deep-inner-wrap"></div></div>
+</div>
+<div class="card" data-fav-id="d22-ai-ai-attention-detection" data-fav-title="AI 注意力检测">
+<div class="card-head"><h3><i data-lucide="eye" class="ic-inline"></i><span>AI 注意力检测</span></h3><span class="tag tag-m">AI前沿</span></div>
+<p>Apple Vision Pro / Meta Quest / Tobii 用 ML 识别用户注视点。注视点渲染（Foveated Rendering）省 GPU 50%——一个技术让 VR 头显成本砍半。</p><ul><li><strong>Apple Vision Pro：</strong>眼动追踪精度 0.5°——看哪选哪比鼠标快 30%。</li><li><strong>Tobii：</strong>眼动追踪先驱，2024 年市值 4 亿欧元。</li><li><strong>稀缺性应用：</strong>AI 检测用户疲劳 → 主动建议'休息一下'——把注意力当稀缺资源来管理。</li></ul><div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d22-ai-ai-attention-detection"><div class="card-deep-inner-wrap"></div></div>
 </div>
 
 <div class="quote">"如果你不创造杠杆——代码、内容、媒体——你就在用线性方式交换时间。"<cite>—— Naval Ravikant</cite></div><div class="tip"><b>验证 vs 完美：</b>大多数人花 80% 时间打磨产品、20% 时间找用户——成功者反过来。<strong>本周可执行任务</strong>：① 写一篇深度文章描述你要解决的问题 ② 发到 3 个相关社区 ③ 看是否有人评论"我也有这个问题，求联系" ④ 联系评论者深聊。零代码就能验证 PMF。</div>
@@ -2018,6 +2078,12 @@ footer p{margin-bottom:6px}
 
 <div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d21-design-market-display-desig"><div class="card-deep-inner-wrap"></div></div>
 </div>
+<div class="card" data-fav-id="d21-design-reflexivity-ui" data-fav-title="反身性 UI 设计">
+<div class="card-head"><h3><i data-lucide="sparkles" class="ic-inline"></i><span>反身性 UI 设计</span></h3><span class="tag tag-d">设计启发</span></div>
+<p>索罗斯反身性：观察者改变被观察对象。UI 显示数据本身会改变用户行为。Twitter 显示'1k 转发'比'1 转发'获得更多新转发——反身循环。</p><ul><li><strong>核心原理：</strong>'股票上涨 → 更多人买 → 更涨'是反身。UI 显示用户增长数 → 用户产生 FOMO → 更多注册。Producthunt 实时榜单是经典——排名本身就是流量。</li><li><strong>市场叙事：</strong>UI 不只展示数据，是构造叙事。Spotify Wrapped 把数据变成故事——你听了 X 小时（叙事）vs 你听了 X 首歌（数据）。叙事更易传播。</li><li><strong>评估清单：</strong>① 你的 UI 显示的指标会被用户行为改变吗？② 这种改变是良性循环还是恶性循环？③ 叙事和数据哪个驱动产品？</li></ul>
+<div class="tip"><b>检查：</b>实时数据展示——它的存在是不是在改变它的本身？</div>
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d21-design-reflexivity-ui"><div class="card-deep-inner-wrap"></div></div>
+</div>
 
 <div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI / 设计资讯</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div><div class="quote">"每个 bug 都在告诉你一个关于系统的真相——只是你不想听。"<cite>—— Joel Spolsky</cite></div><div class="tip"><b>设计落地清单：</b><strong>① 找 5 处可改造点</strong>——打开你的产品，找出 5 处违反此原则的具体界面/交互。  <strong>② 排优先级</strong>——按"用户路径上的高频接触点"排序，第一个改最高频的。  <strong>③ A/B 验证</strong>——改完做 A/B 对比：核心指标（点击率/留存/转化）是否提升？没提升要么原则用错了，要么场景不适合。</div>
 </div>
@@ -2032,6 +2098,10 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>启动：</b>本周内做一个最小动作：发一篇文章/做一个落地页/找一个潜在客户访谈。</div>
 
 <div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d21-ai-ai-real-time-analysi"><div class="card-deep-inner-wrap"></div></div>
+</div>
+<div class="card" data-fav-id="d21-ai-ai-realtime-analytics" data-fav-title="AI 实时金融分析">
+<div class="card-head"><h3><i data-lucide="line-chart" class="ic-inline"></i><span>AI 实时金融分析</span></h3><span class="tag tag-m">AI前沿</span></div>
+<p>Bloomberg GPT / FinChat / Morningstar AI 都做实时金融分析。BloombergGPT 训练数据 7000 亿 token——专业金融术语理解超越通用模型。</p><ul><li><strong>BloombergGPT：</strong>500 亿参数，金融术语理解准确率 +85%。</li><li><strong>FinChat：</strong>2024 年 ARR 1500 万——投资人版 ChatGPT。</li><li><strong>反身性应用：</strong>AI 实时舆情分析 → 影响投资决策 → 影响价格 → 影响舆情——AI 加速反身循环。</li></ul><div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d21-ai-ai-realtime-analytics"><div class="card-deep-inner-wrap"></div></div>
 </div>
 
 <div class="quote">"伟大的产品来自小步快跑+真实反馈——而不是 PRD 写得多完美。"<cite>—— Eric Ries, Lean Startup</cite></div><div class="tip"><b>验证 vs 完美：</b>大多数人花 80% 时间打磨产品、20% 时间找用户——成功者反过来。<strong>本周可执行任务</strong>：① 写一篇深度文章描述你要解决的问题 ② 发到 3 个相关社区 ③ 看是否有人评论"我也有这个问题，求联系" ④ 联系评论者深聊。零代码就能验证 PMF。</div>
@@ -2075,6 +2145,12 @@ footer p{margin-bottom:6px}
 
 <div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d20-design-design-system-govern"><div class="card-deep-inner-wrap"></div></div>
 </div>
+<div class="card" data-fav-id="d20-design-modular-system" data-fav-title="模块化设计系统">
+<div class="card-head"><h3><i data-lucide="blocks" class="ic-inline"></i><span>模块化设计系统</span></h3><span class="tag tag-d">设计启发</span></div>
+<p>李嘉图比较优势应用到设计：每个团队做自己最擅长的，用模块化协作。Material Design / Apple HIG / Shopify Polaris 都是模块化——降低团队间交易成本。</p><ul><li><strong>核心原理：</strong>没有设计系统时，每个页面都要从 0 设计——交易成本爆炸。有设计系统时，组件直接复用——边际成本接近 0。Airbnb DLS 让 50 个产品体验一致。</li><li><strong>专业化分工：</strong>Token 设计师负责颜色/字体/间距；组件设计师负责按钮/输入框；体验设计师负责流程。每层独立演进——合在一起就是好产品。</li><li><strong>评估清单：</strong>① 你的团队在重复造轮子吗？② 设计 Token 是单一来源吗？③ 组件之间的接口标准化了吗？</li></ul>
+<div class="tip"><b>检查：</b>统计上周团队的设计稿——多少是真正新创造的，多少能复用现有组件？</div>
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d20-design-modular-system"><div class="card-deep-inner-wrap"></div></div>
+</div>
 
 <div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI / 设计资讯</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div><div class="quote">"删掉它。如果之后没人投诉——你做对了。这就是设计。"<cite>—— Joshua Porter</cite></div><div class="tip"><b>从 UI 到产品策略：</b>这条原则不只适用于像素层面——它也适用于<strong>产品定位、付费设计、社交机制</strong>。试着把它从"按钮怎么放"提升到"用户为什么留下"的层面思考。Notion/Figma 的成功都是把单一原则贯穿了从 UI 到生态的所有层级。</div>
 </div>
@@ -2089,6 +2165,10 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>探索：</b>评估这个方向：你现有技能/资源能在多长时间内做出 MVP？</div>
 
 <div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d20-ai-ai-token-management"><div class="card-deep-inner-wrap"></div></div>
+</div>
+<div class="card" data-fav-id="d20-ai-ai-design-system-aut" data-fav-title="AI 设计系统自动化">
+<div class="card-head"><h3><i data-lucide="bot" class="ic-inline"></i><span>AI 设计系统自动化</span></h3><span class="tag tag-m">AI前沿</span></div>
+<p>Token Studio + Code Connect + Storybook 三件套被 AI 串起来——Linear 2024 年公开'AI 维护设计系统'实践。Tokens Studio 估值 2 亿，Figma 收购传闻不断。</p><ul><li><strong>Token Studio：</strong>Figma Token 编辑器，2024 年付费用户 8 万。</li><li><strong>Figma Code Connect：</strong>Token → 代码自动同步，VS Code 插件 50 万下载。</li><li><strong>分工应用：</strong>AI 维护底层 Token，设计师专注高层创意——专业化分工到极致。</li></ul><div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d20-ai-ai-design-system-aut"><div class="card-deep-inner-wrap"></div></div>
 </div>
 
 <div class="quote">"决策的质量不看结果——看过程。"<cite>—— Annie Duke, Thinking in Bets</cite></div><div class="tip"><b>验证 vs 完美：</b>大多数人花 80% 时间打磨产品、20% 时间找用户——成功者反过来。<strong>本周可执行任务</strong>：① 写一篇深度文章描述你要解决的问题 ② 发到 3 个相关社区 ③ 看是否有人评论"我也有这个问题，求联系" ④ 联系评论者深聊。零代码就能验证 PMF。</div>
@@ -2129,6 +2209,12 @@ footer p{margin-bottom:6px}
 
 <div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d19-design-first-time-user-expe"><div class="card-deep-inner-wrap"></div></div>
 </div>
+<div class="card" data-fav-id="d19-design-commitment-design" data-fav-title="承诺设计模式">
+<div class="card-head"><h3><i data-lucide="check-circle" class="ic-inline"></i><span>承诺设计模式</span></h3><span class="tag tag-d">设计启发</span></div>
+<p>Cialdini 承诺一致性：用户做了小承诺后，会自动一致化。Duolingo 让你设'每天学 5 分钟'目标——之后每天会因'保持一致'而打卡。LinkedIn 邀请你完善 30% 资料——你忍不住做完。</p><ul><li><strong>核心原理：</strong>小承诺 → 大行为。Onboarding 让用户做 5 个小决定（选目标/兴趣/时间）——之后留存 +40%。每个选择都是一份心理契约。</li><li><strong>认知失调利用：</strong>付费用户对产品的负面评价更少（不愿承认花错钱）。但要让付费物有所值——否则失调爆发会变成强烈差评。</li><li><strong>评估清单：</strong>① 用户在新人引导做了几个'小承诺'？② 这些承诺与核心使用一致吗？③ 没有强迫感的承诺最有效。</li></ul>
+<div class="tip"><b>检查：</b>你的注册流让用户'答应'了什么？这些答应在使用中被践行吗？</div>
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d19-design-commitment-design"><div class="card-deep-inner-wrap"></div></div>
+</div>
 
 <div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI / 设计资讯</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div><div class="quote">"完美不是无可增加之物，而是无可删除之物。"<cite>—— Antoine de Saint-Exupéry</cite></div><div class="tip"><b>从 UI 到产品策略：</b>这条原则不只适用于像素层面——它也适用于<strong>产品定位、付费设计、社交机制</strong>。试着把它从"按钮怎么放"提升到"用户为什么留下"的层面思考。Notion/Figma 的成功都是把单一原则贯穿了从 UI 到生态的所有层级。</div>
 </div>
@@ -2140,6 +2226,10 @@ footer p{margin-bottom:6px}
 <div class="card" data-fav-id="d19-ai-smart-tutorial-syste" data-fav-title="📚 智能教程系统">
 <div class="card-head"><h3>📚 智能教程系统</h3><span class="tag tag-m">AI前沿</span></div>
 <p>智能教程从视频 → 交互式 → AI 自适应。Brilliant 完成率提升 65%、Codecademy 留存率提升 40%。</p><ul><li><strong>Brilliant 自适应数学：</strong>AI 检测理解程度调难度，完成率 +65%</li><li><strong>Codecademy AI 助手：</strong>学员卡住时给针对性提示，留存率提升 40%</li><li><strong>Cursor 学习模式：</strong>新手用 Cursor 学编程，AI 边写边讲解</li></ul><div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d19-ai-smart-tutorial-syste"><div class="card-deep-inner-wrap"></div></div>
+</div>
+<div class="card" data-fav-id="d19-ai-ai-onboarding-design" data-fav-title="AI 智能 Onboarding">
+<div class="card-head"><h3><i data-lucide="user-plus" class="ic-inline"></i><span>AI 智能 Onboarding</span></h3><span class="tag tag-m">AI前沿</span></div>
+<p>ChatGPT、Notion AI、Linear 用 AI 做个性化 Onboarding。Notion AI 第一次打开问'你是工程师还是设计师？'——根据回答给定制模板。Stripe Atlas 用 AI 帮注册公司。</p><ul><li><strong>Notion AI Onboarding：</strong>个性化模板生成，新用户激活率 +60%。</li><li><strong>Stripe Atlas：</strong>AI 引导新创业者完成公司注册全流程，2024 年覆盖 5000+ 创业者。</li><li><strong>承诺一致性应用：</strong>让用户在 Onboarding 设具体目标 → 7 日留存 +35%（Duolingo 数据）。</li></ul><div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d19-ai-ai-onboarding-design"><div class="card-deep-inner-wrap"></div></div>
 </div>
 
 <div class="quote">"好的设计是显而易见的——伟大的设计是隐形的。"<cite>—— Joe Sparano</cite></div><div class="tip"><b>启动 30 天计划：</b><strong>Week 1</strong>：找 5 位潜在用户访谈——他们是不是真的在为这个问题付钱（时间或金钱）？没有付费意愿的"问题"是伪需求。  <strong>Week 2</strong>：做最小可行原型——能解决 80% 核心场景的丑陋版本就够。  <strong>Week 3</strong>：让 3 位用户付费试用（哪怕 1 元）——付费才是真验证。  <strong>Week 4</strong>：根据反馈决定 PMF/调整/放弃。</div>
@@ -2177,6 +2267,12 @@ footer p{margin-bottom:6px}
 <div class="card-head"><h3><i data-lucide="monitor" class="ic-inline"></i><span>多端适配设计</span></h3><span class="tag tag-d">设计启发</span></div>
 <ul><li><strong>核心原理：</strong>多端适配不是把 Web 缩小放手机——是为每端的特定使用情境重新思考。Apple HIG 给出明确指南。</li><li><strong>经典案例：</strong>Apple visionOS 2024：UI 元素仅为 iOS 的 30%，因为 AR 中视觉密度需要降低。Material Design 3 跨 Android/Web/Wear 通过 Token 保持一致。</li><li><strong>实操方法：</strong>应用：① 移动单手操作（拇指可达）② 桌面悬停状态③ AR/VR 视觉降密度④ 触屏 vs 键鼠不同的可点击区域。</li></ul><div class="tip"><b>实践：</b>选你产品 1 个跨端体验——画 3 端的核心交互流，找出真正的差异。</div><div class="quote">"多端不是缩放——是为情境重新思考。"<cite>—— Apple Human Interface Guidelines</cite></div><div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d18-design-cross-platform-adapt"><div class="card-deep-inner-wrap"></div></div>
 </div>
+<div class="card" data-fav-id="d18-design-power-law-content" data-fav-title="幂律内容设计">
+<div class="card-head"><h3><i data-lucide="bar-chart-3" class="ic-inline"></i><span>幂律内容设计</span></h3><span class="tag tag-d">设计启发</span></div>
+<p>幂律分布：YouTube 1% 视频拿走 50% 观看。设计要承认幂律——优先服务头部，不要为长尾过度设计。TikTok 算法把 80% 流量推给 1% 创作者——比'公平'更高效。</p><ul><li><strong>核心原理：</strong>正态思维（'平均用户'）会害死产品。Spotify Wrapped 给所有人定制——但只有 5% 真正分享。设计 95% 的功能服务 5% 重度用户也合理。</li><li><strong>异速增长：</strong>规模翻倍时，复杂度涨 3 倍。Discord 从 100 万到 1 亿用户，服务器架构重写 4 次——UI 也是。早期'简洁'到后期'复杂'是必然。</li><li><strong>评估清单：</strong>① 你产品 80/20 数据是什么？② 头部用户的需求被优先满足了吗？③ 规模 10 倍后还能用吗？</li></ul>
+<div class="tip"><b>检查：</b>看你产品的功能使用率排行——排前 5 的占多少？后 50% 能砍吗？</div>
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d18-design-power-law-content"><div class="card-deep-inner-wrap"></div></div>
+</div>
 
 <div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI / 设计资讯</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div><div class="quote">"伟大的工具是隐形的——它让你忘记工具，专注做事。"<cite>—— Tobias Lütke, Shopify</cite></div>
 </div>
@@ -2188,6 +2284,10 @@ footer p{margin-bottom:6px}
 <div class="card" data-fav-id="d18-ai-unified-vision-langu" data-fav-title="图文视频统一模型">
 <div class="card-head"><h3><i data-lucide="clapperboard" class="ic-inline"></i><span>图文视频统一模型</span></h3><span class="tag tag-m">AI前沿</span></div>
 <p>Vision-Language Models（VLM）2024 年突飞猛进。Llama 3.2 Vision / GPT-4V / Apple Visual Intelligence 让 AI 能理解图像。</p><ul><li><strong>Llama 3.2 Vision 11B：</strong>本地能跑的多模态，开源社区欢呼</li><li><strong>GPT-4V 截图理解：</strong>用户截图问问题，AI 直接看懂回答</li><li><strong>Apple Visual Intelligence：</strong>iPhone 16 摄像头看物体即时识别+回答</li></ul><div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d18-ai-unified-vision-langu"><div class="card-deep-inner-wrap"></div></div>
+</div>
+<div class="card" data-fav-id="d18-ai-ai-multimodal-revolution" data-fav-title="多模态 AI 大爆炸">
+<div class="card-head"><h3><i data-lucide="shapes" class="ic-inline"></i><span>多模态 AI 大爆炸</span></h3><span class="tag tag-m">AI前沿</span></div>
+<p>GPT-4o / Gemini 2.0 / Claude 3.5 都是原生多模态——一个模型处理文/图/音/视。规模效应：训练数据从单模态的 100T tokens 扩到多模态 PB 级——能力涌现质变。</p><ul><li><strong>GPT-4o：</strong>2024 年实时语音/视频/文本统一处理，延迟 320ms。</li><li><strong>Gemini 2.0 Flash：</strong>200 万 token 上下文，可处理 2 小时视频。</li><li><strong>Llama 3.2 Vision：</strong>开源多模态——给所有创业者平等武器。</li></ul><div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d18-ai-ai-multimodal-revolution"><div class="card-deep-inner-wrap"></div></div>
 </div>
 
 <div class="quote">"你不需要成为某领域的全球第一——只需要成为你客户能接触到的最好选择。"<cite>—— Seth Godin</cite></div><div class="tip"><b>差异化护城河：</b>这个方向的关键不是"做得快"——是<strong>建立别人复制不了的优势</strong>。三种护城河：① <strong>领域知识</strong>（你比通才理解深 10 倍）② <strong>独家数据</strong>（你能拿到别人拿不到的）③ <strong>分发渠道</strong>（你已经有 1000 个目标客户的注意力）。没有这三者之一就不要进入。</div>
@@ -2225,6 +2325,12 @@ footer p{margin-bottom:6px}
 <div class="card-head"><h3><i data-lucide="palette" class="ic-inline"></i><span>个性化界面</span></h3><span class="tag tag-d">设计启发</span></div>
 <p>界面个性化三个层次</p><ul><li><strong>核心原理：</strong>个性化界面 2024 年走向主流。Spotify Wrapped / Apple Watch Faces / TikTok For You 都让每个用户看到的产品不同。</li><li><strong>经典案例：</strong>Spotify Wrapped 2023：每用户看到独有的年度数据卡。年带来 5000 万新用户，分享率 27%——个性化即营销。</li><li><strong>实操方法：</strong>应用：① 用户行为驱动 UI（高频功能上浮）② 时间/地点/场景动态调整③ AI 推断意图（少问多猜）。</li></ul><div class="tip"><b>实践：</b>看你做的产品 1 个功能：能否根据用户历史动态展现？哪怕只是排序变化。</div><div class="quote">"通用界面服务所有人但讨好不了任何人——个性化的本质是尊重差异。"<cite>—— Spotify Wrapped Engineering 2023</cite></div><div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d17-design-personalized-interfa"><div class="card-deep-inner-wrap"></div></div>
 </div>
+<div class="card" data-fav-id="d17-design-progressive-reveal" data-fav-title="渐进披露设计">
+<div class="card-head"><h3><i data-lucide="eye" class="ic-inline"></i><span>渐进披露设计</span></h3><span class="tag tag-d">设计启发</span></div>
+<p>贝叶斯推理：用户的判断随信息累积而更新。设计不是一次性给所有信息——是逐步揭示。Apple Vision Pro 入门动画 2 分钟——每秒都在更新用户对'空间计算'的先验。</p><ul><li><strong>核心原理：</strong>新用户的先验是空白——猛灌信息会过载。Stripe Dashboard 默认显示 3 个核心数据，下钻看 30 个细节。Notion 模板从空白开始——逐步引导加结构。</li><li><strong>证据更新：</strong>每次交互都是用户更新对产品判断的机会。早期失败=巨大负面证据；早期成功=强力正面证据。Onboarding 的前 3 分钟决定 70% 用户去留。</li><li><strong>评估清单：</strong>① 新用户第一屏看到什么？信息量是 5 还是 50？② 关键功能是否被早期成功体验包裹？③ 失败时的负面证据有没有被设计减弱？</li></ul>
+<div class="tip"><b>检查：</b>你产品的'第一次成功体验'设计了吗？多久能达到？</div>
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d17-design-progressive-reveal"><div class="card-deep-inner-wrap"></div></div>
+</div>
 
 <div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI / 设计资讯</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div>
 </div>
@@ -2238,6 +2344,10 @@ footer p{margin-bottom:6px}
 <div class="card" data-fav-id="d17-ai-perplexity-style-pro" data-fav-title="Perplexity类产品设计">
 <div class="card-head"><h3><i data-lucide="lightbulb" class="ic-inline"></i><span>Perplexity类产品设计</span></h3><span class="tag tag-m">AI前沿</span></div>
 <p>Perplexity 风格产品成为 UX 新范式：答案直给+引用透明+追问无缝。Perplexity 估值 30 亿美元，月活 1500 万。</p><ul><li><strong>Perplexity 答案+引用：</strong>直接给答案+点击源文献，避免幻觉</li><li><strong>Notion AI Q&A：</strong>跨文档问答，给出来源页面链接</li><li><strong>Cursor 代码引用：</strong>AI 改代码时引用具体文件行号</li></ul><div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d17-ai-perplexity-style-pro"><div class="card-deep-inner-wrap"></div></div>
+</div>
+<div class="card" data-fav-id="d17-ai-perplexity-search-revolu" data-fav-title="Perplexity 与 AI 搜索革命">
+<div class="card-head"><h3><i data-lucide="search" class="ic-inline"></i><span>Perplexity 与 AI 搜索革命</span></h3><span class="tag tag-m">AI前沿</span></div>
+<p>Perplexity 2024 年估值 90 亿——重塑 Google 20 年统治。引用透明 + 实时网页 + 后续追问——贝叶斯推理般持续更新答案。OpenAI SearchGPT、Google AI Overview 跟进。</p><ul><li><strong>Perplexity Pro：</strong>2024 年 ARR 破 5000 万，月活用户 1500 万。</li><li><strong>You.com：</strong>多模态搜索（文本+图+代码）——2024 年估值 9 亿。</li><li><strong>贝叶斯应用：</strong>AI 搜索每次追问都基于上一轮答案——证据累积让回答越来越精准。</li></ul><div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d17-ai-perplexity-search-revolu"><div class="card-deep-inner-wrap"></div></div>
 </div>
 
 <div class="quote">"每一个伟大的产品都先在内部被否决了 100 次。"<cite>—— Brian Chesky, Airbnb</cite></div><div class="tip"><b>启动 30 天计划：</b><strong>Week 1</strong>：找 5 位潜在用户访谈——他们是不是真的在为这个问题付钱（时间或金钱）？没有付费意愿的"问题"是伪需求。  <strong>Week 2</strong>：做最小可行原型——能解决 80% 核心场景的丑陋版本就够。  <strong>Week 3</strong>：让 3 位用户付费试用（哪怕 1 元）——付费才是真验证。  <strong>Week 4</strong>：根据反馈决定 PMF/调整/放弃。</div>
@@ -2278,6 +2388,12 @@ footer p{margin-bottom:6px}
 
 <div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d16-design-social-share-trigger"><div class="card-deep-inner-wrap"></div></div>
 </div>
+<div class="card" data-fav-id="d16-design-tipping-point-ui" data-fav-title="临界点 UI 设计">
+<div class="card-head"><h3><i data-lucide="trending-up" class="ic-inline"></i><span>临界点 UI 设计</span></h3><span class="tag tag-d">设计启发</span></div>
+<p>Gladwell 临界点：产品采纳到 16% 就会自动扩散。Slack 早期专注让团队达到 2000 条消息——那是临界点。Notion 让你不知不觉建了 50 个页面——再也走不掉。</p><ul><li><strong>核心原理：</strong>找到产品的'啊哈时刻'阈值。Facebook 早期：7 天加 10 个朋友 = 临界点。Twitter：关注 30 人 = 临界点。Dropbox：上传 1 个文件 = 临界点。</li><li><strong>相变设计：</strong>设计要把用户'推'过临界点。Onboarding 不是教学，是引导用户做关键动作。Headspace 第一周强迫每天打卡——形成习惯相变。</li><li><strong>评估清单：</strong>① 你产品的临界点是什么？（具体动作+次数）② 多少新用户达到临界点？③ 没达到的用户卡在哪？</li></ul>
+<div class="tip"><b>检查：</b>用数据找出'继续用'vs'流失'的分水岭——那就是你的临界点。</div>
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d16-design-tipping-point-ui"><div class="card-deep-inner-wrap"></div></div>
+</div>
 
 <div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI / 设计资讯</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div><div class="quote">"如果用户需要说明书，你的设计就失败了——好的设计是不解自明的。"<cite>—— Don Norman</cite></div><div class="tip"><b>从 UI 到产品策略：</b>这条原则不只适用于像素层面——它也适用于<strong>产品定位、付费设计、社交机制</strong>。试着把它从"按钮怎么放"提升到"用户为什么留下"的层面思考。Notion/Figma 的成功都是把单一原则贯穿了从 UI 到生态的所有层级。</div>
 </div>
@@ -2292,6 +2408,10 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>探索：</b>评估这个方向：你现有技能/资源能在多长时间内做出 MVP？</div>
 
 <div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d16-ai-recommendation-trans"><div class="card-deep-inner-wrap"></div></div>
+</div>
+<div class="card" data-fav-id="d16-ai-ai-content-distributi" data-fav-title="AI 内容分发革命">
+<div class="card-head"><h3><i data-lucide="share-2" class="ic-inline"></i><span>AI 内容分发革命</span></h3><span class="tag tag-m">AI前沿</span></div>
+<p>ByteDance 2024 推 Tako Hub——AI 一键多平台分发（YouTube/X/TikTok/小红书）。OpenAI Sora 网页版上线后日均 100 万视频生成——内容供给爆炸式增长。</p><ul><li><strong>OpusClip：</strong>AI 把长视频自动剪成短视频，2024 年 600 万用户。</li><li><strong>HeyGen：</strong>AI 一键多语言配音/口型同步——估值 5 亿。</li><li><strong>网络传播应用：</strong>AI 让内容'多平台同时上线'成为标配——临界传播速度从天降到分钟。</li></ul><div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d16-ai-ai-content-distributi"><div class="card-deep-inner-wrap"></div></div>
 </div>
 
 <div class="quote">"如果你不能把它变成一个故事——它就不重要。"<cite>—— Nassim Taleb</cite></div><div class="tip"><b>差异化护城河：</b>这个方向的关键不是"做得快"——是<strong>建立别人复制不了的优势</strong>。三种护城河：① <strong>领域知识</strong>（你比通才理解深 10 倍）② <strong>独家数据</strong>（你能拿到别人拿不到的）③ <strong>分发渠道</strong>（你已经有 1000 个目标客户的注意力）。没有这三者之一就不要进入。</div>
@@ -2332,6 +2452,12 @@ footer p{margin-bottom:6px}
 
 <div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d15-design-rating-system-ui"><div class="card-deep-inner-wrap"></div></div>
 </div>
+<div class="card" data-fav-id="d15-design-credibility-design" data-fav-title="可信度信号设计">
+<div class="card-head"><h3><i data-lucide="shield-check" class="ic-inline"></i><span>可信度信号设计</span></h3><span class="tag tag-d">设计启发</span></div>
+<p>Spence 信号理论应用：在信息不对称的市场，用'昂贵且难伪造的信号'传递质量。Github 用 Verified 标签、App Store 用 Editor's Choice、Apple 用 Made for iPhone 认证。</p><ul><li><strong>核心原理：</strong>信号要昂贵到劣质方做不起。Github Sponsors 蓝勾不能买；App Store 编辑推荐不接广告；Apple MFi 认证年费 $99 + 严格测试——这些都是难伪造信号。</li><li><strong>信号金字塔：</strong>① 表面信号（图标/颜色）易伪造② 行为信号（用户评价/历史数据）难伪造③ 第三方信号（独立审计/认证）最难伪造。设计时混合用三层。</li><li><strong>评估清单：</strong>① 你产品的信任信号哪些可以买/伪造？② 关键场景（支付/医疗）用最难伪造的信号了吗？③ 信号失效（蓝勾收费）会不会摧毁信任？</li></ul>
+<div class="tip"><b>检查：</b>列出 5 个产品给用户看的信任信号——它们足够昂贵吗？</div>
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d15-design-credibility-design"><div class="card-deep-inner-wrap"></div></div>
+</div>
 
 <div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI / 设计资讯</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div><div class="quote">"编程不是把代码写出来——是把问题想明白。"<cite>—— Linus Torvalds</cite></div><div class="tip"><b>从 UI 到产品策略：</b>这条原则不只适用于像素层面——它也适用于<strong>产品定位、付费设计、社交机制</strong>。试着把它从"按钮怎么放"提升到"用户为什么留下"的层面思考。Notion/Figma 的成功都是把单一原则贯穿了从 UI 到生态的所有层级。</div>
 </div>
@@ -2345,6 +2471,10 @@ footer p{margin-bottom:6px}
 <div class="card" data-fav-id="d15-ai-xai-design-patterns" data-fav-title="XAI设计模式">
 <div class="card-head"><h3><i data-lucide="clipboard-list" class="ic-inline"></i><span>XAI设计模式</span></h3><span class="tag tag-m">AI前沿</span></div>
 <p>XAI（可解释 AI）设计模式：高亮+对比+反事实+置信度。2024 年成为 AI 产品标配，DARPA XAI 项目研究 4 年成果。</p><ul><li><strong>Apple Photos 人脸标注：</strong>为什么这是张三：高亮匹配的特征点</li><li><strong>ChatGPT 推理过程：</strong>Show thinking 按钮展开 AI 思考</li><li><strong>Tesla AutoPilot 可视化：</strong>屏幕显示车辆识别的物体+决策</li></ul><div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d15-ai-xai-design-patterns"><div class="card-deep-inner-wrap"></div></div>
+</div>
+<div class="card" data-fav-id="d15-ai-ai-content-watermark" data-fav-title="AI 内容水印与溯源">
+<div class="card-head"><h3><i data-lucide="fingerprint" class="ic-inline"></i><span>AI 内容水印与溯源</span></h3><span class="tag tag-m">AI前沿</span></div>
+<p>Adobe Content Credentials / Google SynthID / Meta AI 水印——2024 年欧盟 AI Act 要求 AI 内容必须标记。'信号理论'AI 时代复活：真人内容反而成稀缺信号。</p><ul><li><strong>Adobe Content Credentials：</strong>C2PA 联盟标准，BBC/Microsoft/Adobe 共建。</li><li><strong>Google SynthID：</strong>给 Gemini 生成图加不可见水印——2024 年扩展到文本。</li><li><strong>柠檬市场反向应用：</strong>真人创作者用'手写痕迹'（修改历史/草稿）作为反信号——证明非 AI 生成。</li></ul><div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d15-ai-ai-content-watermark"><div class="card-deep-inner-wrap"></div></div>
 </div>
 
 <div class="quote">"如果你想知道一个人的真正动机——看他押了什么。"<cite>—— Nassim Taleb</cite></div><div class="tip"><b>启动 30 天计划：</b><strong>Week 1</strong>：找 5 位潜在用户访谈——他们是不是真的在为这个问题付钱（时间或金钱）？没有付费意愿的"问题"是伪需求。  <strong>Week 2</strong>：做最小可行原型——能解决 80% 核心场景的丑陋版本就够。  <strong>Week 3</strong>：让 3 位用户付费试用（哪怕 1 元）——付费才是真验证。  <strong>Week 4</strong>：根据反馈决定 PMF/调整/放弃。</div>
@@ -2382,6 +2512,12 @@ footer p{margin-bottom:6px}
 <div class="card-head"><h3><i data-lucide="trophy" class="ic-inline"></i><span>赛季系统UI</span></h3><span class="tag tag-d">设计启发</span></div>
 <p>赛季设计UI要素</p><ul><li><strong>核心原理：</strong>赛季系统 = 定期重置 + 限时奖励 + 进度系统。游戏 30 年验证的留存利器，正在被非游戏产品借鉴。</li><li><strong>经典案例：</strong>王者荣耀赛季：每 3 个月重置段位 + 新英雄，每赛季回流用户 30%。Apex Legends 战令 97% 玩家购买，单赛季营收数亿。</li><li><strong>实操方法：</strong>设计原则：① 明确开始/结束（90 天合适）② 限时奖励（赛季独有）③ 进度系统（每天/每周任务）④ 总结回顾（赛季末仪式感）。</li></ul><div class="tip"><b>实践：</b>看你产品能否引入赛季机制——软重置（保留累积，给新挑战）+ 时间锚点（用户会回流）。</div><div class="quote">"赛季不是榨取用户，是给用户'重新开始'的机会——这恰恰是游戏 30 年的核心吸引力。"<cite>—— GDC 多个游戏设计师演讲合集</cite></div><div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d14-design-season-system-ui"><div class="card-deep-inner-wrap"></div></div>
 </div>
+<div class="card" data-fav-id="d14-design-adaptive-difficulty" data-fav-title="自适应难度设计">
+<div class="card-head"><h3><i data-lucide="trending-up" class="ic-inline"></i><span>自适应难度设计</span></h3><span class="tag tag-d">设计启发</span></div>
+<p>红皇后效应：玩家越熟练越觉得无聊——必须不断进化挑战。《Resident Evil 4》动态难度让所有玩家都觉得'刚刚好'。Duolingo SRS 间隔重复——按你掌握度调整难度。</p><ul><li><strong>核心原理：</strong>静态难度 → 新手挫败/老手无聊。动态难度 → 永远在'心流区间'（挑战略高于能力）。Left 4 Dead 的 AI Director 是经典——根据玩家状态实时调僵尸数量。</li><li><strong>进化稳定策略：</strong>难度曲线必须可调——但不能让玩家发现（破坏沉浸感）。任天堂《银河战士》隐藏难度调节——只有死亡 5 次才静默降低敌人血量。</li><li><strong>评估清单：</strong>① 新手第一次成功的时间？（黄金 3 分钟）② 老手 100 小时后还有挑战吗？③ 挑战是不是只来自'数值变大'？</li></ul>
+<div class="tip"><b>检查：</b>找你产品里'一刀切'的难度设置——能不能按用户水平动态调？</div>
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d14-design-adaptive-difficulty"><div class="card-deep-inner-wrap"></div></div>
+</div>
 
 <div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI / 设计资讯</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div>
 </div>
@@ -2393,6 +2529,10 @@ footer p{margin-bottom:6px}
 <div class="card" data-fav-id="d14-ai-ai-anti-cheat" data-fav-title="AI反作弊系统">
 <div class="card-head"><h3><i data-lucide="shield" class="ic-inline"></i><span>AI反作弊系统</span></h3><span class="tag tag-m">AI前沿</span></div>
 <p>AI 反作弊 2024 年成熟。Riot Vanguard 让 Valorant 作弊率从 5% 降到 0.1%、Valve VAC 全平台准确率 99%+。</p><ul><li><strong>Riot Vanguard：</strong>Valorant 作弊率从 5% 降到 0.1%，内核级反作弊</li><li><strong>Valve VAC：</strong>Steam 全平台 ML 识别，准确率 99%+</li><li><strong>网易易盾：</strong>为多游戏提供反作弊，识别 100+ 种作弊模式</li></ul><div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d14-ai-ai-anti-cheat"><div class="card-deep-inner-wrap"></div></div>
+</div>
+<div class="card" data-fav-id="d14-ai-ai-game-master" data-fav-title="AI 游戏主持人（AI GM）">
+<div class="card-head"><h3><i data-lucide="gamepad-2" class="ic-inline"></i><span>AI 游戏主持人（AI GM）</span></h3><span class="tag tag-m">AI前沿</span></div>
+<p>Inworld AI / Convai 让游戏 NPC 像真人。Niantic 2024 年用 AI GM 实时生成 Pokémon Go 任务——每个玩家任务不同。GTA 6 据传用 AI 生成支线对话。</p><ul><li><strong>Inworld AI：</strong>融资 6000 万，Disney/Niantic 都是客户。</li><li><strong>NVIDIA ACE：</strong>RTX 显卡内置的 AI NPC 引擎，2024 GDC 演示惊艳。</li><li><strong>红皇后应用：</strong>AI GM 根据玩家水平动态出题——保持永远的'刚刚好'挑战。</li></ul><div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d14-ai-ai-game-master"><div class="card-deep-inner-wrap"></div></div>
 </div>
 
 <div class="quote">"你拥有什么不重要——重要的是你能做什么。"<cite>—— Peter Thiel</cite></div><div class="tip"><b>启动 30 天计划：</b><strong>Week 1</strong>：找 5 位潜在用户访谈——他们是不是真的在为这个问题付钱（时间或金钱）？没有付费意愿的"问题"是伪需求。  <strong>Week 2</strong>：做最小可行原型——能解决 80% 核心场景的丑陋版本就够。  <strong>Week 3</strong>：让 3 位用户付费试用（哪怕 1 元）——付费才是真验证。  <strong>Week 4</strong>：根据反馈决定 PMF/调整/放弃。</div>
@@ -2433,6 +2573,12 @@ footer p{margin-bottom:6px}
 
 <div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d13-design-currency-display-des"><div class="card-deep-inner-wrap"></div></div>
 </div>
+<div class="card" data-fav-id="d13-design-default-architecture" data-fav-title="默认值架构设计">
+<div class="card-head"><h3><i data-lucide="settings-2" class="ic-inline"></i><span>默认值架构设计</span></h3><span class="tag tag-d">设计启发</span></div>
+<p>Thaler 默认选项研究：默认勾选'器官捐献'让捐献率从 12% 升到 90%。UI 默认值是设计师的最大权力——也是最大责任。</p><ul><li><strong>核心原理：</strong>用户 95% 不会改默认值（Mozilla 数据）。Microsoft Office 默认字体改 Calibri 后，全球 80% 文档都用这字体——一个默认值改写历史。</li><li><strong>框架效应：</strong>'9 元/天'比'年费 3285 元'易接受。'省 30%'比'多得 30%'痛感更强。框架不是欺骗，是认知尊重——用户决策疲劳时给最好的默认。</li><li><strong>评估清单：</strong>① 你的默认值符合 80% 用户的最佳利益吗？② 默认值是否在悄悄影响用户的长期福祉？③ 改变默认值的代价是不是太高？</li></ul>
+<div class="tip"><b>检查：</b>列出注册流程里 5 个默认值——每个都对用户最有利吗？</div>
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d13-design-default-architecture"><div class="card-deep-inner-wrap"></div></div>
+</div>
 
 <div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI / 设计资讯</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div><div class="quote">"细节不是细节——细节就是设计本身。"<cite>—— Charles Eames</cite></div>
 </div>
@@ -2447,6 +2593,10 @@ footer p{margin-bottom:6px}
 <div class="tip"><b>启动：</b>本周内做一个最小动作：发一篇文章/做一个落地页/找一个潜在客户访谈。</div>
 
 <div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d13-ai-ai-dynamic-pricing"><div class="card-deep-inner-wrap"></div></div>
+</div>
+<div class="card" data-fav-id="d13-ai-ai-pricing-optimization" data-fav-title="AI 智能定价">
+<div class="card-head"><h3><i data-lucide="tag" class="ic-inline"></i><span>AI 智能定价</span></h3><span class="tag tag-m">AI前沿</span></div>
+<p>Stripe Adaptive Pricing / Amazon 个性化定价 / Uber 动态定价都用 ML——但 2024 年监管要求'定价透明度'，激发新设计模式：解释为什么这个价。</p><ul><li><strong>Stripe Adaptive Pricing：</strong>自动按地区调整定价，转化率 +47%。</li><li><strong>Anthropic 透明定价：</strong>Claude API 公开 token 计算公式——不藏溢价。</li><li><strong>禀赋效应应用：</strong>SaaS 试用期'已为你保留功能 X、Y、Z'——损失厌恶让续费率 +30%。</li></ul><div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d13-ai-ai-pricing-optimization"><div class="card-deep-inner-wrap"></div></div>
 </div>
 
 <div class="quote">"理解一件事最好的办法是把它讲给一个 5 岁孩子听。"<cite>—— Richard Feynman</cite></div><div class="tip"><b>验证 vs 完美：</b>大多数人花 80% 时间打磨产品、20% 时间找用户——成功者反过来。<strong>本周可执行任务</strong>：① 写一篇深度文章描述你要解决的问题 ② 发到 3 个相关社区 ③ 看是否有人评论"我也有这个问题，求联系" ④ 联系评论者深聊。零代码就能验证 PMF。</div>
@@ -2487,6 +2637,12 @@ footer p{margin-bottom:6px}
 
 <div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d12-design-progress-feedback-de"><div class="card-deep-inner-wrap"></div></div>
 </div>
+<div class="card" data-fav-id="d12-design-leverage-point-ui" data-fav-title="杠杆点 UI 设计">
+<div class="card-head"><h3><i data-lucide="git-fork" class="ic-inline"></i><span>杠杆点 UI 设计</span></h3><span class="tag tag-d">设计启发</span></div>
+<p>系统思维家 Donella Meadows 列出 12 个杠杆点——最高杠杆是改变心智模型，最低是调参数。UI 杠杆点：① 默认值（影响 90%）② 反馈速度 ③ 信息架构。</p><ul><li><strong>核心原理：</strong>找到最小改动产生最大效果的点。iOS 默认开启 iMessage——一个开关让 10 亿用户进入苹果生态。Notion 默认空白页——逼用户思考自己要什么。</li><li><strong>延迟效应：</strong>UI 改动效果有 3 类：① 即时（按钮变色）② 短期（一周用户行为）③ 长期（一年留存）。最危险是长期负效应被短期数据掩盖（无限刷=DAU 涨/留存崩）。</li><li><strong>评估清单：</strong>① 哪个改动会影响 80% 用户？② 改动的长期效应被监控吗？③ 默认值是否在帮用户而非帮 KPI？</li></ul>
+<div class="tip"><b>检查：</b>列你产品的 3 个'高杠杆默认值'——它们对的吗？</div>
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d12-design-leverage-point-ui"><div class="card-deep-inner-wrap"></div></div>
+</div>
 
 <div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI / 设计资讯</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div><div class="quote">"复杂的反义词不是简单——是清晰。"<cite>—— Edward Tufte</cite></div>
 </div>
@@ -2498,6 +2654,10 @@ footer p{margin-bottom:6px}
 <div class="card" data-fav-id="d12-ai-smart-alert-design" data-fav-title="智能报警设计">
 <div class="card-head"><h3><i data-lucide="siren" class="ic-inline"></i><span>智能报警设计</span></h3><span class="tag tag-m">AI前沿</span></div>
 <p>智能告警从规则 → ML → AI 根因分析。PagerDuty / Datadog / Sentry 都在 AI 化，疲劳告警降 80%。</p><ul><li><strong>PagerDuty AIOps：</strong>ML 自动聚合告警，疲劳告警降 80%</li><li><strong>Datadog Watchdog：</strong>AI 自动检测异常，无需人工设阈值</li><li><strong>Sentry AI：</strong>自动分析异常根因，给出修复建议</li></ul><div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d12-ai-smart-alert-design"><div class="card-deep-inner-wrap"></div></div>
+</div>
+<div class="card" data-fav-id="d12-ai-ai-system-monitoring" data-fav-title="AI 系统监控与可观测">
+<div class="card-head"><h3><i data-lucide="activity" class="ic-inline"></i><span>AI 系统监控与可观测</span></h3><span class="tag tag-m">AI前沿</span></div>
+<p>Datadog / Honeycomb 加入 AI 异常检测——从'阈值告警'升级到'模式识别告警'。Sentry 2024 年推出 AI 自动归因——把堆栈定位时间从 30 分钟降到 2 分钟。</p><ul><li><strong>Datadog Watchdog：</strong>AI 自动检测异常模式，2024 年市值破千亿。</li><li><strong>Honeycomb Query Assistant：</strong>自然语言查询日志——'告诉我昨天 3 点的延迟尖刺'。</li><li><strong>系统思维应用：</strong>AI 监控不是看单个指标，是看整个系统的因果链——延迟尖刺 → 数据库慢查询 → 索引缺失。</li></ul><div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d12-ai-ai-system-monitoring"><div class="card-deep-inner-wrap"></div></div>
 </div>
 
 <div class="quote">"做容易事的人很多——做正确事的人很少。"<cite>—— Steve Jobs</cite></div><div class="tip"><b>验证 vs 完美：</b>大多数人花 80% 时间打磨产品、20% 时间找用户——成功者反过来。<strong>本周可执行任务</strong>：① 写一篇深度文章描述你要解决的问题 ② 发到 3 个相关社区 ③ 看是否有人评论"我也有这个问题，求联系" ④ 联系评论者深聊。零代码就能验证 PMF。</div>
@@ -2538,6 +2698,12 @@ footer p{margin-bottom:6px}
 
 <div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d11-design-multiplayer-game-hud"><div class="card-deep-inner-wrap"></div></div>
 </div>
+<div class="card" data-fav-id="d11-design-incentive-mechanism" data-fav-title="激励机制设计">
+<div class="card-head"><h3><i data-lucide="swords" class="ic-inline"></i><span>激励机制设计</span></h3><span class="tag tag-d">设计启发</span></div>
+<p>博弈论告诉我们：用户行为由激励决定。Github 的 Star/Fork/Contribution 全部公开 → 创造正向博弈。Reddit 的 Karma 系统——一个数字让 5 亿用户自我治理。</p><ul><li><strong>核心原理：</strong>设计激励=设计博弈。零和游戏（输赢）vs 正和游戏（共赢）。Wikipedia 的编辑系统是经典正和——你贡献，全人类受益。</li><li><strong>纳什均衡 UI：</strong>当所有人都按规则玩时达到稳定。Stack Overflow 投票系统：高质量答案得票=正和；恶意标记=负和。设计要让正和成为最优策略。</li><li><strong>评估清单：</strong>① 用户做对的事会被奖励吗？② 做错的事会被惩罚吗？③ 长期博弈是正和还是零和？</li></ul>
+<div class="tip"><b>检查：</b>列出你产品的 3 个核心激励——它们鼓励用户合作还是对抗？</div>
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d11-design-incentive-mechanism"><div class="card-deep-inner-wrap"></div></div>
+</div>
 
 <div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI / 设计资讯</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div><div class="quote">"你的工资增长不会让你富有——杠杆才会。"<cite>—— Naval Ravikant</cite></div><div class="tip"><b>从 UI 到产品策略：</b>这条原则不只适用于像素层面——它也适用于<strong>产品定位、付费设计、社交机制</strong>。试着把它从"按钮怎么放"提升到"用户为什么留下"的层面思考。Notion/Figma 的成功都是把单一原则贯穿了从 UI 到生态的所有层级。</div>
 </div>
@@ -2549,6 +2715,10 @@ footer p{margin-bottom:6px}
 <div class="card" data-fav-id="d11-ai-player-matching-algo" data-fav-title="玩家匹配算法">
 <div class="card-head"><h3><i data-lucide="target" class="ic-inline"></i><span>玩家匹配算法</span></h3><span class="tag tag-m">AI前沿</span></div>
 <p>玩家匹配从 Elo 到 ML 多维。Activision SBMM 让新手留存提升 40%、Riot Glicko-2 准确率提升 23%。</p><ul><li><strong>Activision SBMM：</strong>Call of Duty 用 ML 匹配，新手留存提升 40%</li><li><strong>Riot Glicko-2：</strong>Valorant 用 Glicko-2 替代 Elo，准确率提升 23%</li><li><strong>Valve Dota 行为评分：</strong>除技术还看行为，毒玩家被分到一起</li></ul><div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d11-ai-player-matching-algo"><div class="card-deep-inner-wrap"></div></div>
+</div>
+<div class="card" data-fav-id="d11-ai-ai-multi-agent-system" data-fav-title="多 Agent 协作系统">
+<div class="card-head"><h3><i data-lucide="users" class="ic-inline"></i><span>多 Agent 协作系统</span></h3><span class="tag tag-m">AI前沿</span></div>
+<p>AutoGen / CrewAI / LangGraph 让多个 AI Agent 像团队一样合作。微软 AutoGen 2024 年成 GitHub 万星明星项目，OpenAI Swarm 实验框架开源。</p><ul><li><strong>AutoGen：</strong>微软出品，多 Agent 对话框架，2024 年 GitHub 3 万 star。</li><li><strong>CrewAI：</strong>Agent 角色扮演（CEO/工程师/QA）协作——种子轮 3000 万。</li><li><strong>博弈论应用：</strong>Anthropic Constitutional AI 让 AI 自我辩论——模拟囚徒困境训练 AI 学会合作。</li></ul><div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d11-ai-ai-multi-agent-system"><div class="card-deep-inner-wrap"></div></div>
 </div>
 
 <div class="quote">"好的产品让用户不需要思考——他们只需要做。"<cite>—— Don Norman</cite></div><div class="tip"><b>启动 30 天计划：</b><strong>Week 1</strong>：找 5 位潜在用户访谈——他们是不是真的在为这个问题付钱（时间或金钱）？没有付费意愿的"问题"是伪需求。  <strong>Week 2</strong>：做最小可行原型——能解决 80% 核心场景的丑陋版本就够。  <strong>Week 3</strong>：让 3 位用户付费试用（哪怕 1 元）——付费才是真验证。  <strong>Week 4</strong>：根据反馈决定 PMF/调整/放弃。</div>
@@ -2589,6 +2759,12 @@ footer p{margin-bottom:6px}
 
 <div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d10-design-dashboard-design"><div class="card-deep-inner-wrap"></div></div>
 </div>
+<div class="card" data-fav-id="d10-design-failure-museum" data-fav-title="失败博物馆设计">
+<div class="card-head"><h3><i data-lucide="trash-2" class="ic-inline"></i><span>失败博物馆设计</span></h3><span class="tag tag-d">设计启发</span></div>
+<p>幸存者偏差让我们只看到成功案例。Hilton Hotel 公开失败客诉，Pixar 设'失败档案'。设计上，把'失败墓地'做成可学习资源——比'最佳实践'更有价值。</p><ul><li><strong>核心原理：</strong>用户只看成功案例 → 误判成功率。展示失败样本 → 校准期望。Y Combinator 公开 80% 失败创业的复盘，比成功故事更有教育意义。</li><li><strong>UI 应用：</strong>① 项目复盘页（失败原因+教训）② 错误日志可视化③ 反例库（'不要这样做'对比页）。Linear 的 Project Update 默认包含 What didn't work。</li><li><strong>评估清单：</strong>① 你的产品有'失败案例'入口吗？② 用户能看到完整真相还是只看到成功？③ 失败被设计成耻辱还是学习资源？</li></ul>
+<div class="tip"><b>检查：</b>给你的项目加一个'踩过的坑'页面——比'特性列表'更受新用户欢迎。</div>
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d10-design-failure-museum"><div class="card-deep-inner-wrap"></div></div>
+</div>
 
 <div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI / 设计资讯</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div><div class="quote">"少即是多——但少必须是对的少。"<cite>—— Dieter Rams</cite></div><div class="tip"><b>设计落地清单：</b><strong>① 找 5 处可改造点</strong>——打开你的产品，找出 5 处违反此原则的具体界面/交互。  <strong>② 排优先级</strong>——按"用户路径上的高频接触点"排序，第一个改最高频的。  <strong>③ A/B 验证</strong>——改完做 A/B 对比：核心指标（点击率/留存/转化）是否提升？没提升要么原则用错了，要么场景不适合。</div>
 </div>
@@ -2600,6 +2776,10 @@ footer p{margin-bottom:6px}
 <div class="card" data-fav-id="d10-ai-automated-a/b-testin" data-fav-title="A/B测试自动化">
 <div class="card-head"><h3><i data-lucide="flask-conical" class="ic-inline"></i><span>A/B测试自动化</span></h3><span class="tag tag-m">AI前沿</span></div>
 <p>自动 A/B 测试 2024 年成熟。Optimizely / VWO / PostHog 都支持 AI 自动找最优变体，比传统 AB 快 3 倍。</p><ul><li><strong>Optimizely AI：</strong>Multi-armed bandit 自动分配流量</li><li><strong>VWO 自动选 winner：</strong>AI 检测显著性自动停止</li><li><strong>PostHog Bandit：</strong>开源工具，自动优化转化率</li></ul><div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d10-ai-automated-a/b-testin"><div class="card-deep-inner-wrap"></div></div>
+</div>
+<div class="card" data-fav-id="d10-ai-ai-design-experimenta" data-fav-title="AI 设计实验平台">
+<div class="card-head"><h3><i data-lucide="test-tube-2" class="ic-inline"></i><span>AI 设计实验平台</span></h3><span class="tag tag-m">AI前沿</span></div>
+<p>Statsig / Optimizely 把 A/B 测试 AI 化——根据历史数据自动出实验假设。Airbnb 的 ERF（Experiment Reporting Framework）2024 年开源后引爆社区。</p><ul><li><strong>Statsig：</strong>2024 年估值 11 亿美元，OpenAI/Notion 都用它做 A/B 测试。</li><li><strong>Eppo：</strong>因果推断 + AI 自动识别幸存者偏差——已被 Webflow/DraftKings 采用。</li><li><strong>奥卡姆剃刀：</strong>AI 实验工具默认推荐'最简单显著结果'方案——避免过度调优。</li></ul><div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d10-ai-ai-design-experimenta"><div class="card-deep-inner-wrap"></div></div>
 </div>
 
 <div class="quote">"专注不是说更多 yes——是说更多 no。"<cite>—— Steve Jobs</cite></div><div class="tip"><b>差异化护城河：</b>这个方向的关键不是"做得快"——是<strong>建立别人复制不了的优势</strong>。三种护城河：① <strong>领域知识</strong>（你比通才理解深 10 倍）② <strong>独家数据</strong>（你能拿到别人拿不到的）③ <strong>分发渠道</strong>（你已经有 1000 个目标客户的注意力）。没有这三者之一就不要进入。</div>
@@ -2640,6 +2820,12 @@ footer p{margin-bottom:6px}
 
 <div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d9-design-input-feedback-patte"><div class="card-deep-inner-wrap"></div></div>
 </div>
+<div class="card" data-fav-id="d9-design-error-recovery-pattern" data-fav-title="错误恢复 UI 模式">
+<div class="card-head"><h3><i data-lucide="alert-octagon" class="ic-inline"></i><span>错误恢复 UI 模式</span></h3><span class="tag tag-d">设计启发</span></div>
+<p>用户犯错后能否快速恢复，决定他们对产品的信任。Gmail 撤销发送/Notion 版本历史/Figma Cmd+Z 都是反馈循环范例：让错误成为可学习而非可怕的事。</p><ul><li><strong>核心原理：</strong>错误恢复有 3 层：① 防御层（确认弹窗）② 撤销层（Cmd+Z 立刻回退）③ 历史层（30 天版本树）。Gmail 撤销发送 5 秒——单点实现却挽救了 80% 的尴尬邮件。</li><li><strong>反馈循环设计：</strong>每次用户犯错都是数据点——在错误信息里插入'为什么会这样'+'如何避免'。Stripe 的支付错误信息会告诉你具体原因（卡号格式/CVV/余额不足）而不是 Error 503。</li><li><strong>评估清单：</strong>① 关键操作有撤销吗？② 错误信息能让用户自己解决吗？③ 误操作的代价是否被设计成可恢复？给所有破坏性操作加 5 秒撤销。</li></ul>
+<div class="tip"><b>检查：</b>列出产品里 3 个最容易犯错的操作——它们都有撤销机制吗？</div>
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d9-design-error-recovery-pattern"><div class="card-deep-inner-wrap"></div></div>
+</div>
 
 <div class="section-eyebrow"><i data-lucide="rocket"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI / 设计资讯</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Frontier</span></div><div class="quote">"未来已来，只是分布不均。"<cite>—— William Gibson</cite></div>
 </div>
@@ -2651,6 +2837,10 @@ footer p{margin-bottom:6px}
 <div class="card" data-fav-id="d9-ai-design-to-code-ai" data-fav-title="设计稿转代码">
 <div class="card-head"><h3><i data-lucide="palette" class="ic-inline"></i><span>设计稿转代码</span></h3><span class="tag tag-m">AI前沿</span></div>
 <p>设计稿到代码 AI：Figma → React 自动化。Vercel V0 / Locofy / Builder.io 引领，2024 年准确率 80%+。</p><ul><li><strong>Vercel V0 Figma 模式：</strong>Figma 文件 + prompt 生成 React 组件</li><li><strong>Locofy AI：</strong>Figma 一键转 React/Vue/Flutter，准确率 80%</li><li><strong>Builder.io Visual Copilot：</strong>Figma 转代码，企业级方案</li></ul><div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d9-ai-design-to-code-ai"><div class="card-deep-inner-wrap"></div></div>
+</div>
+<div class="card" data-fav-id="d9-ai-ai-test-generation" data-fav-title="AI 自动测试生成">
+<div class="card-head"><h3><i data-lucide="test-tube" class="ic-inline"></i><span>AI 自动测试生成</span></h3><span class="tag tag-m">AI前沿</span></div>
+<p>Codium AI / GitHub Copilot 自动生成单元测试，覆盖率从平均 30% 提升到 85%。微软 Copilot Workspace 能从 Issue 直接生成可测试的 PR。</p><ul><li><strong>Codium AI：</strong>2024 年估值 5 亿美元，开源版 PR-Agent 在 GitHub 8 万 star。</li><li><strong>Meta TestGen-LLM：</strong>2024 年内部上线，自动为 Instagram/Messenger 生成测试，覆盖率 +11%。</li><li><strong>反馈循环：</strong>AI 生成测试 → 跑测试 → 失败用例反馈 AI → 改进代码——形成完整反馈闭环。</li></ul><div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d9-ai-ai-test-generation"><div class="card-deep-inner-wrap"></div></div>
 </div>
 
 <div class="quote">"不要混淆运动和进步——前者让你疲惫，后者让你前进。"<cite>—— Denzel Washington</cite></div><div class="tip"><b>差异化护城河：</b>这个方向的关键不是"做得快"——是<strong>建立别人复制不了的优势</strong>。三种护城河：① <strong>领域知识</strong>（你比通才理解深 10 倍）② <strong>独家数据</strong>（你能拿到别人拿不到的）③ <strong>分发渠道</strong>（你已经有 1000 个目标客户的注意力）。没有这三者之一就不要进入。</div>
