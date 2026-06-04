@@ -559,7 +559,9 @@ footer p{margin-bottom:6px}
 
 <!-- Day Selector -->
 <div class="day-selector"><span class="day-selector-label">DAY</span><div class="day-scroll-wrap"><div class="day-scroll" id="daySubs">
-<button class="day-pill on" onclick="switchDay(this,38)">Day 038</button>
+<button class="day-pill on" onclick="switchDay(this,40)">Day 040</button>
+<button class="day-pill" onclick="switchDay(this,39)">Day 039</button>
+<button class="day-pill" onclick="switchDay(this,38)">Day 038</button>
 <button class="day-pill" onclick="switchDay(this,37)">Day 037</button>
 <button class="day-pill" onclick="switchDay(this,36)">Day 036</button>
 <button class="day-pill" onclick="switchDay(this,35)">Day 035</button>
@@ -4824,10 +4826,11 @@ const today=todayISO();
 if(!p){
 p={firstVisit:today,lastVisit:today,createdAt:Date.now()};
 saveProgress(p);
-return 1;
+return TOTAL_DAYS;
 }
 const elapsed=Math.floor((today-p.firstVisit)/DAY_MS);
-const day=Math.min(TOTAL_DAYS,Math.max(1,elapsed+1));
+// 全部解锁：内容有多少天就显示多少天（不再按日历逐天限速）
+const day=TOTAL_DAYS;
 p.lastVisit=today;
 p.currentDay=day;
 saveProgress(p);
