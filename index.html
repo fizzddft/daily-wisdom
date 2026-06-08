@@ -559,7 +559,9 @@ footer p{margin-bottom:6px}
 
 <!-- Day Selector -->
 <div class="day-selector"><span class="day-selector-label">DAY</span><div class="day-scroll-wrap"><div class="day-scroll" id="daySubs">
-<button class="day-pill on" onclick="switchDay(this,42)">Day 042</button>
+<button class="day-pill on" onclick="switchDay(this,44)">Day 044</button>
+<button class="day-pill" onclick="switchDay(this,43)">Day 043</button>
+<button class="day-pill" onclick="switchDay(this,42)">Day 042</button>
 <button class="day-pill" onclick="switchDay(this,41)">Day 041</button>
 <button class="day-pill" onclick="switchDay(this,40)">Day 040</button>
 <button class="day-pill" onclick="switchDay(this,39)">Day 039</button>
@@ -611,8 +613,172 @@ footer p{margin-bottom:6px}
 <button class="subtab" onclick="subgo(this,'today','side')"> AI·设计前沿</button>
 </div>
 
+<!-- ========== Day 044 ========== -->
+<div class="day-group on" data-day="44">
+<div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 044</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-06-08</span></div><h1 class="day-num">Day <em>044</em></h1><div class="day-summary">幸存者偏差(进阶) × 邓宁-克鲁格应用 × 林迪效应 · 失败案例可视化设计 × 能力校准UI × 经典验证架构</div></div>
+
+<div class="section-eyebrow"><i data-lucide="brain"></i><span class="section-eyebrow-num">01</span><span class="section-eyebrow-title">思维模型</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Mental Models</span></div>
+<div class="today-think">
+<div class="card" data-fav-id="d44-survivorship-deep" data-fav-title="幸存者偏差(进阶)">
+<div class="card-head"><h3><i data-lucide="ghost" class="ic-inline"></i><span>幸存者偏差(进阶) · Survivorship Bias Deep</span></h3><span class="tag tag-t">思维模型</span></div>
+<p>Abraham Wald 在二战期间的统计学突破：<strong>「你看到的弹孔不是需要加固的地方——因为那些位置中弹的飞机活着回来了。你看不到的位置(引擎/油箱)才是致命的——因为那些飞机没回来。」</strong>芒格将此升级为投资原则：「我花90%的时间研究失败案例而非成功案例——因为成功有幸运的成分，但失败几乎总是确定性的错误导致。研究100个失败企业能学到的，比研究1个成功企业多10倍。你看到的CEO成功学都是幸存者偏差——没人写书告诉你他怎么失败的。」塔勒布在《随机漫步的傻瓜》中尖锐指出：「如果你把100万只猴子放在打字机前，概率上一定会有一只打出莎士比亚全集。金融市场里，我们崇拜的那些'投资天才'和这只猴子的区别，可能没你想的那么大。」达里奥：「桥水的'事后分析'制度——每一个失败的投资决策都有长达20页的复盘。我们的成功不是因为少犯错——而是因为每次错误都被彻底解剖，确保同样的错误不再发生。」</p>
+<ul>
+<li><strong>核心原理：</strong>① <strong>「沉默的数据」问题</strong>——你永远只能观察到「存活」的样本。1000个创业者中成功的3个被写成书、做TED演讲——其余997个消失在公众视野。如果3个成功者恰好都「每天4点起床」，你会得出「早起=成功」的错误因果关系——忽略了997个同样早起但失败的人。② <strong>Wald的核心洞察：反转观察</strong>——能被你观察到的(回来的飞机/活着的公司/成功的人)恰恰是「不需要关注的」——因为它们已经证明了自己能存活。真正需要关注的是你观察不到的(没回来的飞机/死掉的公司/沉默的失败者)——那里藏着致命的模式。③ <strong>幸存者偏差 × 叙事谬误</strong>——人脑天生需要「故事」来解释成功。当你只看到幸存者时，大脑会强行编造一个「成功原因」叙事——哪怕真正的原因是运气。塔勒布：「成功人士回顾性地编造的'我的成功秘诀'，几乎总是事后合理化——他们对自己成功的真正原因的理解，和随机观察者一样差。」</li>
+<li><strong>经典案例：</strong>① <strong>Abraham Wald 飞机装甲分析(1943, Columbia SRG)</strong>——军方看到返航飞机的弹孔集中在机翼和机身，想在这些位置加装甲。Wald说「反过来——应该在引擎和驾驶舱加装甲，因为那些位置中弹的飞机都没回来。」这个分析直接改变了B-17轰炸机的装甲设计，拯救了数百飞行员。② <strong>音乐产业「A&R偏差」</strong>——唱片公司只研究签约艺人为何成功(幸存者)，从不系统研究「被拒绝但后来大卖的艺人」(沉默数据)。Beatles被Decca唱片拒绝、Lady Gaga被3家大厂拒绝——A&R经理的判断模型建立在幸存者偏差上。③ <strong>YC创业者数据(2005-2024)</strong>——Y Combinator公开数据：资助了4000+家创业公司，成为独角兽的约50家(1.25%)。但你在TechCrunch上读到的99%都是那50家的故事——其余3950家「沉默」了。如果你只读成功故事就创业，你的决策基础是1.25%的样本。</li>
+<li><strong>实操方法：</strong>① <strong>「墓地分析法」</strong>——主动寻找你领域的「墓地」：失败产品数据库(CB Insights Startup Post-Mortems)、关闭的公司清单、下架的App。系统性研究失败原因比模仿成功更有价值——因为失败原因可复制，成功原因往往不可复制。② <strong>「基率优先」决策法</strong>——在被任何成功故事打动之前，先查基率。想做SaaS？先查「SaaS创业5年存活率」(约8%)。想做游戏？先查「独立游戏回本率」(约3%)。让基率校准你的乐观。③ <strong>「反事实检验」</strong>——对每个成功归因问：「如果做了相反的事，是否也可能成功？」如果答案是"可能"——那这个归因就是幸存者偏差。乔布斯辍学=成功？盖茨也辍学。但辍学的程序员99.99%没有成功。辍学不是原因——是幸存者偏差。</li>
+</ul>
+<div class="quote">"The most dangerous form of survivorship bias is the one that tells you why someone succeeded. You see the strategy of the winners but not the graveyard of losers who used the same strategy."<cite>—— Nassim Taleb, Fooled by Randomness, 2001</cite></div>
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d44-survivorship-deep"><div class="card-deep-inner-wrap"></div></div>
+</div>
+
+<div class="card" data-fav-id="d44-dunning-kruger-applied" data-fav-title="邓宁-克鲁格应用">
+<div class="card-head"><h3><i data-lucide="trending-up" class="ic-inline"></i><span>邓宁-克鲁格应用 · Dunning-Kruger Applied</span></h3><span class="tag tag-t">思维模型</span></div>
+<p>David Dunning 与 Justin Kruger 在 1999 年 Cornell 大学研究中证明：<strong>「能力最低的人对自己的评价最高——因为他们缺乏'知道自己不知道什么'的元认知能力。而真正的专家反而低估自己——因为他们知道领域有多广。」</strong>芒格一针见血：「不知道自己无知——这是所有灾难的起点。一个人如果知道自己不懂什么，至少不会在那个领域做蠢事。最危险的人是'不知道自己不知道'的人——他们充满自信地冲进灾难。我和巴菲特的第一原则就是'能力圈'——你必须知道圈的边界在哪。」达里奥的解决方案：「桥水的'可信度加权'系统——不是一人一票，而是'在这个领域被证明有track record的人'的意见权重更高。这是对邓宁-克鲁格效应的制度性对策。」塔勒布补充：「识别一个人是否受邓宁-克鲁格影响的最简单方法：问他'你可能错在哪里？'如果他说不出来——他就在山丘上(愚昧之巅)。」</p>
+<ul>
+<li><strong>核心原理：</strong>① <strong>「双重诅咒」</strong>——低能力者不仅表现差，还缺乏识别自己表现差的元认知能力。逻辑测试得分在后25%的人，预测自己的排名在前40%——他们不是「不诚实」，是真的看不到自己的无知。② <strong>「知识的四阶段」</strong>——不知道自己不知道(愚昧之巅/最危险)→知道自己不知道(绝望之谷/开始学习)→知道自己知道(开悟之坡/技能增长)→不知道自己知道(专家高原/直觉化)。大多数人卡在第一阶段还觉得自己在第三阶段。③ <strong>专家的「冒名顶替综合征」</strong>——与邓宁-克鲁格相反：真正的高手因为知道「还有多少不知道的」而低估自己。爱因斯坦说自己「只不过比一般人好奇一点」。这不是谦虚——是专家真的能看到知识的边界。</li>
+<li><strong>经典案例：</strong>① <strong>Dunning & Kruger 原始实验(Cornell, 1999)</strong>——让学生做逻辑/语法/幽默测试后估计自己的排名。得分在后25%的人平均认为自己排在前40%(高估62百分位点)。得分在前25%的人认为自己排在前30%(低估20百分位点)。发表在《Journal of Personality and Social Psychology》，累积引用15000+次。② <strong>医疗误诊中的DK效应(BMJ 2013)</strong>——住院医生对自己诊断的信心评分与实际准确率几乎零相关(r=0.06)。最有信心的诊断正确率只有57%，而「不太确定」的诊断正确率反而有73%——因为「不确定」触发了更多检查。③ <strong>投资领域：散户vs机构(Barber & Odean 2000)</strong>——交易最频繁的散户(高信心→DK效应)年化收益-6.5%，而最少交易的散户(低信心)年化+18.5%。过度自信=过度交易=损失。达里奥据此设计桥水的「可信度加权」决策系统。</li>
+<li><strong>实操方法：</strong>① <strong>「校准练习」</strong>——定期做预测并记录结果。Philip Tetlock的超级预测者研究发现：经过校准练习后，人们的自信度与实际准确率的偏差从40%降到5%。关键：不是「更自信」或「更不自信」——是「自信度匹配实际能力」。② <strong>「能力圈地图」</strong>——画一张你的知识/技能地图，明确标注三个区域：圈内(确定擅长)、圈边(了解但非专家)、圈外(不懂)。然后：圈内大胆决策，圈边谨慎咨询，圈外绝不行动。芒格的「太难了」盒子就是这个原则。③ <strong>「红队测试」</strong>——让别人挑战你的判断。如果你说不出「我可能错在哪里」——你很可能在愚昧之巅。达里奥：「在桥水，每个决策都必须有人当'反对者'——如果没有人反对，不是决策太完美，是有人在害怕或偷懒。」</li>
+</ul>
+<div class="quote">"The first rule is that you can't really know anything if you just remember isolated facts. You've got to have models in your head. And you've got to know what you don't know — that's even more important than what you know."<cite>—— Charlie Munger, USC Law School Commencement, 2007</cite></div>
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d44-dunning-kruger-applied"><div class="card-deep-inner-wrap"></div></div>
+</div>
+
+<div class="card" data-fav-id="d44-lindy-effect" data-fav-title="林迪效应 · Lindy Effect">
+<div class="card-head"><h3><i data-lucide="hourglass" class="ic-inline"></i><span>林迪效应 · Lindy Effect</span></h3><span class="tag tag-t">思维模型</span></div>
+<p>Nassim Taleb 在《反脆弱》(2012)中系统化了林迪效应：<strong>「对于不会自然消亡的事物(技术/书籍/理念)，其已存在的时间越长，预期剩余寿命就越长。存活了2000年的书比去年的畅销书有更高概率再存活2000年。」</strong>芒格连接到投资："我只投已经存在了很久且有理由继续存在的生意——可口可乐1886年至今，人类对含糖碳酸饮料的需求不会因为一个新App而消失。这就是林迪效应在投资中的应用。"达里奥："原则、市场规律、人性——这些都是有'林迪效应'的。它们经历了几千年的考验。相比之下，任何一个'新范式'/'这次不同'的说法都应该被极度怀疑。"德鲁克："管理的基本原理在50年内没有变化——因为人性在5000年内没有变化。追逐'新'管理理论是年轻管理者的通病。"</p>
+<ul>
+<li><strong>核心原理：</strong>① <strong>「时间=最严格的过滤器」</strong>——时间不像人类评审会犯错、会追热点、会受贿。一本书能存活500年，意味着它通过了500年中每一代读者的检验——未来每增加一年都增加它继续存活的概率。② <strong>适用范围：只限「非易腐品」</strong>——林迪效应只适用于不会自然衰老的事物：书、思想、技术、文化。不适用于生物体(人类、公司)——一个60岁的人不会因为已活60年而预期还能活60年。混淆适用范围是最常见的误用。③ <strong>「反林迪」作为危险信号</strong>——如果一个理念/产品存在时间很短但声称能取代存在很久的事物——要极度警惕。「这次不同」(This time is different)通常是最危险的四个字。Reinhart & Rogoff 2009年研究：800年的金融危机，每次都有人说"这次不同"——从来没有不同过。</li>
+<li><strong>经典案例：</strong>① <strong>《孙子兵法》(公元前5世纪至今2500年)</strong>——西点军校、哈佛商学院、硅谷科技公司都在教。它的核心原则(知己知彼、以逸待劳、围魏救赵)为什么能存活2500年？因为它描述的是人性中不变的部分——竞争、博弈、战略。林迪效应预测：它还能再存活2500年。② <strong>QWERTY键盘(1873至今152年)</strong>——技术上有更优的替代方案(Dvorak)，但QWERTY已经存活152年。林迪效应+路径依赖+网络效应三重保护——预测它还能存活100+年。「技术上更好」不等于「能替代」。③ <strong>比特币(2009至今17年) vs 黄金(5000+年)</strong>——塔勒布的分析：黄金有5000年的林迪效应，预期还能存活5000年作为价值储存。比特币有17年林迪效应——它能否成为「数字黄金」，还需要更多时间的检验。时间越长越安全——但目前还年轻。</li>
+<li><strong>实操方法：</strong>① <strong>技术选型「林迪过滤器」</strong>——优先选存在时间长的技术：PostgreSQL(1996, 30年) > MongoDB(2009, 17年)。React(2013, 13年) > 去年的新框架。年轻技术有更高的「灭绝风险」——除非有压倒性优势值得冒险。② <strong>「经典优先」学习法</strong>——先读经典(存活了几十年的书)，再读新书。Kahneman《思考快与慢》2011(15年)比去年出版的同类书有更高概率10年后还值得读。你的阅读时间是稀缺资源——投给林迪效应验证过的内容。③ <strong>「这次真的不同吗？」清单</strong>——每次听到「新范式/颠覆/这次不同」时，问：① 它要取代的事物存在了多久？② 历史上是否有类似的「这次不同」失败了？③ 推动变化的力量是否足以克服林迪惯性？如果3个问题中有2个答案对「旧事物」有利——打赌旧的会赢。</li>
+</ul>
+<div class="quote">"If a book has been in print for forty years, I can expect it to be in print for another forty years. But if it has been in print for a century, it will likely be in print for another century. Every year a book survives, its life expectancy increases."<cite>—— Nassim Taleb, Antifragile, 2012</cite></div>
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d44-lindy-effect"><div class="card-deep-inner-wrap"></div></div>
+</div>
+</div>
+
+<div class="section-eyebrow"><i data-lucide="gamepad-2"></i><span class="section-eyebrow-num">02</span><span class="section-eyebrow-title">设计启发</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Design Insights</span></div>
+<div class="today-design">
+<div class="card" data-fav-id="d44-design-failure-viz" data-fav-title="失败案例可视化设计">
+<div class="card-head"><h3><i data-lucide="skull" class="ic-inline"></i><span>失败案例可视化设计 · Failure Visualization</span></h3><span class="tag tag-d">设计启发</span></div>
+<p>幸存者偏差启发：<strong>UI 如果只展示「成功案例」和「最佳结果」，用户对真实概率的判断会被严重扭曲。</strong>好的设计应该让用户看到「完整分布」而非只看到幸存者。</p><ul><li><strong>游戏死亡统计可视化：</strong>《黑暗之魂》的全球死亡热力图——让你知道「不是我菜，是这里真的难」。显示失败者数据反而减少挫败感(我不是唯一的失败者)。《Celeste》章节完成率统计：只有3%玩家通关最终关——这个数据让到达的玩家成就感翻倍。</li><li><strong>投资App收益分布：</strong>Robinhood显示个股的收益分布直方图(包括亏损者)，而非只显示Top涨幅。用户能看到「买了TSLA的人中，65%是亏的」——对抗幸存者偏差驱动的FOMO。</li><li><strong>产品评价的「差评优先」设计：</strong>Amazon把「最有帮助的差评」和好评并列显示——帮用户看到「不满意的人说什么」而非只被好评淹没。「失败体验」的可见性=更好的决策。</li></ul>
+<div class="tip"><b>设计启发：</b>找到你产品中只展示「成功/最佳」的地方，尝试加入「真实分布」信息——完成率、失败率、亏损比例。这不会吓跑用户，反而增加信任。</div>
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d44-design-failure-viz"><div class="card-deep-inner-wrap"></div></div>
+</div>
+<div class="card" data-fav-id="d44-design-calibration-ui" data-fav-title="能力校准UI">
+<div class="card-head"><h3><i data-lucide="gauge" class="ic-inline"></i><span>能力校准UI · Calibration UX</span></h3><span class="tag tag-d">设计启发</span></div>
+<p>邓宁-克鲁格启发：<strong>用户对自己能力的评估往往严重失准——初学者过度自信，专家过度谦虚。</strong>好的产品应该提供「客观能力镜子」帮用户看清自己的真实水平，而非放任错误的自我评估。</p><ul><li><strong>Duolingo能力测试+错误反馈：</strong>每次错误不只标红——而是显示「和你同级别的学习者，78%答对了这道题」。你以为自己是B2水平？数据告诉你实际是A2。用客观数据校准自我评估。</li><li><strong>游戏匹配系统的ELO分：</strong>《英雄联盟》/《DOTA2》的隐藏MMR系统——不让玩家手动选难度(DK效应会让菜鸟选高难度)，而是用算法匹配真实水平。系统知道你比你自己知道的更准。</li><li><strong>GitHub Contribution Graph：</strong>绿色格子图不评判「好坏」——但它是一面客观的镜子。你以为自己「一直在写代码」？看看那些空白的日子。不需要系统告诉你「你不行」——数据本身就是校准器。</li></ul>
+<div class="tip"><b>设计启发：</b>在你的产品中找到一个用户可能「高估自己」的点(技能/使用频率/进度)，加入一个「客观镜子」——不评判，只反馈真实数据。让数据做校准工作。</div>
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d44-design-calibration-ui"><div class="card-deep-inner-wrap"></div></div>
+</div>
+<div class="card" data-fav-id="d44-design-classic-validation" data-fav-title="经典验证架构">
+<div class="card-head"><h3><i data-lucide="shield" class="ic-inline"></i><span>经典验证架构 · Classic Validation Design</span></h3><span class="tag tag-d">设计启发</span></div>
+<p>林迪效应启发：<strong>设计系统和交互模式应该优先使用「经过时间验证」的方案，而非追逐每年的新趋势。</strong>汉堡菜单存活了13年(2012至今)、底部Tab Bar存活了17年(iPhone 2007)——它们的「林迪寿命」意味着用户已经形成了强肌肉记忆。</p><ul><li><strong>iOS Tab Bar(2007至今)：</strong>底部5个图标导航——17年未变。每次iOS大改版(iOS 7扁平化/iOS 15)都保留了Tab Bar。存活时间=用户肌肉记忆深度。创新应该在Tab Bar之上，而非取代它。</li><li><strong>「F型扫描」布局(2006至今)：</strong>Nielsen Norman Group 2006年发现的网页阅读模式——20年后仍然成立。你的网页如果不遵循F型布局=对抗用户20年的行为惯性。创新的代价是「用户需要重新学习」。</li><li><strong>游戏WASD+鼠标操作(1996至今)：</strong>30年未变的PC FPS标准操控。《Valorant》《CS2》都不敢改——因为改了=让1亿玩家的肌肉记忆作废。林迪效应在交互设计中=「不要革命，要进化」。</li></ul>
+<div class="tip"><b>设计启发：</b>列出你产品中的所有UI模式，按「存在时间」排序。存活时间最长的模式=最不应该被改动的。创新应该在这些「经典」之上构建，而非替代它们。除非有10x的提升理由。</div>
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d44-design-classic-validation"><div class="card-deep-inner-wrap"></div></div>
+</div>
+</div>
+
+<div class="section-eyebrow"><i data-lucide="sparkles"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">AI Frontier</span></div>
+<div class="today-side">
+<div class="card" data-fav-id="d44-ai-swe-bench" data-fav-title="SWE-bench Verified">
+<div class="card-head"><h3><i data-lucide="bug" class="ic-inline"></i><span>SWE-bench Verified —— AI编程的幸存者偏差修正</span></h3><span class="tag tag-m">AI前沿</span></div>
+<p>OpenAI 2024年推出SWE-bench Verified——<strong>修正了原始SWE-bench中的幸存者偏差问题(测试用例不充分=通过≠正确)。</strong>2025年AI编程代理竞赛的核心赛道。解决问题：AI代码生成只展示「通过的测试」是幸存者偏差——那些没被测试覆盖的Bug是「沉默的数据」。</p><ul><li><strong>SWE-bench Verified(500题)：</strong>人工验证每道题的测试用例充分性。Claude Sonnet 4达到72.7%——但这也意味着27.3%的Bug没被修复(失败案例可见化)。</li><li><strong>OpenAI Codex Agent：</strong>2025年——SWE-bench 69%解决率。关键设计：失败时给出「为什么失败」的解释——让沉默数据可见。</li><li><strong>Aider Polyglot Benchmark：</strong>多语言AI编程基准。展示每个模型在不同语言的「失败率」——不只是平均分——对抗只看最优结果的幸存者偏差。</li></ul><div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d44-ai-swe-bench"><div class="card-deep-inner-wrap"></div></div>
+</div>
+<div class="card" data-fav-id="d44-ai-claude-confidence" data-fav-title="Claude自知力设计">
+<div class="card-head"><h3><i data-lucide="brain" class="ic-inline"></i><span>Claude自知力设计 —— AI的邓宁-克鲁格对策</span></h3><span class="tag tag-m">AI前沿</span></div>
+<p>Anthropic 2024-2025年在Claude中系统性构建「自知力」——<strong>让AI知道自己不知道什么，而非永远自信满满地回答。</strong>这是对AI领域「邓宁-克鲁格问题」的工程化解决：早期LLM对什么都同样自信，无论对错——完美复现了DK效应。</p><ul><li><strong>Claude「我不确定」设计：</strong>主动表达不确定性+区分「我知道」和「我推测」。2025年用户调研：78%的用户更信任会说「我不确定」的AI——对比总是信心满满的竞品。</li><li><strong>GPT-4o置信度标签(OpenAI)：</strong>2025年API新增confidence_score——开发者可以看到模型对每个答案的自评信心。让下游应用决定「低信心答案是否展示给用户」。</li><li><strong>Perplexity引用透明度：</strong>每个答案标注引用来源的强度(「基于3篇论文」vs「基于1篇博客」)——让用户能评估AI答案的可信度层级，而非一刀切信任。</li></ul><div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d44-ai-claude-confidence"><div class="card-deep-inner-wrap"></div></div>
+</div>
+<div class="card" data-fav-id="d44-ai-sqlite-postgres" data-fav-title="SQLite/PostgreSQL复兴">
+<div class="card-head"><h3><i data-lucide="database" class="ic-inline"></i><span>SQLite/PostgreSQL复兴 —— 数据库的林迪效应</span></h3><span class="tag tag-m">AI前沿</span></div>
+<p>2024-2025年最有趣的技术趋势之一：<strong>不是新数据库崛起，而是「老」数据库通过AI获得新生。</strong>PostgreSQL(1996,30年)和SQLite(2000,25年)凭借林迪效应+AI增强，反超过去5年涌现的各种NewSQL/NoSQL。时间验证的稳定性+AI的新能力=最强组合。</p><ul><li><strong>Supabase(PostgreSQL+AI)：</strong>2024年估值$20亿——核心卖点是「PostgreSQL+向量扩展+AI查询」。不是取代PG，是增强PG。证明30年老技术+新层=比新技术更可靠。</li><li><strong>Turso/LibSQL(SQLite分支)：</strong>2024年融资$40M——把25年历史的SQLite带到边缘计算。SQLite的林迪优势：它是全球部署量最大的数据库(每个手机/浏览器都有)，可靠性经过万亿次验证。</li><li><strong>AI SQL助手(Text2SQL)：</strong>2024-2025——AI让非技术人员能用自然语言查SQL数据库。PostgreSQL不需要改自己——AI在上面建了一个新接口。这就是林迪效应的本质：经典不需要改变自己，新时代会来适应它。</li></ul><div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d44-ai-sqlite-postgres"><div class="card-deep-inner-wrap"></div></div>
+</div>
+</div>
+</div>
+
+<!-- ========== Day 043 ========== -->
+<div class="day-group" data-day="43">
+<div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 043</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-06-07</span></div><h1 class="day-num">Day <em>043</em></h1><div class="day-summary">峰终定律 × 宜家效应 × 注意力残留 · 体验峰值设计 × 用户参与感架构 × 任务切换缓冲UI</div></div>
+
+<div class="section-eyebrow"><i data-lucide="brain"></i><span class="section-eyebrow-num">01</span><span class="section-eyebrow-title">思维模型</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Mental Models</span></div>
+<div class="today-think">
+<div class="card" data-fav-id="d43-peak-end-rule" data-fav-title="峰终定律 · Peak-End Rule">
+<div class="card-head"><h3><i data-lucide="mountain" class="ic-inline"></i><span>峰终定律 · Peak-End Rule</span></h3><span class="tag tag-t">思维模型</span></div>
+<p>Daniel Kahneman 在 1993 年的「冷水实验」中揭示了人类记忆的核心偏差：<strong>「人们对一段体验的记忆，只取决于两个时刻——最强烈的峰值(Peak)和结束时的感受(End)，而非体验的总时长或平均水平。」</strong>芒格将此连接到商业判断：「客户记住的不是你给了他多少次好服务——是那一次极致的惊喜，和他最后走出门时的感觉。一个完美的结尾能覆盖中间所有的平庸。」达里奥在桥水管理中应用：「面试一个人，不要看他全程表现的均值——看他在压力测试(Peak)下的反应，和最后自由问答(End)时暴露的真实想法。」塔勒布补充：「峰终定律解释了为什么人们害怕飞机但不怕汽车——飞机坠毁是极端Peak，汽车事故虽然频繁但每次'不够峰值'来被记忆选中。」</p>
+<ul>
+<li><strong>核心原理：</strong>① <strong>「经验自我」vs「记忆自我」的分裂</strong>——Kahneman 区分了两个「自我」：经验自我活在每一秒的感受中，记忆自我事后对体验打分。做决策的是记忆自我——它只看Peak和End，完全忽略「持续时间忽视」(Duration Neglect)。一个持续3分钟和30分钟的结肠镜检查，如果结尾都很痛苦，患者的记忆评分几乎一样差。② <strong>Kahneman「冷水实验」(1993)</strong>——受试者把手浸入14°C冷水60秒(A)vs浸入14°C冷水60秒+再浸入15°C微温水30秒(B)。客观上B更痛苦(总时长更长)——但73%的人选择重复B。因为B的End(15°C)比A的End(14°C)好——记忆自我做了「错误」选择。③ <strong>Peak的双向性</strong>——正Peak(最惊喜)和负Peak(最痛苦)同等有力。迪士尼乐园靠一个正Peak(烟花)覆盖4小时排队的负体验。但一次糟糕的客服电话(负Peak)也能毁掉整年的良好服务。</li>
+<li><strong>经典案例：</strong>① <strong>迪士尼「烟花压轴」设计</strong>——整个园区体验的最后一刻是精心设计的烟花秀(End)，加上1-2个高潮游乐项目(Peak)。游客对「排队4小时」的记忆被这两个时刻覆盖。NPS从平均65提升至85。② <strong>宜家「1元冰淇淋」结尾</strong>——购物最后给1元冰淇淋(End)。这个几乎不赚钱的触点让顾客带着甜蜜记忆离开，把全程「找不到出口、搬重箱子」的负体验软化。全球宜家年销冰淇淋1.8亿支。③ <strong>Apple Unboxing 体验设计</strong>——开箱(Peak)被精心设计为「仪式感时刻」——缓缓提起的真空吸力、第一次按下电源的动画(End)——这两个时刻定义了用户对整台设备几千元购买的满意度。</li>
+<li><strong>实操方法：</strong>① <strong>「峰值审计」</strong>——画出你产品用户旅程的情绪曲线，标注：当前的Peak在哪？End在哪？如果Peak是负面的(如付款/出错)，你需要在之后创造一个正Peak来覆盖它。② <strong>「结尾投资法则」</strong>——把预算向体验的最后10%倾斜。Ritz-Carlton在退房时送小礼物、Uber在到达时显示「比预估快3分钟」、游戏在关卡结束时给丰厚奖励——都是End投资。③ <strong>「负Peak消除」</strong>——找到体验中最痛苦的负Peak(等待/出错/拒绝)，不需要消除整个痛苦——只需要让它「不是最痛的那个点」。在负Peak之后立即创造一个更大的正向体验即可覆盖。</li>
+</ul>
+<div class="quote">"People don't judge experiences by their total or average — they judge by the Peak and the End. This means you can afford mediocrity in the middle, but never at the peak or the end."<cite>—— Daniel Kahneman, Nobel Lecture, 2002</cite></div>
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d43-peak-end-rule"><div class="card-deep-inner-wrap"></div></div>
+</div>
+
+<div class="card" data-fav-id="d43-ikea-effect" data-fav-title="宜家效应 · IKEA Effect">
+<div class="card-head"><h3><i data-lucide="hammer" class="ic-inline"></i><span>宜家效应 · IKEA Effect</span></h3><span class="tag tag-t">思维模型</span></div>
+<p>Michael Norton (Harvard) 在 2012 年《Journal of Consumer Psychology》中证明：<strong>「人们对自己参与创造的事物赋予不成比例的高估值——即使成品质量客观上并不优越。劳动本身创造了爱。」</strong>芒格连接到商业策略：「让用户投入劳动是最强大的锁定机制——不是因为沉没成本(那是谬误)，而是因为劳动创造了心理所有权。人们不是舍不得'已经花的时间'，是舍不得'自己创造的东西'。」达里奥："桥水让每个新人都参与设计自己的工作流程——不是因为他们的设计更好，而是因为参与创造让他们对结果有心理所有权，执行意愿翻倍。"德鲁克："让员工参与制定目标，比给他们一个完美目标更有效——因为'我的目标'比'老板的目标'有10倍的执行力。"</p>
+<ul>
+<li><strong>核心原理：</strong>① <strong>「劳动=爱」公式</strong>——Norton实验：让受试者组装宜家收纳盒，然后估价。组装者对自己作品的估价比非组装者高63%——且这个溢价与「组装质量」几乎无关。歪歪扭扭的柜子和完美的柜子获得同样的「爱」。关键不是结果的质量，是过程中的投入。② <strong>前提条件：必须完成</strong>——Norton发现：如果组装失败(未完成)，宜家效应完全消失。半成品不会获得爱——只有成功完成的作品才会。这意味着产品设计必须确保用户能「完成」他们的创造。③ <strong>与「禀赋效应」的区别</strong>——禀赋效应是「拥有就高估」(仅需触摸/拥有)；宜家效应是「劳动创造额外高估」——需要付出努力。两者叠加时效果最强：用户又拥有又亲手做的东西，估值可以是市场价的2-3倍。</li>
+<li><strong>经典案例：</strong>① <strong>Build-A-Bear Workshop</strong>——让孩子自己选皮肤/填充/缝合/命名玩偶。同样的泰迪熊，自己做的售价$35-60，但孩子的心理估值超过$100。年收入$3.5亿——卖的不是熊，是「我做的」。② <strong>Betty Crocker 蛋糕粉「加个蛋」策略(1950s)</strong>——初代蛋糕粉只需加水搅拌，销量惨淡。心理学家Ernest Dichter建议：把配方改成需要「加一个鸡蛋」——让主妇觉得「是我做的蛋糕」。销量立刻翻倍——一个鸡蛋的劳动创造了心理所有权。③ <strong>Minecraft 的核心循环</strong>——整个游戏的核心吸引力是「我建造了这个世界」。玩家投入的劳动让一堆方块变成了「我的作品」。3亿+份销量证明：给工具不给成品，比给成品本身有10倍吸引力。</li>
+<li><strong>实操方法：</strong>① <strong>「最小有效劳动」设计</strong>——让用户做刚好足够的创造工作(不能太多导致放弃，不能太少没有投入感)。Notion让你搭建自己的工作区(高)，Apple让你选配表盘(中)，Spotify让你命名歌单(低)——找到你产品的「甜蜜点」。② <strong>确保「完成感」</strong>——Norton证明失败=宜家效应消失。所以必须降低完成门槛：进度条、存档点、部分完成也算数——让用户永远能走到「完成」。③ <strong>「展示你的创造」社交放大器</strong>——宜家效应的快乐来自「看到自己的作品被认可」。加入分享/展示/获赞机制，让用户的劳动成果被他人看到——从而放大宜家效应。</li>
+</ul>
+<div class="quote">"Labor leads to love. When people construct products themselves, even if the end result is imperfect, they value them more highly than identical products made by experts."<cite>—— Michael Norton et al., The IKEA Effect, Journal of Consumer Psychology, 2012</cite></div>
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d43-ikea-effect"><div class="card-deep-inner-wrap"></div></div>
+</div>
+
+<div class="card" data-fav-id="d43-attention-residue" data-fav-title="注意力残留 · Attention Residue">
+<div class="card-head"><h3><i data-lucide="brain-cog" class="ic-inline"></i><span>注意力残留 · Attention Residue</span></h3><span class="tag tag-t">思维模型</span></div>
+<p>Sophie Leroy (University of Washington) 在 2009 年论文中证明：<strong>「当你从任务A切换到任务B时，你的注意力不会100%转移——一部分认知资源仍然'粘'在任务A上，形成残留。这个残留严重降低任务B的表现。」</strong>Cal Newport将此连接到深度工作理论：「每次你'快速看一眼邮件'，你的注意力就留下了一层残留。5次切换后，你的认知能力已经下降40%——但你完全感觉不到。」芒格的时间管理原则："我每天只做1-2件重要的事——不是因为其他事不重要，而是因为每次切换都在消耗你的认知主力。多任务是最大的效率幻觉。"德鲁克："有效的管理者不是做更多的事——而是做更少的事，每件做更深。碎片化是生产力的头号杀手。"</p>
+<ul>
+<li><strong>核心原理：</strong>① <strong>注意力不是开关是胶水</strong>——Leroy的实验：让受试者做任务A(解谜)，然后切换到任务B(文本分析)。切换时，受试者被告知A已完成(低残留)或A未完成(高残留)。结果：高残留组的任务B表现下降20-40%——注意力像胶水一样粘在未完成的A上。② <strong>「未完成」放大残留(蔡加尼克效应)</strong>——未完成的任务产生的注意力残留是已完成任务的3倍。你的大脑持续在后台「运算」那个未完成的东西——消耗认知带宽。这就是为什么晚上躺在床上会想白天没做完的事。③ <strong>残留的隐性成本</strong>——你以为「只是看了一眼手机」，但每次注意力转移后需要23分钟(Gloria Mark, UC Irvine, 2004)才能完全恢复到之前的专注深度。一天8次中断=3小时恢复时间。你的「高效8小时工作日」实际只有5小时有效认知。</li>
+<li><strong>经典案例：</strong>① <strong>Gloria Mark的办公室追踪研究(UC Irvine, 2004)</strong>——追踪36名办公室员工：平均每3分钟被中断一次，恢复到之前的专注状态平均需要23分15秒。最震惊的发现：44%的中断是自我发起的(主动看邮件/社交媒体)——不是外部打扰。② <strong>Cal Newport「深度工作」实践(2016)</strong>——乔治城大学教授，30岁前出版了6本书+获终身教职+从未用过社交媒体。核心方法：每天4小时零切换深度工作(无邮件/无手机/无会议)。他的产出是同龄学者的3-5倍。③ <strong>微软「Focus Time」内部研究(2022)</strong>——微软追踪6万名员工发现：每周有2小时以上「无中断专注时间块」的员工，季度绩效评分高31%——对比那些总时长相同但碎片化的员工。不是工作更多时间——是不被打断的时间。</li>
+<li><strong>实操方法：</strong>① <strong>「时间块」法——每天保护2-4小时零切换时间</strong>——在日历上标注「深度工作」块，像保护会议一样保护它。期间：关通知、关邮件、手机飞行模式。Cal Newport："如果你不保护深度时间，浅层工作会自动填满你的一天。"② <strong>「完成仪式」——切换前先关闭残留</strong>——Leroy证明「已完成」的残留远小于「未完成」。每次被迫切换时，花30秒写下：「A的当前状态+下一步」——给大脑一个「关闭标签」，减少残留。③ <strong>「批处理」同类任务——减少切换次数</strong>——把所有邮件/消息/浅层工作集中在1-2个时间窗口处理，而非散布在全天。每次切换都有23分钟的隐性成本——10次切换=近4小时损失。</li>
+</ul>
+<div class="quote">"People need to stop thinking about one task in order to fully transition their attention and perform well on another. Yet results indicate it is difficult for people to transition their attention away from an unfinished task."<cite>—— Sophie Leroy, Why Is It So Hard to Do My Work? 2009</cite></div>
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d43-attention-residue"><div class="card-deep-inner-wrap"></div></div>
+</div>
+</div>
+
+<div class="section-eyebrow"><i data-lucide="gamepad-2"></i><span class="section-eyebrow-num">02</span><span class="section-eyebrow-title">设计启发</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Design Insights</span></div>
+<div class="today-design">
+<div class="card" data-fav-id="d43-design-peak-experience" data-fav-title="体验峰值设计">
+<div class="card-head"><h3><i data-lucide="sparkles" class="ic-inline"></i><span>体验峰值设计 · Peak Experience Design</span></h3><span class="tag tag-d">设计启发</span></div>
+<p>峰终定律启发：<strong>与其均匀分配资源让全程「还不错」，不如集中资源制造1-2个「WOW」时刻+一个温暖结尾。</strong>用户不会记住你的平均分——只记住最强那一下和最后那一刻。</p><ul><li><strong>游戏Boss战后掉落：</strong>艰难Boss战结束(负Peak)后立即触发华丽掉落动画+稀有装备(正Peak)——负变正的转折让这一刻成为玩家记忆中最深刻的体验。《原神》Boss战结束后的金光掉落被玩家反复截图分享。</li><li><strong>Airbnb超级房东「惊喜」：</strong>不要求全程完美——但要求至少一个惊喜时刻(手写欢迎信/本地小礼物/推荐地图)。NPS与「惊喜时刻数量」的相关系数r=0.72，远高于与「设施完善度」的r=0.41。</li><li><strong>Apple Store购买结尾：</strong>结账不在收银台排队——店员直接在你手边刷卡，然后递给你一个精美袋子+微笑。End被设计为「你是VIP」的感觉而非「排队付钱」的感觉。NPS行业第一。</li></ul>
+<div class="tip"><b>设计启发：</b>画出你产品的体验情绪曲线——如果Peak是负的(付款/等待/失败)，在它后面紧跟一个更强的正时刻。如果End是平淡的(关闭/退出/结账)，加一个「最后的甜点」。</div>
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d43-design-peak-experience"><div class="card-deep-inner-wrap"></div></div>
+</div>
+<div class="card" data-fav-id="d43-design-participation" data-fav-title="用户参与感架构">
+<div class="card-head"><h3><i data-lucide="puzzle" class="ic-inline"></i><span>用户参与感架构 · Participation Architecture</span></h3><span class="tag tag-d">设计启发</span></div>
+<p>宜家效应启发：<strong>让用户「参与创造」而非「被动接收」——即使只是象征性参与，也能将产品满意度提升30-60%。</strong>不是给用户成品，而是给用户工具+引导，让他们觉得「这是我做的」。</p><ul><li><strong>Notion模板 vs 空白页：</strong>给空白页(太多劳动)→放弃率高。给完全预设好的模板(太少劳动)→没有归属感。最优：给半完成模板+自定义空间——用户做30%的工作就获得100%的所有权感。Notion的模板策略：每个模板留20-30%空白让用户填充。</li><li><strong>《动物森友会》岛屿设计：</strong>任天堂不给你完美的岛——给你工具让你自己建。玩家平均投入300+小时「做自己的岛」——然后疯狂截图分享。UGC内容量是官方的1000倍。</li><li><strong>Spotify年度回顾(Wrapped)：</strong>本质是把「你的听歌数据」包装成「你的故事」——用户觉得这是「我的品味、我的一年」，疯狂分享。2023年引发4.5亿次社交分享——零广告投入。</li></ul>
+<div class="tip"><b>设计启发：</b>找到你产品中一个「系统自动完成」的功能，试着把30%的步骤留给用户做——然后加上展示/分享机制。参与+展示=宜家效应最大化。</div>
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d43-design-participation"><div class="card-deep-inner-wrap"></div></div>
+</div>
+<div class="card" data-fav-id="d43-design-task-buffer" data-fav-title="任务切换缓冲UI">
+<div class="card-head"><h3><i data-lucide="pause-circle" class="ic-inline"></i><span>任务切换缓冲UI · Task Switch Buffer</span></h3><span class="tag tag-d">设计启发</span></div>
+<p>注意力残留启发：<strong>每次用户在你的产品中被「切换」(弹窗/通知/页面跳转)，都在制造注意力残留。</strong>好的设计应该减少不必要的切换，并在必须切换时提供「平滑过渡」而非突然中断。</p><ul><li><strong>Linear的「Focus Mode」：</strong>隐藏侧边栏、收起通知、只显示当前Issue——让用户在产品内也能进入深度工作状态。用了Focus Mode的用户完成速度快27%。</li><li><strong>游戏Loading提示：</strong>Loading不只是等待——是注意力从「现实」切换到「游戏世界」的缓冲期。《Elden Ring》的加载画面显示攻略提示+物品描述——利用缓冲期预载下一个注意力上下文。</li><li><strong>Slack的「稍后提醒」：</strong>看到消息但不想现在处理→标记「稍后提醒」——给用户一个「关闭残留」的机制。不需要立刻决策「要不要回」——先标记，集中处理。减少每日注意力切换30+次。</li></ul>
+<div class="tip"><b>设计启发：</b>数一数你的产品在一个典型用户session中制造了多少次「强制切换」(弹窗/跳转/通知)。每减少一次=用户有效注意力多23分钟。</div>
+<div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d43-design-task-buffer"><div class="card-deep-inner-wrap"></div></div>
+</div>
+</div>
+
+<div class="section-eyebrow"><i data-lucide="sparkles"></i><span class="section-eyebrow-num">03</span><span class="section-eyebrow-title">AI前沿</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">AI Frontier</span></div>
+<div class="today-side">
+<div class="card" data-fav-id="d43-ai-midjourney-v7" data-fav-title="Midjourney v7">
+<div class="card-head"><h3><i data-lucide="image" class="ic-inline"></i><span>Midjourney v7 —— AI生成的峰值体验设计</span></h3><span class="tag tag-m">AI前沿</span></div>
+<p>Midjourney 2025 年发布 v7，图像质量再次飞跃。<strong>核心洞察：AI 图像生成的用户体验完美利用了峰终定律——每次生成都是一个「Peak or End」时刻。</strong>用户记住的不是10次平庸出图——是那1次惊艳的完美结果。这就是为什么用户会反复付费重试。</p><ul><li><strong>Midjourney v7：</strong>2025年发布——人物一致性+手部修正+场景理解大幅提升。付费用户破千万。用户平均生成40张才发1张——但那1张的Peak体验足以留住用户。</li><li><strong>DALL-E 3 + ChatGPT：</strong>2024年集成——对话式修改降低了「生成失败」的负Peak。不满意就继续对话修改，而非重新开始——减少挫败感。</li><li><strong>Ideogram 2.0：</strong>2025年——文字渲染首次达到可用级别。设计师的Peak体验：「AI终于能写准字了」——一个长期负Peak被转正。</li></ul><div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d43-ai-midjourney-v7"><div class="card-deep-inner-wrap"></div></div>
+</div>
+<div class="card" data-fav-id="d43-ai-cursor-composer" data-fav-title="Cursor Composer">
+<div class="card-head"><h3><i data-lucide="code" class="ic-inline"></i><span>Cursor Composer —— AI编程的宜家效应</span></h3><span class="tag tag-m">AI前沿</span></div>
+<p>Cursor 2024-2025 年凭 Composer 功能成为 AI 编程第一工具。<strong>核心洞察：Cursor 不是「AI写完代码给你」(无宜家效应)——而是「AI和你一起写」(有宜家效应)。</strong>用户觉得「这是我和AI协作的作品」而非「AI代写的」——心理所有权和满意度都更高。</p><ul><li><strong>Cursor Composer：</strong>2024年——多文件编辑+上下文理解+用户可逐步接受/拒绝修改。ARR $1亿+。核心：用户参与度刚好(审核+修改)——不是全自动(无参与感)也不是纯手写(太累)。</li><li><strong>GitHub Copilot：</strong>2022-2025——行级建议模式，用户逐行接受/拒绝。微软内部数据：用户接受率46%——意味着54%的时候用户在「编辑AI的建议」——这就是宜家效应的甜蜜点。</li><li><strong>Replit Agent：</strong>2025年——全自动生成完整App。但用户满意度不如Cursor——因为「太自动了」缺少参与感。印证了Norton的发现：完全不需要劳动=宜家效应消失。</li></ul><div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d43-ai-cursor-composer"><div class="card-deep-inner-wrap"></div></div>
+</div>
+<div class="card" data-fav-id="d43-ai-arc-max" data-fav-title="Arc Max / AI Browser">
+<div class="card-head"><h3><i data-lucide="globe" class="ic-inline"></i><span>Arc Max —— AI浏览器对抗注意力残留</span></h3><span class="tag tag-m">AI前沿</span></div>
+<p>The Browser Company 的 Arc 在 2024 年推出 Max 功能——用 AI 自动整理标签页、预览链接、摘要网页内容。<strong>核心洞察：浏览器是注意力残留的最大制造者——每个标签都是一个「未完成任务」在消耗你的认知带宽。</strong>AI 的角色是帮你「关闭」那些残留。</p><ul><li><strong>Arc Max：</strong>2024年——AI自动重命名标签/5秒预览链接内容/一句话摘要。让用户不用打开就知道「这个标签还需不需要」——减少未完成残留。</li><li><strong>Arc Search (iPhone)：</strong>2024年——输入问题直接生成答案页面，不需要「打开10个标签对比」。从源头消灭「多标签注意力残留」。</li><li><strong>Google Gemini Deep Research：</strong>2025年——AI代替你完成「开20个标签做研究」的过程。把一个散布在30分钟+20个标签的注意力任务，压缩成1个连贯结果——零切换零残留。</li></ul><div class="card-actions"><button class="card-action-btn" data-action="expand" onclick="toggleCardExpand(this)" aria-label="展开深入阅读"><i data-lucide="chevron-down"></i><span class="expand-label">深入阅读</span></button><div class="card-action-spacer"></div><button class="fav-btn" onclick="toggleFavCard(this)" aria-label="收藏"><i data-lucide="bookmark"></i></button></div><div class="card-deep" data-deep-id="d43-ai-arc-max"><div class="card-deep-inner-wrap"></div></div>
+</div>
+</div>
+</div>
+
 <!-- ========== Day 042 ========== -->
-<div class="day-group on" data-day="42">
+<div class="day-group" data-day="42">
 <div class="day-header"><div class="day-eyebrow"><span class="day-eyebrow-num">No. 042</span><span class="day-eyebrow-line"></span><span class="day-eyebrow-date">2026-06-06</span></div><h1 class="day-num">Day <em>042</em></h1><div class="day-summary">决策疲劳 × 从众效应 × 机会成本 · 决策简化UI × 社会证明与反从众设计 × 机会成本可视化</div></div>
 
 <div class="section-eyebrow"><i data-lucide="brain"></i><span class="section-eyebrow-num">01</span><span class="section-eyebrow-title">思维模型</span><span class="section-eyebrow-line"></span><span class="section-eyebrow-count">Mental Models</span></div>
@@ -3690,6 +3856,10 @@ footer p{margin-bottom:6px}
 <p class="page-subtitle">从塔勒布、芒格、达里奥、卡尼曼等顶级思考者中萃取的多元思维模型，以时间序列编年呈现，像图书馆的索引卡片。</p>
 </div>
 <div class="tl">
+<div class="tl-item"><div class="tl-date">Day 044 · 2026-06-08</div><div class="tl-content"><div class="tl-bullets"><div class="tl-bullet"><span class="tl-bullet-num">01</span><div class="tl-bullet-content"><h5>幸存者偏差(进阶)</h5><p>Wald二战飞机装甲分析：你看到的弹孔不是需加固的地方——因为那些位置中弹的飞机活着回来了。</p></div></div><div class="tl-bullet"><span class="tl-bullet-num">02</span><div class="tl-bullet-content"><h5>邦宁-克鲁格应用</h5><p>Dunning 1999：能力最低的人对自己评价最高，因为缺乏元认知。关键是「校准」而非「自信」。</p></div></div><div class="tl-bullet"><span class="tl-bullet-num">03</span><div class="tl-bullet-content"><h5>林迪效应</h5><p>塔勒布 2012：已存在时间越长的事物，预期剩余寿命越长。时间是最严格的过滤器。</p></div></div></div></div></div>
+
+<div class="tl-item"><div class="tl-date">Day 043 · 2026-06-07</div><div class="tl-content"><div class="tl-bullets"><div class="tl-bullet"><span class="tl-bullet-num">01</span><div class="tl-bullet-content"><h5>峰终定律 · Peak-End Rule</h5><p>Kahneman 1993：人对体验的记忆只取决于最强烈的峰值和结束时的感受。迪士尼烟花压轴覆盖4小时排队记忆。</p></div></div><div class="tl-bullet"><span class="tl-bullet-num">02</span><div class="tl-bullet-content"><h5>宜家效应 · IKEA Effect</h5><p>Norton 2012：人对自己参与创造的事物赋予不成比例的高估值。劳动本身创造了爱。</p></div></div><div class="tl-bullet"><span class="tl-bullet-num">03</span><div class="tl-bullet-content"><h5>注意力残留 · Attention Residue</h5><p>Leroy 2009：切换任务时注意力不会100%转移——残留降低新任务表20-40%。恢复平均霉23分钟。</p></div></div></div></div></div>
+
 <div class="tl-item"><div class="tl-date">Day 042 · 2026-06-06</div><div class="tl-content"><div class="tl-bullets"><div class="tl-bullet"><span class="tl-bullet-num">01</span><div class="tl-bullet-content"><h5>决策疲劳 · Decision Fatigue</h5><p>Baumeister 2011：人的决策质量随次数增加而系统性下降。以色列法官上午假释率65%，午餐前降至近0%。</p></div></div><div class="tl-bullet"><span class="tl-bullet-num">02</span><div class="tl-bullet-content"><h5>从众效应 · Herding Effect</h5><p>Asch 1951：75%的人至少一次跟随明显错误的多数意见。群体一致性不是证据。</p></div></div><div class="tl-bullet"><span class="tl-bullet-num">03</span><div class="tl-bullet-content"><h5>机会成本 · Opportunity Cost</h5><p>Buchanan 1969：每个选择的真实成本=放弃的最佳替代方案的价值。</p></div></div></div></div></div>
 
 <div class="tl-item"><div class="tl-date">Day 041 · 2026-06-05</div><div class="tl-content"><div class="tl-bullets"><div class="tl-bullet"><span class="tl-bullet-num">01</span><div class="tl-bullet-content"><h5>规划谬误 · Planning Fallacy</h5><p>Kahneman & Tversky 1979 年提出：人系统性地低估时间、成本、风险。即使反复失败仍对下一个项目保持乐观。芒格说：「每个大项目都比你想的更贵、更慢、更难。」</p></div></div><div class="tl-bullet"><span class="tl-bullet-num">02</span><div class="tl-bullet-content"><h5>格雷辛法则 · Gresham’s Law</h5><p>「劣币驱逐良币。」当系统不区分质量时，低质量元素会驱逐高质量元素。适用于内容平台、人才市场、产品生态。</p></div></div><div class="tl-bullet"><span class="tl-bullet-num">03</span><div class="tl-bullet-content"><h5>可得性级联 · Availability Cascade</h5><p>Kuran & Sunstein 1999：信息传播→媒体放大→公众感知「每个人都在说」→形成虚假共识。不是事实变真，而是感知变得更可得。</p></div></div></div></div></div>
@@ -3740,6 +3910,18 @@ footer p{margin-bottom:6px}
 <p class="page-subtitle">将顶级思维模型与游戏 UI/UX 实践深度融合的设计原则与方法论，每条都来自真实项目验证。</p>
 </div>
 <div class="tl">
+<div class="tl-item"><div class="tl-date">Day 044 · 2026-06-08</div><div class="tl-content"><h4>失败案例可视化 · 能力校准UI · 经典验证架构</h4><ul>
+<li><strong>失败案例可视化：</strong>展示完整分布而非只展示幸存者，让用户看到真实概率。</li>
+<li><strong>能力校准UI：</strong>提供客观能力镜子而非放任错误自我评估，ELO/贡献图/错误率做校准。</li>
+<li><strong>经典验证架构：</strong>优先使用经过时间验证的UI模式(Tab Bar 17年/WASD 30年)，创新在经典之上构建。</li>
+</ul></div></div>
+
+<div class="tl-item"><div class="tl-date">Day 043 · 2026-06-07</div><div class="tl-content"><h4>体验峰值设计 · 用户参与感架构 · 任务切换缓冲UI</h4><ul>
+<li><strong>体验峰值设计：</strong>集中资源制造1-2个WOW时刻+温暖结尾，而非均匀分配让全程「还不错」。</li>
+<li><strong>用户参与感架构：</strong>让用户做30%的工作获得100%的所有权感，半完成模板+自定义空间是甘蜜点。</li>
+<li><strong>任务切换缓冲UI：</strong>每次强制切换耗责23分钟恢复时间，减少弹窗/跳转/通知中断次数。</li>
+</ul></div></div>
+
 <div class="tl-item"><div class="tl-date">Day 042 · 2026-06-06</div><div class="tl-content"><h4>决策简化UI · 社会证明与反从众设计 · 机会成本可视化</h4><ul>
 <li><strong>决策简化UI · Decision Simplification：</strong>减少用户需要做的决策数量和认知负荷，智能默认、渐进披露、批量操作三大解法。</li>
 <li><strong>社会证明与反从众设计 · Social Proof & Contrarian UX：</strong>既利用从众驱动行动，又帮用户识别何时该反从众。</li>
@@ -3830,6 +4012,18 @@ footer p{margin-bottom:6px}
 <p class="page-subtitle">追踪 AI 与设计交叉领域最前沿动态——产品、技术、商业模式，每日精选并标注可落地的AI 工具方向。</p>
 </div>
 <div class="tl">
+<div class="tl-item"><div class="tl-date">Day 044 · 2026-06-08</div><div class="tl-content"><h4>SWE-bench Verified · Claude自知力 · SQLite/PG复兴</h4><ul>
+<li><strong>SWE-bench Verified——幸存者偏差修正：</strong>人工验证测试用例充分性，让失败数据可见。</li>
+<li><strong>Claude自知力设计：</strong>AI主动表达不确定性，78%用户更信任会说「我不确定」的AI。</li>
+<li><strong>SQLite/PostgreSQL复兴：</strong>林迪效应+AI增强，30年老技术反超NewSQL。</li>
+</ul></div></div>
+
+<div class="tl-item"><div class="tl-date">Day 043 · 2026-06-07</div><div class="tl-content"><h4>Midjourney v7 · Cursor Composer · Arc Max</h4><ul>
+<li><strong>Midjourney v7——AI生成的峰值体验：</strong>2025年发布，用户平均生成40张才发1张——那1张的Peak体验足以留住用户。</li>
+<li><strong>Cursor Composer——AI编程的宜家效应：</strong>不是全自动而是「和你一起写」，用户审核+修改=心理所有权。</li>
+<li><strong>Arc Max——AI浏览器对抗注意力残留：</strong>自动整理标签/预览链接/摘要内容，减少未完成任务的认知带宽消耗。</li>
+</ul></div></div>
+
 <div class="tl-item"><div class="tl-date">Day 042 · 2026-06-06</div><div class="tl-content"><h4>Apple Intelligence · Perplexity Pages · Notion AI Projects</h4><ul>
 <li><strong>Apple Intelligence——端侧AI消除决策疲劳：</strong>2024-2025 落地，端侧 3B 参数模型+云端 Private Cloud Compute，自动邮件摘要/通知优先级。</li>
 <li><strong>Perplexity Pages——AI知识发布对抗信息从众：</strong>2024 年推出，AI 生成结构化研究文章+来源标注，用透明引用打破信息泡沫。</li>
@@ -4172,6 +4366,46 @@ footer p{margin-bottom:6px}
 <p class="page-subtitle">所有历史内容按日期编年索引。点击任意一天进入完整阅读视图。</p>
 </div>
 <div class="archive-grid">
+<div class="arc-card" style="cursor:pointer" onclick="goToDay(44)">
+<div class="arc-card-head"><span class="arc-card-day">Day 044</span><span class="arc-card-date">2026-06-08</span></div>
+<div class="arc-sections">
+<div class="arc-sec arc-sec-t"><h5> 思维模型</h5><ul>
+<li>幸存者偏差进阶（Wald/塔勒布/芒格）</li>
+<li>邦宁-克鲁格应用（Dunning 1999/芒格/达里奥）</li>
+<li>林迪效应（塔勒布 2012/芒格/德鲁克）</li>
+</ul></div>
+<div class="arc-sec arc-sec-d"><h5> 设计启发</h5><ul>
+<li>失败案例可视化设计</li>
+<li>能力校准UI</li>
+<li>经典验证架构</li>
+</ul></div>
+<div class="arc-sec arc-sec-a"><h5> AI前沿</h5><ul>
+<li>SWE-bench Verified——AI编程的幸存者偏差修正</li>
+<li>Claude自知力设计——AI的DK对策</li>
+<li>SQLite/PostgreSQL复兴——数据库的林迪效应</li>
+</ul></div>
+</div>
+</div>
+<div class="arc-card" style="cursor:pointer" onclick="goToDay(43)">
+<div class="arc-card-head"><span class="arc-card-day">Day 043</span><span class="arc-card-date">2026-06-07</span></div>
+<div class="arc-sections">
+<div class="arc-sec arc-sec-t"><h5> 思维模型</h5><ul>
+<li>峰终定律（Kahneman 1993 冷水实验）</li>
+<li>宜家效应（Norton 2012 劳动=爱）</li>
+<li>注意力残留（Leroy 2009/Cal Newport）</li>
+</ul></div>
+<div class="arc-sec arc-sec-d"><h5> 设计启发</h5><ul>
+<li>体验峰值设计</li>
+<li>用户参与感架构</li>
+<li>任务切换缓冲UI</li>
+</ul></div>
+<div class="arc-sec arc-sec-a"><h5> AI前沿</h5><ul>
+<li>Midjourney v7——AI生成的峰值体验</li>
+<li>Cursor Composer——AI编程的宜家效应</li>
+<li>Arc Max——AI浏览器对抗注意力残留</li>
+</ul></div>
+</div>
+</div>
 <div class="arc-card" style="cursor:pointer" onclick="goToDay(42)">
 <div class="arc-card-head"><span class="arc-card-day">Day 042</span><span class="arc-card-date">2026-06-06</span></div>
 <div class="arc-sections">
