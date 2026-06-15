@@ -6211,7 +6211,7 @@ var THEMES = {
   chess:         ['1528819622765-d6bcf132f793','1560174038-da43ac74f01b'],
   compass:       ['1503551723145-6c040742065b','1494500764479-0c8f2919a3d8'],
   target:        ['1517245386807-bb43f82c33c4','1543622748-5ee7237e8565'],
-  maze:          ['1589994965851-a8f479c573a9','1607344645866-009c320c5ab8'],
+  maze:          ['1589994965851-a8f479c573a9','1448630360428-65456885c650','1530305408560-82d13781b33a'],
   puzzle:        ['1611532736597-de2d4265fba3','1542435503-956c469947f6'],
   mirror:        ['1532413992378-f169ac26fff0'],
 
@@ -6250,7 +6250,7 @@ var THEMES = {
   // 流动/反馈/波
   wave:          ['1505142468610-359e7d316be0','1507525428034-b723cf961d3e'],
   river:         ['1469125155630-7ed37e065743','1502691876148-a84978e59af8'],
-  domino:        ['1591125566263-4e4e0f15f9b6'],
+  domino:        ['1606326608606-aa0b62935f2b','1513151233558-d860c5398176'],
   circle_ring:   ['1535378917042-10a22c95931a','1502691876148-a84978e59af8','1556761175-5973dc0f32e7'],
 
   // 数据/图表/财富
@@ -6510,18 +6510,33 @@ function injectCover(card){
   card.insertBefore(cover, card.firstChild);
   card.classList.add('has-cover');
 
+  // 用真实 <img> 加载并加 onerror 兜底：图片失效时自动换同池其它图
+  function loadImg(photoId, triesLeft){
+    var im = new Image();
+    im.onload = function(){ cover.style.backgroundImage = 'url("' + buildUrl(photoId, w) + '")'; cover.setAttribute('data-photo-id', photoId); };
+    im.onerror = function(){
+      if(triesLeft > 0){
+        // 从全量池挑一张未用过/不同的图重试
+        var alt = ALL_PHOTOS[(djb2(picked.photoId + triesLeft) ) % ALL_PHOTOS.length];
+        if(alt === photoId) alt = ALL_PHOTOS[(djb2(picked.photoId) + (4 - triesLeft) + 1) % ALL_PHOTOS.length];
+        loadImg(alt, triesLeft - 1);
+      }
+    };
+    im.src = buildUrl(photoId, w);
+  }
+
   if('IntersectionObserver' in window){
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(e){
         if(e.isIntersecting){
-          cover.style.backgroundImage = 'url("' + url + '")';
+          loadImg(picked.photoId, 4);
           io.unobserve(cover);
         }
       });
     }, {rootMargin: '300px'});
     io.observe(cover);
   } else {
-    cover.style.backgroundImage = 'url("' + url + '")';
+    loadImg(picked.photoId, 4);
   }
 }
 
